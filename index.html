@@ -1431,7 +1431,7 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openMask(rsMask); });
+  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.open('https://www.ow800.com/','_blank','noopener'); });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
