@@ -1047,6 +1047,332 @@ a#openWhyTop:hover{ color:#fff; }
   border-radius: 16px;
 }
 
+/* 客户案例部分 */
+.cases-section {
+  margin: 40px 0;
+  padding: 0 20px;
+}
+
+.cases-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 24px;
+  color: #fff;
+}
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.case-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+.case-content {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 12px;
+}
+.case-client {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.case-name {
+  font-weight: 600;
+}
+.case-date {
+  opacity: 0.8;
+}
+
+/* 微信截图缩略图网格 */
+.cases-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.case-thumbnail {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+.case-thumbnail:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+  border-color: rgba(45, 212, 191, 0.5);
+}
+
+/* 右侧悬浮信任挂件 */
+.trust-widget.case-thumbnail {
+  position: fixed;
+  bottom: 120px;
+  right: 20px;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(45, 212, 191, 0.1));
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  color: white;
+  text-decoration: none;
+  min-width: 60px;
+}
+
+.trust-widget.case-thumbnail:hover {
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.25), rgba(45, 212, 191, 0.2));
+  transform: translateY(-2px);
+  border-color: rgba(45, 212, 191, 0.5);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+}
+
+.trust-icon {
+  font-size: 24px;
+  opacity: 0.9;
+}
+
+.trust-text {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .trust-widget.case-thumbnail {
+    bottom: 80px;
+    right: 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    min-width: 50px;
+  }
+  .trust-icon {
+    font-size: 20px;
+  }
+  .trust-text {
+    font-size: 0.7rem;
+  }
+}
+.thumbnail-icon {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+.thumbnail-text {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+}
+.thumbnail-subtext {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+  font-weight: normal;
+}
+.case-expand-button {
+  grid-column: 1 / -1;
+  padding: 24px;
+  background: rgba(20, 184, 166, 0.15);
+  border-color: rgba(45, 212, 191, 0.4);
+}
+.case-expand-button:hover {
+  background: rgba(20, 184, 166, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(20, 184, 166, 0.2);
+}
+.case-expand-button .thumbnail-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+}
+.case-expand-button .thumbnail-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.case-expand-button .thumbnail-subtext {
+  font-size: 0.85rem;
+}
+
+/* 轮播模态框 */
+.carousel-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 20px;
+}
+.carousel-modal.show {
+  display: flex;
+}
+.carousel-container {
+  width: min(800px, 95vw);
+  height: min(600px, 80vh);
+  background: #0b1220;
+  border-radius: 16px;
+  padding: 20px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.carousel-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #111827;
+  color: #fff;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  z-index: 10;
+}
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.carousel-slide.active {
+  display: flex;
+}
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
+  padding: 0 20px;
+}
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+.carousel-nav:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+.carousel-prev {
+  left: 20px;
+}
+.carousel-next {
+  right: 20px;
+}
+.carousel-dots {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.carousel-dot.active {
+  background: rgba(45, 212, 191, 0.9);
+}
+
+/* 移动端响应式调整 */
+@media (max-width: 640px) {
+  .cases-thumbnails {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+  }
+  .case-thumbnail {
+    padding: 12px;
+  }
+  .thumbnail-icon {
+    font-size: 1.5rem;
+  }
+  .thumbnail-text {
+    font-size: 0.8rem;
+  }
+  .carousel-container {
+    width: 95vw;
+    height: 70vh;
+    padding: 15px;
+  }
+  .carousel-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+  .carousel-prev {
+    left: 10px;
+  }
+  .carousel-next {
+    right: 10px;
+  }
+  .carousel-dots {
+    bottom: 50px;
+  }
+  .carousel-caption {
+    font-size: 0.8rem;
+    bottom: 15px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1124,6 +1450,133 @@ a#openWhyTop:hover{ color:#fff; }
 </div>
 </div>
 </header>
+
+
+<!-- 轮播模态框 -->
+<div class="carousel-modal" id="carouselModal">
+  <div class="carousel-container">
+    <button class="carousel-close" id="carouselClose">×</button>
+
+    <div class="carousel-slide active" data-slide="1">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 1.jpg" alt="客户案例 1" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #1</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="2">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 2.jpg" alt="客户案例 2" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #2</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="3">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 3.jpg" alt="客户案例 3" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #3</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="4">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 4.jpg" alt="客户案例 4" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #4</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="5">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 5.jpg" alt="客户案例 5" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #5</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="6">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 6.jpg" alt="客户案例 6" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #6</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="7">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 7.jpg" alt="客户案例 7" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #7</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="8">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 8.jpg" alt="客户案例 8" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #8</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="9">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 9.jpg" alt="客户案例 9" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #9</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="10">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 10.jpg" alt="客户案例 10" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #10</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="11">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 11.jpg" alt="客户案例 11" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #11</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="12">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 12.jpg" alt="客户案例 12" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #12</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="13">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 13.jpg" alt="客户案例 13" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #13</div>
+    </div>
+
+    <div class="carousel-slide" data-slide="14">
+      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+        <img src="客户案例 14.jpg" alt="客户案例 14" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="carousel-caption">客户反馈截图 #14</div>
+    </div>
+
+    <button class="carousel-nav carousel-prev" id="carouselPrev">‹</button>
+    <button class="carousel-nav carousel-next" id="carouselNext">›</button>
+
+    <div class="carousel-dots">
+      <button class="carousel-dot active" data-slide="1"></button>
+      <button class="carousel-dot" data-slide="2"></button>
+      <button class="carousel-dot" data-slide="3"></button>
+      <button class="carousel-dot" data-slide="4"></button>
+      <button class="carousel-dot" data-slide="5"></button>
+      <button class="carousel-dot" data-slide="6"></button>
+      <button class="carousel-dot" data-slide="7"></button>
+      <button class="carousel-dot" data-slide="8"></button>
+      <button class="carousel-dot" data-slide="9"></button>
+      <button class="carousel-dot" data-slide="10"></button>
+      <button class="carousel-dot" data-slide="11"></button>
+      <button class="carousel-dot" data-slide="12"></button>
+      <button class="carousel-dot" data-slide="13"></button>
+      <button class="carousel-dot" data-slide="14"></button>
+    </div>
+  </div>
+</div>
+
 <footer>
 <div style="margin-bottom:10px;">面向国内用户的会员订阅代充/代开服务，采用应用内订阅代付方式；自动化处理，三步完成。</div>
 <a href="/blog/" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.borderColor='rgba(20, 184, 166, 0.4)'" onmouseover="this.style.color='#fff';this.style.borderColor='#14b8a6'" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; border-bottom: 1px solid rgba(20, 184, 166, 0.4); padding-bottom: 2px; transition: all 0.2s;">
@@ -1162,6 +1615,10 @@ var _hmt = _hmt || [];
 </script>
 
 <a aria-label="¥188 立即购买" class="cta-sticky" href="#" id="mobileBuyBtn" role="button">¥188 立即购买</a>
+<button class="trust-widget case-thumbnail" data-slide="1" aria-label="查看客户案例">
+  <div class="trust-icon">📸</div>
+  <div class="trust-text">真实交付记录</div>
+</button>
 <div class="sticky-note" id="bottomNote">
 <span class="note-text">📌 当前价 <strong>¥188</strong> ｜ 客服微信：<strong id="wxid">Jiage01888</strong></span>
 <button class="cta-mini" id="copyWeChat">复制微信</button>
@@ -1551,6 +2008,108 @@ var _hmt = _hmt || [];
     });
   }
 
+})();
+
+// 轮播功能
+(function() {
+  const carouselModal = document.getElementById('carouselModal');
+  const carouselClose = document.getElementById('carouselClose');
+  const carouselPrev = document.getElementById('carouselPrev');
+  const carouselNext = document.getElementById('carouselNext');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  const thumbnails = document.querySelectorAll('.case-thumbnail');
+
+  let currentSlide = 1;
+  const totalSlides = slides.length;
+
+  // 显示指定幻灯片
+  function showSlide(n) {
+    if (n < 1) n = totalSlides;
+    if (n > totalSlides) n = 1;
+
+    currentSlide = n;
+
+    // 隐藏所有幻灯片
+    slides.forEach(slide => {
+      slide.classList.remove('active');
+    });
+
+    // 显示当前幻灯片
+    document.querySelector(`.carousel-slide[data-slide="${n}"]`)?.classList.add('active');
+
+    // 更新指示点
+    dots.forEach(dot => {
+      dot.classList.remove('active');
+      if (parseInt(dot.getAttribute('data-slide')) === n) {
+        dot.classList.add('active');
+      }
+    });
+  }
+
+  // 下一张
+  function nextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  // 上一张
+  function prevSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // 打开轮播模态框
+  function openCarousel(slideNumber = 1) {
+    carouselModal.classList.add('show');
+    document.body.classList.add('modal-open');
+    showSlide(slideNumber);
+  }
+
+  // 关闭轮播模态框
+  function closeCarousel() {
+    carouselModal.classList.remove('show');
+    document.body.classList.remove('modal-open');
+  }
+
+  // 缩略图点击事件
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      const slideNumber = parseInt(thumb.getAttribute('data-slide'));
+      openCarousel(slideNumber);
+    });
+  });
+
+  // 导航按钮事件
+  carouselPrev?.addEventListener('click', prevSlide);
+  carouselNext?.addEventListener('click', nextSlide);
+  carouselClose?.addEventListener('click', closeCarousel);
+
+  // 指示点点击事件
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const slideNumber = parseInt(dot.getAttribute('data-slide'));
+      showSlide(slideNumber);
+    });
+  });
+
+  // 键盘导航
+  document.addEventListener('keydown', (e) => {
+    if (!carouselModal.classList.contains('show')) return;
+
+    if (e.key === 'Escape') {
+      closeCarousel();
+    } else if (e.key === 'ArrowLeft') {
+      prevSlide();
+    } else if (e.key === 'ArrowRight') {
+      nextSlide();
+    }
+  });
+
+  // 点击模态框背景关闭
+  carouselModal?.addEventListener('click', (e) => {
+    if (e.target === carouselModal) {
+      closeCarousel();
+    }
+  });
 })();
 </script></body>
 </html>
