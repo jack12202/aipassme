@@ -1,90 +1,83 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-<title>GPT-5 权威使用教程库 📚</title>
-<style>
-    :root {
-      --bg: #0b1220;
-      --primary: #14b8a6;
-      --primary-dark: #0d9488;
-      --text: #e6f7fb;
-      --glass: rgba(255, 255, 255, 0.08);
-      --border: rgba(20, 184, 166, 0.3);
-    }
-    body {
-        background-color: var(--bg);
-        color: var(--text);
-        font-family: system-ui, -apple-system, sans-serif;
-        margin: 0;
-        padding: 20px;
-        line-height: 1.6;
-    }
-    .container { max-width: 800px; margin: 0 auto; }
-    
-    .nav {
-        display: flex; justify-content: space-between; align-items: center;
-        padding: 20px 0; border-bottom: 1px solid var(--border); margin-bottom: 40px;
-    }
-    .logo { font-weight: 900; font-size: 1.1rem; color: #fff; text-decoration: none; display: flex; align-items: center; gap: 8px; }
-    .btn-home {
-        background: rgba(20, 184, 166, 0.2); border: 1px solid var(--primary);
-        color: #fff; padding: 6px 16px; border-radius: 20px; text-decoration: none; font-size: 0.85rem;
-    }
-
-    .article-list { list-style: none; padding: 0; }
-    .article-item {
-        background: var(--glass); border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 12px; padding: 20px; margin-bottom: 16px;
-        transition: all 0.2s;
-    }
-    .article-item:hover {
-        transform: translateY(-2px); border-color: var(--primary);
-        background: rgba(20, 184, 166, 0.1);
-    }
-    .article-link { text-decoration: none; color: inherit; display: block; }
-    .title { font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-    .meta { font-size: 0.8rem; color: rgba(255,255,255,0.5); display: flex; gap: 10px; }
-    .desc { font-size: 0.9rem; color: rgba(255,255,255,0.8); margin-top: 8px; }
-
-    footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: rgba(255,255,255,0.4); }
-</style>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title>知识库 & 使用教程 - AIPass</title>
+    <style>
+        :root {
+            --primary: #14b8a6;
+            --radius: 22px;
+            --text-strong: #ffffff;
+            --text-muted: rgba(255, 255, 255, 0.75);
+        }
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #042f2e 0%, #0f172a 45%, #020617 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 16px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: var(--radius);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        h1 { color: var(--text-strong); font-size: 1.8rem; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; }
+        .post-list { list-style: none; padding: 0; margin: 0; }
+        .post-item { 
+            margin-bottom: 16px; 
+            padding: 24px; 
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .post-item:hover {
+            background: rgba(20, 184, 166, 0.12);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        .post-item a { 
+            color: var(--primary); 
+            text-decoration: none; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            display: block;
+            margin-bottom: 8px;
+        }
+        .post-desc { font-size: 0.95rem; color: var(--text-muted); }
+        .back-home {
+            display: inline-block;
+            margin-top: 35px;
+            color: var(--text-strong);
+            text-decoration: none;
+            font-size: 0.9rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        .back-home:hover { opacity: 1; }
+    </style>
 </head>
 <body>
-<div class="container">
-    <nav class="nav">
-        <a href="/blog/index.html" class="logo">📚 光年升级计划 · 知识库</a>
-        <a href="/" class="btn-home">返回首页</a>
-    </nav>
-
-    <ul class="article-list">
-        <li class="article-item">
-            <a href="/blog/scam-warning.html" class="article-link">
-                <div class="title">2026年 GPT-5 升级终极指南：从注册到使用全流程解析</div>
-                <div class="meta"><span>🚀 必读</span> <span>2026-03-12</span></div>
-                <div class="desc">权威教程：详细解析 GPT-5 的核心价值、充值通道对比，以及防坑指南。</div>
-            </a>
-        </li>
-
-        <li class="article-item">
-            <a href="/blog/scam-warning.html" class="article-link">
-                <div class="title">国内用户如何安全升级 GPT-5？(避坑实测版)</div>
-                <div class="meta"><span>教程</span> <span>2026-03-13</span></div>
-                <div class="desc">保姆级教程：详细介绍国内用户如何识别虚假代充，确保账户资产安全。</div>
-            </a>
-        </li>
-
-        <li class="article-item">
-            <a href="/blog/scam-warning.html" class="article-link">
-                <div class="title">深度解析：为什么你的 Plus 账号会被封禁？</div>
-                <div class="meta"><span>警示</span> <span>2026-03-10</span></div>
-                <div class="desc">安全审计报告：揭秘市面上 90% 的低价代充是如何导致封号的。</div>
-            </a>
-        </li>
-    </ul>
-
-    <footer>© 2026 光年升级计划 | 官方安全保障</footer>
-</div>
+    <div class="container">
+        <h1>📚 知识库 & 使用教程</h1>
+        <ul class="post-list">
+            <li class="post-item">
+                <a href="gpt-chongzhi-pianju.html">GPT 充值骗局大揭秘：为什么你的 Plus 账号总是在“渡劫”？</a>
+                <div class="post-desc">深度拆解代充市场黑产套路，教你避开低价陷阱，确保账号资产长期安全。</div>
+            </li>
+        </ul>
+        <a href="../index.html" class="back-home">← 返回主页</a>
+    </div>
 </body>
 </html>
