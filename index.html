@@ -1214,6 +1214,7 @@ a#openWhyTop:hover{ color:#fff; }
   margin-top:10px !important;
 }
 .mobile-more-feedback{ display:none; }
+.mobile-mirror-link{ display:none; }
 #feedbackModal{
   z-index:9999 !important;
   background:rgba(0,0,0,.72) !important;
@@ -1653,7 +1654,7 @@ a#openWhyTop:hover{ color:#fff; }
     padding:16px;
   }
   .faq-panel::before{
-    content:"下单后进入自助激活系统完成充值\\A📌 充值到自己 GPT 账号（非直接使用）\\A👉 无法访问可查看镜像服务";
+    content:"下单后进入自助激活系统完成充值\\A📌 充值到自己 GPT 账号（非直接使用）";
     white-space:pre-line;
     display:block;
     margin:0 0 14px;
@@ -1666,6 +1667,19 @@ a#openWhyTop:hover{ color:#fff; }
     line-height:1.65;
     font-weight:850;
     text-align:center;
+  }
+  .mobile-mirror-link{
+    display:block;
+    margin:-6px 0 14px;
+    padding:10px 12px;
+    border-radius:12px;
+    border:1px solid rgba(45,212,191,.28);
+    background:rgba(45,212,191,.08);
+    color:#ccfbf1;
+    text-align:center;
+    font-size:.84rem;
+    font-weight:900;
+    text-decoration:none;
   }
   .faq-list{
     gap:8px;
@@ -2438,7 +2452,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-weight:900;
   }
   .faq-panel::before{
-    content:"下单后进入自助激活系统完成充值\A📌 充值到自己 GPT 账号（非直接使用）\A👉 无法访问可查看镜像服务";
+    content:"下单后进入自助激活系统完成充值\A📌 充值到自己 GPT 账号（非直接使用）";
     white-space:pre-line;
     display:block;
     margin:0 0 14px;
@@ -2778,6 +2792,7 @@ a#openWhyTop:hover{ color:#fff; }
 </main>
 <aside class="side-panel faq-panel" aria-label="常见问题">
 <h2>常见问题</h2>
+<a class="mobile-mirror-link" href="https://gptuse.xyz/" target="_blank" rel="noopener">👉 无法访问 GPT？查看镜像服务</a>
 <div class="faq-list">
 <div class="faq-item"><strong>多久可以到账？</strong><span>通常 10 秒内完成，极少数情况不超过 2 分钟。</span></div>
 <div class="faq-item"><strong>需要账号密码吗？</strong><span>不需要，仅按指引操作即可完成。</span></div>
