@@ -772,6 +772,7 @@
 /* 弹窗打开时，底部公告条降噪并禁点（小屏避免误触） */
 body.modal-open .sticky-note{ opacity:.6; pointer-events:none; }
 body.modal-open .trust-widget{ opacity:0; pointer-events:none; transform: translateY(8px); }
+body.modal-open .cta-sticky{ opacity:0; pointer-events:none; }
 /* 打开弹窗时禁止页面滚动 */
 body.modal-open{ overflow:hidden; }
 
@@ -1213,6 +1214,43 @@ a#openWhyTop:hover{ color:#fff; }
   margin-top:10px !important;
 }
 .mobile-more-feedback{ display:none; }
+#feedbackModal{
+  z-index:9999 !important;
+  background:rgba(0,0,0,.72) !important;
+}
+#feedbackModal.show{
+  display:flex !important;
+}
+#feedbackModal .modal-card{
+  width:min(420px,92vw);
+  max-height:80vh;
+  overflow-y:auto;
+  padding:14px 14px 12px;
+  position:relative;
+  z-index:10000;
+  background:linear-gradient(180deg, rgba(10,36,48,.96), rgba(9,30,40,.96));
+  border:1px solid rgba(45,212,191,.45);
+  box-shadow:0 24px 70px rgba(0,0,0,.55);
+}
+#feedbackModal .modal-close{
+  top:10px;
+  right:10px;
+  transform:none;
+}
+.feedback-modal-list{
+  display:grid;
+  gap:8px;
+  margin:10px 0 12px;
+}
+.feedback-modal-item{
+  padding:10px 10px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  color:rgba(255,255,255,.88);
+  font-size:.86rem;
+  font-weight:800;
+}
 
 
 /* === RS modal overrides (match screenshot style) === */
@@ -2753,11 +2791,29 @@ a#openWhyTop:hover{ color:#fff; }
 <div class="side-feedback-item">⭐ 刚刚｜10秒到账，比自己折腾简单多了</div>
 <div class="side-feedback-item">⭐ 今天｜第二次买了，很稳</div>
 <div class="side-feedback-item">⭐ 新用户｜不用提供密码，这点很安心</div>
-<button class="mobile-more-feedback" data-slide="1" onclick="event.preventDefault();event.stopPropagation();document.getElementById('carouselModal')?.classList.add('show');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
+<button class="mobile-more-feedback" onclick="event.preventDefault();event.stopPropagation();document.getElementById('feedbackModal')?.classList.add('show');document.getElementById('feedbackModal')?.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
 </div>
 <button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
 </div>
 </aside>
+</div>
+<div aria-hidden="true" class="modal-mask" id="feedbackModal">
+<div aria-labelledby="feedbackTitle" class="modal-card" role="dialog" tabindex="-1">
+<button aria-label="关闭" class="modal-close" id="feedbackClose">×</button>
+<h3 id="feedbackTitle" style="margin:.1rem 0 10px;">真实用户反馈</h3>
+<p style="margin:0 0 8px;opacity:.82;font-size:.86rem;">近期部分开通反馈</p>
+<div class="feedback-modal-list">
+<div class="feedback-modal-item">⭐ 刚刚｜10秒到账，比自己折腾简单多了</div>
+<div class="feedback-modal-item">⭐ 今天｜第二次买了，很稳</div>
+<div class="feedback-modal-item">⭐ 新用户｜不用提供密码，这点很安心</div>
+<div class="feedback-modal-item">⭐ 昨天｜按提示操作，很快就完成</div>
+<div class="feedback-modal-item">⭐ 老用户｜客服回复快，异常也能处理</div>
+</div>
+<div class="modal-footer" style="margin-top:10px;gap:.6rem;">
+<button class="cta-mini" id="feedbackCopyWx" type="button">💬 复制微信咨询</button>
+<button class="cta-outline" id="feedbackBack" type="button">返回页面</button>
+</div>
+</div>
 </div>
 <div aria-hidden="true" class="cs-drawer" id="/* removed:csDrawer */">
 <div class="cs-head">
@@ -3127,6 +3183,18 @@ var _hmt = _hmt || [];
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  // ========== Feedback Modal ==========
+  const feedbackMask = $('#feedbackModal');
+  bindMaskClose(feedbackMask, ['#feedbackClose', '#feedbackBack']);
+  $('#feedbackCopyWx')?.addEventListener('click', async (e)=>{
+    e.preventDefault();
+    await copyToClipboard(WX_ID);
+  });
+  $('.mobile-more-feedback')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    openMask(feedbackMask);
+  });
+
   // ========== Why/Flow/Support Modal (tabs) ==========
   const whyMask = $('#whyModal');
   function showWhyTab(tab){
@@ -3227,7 +3295,7 @@ var _hmt = _hmt || [];
   const carouselNext = document.getElementById('carouselNext');
   const slides = document.querySelectorAll('.carousel-slide');
   const dots = document.querySelectorAll('.carousel-dot');
-  const thumbnails = document.querySelectorAll('.case-thumbnail, .mobile-more-feedback');
+  const thumbnails = document.querySelectorAll('.case-thumbnail');
 
   let currentSlide = 1;
   const totalSlides = slides.length;
@@ -3287,19 +3355,6 @@ var _hmt = _hmt || [];
       openCarousel(slideNumber);
     });
   });
-  document.querySelector('.mobile-more-feedback')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    openCarousel(1);
-  });
-  document.addEventListener('click', (e) => {
-    const trigger = e.target.closest?.('.mobile-more-feedback');
-    if (!trigger) return;
-    e.preventDefault();
-    e.stopPropagation();
-    openCarousel(parseInt(trigger.getAttribute('data-slide')) || 1);
-  }, true);
-
   // 导航按钮事件
   carouselPrev?.addEventListener('click', prevSlide);
   carouselNext?.addEventListener('click', nextSlide);
