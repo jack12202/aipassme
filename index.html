@@ -853,16 +853,16 @@ a#openWhyTop:hover{ color:#fff; }
 /* === 充值系统选择弹窗 (rs-) === */
 .rs-mask{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;align-items:center;justify-content:center;z-index:999;padding:16px;}
 .rs-mask.show{display:flex;}
-.rs-card{width:min(520px,96vw);background:linear-gradient(180deg, rgba(10,36,48,.92), rgba(9,30,40,.92));color:#e6f7fb;border:1px solid var(--brand-outline);box-shadow:0 20px 60px rgba(0,0,0,.35);outline:0; backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); position:relative;}
+.rs-card{width:min(420px,92vw);max-height:80vh;overflow-y:auto;padding:14px 14px 12px;background:linear-gradient(180deg, rgba(10,36,48,.92), rgba(9,30,40,.92));color:#e6f7fb;border:1px solid var(--brand-outline);box-shadow:0 20px 60px rgba(0,0,0,.35);outline:0; backdrop-filter: blur(8px) saturate(120%); -webkit-backdrop-filter: blur(8px) saturate(120%); position:relative;}
 .rs-card::after{ content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; padding:1px; mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; background: linear-gradient(135deg, rgba(45,212,191,.85), rgba(20,184,166,.75), rgba(13,148,136,.75)); }
-.rs-title{margin:.2rem 0 1rem;font-size:1.1rem;font-weight:800;text-align:center;}
+.rs-title{margin:.2rem 0 10px;font-size:1.1rem;font-weight:800;text-align:center;}
 .rs-close{position:absolute;transform:translate(470px,-10px);background:#111827;color:#fff;border:none;padding:.35rem .55rem;border-radius:8px;cursor:pointer;}
 .rs-body p{margin:.4rem 0;text-align:center;}
-    .rs-options{display:flex;flex-direction:column;gap:16px;margin:20px 0;max-width:400px;margin-left:auto;margin-right:auto;}
-    .rs-option{padding:20px 16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:14px;cursor:pointer;transition:all .2s ease;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+    .rs-options{display:flex;flex-direction:column;gap:10px;margin:12px 0;max-width:400px;margin-left:auto;margin-right:auto;}
+    .rs-option{padding:12px 10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:14px;cursor:pointer;transition:all .2s ease;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.1);}
 .rs-option:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25);transform:translateY(-2px);}
     .rs-option-title{font-weight:800;margin-bottom:8px;color:#fff;font-size:1.05rem;}
-    .rs-option-desc{font-size:.9rem;opacity:.85;margin-bottom:10px;color:#d1f4ff;}
+    .rs-option-desc{font-size:.82rem;opacity:.85;margin-bottom:6px;color:#d1f4ff;}
     .rs-option-url{font-size:.85rem;color:var(--brand-500);word-break:break-all;font-weight:600;}
 .rs-actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:.9rem 0 .4rem;justify-content:center;}
 .rs-btn{all:unset;cursor:pointer;padding:.55rem .9rem;border-radius:10px;font-weight:800;}
@@ -1040,10 +1040,10 @@ a#openWhyTop:hover{ color:#fff; }
   background: rgba(255,255,255,.10);
   border-radius:1px;
 }
-.ai-items{ display:grid; gap:10px; margin: 12px 0 6px; }
+.ai-items{ display:grid; gap:10px; margin: 10px 0 4px; }
 .ai-item{
   position:relative;
-  padding:12px 12px;
+  padding:10px 10px;
   border-radius:14px;
   border:1px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.06);
@@ -1086,6 +1086,7 @@ a#openWhyTop:hover{ color:#fff; }
 .ai-item.featured{
   border-color: rgba(45,212,191,.35);
   background: linear-gradient(180deg, rgba(45,212,191,.12), rgba(255,255,255,.06));
+  padding:12px 10px;
 }
 .ai-item.featured.main-pick{
   border-color: rgba(45,212,191,.70);
@@ -1093,13 +1094,31 @@ a#openWhyTop:hover{ color:#fff; }
   box-shadow: 0 14px 34px rgba(20,184,166,.16);
 }
 .ai-section.more-platforms .ai-item{
-  opacity:.78;
-  background: rgba(255,255,255,.038);
+  opacity:.75;
+  padding:9px 10px;
+  background: rgba(255,255,255,.032);
   border-color: rgba(255,255,255,.08);
 }
 .ai-section.more-platforms .ai-btn.primary{
   background: rgba(255,255,255,.06);
   border-color: rgba(255,255,255,.18);
+}
+.more-ai-details{
+  margin-top:12px;
+  border:0;
+  background:transparent;
+}
+.more-ai-details summary{
+  padding:0;
+  color:rgba(255,255,255,.9);
+  font-size:.92rem;
+  font-weight:900;
+}
+.more-ai-details summary::after{
+  color:#ccfbf1;
+}
+.more-ai-details .ai-section{
+  margin-top:10px;
 }
 .ai-item.featured:hover,
 .ai-item.featured:focus-within{
@@ -1123,8 +1142,9 @@ a#openWhyTop:hover{ color:#fff; }
 .ai-actions{ position:relative; }
 .ai-buy{
   all:unset; cursor:pointer;
-  padding:.42rem .72rem;
+  padding:6px 10px;
   border-radius:10px;
+  font-size:.82rem;
   font-weight:900;
   border:1px solid rgba(45,212,191,.65);
   color:#fff;
@@ -1141,8 +1161,9 @@ a#openWhyTop:hover{ color:#fff; }
 }
 .ai-btn{
   all:unset; cursor:pointer;
-  padding:.42rem .72rem;
+  padding:6px 10px;
   border-radius:10px;
+  font-size:.82rem;
   font-weight:900;
   border:1px solid rgba(255,255,255,.35);
   color:#fff;
@@ -1163,17 +1184,47 @@ a#openWhyTop:hover{ color:#fff; }
   line-height: 1.6;
 }
 
+#aiModal .modal-card{
+  width:min(420px,92vw);
+  max-height:80vh;
+  overflow-y:auto;
+  padding:14px 14px 12px;
+}
+#aiModal .modal-card h3{
+  margin:.1rem 0 10px !important;
+  font-size:1.05rem;
+}
+#aiModal .ai-section-title{
+  margin:4px 0 6px;
+  font-size:.86rem;
+}
+#aiModal .ai-meta{
+  font-size:.8rem;
+}
+#aiModal .ai-pill{
+  padding:2px 7px;
+  font-size:.68rem;
+}
+#aiModal .ai-tip{
+  margin-top:8px;
+  font-size:.78rem;
+}
+#aiModal .modal-footer{
+  margin-top:10px !important;
+}
+.mobile-more-feedback{ display:none; }
+
 
 /* === RS modal overrides (match screenshot style) === */
 .rs-card{
   border-radius: 18px;
-  overflow: hidden;
+  overflow-y: auto;
 }
 .rs-title{ letter-spacing: .02em; }
-.rs-option-desc{ font-size:.9rem; opacity:.85; margin-bottom:10px; color:#d1f4ff; }
+.rs-option-desc{ font-size:.82rem; opacity:.85; margin-bottom:6px; color:#d1f4ff; }
 .rs-option-url{ color:#a78bfa !important; } /* 紫色链接 */
 .rs-option{
-  padding: 22px 18px;
+  padding: 12px 10px;
   border-radius: 16px;
 }
 
@@ -1360,13 +1411,14 @@ a#openWhyTop:hover{ color:#fff; }
   display: flex;
 }
 .carousel-container {
-  width: min(800px, 95vw);
-  height: min(600px, 80vh);
+  width: min(520px, 92vw);
+  height: min(620px, 80vh);
   background: #0b1220;
   border-radius: 16px;
-  padding: 20px;
+  padding: 14px;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,.42);
 }
 .carousel-close {
   position: absolute;
@@ -1464,6 +1516,181 @@ a#openWhyTop:hover{ color:#fff; }
 
 /* 移动端响应式调整 */
 @media (max-width: 640px) {
+  body{
+    padding:16px 12px 88px;
+  }
+  .card-header{
+    padding:24px 20px 18px !important;
+  }
+  .brand-badge{
+    margin-bottom:10px;
+  }
+  .brand-sub{
+    display:none;
+  }
+  .hero h1,
+  .card-header h1{
+    font-size:1.72rem;
+    line-height:1.16;
+  }
+  .conversion-kicker{
+    margin-top:8px;
+    font-size:.82rem;
+  }
+  .conversion-kicker::before{
+    content:"";
+  }
+  .conversion-kicker{
+    font-size:0;
+  }
+  .conversion-kicker::after{
+    content:"无需账号密码 · 自动到账（约10秒）";
+    font-size:.86rem;
+  }
+  .hero-divider,
+  .pre-cta-trust,
+  .ability-strip,
+  .capability-line,
+  .price-note,
+  .purchase-flow,
+  .account-check,
+  .small-risk,
+  .steps-mini,
+  .buy-notes,
+  .badges,
+  .stats,
+  footer{
+    display:none !important;
+  }
+  .price{
+    margin:16px 0 14px;
+  }
+  .price-val{
+    font-size:3rem;
+  }
+  .price-tag{
+    display:none;
+  }
+  .button-group{
+    display:block;
+    margin:0 0 12px;
+  }
+  .button-group .btn-buy{
+    width:100%;
+    min-height:56px;
+    margin:0;
+    font-size:1rem;
+    border-radius:14px;
+  }
+  .button-group .btn-buy::before{
+    content:"";
+  }
+  .button-group .btn-recharge{
+    display:none;
+  }
+  .trust-metrics{
+    display:block;
+    margin:0;
+    text-align:center;
+  }
+  .compact-info-line{
+    font-size:0;
+  }
+  .compact-info-line::after{
+    content:"1000+用户 · 10秒到账 · 稳定交付";
+    color:rgba(204,251,241,.86);
+    font-size:.78rem;
+    font-weight:900;
+  }
+  .side-panel{
+    display:block;
+    position:static;
+    margin:18px auto 0;
+    max-width:620px;
+  }
+  .trust-panel{
+    display:none;
+  }
+  .faq-panel{
+    padding:16px;
+  }
+  .faq-panel::before{
+    content:"下单后进入自助激活系统完成充值\\A📌 充值到自己 GPT 账号（非直接使用）\\A👉 无法访问可查看镜像服务";
+    white-space:pre-line;
+    display:block;
+    margin:0 0 14px;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(45,212,191,.20);
+    background:rgba(255,255,255,.035);
+    color:rgba(204,251,241,.84);
+    font-size:.82rem;
+    line-height:1.65;
+    font-weight:850;
+    text-align:center;
+  }
+  .faq-list{
+    gap:8px;
+  }
+  .faq-item{
+    padding:10px 11px;
+  }
+  .faq-item span{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .side-feedback-list .side-feedback-item:nth-child(n+3){
+    display:none;
+  }
+  .mobile-more-feedback{
+    display:block;
+    width:100%;
+    margin-top:8px;
+    padding:8px;
+    border-radius:10px;
+    border:1px solid rgba(45,212,191,.24);
+    background:rgba(255,255,255,.035);
+    color:#ccfbf1;
+    font-size:.78rem;
+    font-weight:900;
+    text-align:center;
+    position:relative;
+    z-index:2;
+    pointer-events:auto;
+  }
+  .side-feedback{
+    margin-top:22px;
+  }
+  .side-ai-entry{
+    margin-top:14px;
+  }
+  .trust-widget.case-thumbnail{
+    display:none !important;
+  }
+  .cta-sticky{
+    display:flex !important;
+    align-items:center;
+    justify-content:center;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    min-height:54px;
+    height:56px;
+    border-radius:14px;
+    background:linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
+    box-shadow:0 12px 26px rgba(20,184,166,.25);
+  }
+  .cta-sticky::before{
+    content:"¥188 ｜ ⚡ 立即开通";
+  }
+  .cta-sticky{
+    font-size:0;
+  }
+  .sticky-note{
+    display:none !important;
+  }
   .cases-thumbnails {
     display: flex;
     gap: 12px;
@@ -1479,9 +1706,9 @@ a#openWhyTop:hover{ color:#fff; }
     font-size: 0.8rem;
   }
   .carousel-container {
-    width: 95vw;
-    height: 70vh;
-    padding: 15px;
+    width: min(420px, 92vw);
+    height: min(560px, 76vh);
+    padding: 12px;
   }
   .carousel-nav {
     width: 36px;
@@ -2041,6 +2268,228 @@ a#openWhyTop:hover{ color:#fff; }
     justify-content:center;
   }
 }
+
+/* ===== Final mobile checkout layout ===== */
+@media (max-width:640px){
+  body{
+    padding:16px 12px 104px !important;
+  }
+  .landing-shell{
+    display:flex !important;
+    flex-direction:column;
+    width:100%;
+  }
+  .landing-shell .card{
+    order:1;
+    width:100%;
+    max-width:620px;
+    margin:0 auto;
+  }
+  .landing-shell .trust-panel{
+    order:2;
+    display:block !important;
+    position:static;
+    margin:14px auto 0;
+    width:100%;
+    max-width:620px;
+    padding:16px;
+  }
+  .landing-shell .faq-panel{
+    order:3;
+    display:block !important;
+    position:static;
+    margin:14px auto 0;
+    width:100%;
+    max-width:620px;
+    padding:16px;
+  }
+  .card-header{
+    padding:24px 20px 18px !important;
+  }
+  .brand-badge{
+    margin-bottom:10px;
+  }
+  .brand-sub{
+    display:none !important;
+  }
+  .card-header h1{
+    font-size:1.72rem;
+    line-height:1.16;
+  }
+  .conversion-kicker{
+    margin-top:8px;
+    font-size:0 !important;
+  }
+  .conversion-kicker::before{
+    content:none !important;
+  }
+  .conversion-kicker::after{
+    content:"无需账号密码 · 自动到账（约10秒）";
+    font-size:.86rem;
+  }
+  .hero-divider,
+  .pre-cta-trust,
+  .ability-strip,
+  .capability-line,
+  .price-note,
+  .purchase-flow,
+  .account-check,
+  .small-risk,
+  .steps-mini,
+  .buy-notes,
+  .badges,
+  .stats,
+  .feedback-box,
+  footer{
+    display:none !important;
+  }
+  .price{
+    margin:16px 0 14px;
+  }
+  .price-val{
+    font-size:3rem;
+  }
+  .price-tag{
+    display:none !important;
+  }
+  .price-note{
+    display:block !important;
+    margin:-6px auto 12px;
+    color:rgba(204,251,241,.78);
+    font-size:12px;
+    line-height:1.5;
+    text-align:center;
+  }
+  .button-group{
+    display:grid;
+    gap:10px;
+    margin:0 0 12px;
+  }
+  .button-group .btn-buy{
+    width:100%;
+    min-height:56px;
+    margin:0;
+    border-radius:14px;
+    font-size:1rem;
+  }
+  .button-group .btn-recharge{
+    display:block !important;
+    width:100%;
+    min-height:48px;
+    margin:0;
+    padding:12px 0;
+    border-radius:14px;
+    font-size:.95rem;
+    color:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.20);
+    box-shadow:none;
+  }
+  .trust-metrics{
+    display:block !important;
+    margin:0;
+    text-align:center;
+  }
+  .compact-info-line{
+    font-size:0 !important;
+  }
+  .compact-info-line::after{
+    content:"1000+用户 · 10秒到账 · 稳定交付";
+    color:rgba(204,251,241,.86);
+    font-size:.78rem;
+    font-weight:900;
+  }
+  .faq-panel::before{
+    content:"下单后进入自助激活系统完成充值\A📌 充值到自己 GPT 账号（非直接使用）\A👉 无法访问可查看镜像服务";
+    white-space:pre-line;
+    display:block;
+    margin:0 0 14px;
+    padding:12px;
+    border-radius:12px;
+    border:1px solid rgba(45,212,191,.20);
+    background:rgba(255,255,255,.035);
+    color:rgba(204,251,241,.84);
+    font-size:.82rem;
+    line-height:1.65;
+    font-weight:850;
+    text-align:center;
+  }
+  .faq-item span{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
+  .side-feedback{
+    margin-top:22px;
+  }
+  .side-feedback-list .side-feedback-item:nth-child(n+3){
+    display:none;
+  }
+  .side-ai-entry{
+    margin-top:14px;
+  }
+  .side-record-btn.case-thumbnail{
+    display:none !important;
+  }
+  .trust-widget.case-thumbnail{
+    display:none !important;
+  }
+  .sticky-note{
+    display:none !important;
+  }
+  .cta-sticky{
+    display:grid !important;
+    grid-template-columns:auto 1fr 1fr;
+    gap:8px;
+    align-items:center;
+    justify-content:center;
+    position:fixed;
+    left:12px;
+    right:12px;
+    bottom:12px;
+    height:56px;
+    padding:8px;
+    border-radius:14px;
+    font-size:16px !important;
+    font-weight:900;
+    color:#fff;
+    z-index:80;
+    background:rgba(11,18,32,.92);
+    border:1px solid rgba(45,212,191,.25);
+    box-shadow:0 12px 26px rgba(0,0,0,.28);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .cta-sticky::before{
+    content:none !important;
+  }
+  .cta-sticky .mobile-price{
+    color:#fff;
+    font-size:15px;
+    font-weight:950;
+    white-space:nowrap;
+  }
+  .cta-sticky .mobile-action{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:40px;
+    border-radius:10px;
+    font-size:14px;
+    font-weight:950;
+    line-height:1;
+  }
+  .cta-sticky .mobile-buy{
+    background:linear-gradient(180deg, #2dd4bf 0%, #14b8a6 100%);
+    color:#fff;
+  }
+  .cta-sticky .mobile-wechat{
+    background:rgba(3,20,22,.24);
+    color:#fff;
+    border:1px solid rgba(255,255,255,.28);
+  }
+}
 </style>
 </head>
 <body>
@@ -2301,8 +2750,10 @@ a#openWhyTop:hover{ color:#fff; }
 <div class="side-feedback">
 <p class="side-feedback-title">用户反馈</p>
 <div class="side-feedback-list">
-<div class="side-feedback-item">⭐ “10秒到账，比自己折腾简单太多了”</div>
-<div class="side-feedback-item">⭐ “第二次买了，很稳”</div>
+<div class="side-feedback-item">⭐ 刚刚｜10秒到账，比自己折腾简单多了</div>
+<div class="side-feedback-item">⭐ 今天｜第二次买了，很稳</div>
+<div class="side-feedback-item">⭐ 新用户｜不用提供密码，这点很安心</div>
+<button class="mobile-more-feedback" data-slide="1" onclick="event.preventDefault();event.stopPropagation();document.getElementById('carouselModal')?.classList.add('show');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
 </div>
 <button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
 </div>
@@ -2335,7 +2786,11 @@ var _hmt = _hmt || [];
 })();
 </script>
 
-<a aria-label="¥188 立即购买" class="cta-sticky" href="#" id="mobileBuyBtn" role="button">¥188 立即购买</a>
+<a aria-label="¥188 立即开通或复制微信" class="cta-sticky" href="#" id="mobileBuyBtn" role="button">
+<span class="mobile-price">¥188</span>
+<span class="mobile-action mobile-buy">立即开通</span>
+<span class="mobile-action mobile-wechat">复制微信</span>
+</a>
 <button class="trust-widget case-thumbnail" data-slide="1" aria-label="查看客户案例">
   <div class="trust-icon">📸</div>
   <div class="trust-text">真实交付记录</div>
@@ -2406,23 +2861,23 @@ var _hmt = _hmt || [];
 <div aria-labelledby="aiTitle" class="modal-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="modal-close" id="aiClose">×</button>
 <h3 id="aiTitle" style="margin:.2rem 0 .6rem">其他 AI 平台会员代开</h3>
-<p style="margin:0 0 10px; opacity:.85; font-size:.9rem;">不确定选哪个？我们已帮你整理好👇</p>
+<p style="margin:0 0 10px; opacity:.85; font-size:.86rem;">只需要选一个即可 👇</p>
 <div class="ai-section">
 <div class="ai-section-title">✨ 推荐方案</div>
 <div class="ai-items" role="list">
-<div aria-label="GPT Pro 100刀 ¥750 主推" class="ai-item featured main-pick" role="listitem" tabindex="0">
+<div aria-label="GPT Pro 主推" class="ai-item featured main-pick" role="listitem" tabindex="0">
 <div class="ai-left">
-<div class="ai-name">🚀 GPT Pro 100刀（推荐） <span class="ai-pill">🔥 最多人选择</span></div>
-<div class="ai-meta">适合重度使用 / 性价比方案 · ¥750</div>
+<div class="ai-name">🚀 GPT Pro（推荐） <span class="ai-pill">🔥 最多人选择</span></div>
+<div class="ai-meta">最多人选择 / 性价比方案</div>
 </div>
 <div class="ai-actions">
 <button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">立即开通</button>
 </div>
 </div>
-<div aria-label="GPT Pro 200刀 ¥1680 进阶" class="ai-item featured" role="listitem" tabindex="0">
+<div aria-label="GPT Pro 200刀 进阶" class="ai-item featured" role="listitem" tabindex="0">
 <div class="ai-left">
 <div class="ai-name">💎 GPT Pro 200刀 <span class="ai-pill">💎 长期使用</span></div>
-<div class="ai-meta">高强度使用 / 长期方案 · ¥1680</div>
+<div class="ai-meta">长期使用 / 进阶方案</div>
 </div>
 <div class="ai-actions">
 <button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">查看方案</button>
@@ -2430,8 +2885,9 @@ var _hmt = _hmt || [];
 </div>
 </div>
 </div>
+<details class="more-ai-details">
+<summary>更多 AI（按需选择）</summary>
 <div class="ai-section more-platforms">
-<div class="ai-section-title">更多 AI 平台（按需选择）</div>
 <div class="ai-items" role="list">
 <div aria-label="Claude Pro 1个月 ¥188" class="ai-item" role="listitem" tabindex="0">
 <div class="ai-left">
@@ -2462,6 +2918,7 @@ var _hmt = _hmt || [];
 </div>
 </div>
 </div>
+</details>
 <div class="ai-tip">提示：如需人工协助，复制微信联系人工。</div>
 <div class="modal-footer" style="margin-top:12px; gap:.6rem;">
 <button class="cta-mini" id="aiCopyWx">💬 联系客服（微信）</button>
@@ -2588,7 +3045,14 @@ var _hmt = _hmt || [];
 
   // --- buy buttons ---
   $('#buyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
-  $('#mobileBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
+  $('#mobileBuyBtn')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    if(e.target.closest?.('.mobile-wechat')){
+      $('#copyWeChat')?.click();
+      return;
+    }
+    openNew(BUY_URL);
+  });
   $('#stickyBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
 
   // --- bottom copy wx ---
@@ -2763,7 +3227,7 @@ var _hmt = _hmt || [];
   const carouselNext = document.getElementById('carouselNext');
   const slides = document.querySelectorAll('.carousel-slide');
   const dots = document.querySelectorAll('.carousel-dot');
-  const thumbnails = document.querySelectorAll('.case-thumbnail');
+  const thumbnails = document.querySelectorAll('.case-thumbnail, .mobile-more-feedback');
 
   let currentSlide = 1;
   const totalSlides = slides.length;
@@ -2804,6 +3268,7 @@ var _hmt = _hmt || [];
 
   // 打开轮播模态框
   function openCarousel(slideNumber = 1) {
+    if (!carouselModal) return;
     carouselModal.classList.add('show');
     document.body.classList.add('modal-open');
     showSlide(slideNumber);
@@ -2822,6 +3287,18 @@ var _hmt = _hmt || [];
       openCarousel(slideNumber);
     });
   });
+  document.querySelector('.mobile-more-feedback')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    openCarousel(1);
+  });
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest?.('.mobile-more-feedback');
+    if (!trigger) return;
+    e.preventDefault();
+    e.stopPropagation();
+    openCarousel(parseInt(trigger.getAttribute('data-slide')) || 1);
+  }, true);
 
   // 导航按钮事件
   carouselPrev?.addEventListener('click', prevSlide);
