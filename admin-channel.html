@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>AIPass 通道切换</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 22px 14px;
+      background: #071018;
+      color: #f8fafc;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main { width: min(520px, 100%); margin: 0 auto; }
+    h1 { margin: 0 0 14px; font-size: 24px; letter-spacing: 0; }
+    .panel {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.07);
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .current {
+      margin: 0 0 16px;
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(20,184,166,.14);
+      border: 1px solid rgba(45,212,191,.28);
+      line-height: 1.55;
+    }
+    .muted { color: rgba(248,250,252,.68); font-size: 13px; word-break: break-all; }
+    .message {
+      margin: 0 0 14px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(34,197,94,.16);
+      border: 1px solid rgba(34,197,94,.3);
+      color: #dcfce7;
+      display: none;
+    }
+    .channel {
+      display: grid;
+      gap: 8px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+    }
+    .channel:first-child { border-top: 0; padding-top: 0; }
+    .name { font-weight: 800; }
+    button {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 14px 12px;
+      color: #04111d;
+      background: #2dd4bf;
+      font-weight: 850;
+      font-size: 16px;
+    }
+    button[disabled] {
+      color: rgba(248,250,252,.82);
+      background: rgba(255,255,255,.16);
+    }
+    code { color: #5eead4; word-break: break-all; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>AIPass 通道切换</h1>
+  <div class="panel">
+    <p class="message" id="message"></p>
+    <p class="current" id="current">正在读取当前通道...</p>
+    <div id="channels"></div>
+  </div>
+</main>
+<script>
+(function(){
+  const key = new URLSearchParams(location.search).get('key') || '';
+  const currentEl = document.getElementById('current');
+  const channelsEl = document.getElementById('channels');
+  const messageEl = document.getElementById('message');
+
+  function showMessage(text, isError) {
+    messageEl.textContent = text;
+    messageEl.style.display = 'block';
+    messageEl.style.background = isError ? 'rgba(239,68,68,.16)' : 'rgba(34,197,94,.16)';
+    messageEl.style.borderColor = isError ? 'rgba(239,68,68,.32)' : 'rgba(34,197,94,.3)';
+    messageEl.style.color = isError ? '#fee2e2' : '#dcfce7';
+  }
+
+  function render(data) {
+    const active = data.active;
+    const activeChannel = data.channels[active];
+    currentEl.innerHTML = [
+      '当前启用：<strong>' + activeChannel.name + '</strong><br>',
+      '<span class="muted">' + activeChannel.url + '</span>',
+      data.updatedAt ? '<br><span class="muted">更新时间：' + data.updatedAt + '</span>' : ''
+    ].join('');
+
+    channelsEl.innerHTML = '';
+    Object.entries(data.channels).forEach(function(entry){
+      const id = entry[0];
+      const channel = entry[1];
+      const row = document.createElement('div');
+      row.className = 'channel';
+      row.innerHTML = [
+        '<div class="name">' + channel.name + '</div>',
+        '<div class="muted">' + channel.url + '</div>',
+        '<button type="button">' + (id === active ? '当前启用中' : '切换到这个通道') + '</button>'
+      ].join('');
+      const button = row.querySelector('button');
+      button.disabled = id === active;
+      button.addEventListener('click', function(){
+        switchChannel(id);
+      });
+      channelsEl.appendChild(row);
+    });
+  }
+
+  async function load() {
+    const response = await fetch('/api/channel', { cache: 'no-store' });
+    if (!response.ok) throw new Error('读取失败');
+    render(await response.json());
+  }
+
+  async function switchChannel(channel) {
+    if (!key) {
+      showMessage('管理链接缺少 key 参数。', true);
+      return;
+    }
+
+    const response = await fetch('/api/channel', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Admin-Key': key,
+      },
+      body: JSON.stringify({ channel: channel }),
+    });
+
+    const data = await response.json().catch(function(){ return {}; });
+    if (!response.ok) {
+      showMessage(data.error || '切换失败，请检查 Vercel 环境变量。', true);
+      return;
+    }
+
+    showMessage('已切换到：' + data.activeChannel.name, false);
+    await load();
+  }
+
+  load().catch(function(error){
+    showMessage(error.message || '读取失败', true);
+    currentEl.innerHTML = '无法读取当前通道，请检查 Vercel KV 环境变量。';
+  });
+})();
+</script>
+</body>
+</html>
