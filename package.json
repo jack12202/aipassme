@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "new:blog": "node scripts/new-blog-post.js"
+  }
+}
