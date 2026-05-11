@@ -75,6 +75,15 @@ function articleTemplate({ title, description, date, category }) {
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
   <meta name="description" content="${safeDescription}"/>
   <title>${safeTitle} - AIPass 博客</title>
+  <script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?12e4de68b3ffda0f30868fae3b804a30";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+  </script>
   <style>
     :root {
       --primary: #14b8a6;
