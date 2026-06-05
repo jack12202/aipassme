@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AIPass 站内充值中心｜光年升级计划</title>
+  <meta name="description" content="AIPass 光年升级计划站内充值中心：先验证激活码，再粘贴充值密钥，最后确认充值到自己的 ChatGPT 账号。">
+  <link rel="canonical" href="https://www.aipass.me/activate/">
+  <meta property="og:title" content="AIPass 站内充值中心｜光年升级计划">
+  <meta property="og:description" content="已购买激活码后，直接在 AIPass 站内完成账号识别与充值确认。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.aipass.me/activate/">
+  <style>
+    :root {
+      --bg-start:#042f2e;
+      --bg-mid:#0f172a;
+      --bg-end:#020617;
+      --panel:rgba(15, 23, 42, 0.84);
+      --panel-strong:rgba(15, 23, 42, 0.92);
+      --line:rgba(255,255,255,.14);
+      --line-strong:rgba(45,212,191,.34);
+      --text:#f8fafc;
+      --muted:rgba(226,232,240,.76);
+      --brand:#14b8a6;
+      --brand-dark:#0d9488;
+      --brand-soft:rgba(20,184,166,.12);
+      --brand-soft-2:rgba(45,212,191,.08);
+      --brand-outline:rgba(45,212,191,.25);
+      --success:#22c55e;
+      --success-soft:rgba(34,197,94,.16);
+      --danger:#fb7185;
+      --danger-soft:rgba(244,63,94,.14);
+      --warning:#f59e0b;
+      --warning-soft:rgba(245,158,11,.14);
+      --shadow:0 24px 56px rgba(0,0,0,.26);
+      --radius:22px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(260px 180px at 18% 22%, rgba(20,184,166,.12), transparent 70%),
+        radial-gradient(220px 160px at 68% 16%, rgba(45,212,191,.08), transparent 72%),
+        radial-gradient(180px 140px at 82% 42%, rgba(255,255,255,.05), transparent 75%),
+        linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 45%, var(--bg-end) 100%);
+      min-height: 100vh;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+    a { color: inherit; }
+    .wrap {
+      width: min(980px, calc(100% - 28px));
+      margin: 28px auto 48px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+    .brand {
+      text-decoration: none;
+      font-weight: 950;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+    }
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: linear-gradient(135deg, var(--brand-dark), var(--brand));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      box-shadow: 0 10px 28px rgba(20,184,166,.30);
+    }
+    .top-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .mini-btn {
+      text-decoration: none;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.16);
+      color: #ecfeff;
+      font-weight: 800;
+      font-size: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero,
+    .panel {
+      background:
+        linear-gradient(180deg, rgba(20,184,166,.10) 0%, rgba(45,212,191,.04) 100%),
+        var(--panel);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px) saturate(130%);
+      -webkit-backdrop-filter: blur(16px) saturate(130%);
+    }
+    .hero {
+      border-radius: 26px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(20,184,166,.10);
+      border: 1px solid rgba(45,212,191,.26);
+      color: #ccfbf1;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    h1 {
+      margin: 14px 0 10px;
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 780px;
+      color: rgba(226,232,240,.84);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      color: #f8fafc;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .panel {
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .stepper {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 18px;
+      background: rgba(255,255,255,.04);
+      border-bottom: 1px solid var(--line);
+    }
+    .step {
+      border: 2px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      min-height: 92px;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+    }
+    .step.active {
+      border-color: rgba(45,212,191,.68);
+      background: rgba(20,184,166,.10);
+    }
+    .step.done {
+      border-color: rgba(74,222,128,.65);
+      background: rgba(34,197,94,.10);
+    }
+    .num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      color: #fff;
+      background: rgba(255,255,255,.28);
+    }
+    .step.active .num { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); }
+    .step.done .num { background: var(--success); }
+    .step strong { font-size: 17px; }
+    .step span { color: var(--muted); font-size: 13px; }
+    .content { padding: 24px; }
+    .stage { display: none; }
+    .stage.active { display: block; }
+    .notice {
+      margin-bottom: 20px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(20,184,166,.10);
+      border: 1px solid rgba(45,212,191,.22);
+      color: #ccfbf1;
+    }
+    .notice strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 18px;
+    }
+    .field { display: grid; gap: 8px; }
+    .field label { font-size: 15px; font-weight: 800; }
+    .field small { color: var(--muted); line-height: 1.6; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font: inherit;
+      color: #f8fafc;
+      background: rgba(255,255,255,.06);
+    }
+    input::placeholder,
+    textarea::placeholder { color: rgba(226,232,240,.44); }
+    textarea { min-height: 220px; resize: vertical; line-height: 1.65; }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    button, .link-btn {
+      border: 0;
+      border-radius: 14px;
+      min-height: 48px;
+      padding: 0 20px;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      filter: grayscale(0.1);
+    }
+    .primary { color: #fff; background: linear-gradient(135deg, #0d9488, #14b8a6); }
+    .secondary {
+      color: #f8fafc;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+    }
+    .green { color: #fff; background: linear-gradient(135deg, #0f766e, #14b8a6); }
+    .tip-box {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(245,158,11,.14);
+      border: 1px solid rgba(251,191,36,.32);
+      color: #fde68a;
+      line-height: 1.7;
+    }
+    .tip-box strong { display: block; margin-bottom: 6px; color: #fef3c7; }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .info-card {
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      padding: 18px;
+    }
+    .info-card h3 { margin: 0 0 12px; font-size: 20px; }
+    .kvs { display: grid; gap: 0; border-top: 1px solid rgba(255,255,255,.10); }
+    .kv {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .kv span:first-child { color: var(--muted); font-weight: 700; }
+    .checkbox {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #e2e8f0;
+    }
+    .checkbox input {
+      width: 18px;
+      height: 18px;
+      margin-top: 3px;
+      padding: 0;
+    }
+    .progress {
+      margin-top: 12px;
+      padding: 16px 18px;
+      border-radius: 14px;
+      background: rgba(37,99,235,.12);
+      border: 1px solid rgba(96,165,250,.24);
+      color: #dbeafe;
+    }
+    .progress strong { display: block; margin-bottom: 4px; }
+    .result-card {
+      margin-top: 12px;
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 36px rgba(15, 23, 42, 0.18);
+    }
+    .result-card.success {
+      border-color: rgba(74,222,128,.48);
+      background: linear-gradient(180deg, rgba(20,83,45,.36) 0%, rgba(22,163,74,.16) 100%);
+      color: #dcfce7;
+    }
+    .result-card.fail {
+      border-color: rgba(251,113,133,.48);
+      background: linear-gradient(180deg, rgba(127,29,29,.34) 0%, rgba(225,29,72,.14) 100%);
+      color: #ffe4e6;
+    }
+    .result-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .result-heading {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .result-title {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.15;
+      font-weight: 950;
+      letter-spacing: -0.02em;
+    }
+    .result-subtitle {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.7;
+      color: inherit;
+      opacity: 0.92;
+    }
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .task-box {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px dashed rgba(255,255,255,.14);
+    }
+    .task-box span {
+      display: block;
+      font-size: 13px;
+      color: rgba(226,232,240,.78);
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+    .task-code {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.55;
+      font-weight: 900;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      color: inherit;
+    }
+    .result-actions {
+      margin-top: 16px;
+      display: grid;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .result-actions div {
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .foot {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    @media (max-width: 860px) {
+      .two-col, .stepper { grid-template-columns: 1fr; }
+      .step { min-height: 78px; }
+      .content, .hero { padding: 20px; }
+      .kv { flex-direction: column; gap: 6px; }
+      .topbar { flex-direction: column; align-items: stretch; }
+      .result-top { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-mark">A</span>
+        <span>AIPass 光年升级计划</span>
+      </a>
+      <div class="top-actions">
+        <a class="mini-btn" href="/">返回 AIPass 首页</a>
+        <a class="mini-btn" href="https://fe.dtyuedan.cn/shop/jiage">先购买 Plus 激活码</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <span class="eyebrow">AIPass 站内充值中心 · 不再跳到外部充值页</span>
+      <h1>ChatGPT Plus 站内自助充值</h1>
+      <p>先验证激活码，再登录 GPT 获取充值密钥，最后在 AIPass 站内确认充值。页面风格保持和 AIPass 主站一致，但充值流程沿用已经验证过的稳定接口。</p>
+      <div class="hero-pills">
+        <span class="pill">充值到自己的 GPT 账号</span>
+        <span class="pill">无需提供账号密码</span>
+        <span class="pill">支付仍在原发卡网完成</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="stepper">
+        <div class="step active" id="step-1">
+          <div class="num">1</div>
+          <strong>验证激活码</strong>
+          <span>先确认激活码可用于当前产品</span>
+        </div>
+        <div class="step" id="step-2">
+          <div class="num">2</div>
+          <strong>获取密钥</strong>
+          <span>登录 GPT 后复制完整 JSON</span>
+        </div>
+        <div class="step" id="step-3">
+          <div class="num">3</div>
+          <strong>确认充值</strong>
+          <span>检查账号信息并提交任务</span>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="stage active" id="stage-1">
+          <div class="notice" id="step1Notice">
+            <strong>第 1 步：先验证激活码</strong>
+            这里会先校验激活码是否可用。验证通过后，再进入下一步获取充值密钥。
+          </div>
+          <div class="field">
+            <label for="cardInfo">验证激活码</label>
+            <input id="cardInfo" placeholder="请输入你购买后的 Plus 激活码">
+            <small>第一版优先支持 ChatGPT Plus 产品。激活码可用后，系统会继续识别账号信息。</small>
+          </div>
+          <div class="btn-row">
+            <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">验证激活码</button>
+            <a class="link-btn secondary" href="https://fe.dtyuedan.cn/shop/jiage">去购买激活码</a>
+          </div>
+        </div>
+
+        <div class="stage" id="stage-2">
+          <div class="notice" id="step2Notice">
+            <strong>第 2 步：获取充值密钥</strong>
+            先登录 GPT，再点击获取充值密钥，把返回的完整 JSON 全选复制回这里。
+          </div>
+          <div class="two-col">
+            <div>
+              <div class="field">
+                <label>操作步骤</label>
+                <div class="btn-row" style="margin-top:0">
+                  <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">点我登录 GPT</a>
+                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">点我获取充值密钥</a>
+                </div>
+                <small>请先登录 GPT，再打开充值密钥页面，把返回的完整 JSON 全选复制回来。</small>
+              </div>
+              <div class="field">
+                <label for="secretJson">请粘贴完整充值密钥（JSON）</label>
+                <textarea id="secretJson" placeholder='请粘贴类似 {"userEmail":"...","userGptToken":"...","fullAuthData":{...}} 的完整 JSON'></textarea>
+                <small>不要删减任何字段。系统会自动识别账号邮箱，识别成功后再进入确认充值。</small>
+              </div>
+              <div class="btn-row">
+                <button class="secondary" type="button" onclick="goStep(1)">返回上一步</button>
+                <button class="primary" type="button" id="parseSecretBtn" onclick="parseSecret()">校验账号信息</button>
+              </div>
+            </div>
+            <div>
+              <div class="info-card">
+                <h3>操作说明</h3>
+                <div class="kvs">
+                  <div class="kv"><span>输入</span><span>完整 JSON 密钥</span></div>
+                  <div class="kv"><span>识别</span><span>邮箱、账号信息</span></div>
+                  <div class="kv"><span>下一步</span><span>确认账号无误后再充值</span></div>
+                </div>
+              </div>
+              <div class="tip-box">
+                <strong>复制提醒</strong>
+                请把返回内容完整复制回来，不要手动删减、改写或只复制其中一部分。
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stage" id="stage-3">
+          <div class="notice" id="step3Notice">
+            <strong>第 3 步：确认充值</strong>
+            请确认邮箱和激活码无误，再提交充值任务。
+          </div>
+          <div class="two-col">
+            <div class="info-card">
+              <h3>确认充值信息</h3>
+              <div class="kvs">
+                <div class="kv"><span>账号信息</span><span id="confirmEmail">-</span></div>
+                <div class="kv"><span>充值激活码</span><span id="confirmCard">-</span></div>
+                <div class="kv"><span>充值通道</span><span id="confirmChannel">AIPass 站内通道</span></div>
+              </div>
+              <label class="checkbox">
+                <input type="checkbox" id="overwriteRecharge" onchange="updateConfirmButtonState()">
+                <span>我确认以上信息无误，同意进行充值操作<br><small>如需续充已有 Plus，可保持勾选后继续提交。</small></span>
+              </label>
+              <div class="btn-row">
+                <button class="secondary" type="button" onclick="goStep(2)">返回修改</button>
+                <button class="green" type="button" id="confirmRechargeBtn" onclick="confirmRecharge()" disabled>确认充值</button>
+              </div>
+              <div class="progress" id="progressBox" style="display:none;">
+                <strong>任务已提交，正在处理中</strong>
+                系统正在向上游提交充值任务，请不要重复点击。
+              </div>
+              <div class="result-card success" id="resultBox" style="display:none;"></div>
+            </div>
+            <div>
+              <div class="info-card">
+                <h3>提交前提醒</h3>
+                <div class="kvs">
+                  <div class="kv"><span>请确认</span><span>邮箱与激活码无误</span></div>
+                  <div class="kv"><span>提交后</span><span>系统会自动查询充值状态</span></div>
+                  <div class="kv"><span>如遇异常</span><span>保留页面提示便于核查</span></div>
+                </div>
+              </div>
+              <div class="footer-note">
+                如果页面一直显示处理中，请不要连续重复提交。优先保存账号邮箱、激活码和页面提示，再联系客服协助核查。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <p class="foot">声明：本站为第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。页面中提及的产品名称仅用于说明服务适配对象。</p>
+  </div>
+
+  <script>
+    const API_BASE = "https://gptc.cc";
+    let currentTaskId = "";
+    let currentProductId = 3;
+    let currentParsedSecret = null;
+
+    async function postJson(path, payload) {
+      const response = await fetch(API_BASE + path, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+        credentials: "omit"
+      });
+      return response.json();
+    }
+
+    function setNotice(id, title, message, mode = "info") {
+      const el = document.getElementById(id);
+      el.classList.remove("result-ok");
+      el.style.background = "";
+      el.style.borderColor = "";
+      el.style.color = "";
+      if (mode === "success") {
+        el.classList.add("result-ok");
+      } else if (mode === "error") {
+        el.style.background = "rgba(127,29,29,.34)";
+        el.style.borderColor = "rgba(251,113,133,.48)";
+        el.style.color = "#ffe4e6";
+      }
+      el.innerHTML = `<strong>${title}</strong>${message}`;
+    }
+
+    function goStep(step) {
+      document.querySelectorAll(".stage").forEach((node) => node.classList.remove("active"));
+      document.querySelectorAll(".step").forEach((node) => {
+        node.classList.remove("active");
+        node.classList.remove("done");
+      });
+      document.getElementById("stage-" + step).classList.add("active");
+      for (let i = 1; i <= 3; i += 1) {
+        const el = document.getElementById("step-" + i);
+        if (i < step) el.classList.add("done");
+        if (i === step) el.classList.add("active");
+      }
+    }
+
+    function mapCardVerifyMessage(upstream) {
+      const code = upstream?.message || "";
+      if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
+      if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
+      if (code === "CARD_EXPIRED") return "这张激活码已过期，请联系处理。";
+      if (code === "CARD_DISABLED") return "这张激活码当前已被停用，请联系处理。";
+      if (code === "SYSTEM_BUSY") return "系统繁忙，请稍后再试。";
+      if (typeof upstream?.message === "string" && upstream.message.trim()) return upstream.message;
+      return "当前激活码无法用于充值。";
+    }
+
+    function mapRechargeMessage(message, status) {
+      const code = typeof message === "string" ? message.trim() : "";
+      if (code === "SYSTEM_BUSY") return "系统繁忙，请稍后再试。";
+      if (code === "TASK_NOT_FOUND") return "没有查到这笔充值任务，请稍后刷新重试。";
+      if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
+      if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
+      if (code === "ACCOUNT_VERIFY_FAILED") return "账号校验失败，请重新获取充值密钥后再试。";
+      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 GPT 后获取新的充值密钥。";
+      if (code === "RECHARGE_FAILED") return "充值失败，请稍后重试或联系客服核查。";
+      if (code === "processing" || status === "processing") return "充值任务已提交，系统正在处理中，请稍候。";
+      if (code === "success" || status === "success") return "充值成功，系统已返回成功结果。";
+      if (code === "failed" || status === "failed") return "充值失败，请稍后重试或联系客服核查。";
+      if (code) return code;
+      if (status === "success") return "充值成功，系统已返回成功结果。";
+      if (status === "failed") return "充值失败，请稍后重试或联系客服核查。";
+      return "系统正在处理中，请稍候。";
+    }
+
+    function setTextIfPresent(id, value) {
+      const el = document.getElementById(id);
+      if (el) el.textContent = value || "-";
+    }
+
+    function updateConfirmButtonState() {
+      const checkbox = document.getElementById("overwriteRecharge");
+      const button = document.getElementById("confirmRechargeBtn");
+      if (!checkbox || !button) return;
+      button.disabled = !checkbox.checked;
+    }
+
+    function renderProgressBox(message, taskId) {
+      const progressBox = document.getElementById("progressBox");
+      progressBox.innerHTML = `<strong>任务已提交，正在处理中</strong>${message}<br>任务号：${taskId}<br>请不要重复点击，系统会自动查询状态。`;
+    }
+
+    function renderResultBox(type, message, taskId) {
+      const resultBox = document.getElementById("resultBox");
+      const success = type === "success";
+      resultBox.className = `result-card ${success ? "success" : "fail"}`;
+      resultBox.innerHTML = success
+        ? `
+          <div class="result-top">
+            <div class="result-heading">
+              <h3 class="result-title">充值成功</h3>
+              <p class="result-subtitle">${message}</p>
+            </div>
+            <span class="result-badge">已完成</span>
+          </div>
+          <div class="task-box">
+            <span>任务号</span>
+            <p class="task-code">${taskId}</p>
+          </div>
+          <div class="result-actions">
+            <div>系统已经返回成功结果，你现在可以返回 ChatGPT 账号确认 Plus 状态。</div>
+            <div>如果权益没有立刻刷新出来，先等待片刻，再重新打开账号页面查看。</div>
+          </div>
+        `
+        : `
+          <div class="result-top">
+            <div class="result-heading">
+              <h3 class="result-title">充值失败</h3>
+              <p class="result-subtitle">${message}</p>
+            </div>
+            <span class="result-badge">需处理</span>
+          </div>
+          <div class="task-box">
+            <span>任务号</span>
+            <p class="task-code">${taskId}</p>
+          </div>
+          <div class="result-actions">
+            <div>请保留当前页面和任务号，方便后续联系客服核查。</div>
+            <div>如果刚刚已经重复提交过，请先不要再继续操作，等待人工确认更稳妥。</div>
+          </div>
+        `;
+    }
+
+    function parseSecretPayload(secretJsonText) {
+      let payload;
+      try {
+        payload = JSON.parse(secretJsonText);
+      } catch {
+        return { ok: false, message: "充值密钥不是合法 JSON，请完整复制后重试。" };
+      }
+      if (!payload || typeof payload !== "object") {
+        return { ok: false, message: "充值密钥内容无效，请重新获取后再试。" };
+      }
+      const user = payload.user && typeof payload.user === "object" ? payload.user : {};
+      const account = payload.account && typeof payload.account === "object" ? payload.account : {};
+      const userEmail = typeof payload.userEmail === "string" && payload.userEmail.trim()
+        ? payload.userEmail.trim()
+        : typeof user.email === "string" && user.email.trim()
+          ? user.email.trim()
+          : "";
+      const userGptToken = typeof payload.userGptToken === "string" && payload.userGptToken.trim()
+        ? payload.userGptToken.trim()
+        : typeof payload.accessToken === "string" && payload.accessToken.trim()
+          ? payload.accessToken.trim()
+          : "";
+      const fullAuthData = payload.fullAuthData && typeof payload.fullAuthData === "object"
+        ? payload.fullAuthData
+        : payload;
+      if (!userEmail) {
+        return { ok: false, message: "充值密钥缺少账号邮箱，请重新获取后再试。" };
+      }
+      if (!userGptToken) {
+        return { ok: false, message: "充值密钥缺少访问令牌，请重新获取后再试。" };
+      }
+      return {
+        ok: true,
+        data: {
+          userEmail,
+          userGptToken,
+          fullAuthData
+        }
+      };
+    }
+
+    async function verifyCard() {
+      const cardInfo = document.getElementById("cardInfo").value.trim();
+      const button = document.getElementById("verifyCardBtn");
+      button.disabled = true;
+      button.textContent = "验证中...";
+      try {
+        const data = await postJson("/api/recharge/verify-card", { cardInfo });
+        const upstream = data.data || {};
+        if (!data.success) {
+          setNotice("step1Notice", "激活码验证失败", data.message || "请检查激活码后重试。", "error");
+          return;
+        }
+        if (upstream.success !== true) {
+          setNotice("step1Notice", "激活码不可用", mapCardVerifyMessage(upstream), "error");
+          return;
+        }
+        currentProductId = Number(upstream.productId || 3);
+        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步获取充值密钥。", "success");
+        document.getElementById("confirmCard").textContent = cardInfo;
+        goStep(2);
+      } catch (error) {
+        setNotice("step1Notice", "激活码验证失败", error.message || "网络请求异常。", "error");
+      } finally {
+        button.disabled = false;
+        button.textContent = "验证激活码";
+      }
+    }
+
+    async function parseSecret() {
+      const secretJsonText = document.getElementById("secretJson").value;
+      const button = document.getElementById("parseSecretBtn");
+      button.disabled = true;
+      button.textContent = "识别中...";
+      try {
+        const result = parseSecretPayload(secretJsonText);
+        if (!result.ok) {
+          currentParsedSecret = null;
+          setNotice("step2Notice", "密钥识别失败", result.message, "error");
+          return;
+        }
+        currentParsedSecret = result.data;
+        const checkbox = document.getElementById("overwriteRecharge");
+        if (checkbox) checkbox.checked = false;
+        updateConfirmButtonState();
+        setTextIfPresent("confirmEmail", result.data.userEmail);
+        setTextIfPresent("confirmCard", document.getElementById("cardInfo").value.trim());
+        setTextIfPresent("confirmChannel", "AIPass 站内通道");
+        setNotice("step2Notice", "账号信息识别成功", `已识别账号邮箱：${result.data.userEmail}，可以进入确认充值。`, "success");
+        goStep(3);
+      } catch (error) {
+        setNotice("step2Notice", "密钥识别失败", error.message || "网络请求异常。", "error");
+      } finally {
+        button.disabled = false;
+        button.textContent = "校验账号信息";
+      }
+    }
+
+    async function confirmRecharge() {
+      const button = document.getElementById("confirmRechargeBtn");
+      const progressBox = document.getElementById("progressBox");
+      const resultBox = document.getElementById("resultBox");
+      if (!currentParsedSecret) {
+        setNotice("step3Notice", "充值提交失败", "请先返回上一步校验账号信息。", "error");
+        return;
+      }
+      const payload = {
+        cardInfo: document.getElementById("cardInfo").value.trim(),
+        userEmail: currentParsedSecret.userEmail,
+        userGptToken: currentParsedSecret.userGptToken,
+        fullAuthData: JSON.stringify(currentParsedSecret.fullAuthData),
+        productId: currentProductId
+      };
+      button.disabled = true;
+      button.textContent = "提交中...";
+      progressBox.style.display = "block";
+      resultBox.style.display = "none";
+      try {
+        const data = await postJson("/api/recharge/confirm", payload);
+        const task = data.data || {};
+        if (!data.success || task.success === false || !task.taskId) {
+          setNotice("step3Notice", "充值提交失败", mapRechargeMessage(task.message || data.message, "failed"), "error");
+          progressBox.style.display = "none";
+          return;
+        }
+        currentTaskId = task.taskId;
+        renderProgressBox(mapRechargeMessage(task.message, task.processing ? "processing" : ""), task.taskId);
+        pollStatus();
+      } catch (error) {
+        setNotice("step3Notice", "充值提交失败", error.message || "网络请求异常。", "error");
+        progressBox.style.display = "none";
+      } finally {
+        button.disabled = false;
+        button.textContent = "确认充值";
+      }
+    }
+
+    async function pollStatus() {
+      if (!currentTaskId) return;
+      const resultBox = document.getElementById("resultBox");
+      const progressBox = document.getElementById("progressBox");
+      try {
+        const data = await postJson("/api/recharge/query-task-status", {
+          taskId: currentTaskId,
+          productId: currentProductId,
+          cardInfo: document.getElementById("cardInfo").value.trim()
+        });
+        const task = data.data || {};
+        if (!data.success) {
+          setNotice("step3Notice", "状态查询失败", mapRechargeMessage(data.message, "failed"), "error");
+          setTimeout(pollStatus, 4000);
+          return;
+        }
+        if (task.status === "processing" || task.status === "created" || task.processing === true) {
+          renderProgressBox(mapRechargeMessage(task.message, task.status), currentTaskId);
+          setTimeout(pollStatus, 3000);
+          return;
+        }
+        if (task.status === "success") {
+          renderResultBox("success", mapRechargeMessage(task.message, task.status), currentTaskId);
+        } else {
+          renderResultBox("fail", mapRechargeMessage(task.message, task.status), currentTaskId);
+        }
+        progressBox.style.display = "none";
+        resultBox.style.display = "block";
+      } catch {
+        setTimeout(pollStatus, 4000);
+      }
+    }
+  </script>
+</body>
+</html>
