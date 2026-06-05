@@ -3602,6 +3602,9 @@ var _hmt = _hmt || [];
 
   let currentSlide = 1;
   const totalSlides = slides.length;
+  let wheelLocked = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
 
   // 显示指定幻灯片
   function showSlide(n) {
@@ -3670,6 +3673,46 @@ var _hmt = _hmt || [];
       showSlide(slideNumber);
     });
   });
+
+  // 滚轮和触控滑动：弹窗打开后，滚动用于切换截图，不让背景页面乱滚。
+  carouselModal?.addEventListener('wheel', (e) => {
+    if (!carouselModal.classList.contains('show')) return;
+    e.preventDefault();
+
+    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (Math.abs(delta) < 8 || wheelLocked) return;
+
+    wheelLocked = true;
+    if (delta > 0) {
+      nextSlide();
+    } else {
+      prevSlide();
+    }
+    setTimeout(() => {
+      wheelLocked = false;
+    }, 360);
+  }, { passive: false });
+
+  carouselModal?.addEventListener('touchstart', (e) => {
+    if (!carouselModal.classList.contains('show')) return;
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+
+  carouselModal?.addEventListener('touchend', (e) => {
+    if (!carouselModal.classList.contains('show')) return;
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+
+    if (Math.max(Math.abs(dx), Math.abs(dy)) < 42) return;
+    if (Math.abs(dx) > Math.abs(dy)) {
+      dx < 0 ? nextSlide() : prevSlide();
+    } else {
+      dy < 0 ? nextSlide() : prevSlide();
+    }
+  }, { passive: true });
 
   // 键盘导航
   document.addEventListener('keydown', (e) => {
