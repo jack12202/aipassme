@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/activate",
+      "destination": "/activate/index.html"
+    },
+    {
+      "source": "/activate/",
+      "destination": "/activate/index.html"
+    }
+  ]
+}
