@@ -1554,7 +1554,7 @@ a#openWhyTop:hover{ color:#fff; }
 .carousel-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.72);
   display: none;
   align-items: center;
   justify-content: center;
@@ -3602,7 +3602,6 @@ var _hmt = _hmt || [];
 
   let currentSlide = 1;
   const totalSlides = slides.length;
-  let wheelLocked = false;
   let touchStartX = 0;
   let touchStartY = 0;
 
@@ -3644,14 +3643,12 @@ var _hmt = _hmt || [];
   function openCarousel(slideNumber = 1) {
     if (!carouselModal) return;
     carouselModal.classList.add('show');
-    document.body.classList.add('modal-open');
     showSlide(slideNumber);
   }
 
   // 关闭轮播模态框
   function closeCarousel() {
     carouselModal.classList.remove('show');
-    document.body.classList.remove('modal-open');
   }
 
   // 缩略图点击事件
@@ -3673,25 +3670,6 @@ var _hmt = _hmt || [];
       showSlide(slideNumber);
     });
   });
-
-  // 滚轮和触控滑动：弹窗打开后，滚动用于切换截图，不让背景页面乱滚。
-  carouselModal?.addEventListener('wheel', (e) => {
-    if (!carouselModal.classList.contains('show')) return;
-    e.preventDefault();
-
-    const delta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-    if (Math.abs(delta) < 8 || wheelLocked) return;
-
-    wheelLocked = true;
-    if (delta > 0) {
-      nextSlide();
-    } else {
-      prevSlide();
-    }
-    setTimeout(() => {
-      wheelLocked = false;
-    }, 360);
-  }, { passive: false });
 
   carouselModal?.addEventListener('touchstart', (e) => {
     if (!carouselModal.classList.contains('show')) return;
