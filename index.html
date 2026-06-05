@@ -4,9 +4,9 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="baidu-site-verification" content="codeva-ODEwmBNso0" />
-<meta content="AIPass 提供 ChatGPT Plus 会员充值服务，购买卡密后充值到自己的 ChatGPT 账号。支持自助充值系统、人工协助交付，并可咨询 Pro、Claude、Grok 等其他 AI 会员。" name="description"/>
+<meta content="AIPass 光年升级计划由嘉哥AI提供 ChatGPT Plus 会员充值服务，可充值到自己的 ChatGPT 账号。支持自助激活系统、人工协助交付，并可咨询 Pro、Claude、Grok 等其他 AI 会员。" name="description"/>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-<title>AIPass - ChatGPT Plus 会员充值服务</title>
+<title>AIPass 光年升级计划 - 嘉哥AI ChatGPT Plus 会员充值服务</title>
 <link rel="canonical" href="https://aipass.me/"/>
 <script type="application/ld+json">
 {
@@ -152,6 +152,25 @@
     .brand-icon{ width: 32px; height: 32px; display:block; }
     .brand-name{ font-weight:900; color:#fff; letter-spacing:.02em; font-size:1.05rem; }
     .brand-sub{ font-size:.85rem; color:#ccfbf1; opacity:.85; margin-left:6px; }
+    .jiage-proof{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      margin:0 auto 2px;
+      padding:5px 10px;
+      border-radius:999px;
+      border:1px solid rgba(45,212,191,.26);
+      background:rgba(20,184,166,.10);
+      color:rgba(204,251,241,.92);
+      font-size:.78rem;
+      font-weight:900;
+      line-height:1.35;
+    }
+    .jiage-proof span{
+      color:rgba(255,255,255,.68);
+      font-weight:800;
+    }
     /* Hero 组合 */
     .hero{ display:flex; flex-direction:column; align-items:center; gap:8px; }
     .hero h1{ margin: 2px 0 0; }
@@ -1328,6 +1347,26 @@ a#openWhyTop:hover{ color:#fff; }
   font-size:.86rem;
   font-weight:800;
 }
+.feedback-modal-item .fb-name{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:5px;
+  color:#ccfbf1;
+  font-size:.78rem;
+  font-weight:900;
+}
+.feedback-modal-item .fb-tag{
+  color:rgba(255,255,255,.5);
+  font-size:.7rem;
+  font-weight:800;
+}
+.feedback-modal-item .fb-text{
+  color:rgba(255,255,255,.86);
+  font-weight:800;
+  line-height:1.5;
+}
 
 
 /* === RS modal overrides (match screenshot style) === */
@@ -1712,7 +1751,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-size:0;
   }
   .compact-info-line::after{
-    content:"1800+客户 · 2分钟到账 · 稳定交付";
+    content:"2300+用户 · 2分钟到账 · 稳定交付";
     color:rgba(204,251,241,.86);
     font-size:.78rem;
     font-weight:900;
@@ -1770,7 +1809,7 @@ a#openWhyTop:hover{ color:#fff; }
     overflow:hidden;
   }
   .side-feedback-list .side-feedback-item:nth-child(n+3){
-    display:none;
+    display:block;
   }
   .mobile-more-feedback{
     display:block;
@@ -2075,6 +2114,138 @@ a#openWhyTop:hover{ color:#fff; }
   margin-bottom:4px;
   font-size:.78rem;
 }
+.feedback-item span{
+  display:block;
+  color:rgba(255,255,255,.86);
+  font-weight:800;
+}
+.feedback-proof-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:100%;
+  margin-top:12px;
+  padding:8px 10px;
+  border-radius:14px;
+  border:1px solid rgba(45,212,191,.28);
+  background:linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.04));
+  color:#fff;
+  cursor:pointer;
+  text-align:left;
+  box-shadow:0 10px 22px rgba(0,0,0,.14);
+}
+.feedback-proof-button:hover{
+  border-color:rgba(45,212,191,.58);
+  transform:translateY(-1px);
+}
+.feedback-proof-thumb{
+  position:relative;
+  width:48px;
+  height:38px;
+  flex:0 0 48px;
+  overflow:hidden;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.08);
+}
+.feedback-proof-thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:brightness(.85);
+}
+.feedback-proof-copy{
+  display:grid;
+  gap:2px;
+  min-width:0;
+}
+.feedback-proof-copy strong{
+  color:#ccfbf1;
+  font-size:.82rem;
+  font-weight:950;
+  line-height:1.25;
+}
+.feedback-proof-copy span{
+  color:rgba(255,255,255,.64);
+  font-size:.70rem;
+  font-weight:800;
+  line-height:1.35;
+}
+.side-feedback-title small{
+  margin-left:6px;
+  color:rgba(204,251,241,.56);
+  font-size:.68rem;
+  font-weight:800;
+}
+.side-feedback-list{
+  position:relative;
+  height:218px;
+  overflow:hidden;
+  border-radius:14px;
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0, #000 11%, #000 89%, transparent 100%);
+}
+.side-feedback-track{
+  display:grid;
+  gap:8px;
+  animation:feedbackScroll 28s linear infinite;
+  will-change:transform;
+}
+.side-feedback-list:hover .side-feedback-track{
+  animation-play-state:paused;
+}
+.side-feedback-item{
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,.062), rgba(255,255,255,.035));
+  min-height:64px;
+  padding:10px 11px;
+  color:rgba(255,255,255,.82);
+  font-size:.74rem;
+  line-height:1.45;
+  box-shadow:0 8px 22px rgba(0,0,0,.13);
+}
+.side-feedback-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:5px;
+}
+.side-feedback-user{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  min-width:0;
+  color:#ccfbf1;
+  font-weight:950;
+}
+.side-feedback-avatar{
+  display:inline-grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  flex:0 0 22px;
+  border-radius:50%;
+  background:linear-gradient(135deg, rgba(20,184,166,.9), rgba(45,212,191,.55));
+  color:#07342f;
+  font-size:.7rem;
+  font-weight:950;
+}
+.side-feedback-tag{
+  color:rgba(255,255,255,.48);
+  font-size:.66rem;
+  font-weight:850;
+  white-space:nowrap;
+}
+.side-feedback-text{
+  color:rgba(255,255,255,.82);
+  font-weight:800;
+}
+@keyframes feedbackScroll{
+  0%{ transform:translateY(0); }
+  100%{ transform:translateY(calc(-50% - 4px)); }
+}
 .sticky-note{
   justify-content:space-between !important;
   padding:.75rem 1.1rem !important;
@@ -2306,20 +2477,6 @@ a#openWhyTop:hover{ color:#fff; }
     color:#fff;
     font-weight:900;
   }
-  .side-feedback-list{
-    display:grid;
-    gap:8px;
-  }
-  .side-feedback-item{
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:12px;
-    background:rgba(255,255,255,.038);
-    min-height:46px;
-    padding:9px 10px;
-    color:rgba(255,255,255,.76);
-    font-size:.74rem;
-    line-height:1.4;
-  }
   .side-record-btn{
     width:100%;
     margin-top:9px;
@@ -2522,7 +2679,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-size:0 !important;
   }
   .compact-info-line::after{
-    content:"1800+客户 · 2分钟到账 · 稳定交付";
+    content:"2300+用户 · 2分钟到账 · 稳定交付";
     color:rgba(204,251,241,.86);
     font-size:.78rem;
     font-weight:900;
@@ -2551,8 +2708,8 @@ a#openWhyTop:hover{ color:#fff; }
   .side-feedback{
     margin-top:22px;
   }
-  .side-feedback-list .side-feedback-item:nth-child(n+3){
-    display:none;
+  .side-feedback-list{
+    height:176px;
   }
   .side-ai-entry{
     margin-top:14px;
@@ -2637,6 +2794,7 @@ var _hmt = _hmt || [];
 <div class="trust-item"><strong>稳定通道处理</strong><span>通过清晰流程处理，降低异常风险。</span></div>
 <div class="trust-item"><strong>自动到账</strong><span>系统自动处理，通常 2 分钟内完成。</span></div>
 <div class="trust-item"><strong>无需提供账号密码</strong><span>充值到你自己的账号，不用担心账号密码泄露。</span></div>
+<div class="trust-item"><strong>嘉哥AI售后</strong><span>也可搜索嘉哥GPT，咨询 Plus / Pro 和其他 AI 会员。</span></div>
 <div class="trust-item"><strong>售后支持</strong><span>9:00–24:00 人工在线。</span></div>
 <div class="trust-item"><strong>平台保障</strong><span>稳定交付，异常可处理。</span></div>
 </div>
@@ -2665,10 +2823,11 @@ var _hmt = _hmt || [];
 </svg>
 <div>
 <span class="brand-name">光年升级计划</span>
-<span class="brand-sub">· 第三方代充服务</span>
+<span class="brand-sub">· 嘉哥AI 提供咨询与售后支持</span>
 </div>
 </div>
 <h1>ChatGPT Plus 安全开通服务</h1>
+<div class="jiage-proof">嘉哥AI / 嘉哥GPT <span>提供咨询与售后支持</span></div>
 <div class="conversion-kicker">🔒 无需提供账号密码 · 充值到自己账号 · 自动到账（约2分钟）</div>
 <div class="hero-divider"></div>
 </div>
@@ -2688,7 +2847,7 @@ var _hmt = _hmt || [];
 <small>具体额度以账号内实际显示为准</small>
 </div>
 <div class="trust-metrics" aria-label="服务数据">
-<div class="compact-info-line">1800+客户 · 近30天稳定 · 2分钟到账 · 人工支持</div>
+<div class="compact-info-line">2300+用户 · 近30天稳定 · 2分钟到账 · 人工支持</div>
 </div>
 <div class="purchase-flow" aria-label="购买流程">
 <div class="flow-line">下单 → 填写 → 自动充值 → 完成</div>
@@ -2701,13 +2860,13 @@ var _hmt = _hmt || [];
 <div aria-hidden="true" class="actions-gap"></div>
 <p class="small-risk">到账异常？系统自动处理，客服协助解决</p>
 <div class="steps-mini">
-<span class="step-pill">1 下单卡密</span>
-<span class="step-pill">2 进入网站充值</span>
-<span class="step-pill">3 自动到帐</span>
+<span class="step-pill">1 下单购买</span>
+<span class="step-pill">2 进入系统激活</span>
+<span class="step-pill">3 自动到账</span>
 <a class="steps-link" href="#" id="openFlow">查看流程</a>
 </div>
 <ul class="buy-notes">
-<li>购买卡密后进入系统激活，充值到你自己的 ChatGPT 账号</li>
+<li>购买后进入系统激活，充值到你自己的 ChatGPT 账号</li>
 <li>全程无需提供账号密码，按指引充值到自己的账号，降低泄密风险</li>
 <li>如需发票/对公，请先联系人工确认后再下单</li>
 </ul>
@@ -2718,8 +2877,8 @@ var _hmt = _hmt || [];
 </div>
 <div class="stats">
 <div class="stat">
-<div class="stat-value">1800+</div>
-<div class="stat-label">客户已开通</div>
+<div class="stat-value">2300+</div>
+<div class="stat-label">用户已开通</div>
 </div>
 <div class="stat">
 <div class="stat-value">近30天</div>
@@ -2730,13 +2889,17 @@ var _hmt = _hmt || [];
 <div class="stat-label">平均到账</div>
 </div>
 </div>
-<section class="feedback-box" aria-label="真实用户反馈">
-<p class="feedback-title">真实用户反馈</p>
+<section class="feedback-box" aria-label="用户反馈摘录">
+<p class="feedback-title">用户反馈摘录</p>
 <div class="feedback-list">
-<div class="feedback-item"><strong>⭐</strong>“不用发密码，只按提示操作，这点安心”</div>
-<div class="feedback-item"><strong>⭐</strong>“开通前先问清楚了，客服解释得很细”</div>
-<div class="feedback-item"><strong>⭐</strong>“整个过程没有跳奇怪链接，比较放心”</div>
+<div class="feedback-item"><strong>小林 · 设计师</strong><span>不用发密码这点比较安心，按页面提示走完就可以。</span></div>
+<div class="feedback-item"><strong>阿泽 · 自媒体</strong><span>之前续费失败，先问清楚再下单，说明还挺明白。</span></div>
+<div class="feedback-item"><strong>老陈 · 公司采购</strong><span>要发票和对公付款，提前确认后流程比较顺。</span></div>
 </div>
+<button class="feedback-proof-button case-thumbnail" data-slide="1" type="button" aria-label="查看真实交付截图">
+<span class="feedback-proof-thumb"><img src="客户案例 1.jpg" alt=""></span>
+<span class="feedback-proof-copy"><strong>查看真实交付截图</strong><span>14 张截图，可打开后左右滑动查看</span></span>
+</button>
 </section>
 </header>
 
@@ -2905,13 +3068,52 @@ var _hmt = _hmt || [];
 <div class="faq-item"><strong>支持什么方式支付？</strong><span>支持微信、支付宝支付。</span></div>
 </div>
 <div class="side-feedback">
-<p class="side-feedback-title">用户反馈</p>
-<div class="side-feedback-list">
-<div class="side-feedback-item">⭐ 刚刚｜没有要密码，按步骤提交就行</div>
-<div class="side-feedback-item">⭐ 今天｜先咨询再下单，说明讲得明白</div>
-<div class="side-feedback-item">⭐ 新用户｜流程比想象中简单，心里踏实</div>
-<button class="mobile-more-feedback" onclick="event.preventDefault();event.stopPropagation();document.getElementById('feedbackModal')?.classList.add('show');document.getElementById('feedbackModal')?.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
+<p class="side-feedback-title">用户反馈 <small>昵称已脱敏</small></p>
+<div class="side-feedback-list" aria-label="用户反馈滚动列表">
+<div class="side-feedback-track">
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">林</span>小林</span><span class="side-feedback-tag">设计师</span></div>
+<div class="side-feedback-text">不用发密码这点比较安心，按页面提示走完就可以。</div>
 </div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">泽</span>阿泽</span><span class="side-feedback-tag">自媒体</span></div>
+<div class="side-feedback-text">之前续费失败，先问清楚再下单，说明还挺明白。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">M</span>Mia</span><span class="side-feedback-tag">留学生</span></div>
+<div class="side-feedback-text">账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">陈</span>老陈</span><span class="side-feedback-tag">公司采购</span></div>
+<div class="side-feedback-text">要发票和对公付款，提前确认后流程比较顺。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">橘</span>橘子</span><span class="side-feedback-tag">iPhone 用户</span></div>
+<div class="side-feedback-text">遇到验证提示有点慌，截图发过去后有人帮我看。</div>
+</div>
+<div class="side-feedback-item" aria-hidden="true">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">林</span>小林</span><span class="side-feedback-tag">设计师</span></div>
+<div class="side-feedback-text">不用发密码这点比较安心，按页面提示走完就可以。</div>
+</div>
+<div class="side-feedback-item" aria-hidden="true">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">泽</span>阿泽</span><span class="side-feedback-tag">自媒体</span></div>
+<div class="side-feedback-text">之前续费失败，先问清楚再下单，说明还挺明白。</div>
+</div>
+<div class="side-feedback-item" aria-hidden="true">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">M</span>Mia</span><span class="side-feedback-tag">留学生</span></div>
+<div class="side-feedback-text">账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</div>
+</div>
+<div class="side-feedback-item" aria-hidden="true">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">陈</span>老陈</span><span class="side-feedback-tag">公司采购</span></div>
+<div class="side-feedback-text">要发票和对公付款，提前确认后流程比较顺。</div>
+</div>
+<div class="side-feedback-item" aria-hidden="true">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">橘</span>橘子</span><span class="side-feedback-tag">iPhone 用户</span></div>
+<div class="side-feedback-text">遇到验证提示有点慌，截图发过去后有人帮我看。</div>
+</div>
+</div>
+</div>
+<button class="mobile-more-feedback" onclick="event.preventDefault();event.stopPropagation();document.getElementById('feedbackModal')?.classList.add('show');document.getElementById('feedbackModal')?.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
 <button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
 </div>
 </aside>
@@ -2919,14 +3121,14 @@ var _hmt = _hmt || [];
 <div aria-hidden="true" class="modal-mask" id="feedbackModal">
 <div aria-labelledby="feedbackTitle" class="modal-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="modal-close" id="feedbackClose">×</button>
-<h3 id="feedbackTitle" style="margin:.1rem 0 10px;">真实用户反馈</h3>
-<p style="margin:0 0 8px;opacity:.82;font-size:.86rem;">近期部分开通反馈</p>
+<h3 id="feedbackTitle" style="margin:.1rem 0 10px;">用户反馈摘录</h3>
+<p style="margin:0 0 8px;opacity:.82;font-size:.86rem;">昵称已做脱敏处理，更多截图可以查看真实交付记录。</p>
 <div class="feedback-modal-list">
-<div class="feedback-modal-item">⭐ 刚刚｜没有要密码，按步骤提交就行</div>
-<div class="feedback-modal-item">⭐ 今天｜先咨询再下单，说明讲得明白</div>
-<div class="feedback-modal-item">⭐ 新用户｜流程比想象中简单，心里踏实</div>
-<div class="feedback-modal-item">⭐ 昨天｜遇到验证提示，客服帮我看了</div>
-<div class="feedback-modal-item">⭐ 老用户｜每次续都走自助，比较省心</div>
+<div class="feedback-modal-item"><div class="fb-name">小林 <span class="fb-tag">设计师</span></div><div class="fb-text">不用发密码这点比较安心，按页面提示走完就可以。</div></div>
+<div class="feedback-modal-item"><div class="fb-name">阿泽 <span class="fb-tag">自媒体</span></div><div class="fb-text">之前续费失败，先问清楚再下单，说明还挺明白。</div></div>
+<div class="feedback-modal-item"><div class="fb-name">Mia <span class="fb-tag">留学生</span></div><div class="fb-text">账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</div></div>
+<div class="feedback-modal-item"><div class="fb-name">老陈 <span class="fb-tag">公司采购</span></div><div class="fb-text">要发票和对公付款，提前确认后流程比较顺。</div></div>
+<div class="feedback-modal-item"><div class="fb-name">橘子 <span class="fb-tag">iPhone 用户</span></div><div class="fb-text">遇到验证提示有点慌，截图发过去后有人帮我看。</div></div>
 </div>
 <div class="modal-footer" style="margin-top:10px;gap:.6rem;">
 <button class="cta-mini" id="feedbackCopyWx" type="button">💬 复制微信咨询</button>
@@ -2940,7 +3142,7 @@ var _hmt = _hmt || [];
 <button aria-label="关闭" id="csClose">✕</button>
 </div>
 <div class="cs-body">
-<p>微信：<b id="wx">Jiage01888</b>
+<p>微信：<b id="wx">jiage01888</b>
 <button class="copy" onclick="copyText('wx')">复制</button></p>
 <div class="qq-toggle">
 <button class="qq-toggle-btn" id="/* removed:qqToggle */">微信联系不上时，请联系/* removed:QQ */</button>
@@ -2962,7 +3164,7 @@ var _hmt = _hmt || [];
   <div class="trust-text">真实交付记录</div>
 </button>
 <div class="sticky-note" id="bottomNote">
-<span class="note-text">📌 当前价格 <strong>¥188/月</strong> ｜ 客服微信 <strong id="wxid">Jiage01888</strong> <span class="sticky-consult">👉 支持咨询后再下单</span></span>
+<span class="note-text">📌 当前价格 <strong>¥188/月</strong> ｜ 客服微信 <strong id="wxid">jiage01888</strong> <span class="sticky-consult">👉 支持咨询后再下单</span></span>
 <span class="sticky-actions">
 <button class="cta-mini" id="stickyBuyBtn" type="button">⚡ 立即开通</button>
 <button class="cta-outline" id="copyWeChat">💬 联系客服 / 复制微信</button>
@@ -2998,27 +3200,27 @@ var _hmt = _hmt || [];
 <a class="open-proof-link" id="openOfficialProof">查看平台通知 / 展开说明</a>
 <div class="modal-footer">
 <a class="cta-outline" href="#" id="modalBuyP">去购买</a>
-<button class="cta-mini" id="modalCopyWxP">复制微信：<span class="wx">Jiage01888</span></button>
+<button class="cta-mini" id="modalCopyWxP">复制微信：<span class="wx">jiage01888</span></button>
 </div>
 </section>
 <section aria-labelledby="tabbtn-flow" class="tab-panel" hidden="" id="tab-flow" role="tabpanel">
 <ul class="flow-steps">
-<li>① 下单获取 Plus 充值卡密</li>
-<li>② 进入充值系统，按指引充值到自己的 ChatGPT 账号（无需提供账号密码）</li>
+<li>① 下单获取 Plus 激活码</li>
+<li>② 进入自助激活系统，按指引充值到自己的 ChatGPT 账号（无需提供账号密码）</li>
 <li>③ 约 5 分钟到账</li>
 </ul>
 <p class="hint">提示：若遇到账延迟，请先勿重复下单，联系人工处理。</p>
 <div class="modal-footer">
 <a class="cta-outline" href="#" id="modalBuyF">去购买</a>
-<button class="cta-mini" id="modalCopyWxF">复制微信：<span class="wx">Jiage01888</span></button>
+<button class="cta-mini" id="modalCopyWxF">复制微信：<span class="wx">jiage01888</span></button>
 </div>
 </section>
 <section aria-labelledby="tabbtn-support" class="tab-panel" hidden="" id="tab-support" role="tabpanel">
-<p>微信：<strong class="wx">Jiage01888</strong></p>
+<p>微信：<strong class="wx">jiage01888</strong></p>
 <p class="hint">人工在线：9:00–24:00（其他时段尽量回复）</p>
 <div class="modal-footer">
 <a class="cta-outline" href="#" id="modalBuyS">去购买</a>
-<button class="cta-mini" id="modalCopyWxS">复制微信：<span class="wx">Jiage01888</span></button>
+<button class="cta-mini" id="modalCopyWxS">复制微信：<span class="wx">jiage01888</span></button>
 </div>
 </section>
 </div>
@@ -3027,23 +3229,23 @@ var _hmt = _hmt || [];
 <div aria-labelledby="aiTitle" class="modal-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="modal-close" id="aiClose">×</button>
 <h3 id="aiTitle" style="margin:.2rem 0 .6rem">其他 AI 平台会员代开</h3>
-<p style="margin:0 0 10px; opacity:.85; font-size:.86rem;">只需要选一个即可 👇</p>
+<p style="margin:0 0 10px; opacity:.85; font-size:.86rem;">GPT Pro 显示参考价，其他会员可进入购买页选择 👇</p>
 <div class="ai-section">
 <div class="ai-section-title">✨ 推荐方案</div>
 <div class="ai-items" role="list">
-<div aria-label="GPT Pro 主推" class="ai-item featured main-pick" role="listitem" tabindex="0">
+<div aria-label="GPT Pro 100刀 ¥880" class="ai-item featured main-pick" role="listitem" tabindex="0">
 <div class="ai-left">
-<div class="ai-name">🚀 GPT Pro（推荐） <span class="ai-pill">🔥 最多人选择</span></div>
-<div class="ai-meta">最多人选择 / 性价比方案</div>
+<div class="ai-name">🚀 GPT Pro 100刀 <span class="ai-pill">🔥 推荐</span></div>
+<div class="ai-meta">¥880/月 · 多数用户选择</div>
 </div>
 <div class="ai-actions">
 <button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">立即开通</button>
 </div>
 </div>
-<div aria-label="GPT Pro 200刀 进阶" class="ai-item featured" role="listitem" tabindex="0">
+<div aria-label="GPT Pro 200刀 ¥1650" class="ai-item featured" role="listitem" tabindex="0">
 <div class="ai-left">
 <div class="ai-name">💎 GPT Pro 200刀 <span class="ai-pill">💎 长期使用</span></div>
-<div class="ai-meta">长期使用 / 进阶方案</div>
+<div class="ai-meta">¥1650/月 · 进阶方案</div>
 </div>
 <div class="ai-actions">
 <button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">查看方案</button>
@@ -3055,31 +3257,22 @@ var _hmt = _hmt || [];
 <summary>更多 AI（按需选择）</summary>
 <div class="ai-section more-platforms">
 <div class="ai-items" role="list">
-<div aria-label="Claude Pro 1个月 ¥188/月" class="ai-item" role="listitem" tabindex="0">
+<div aria-label="Claude Pro 查看方案" class="ai-item" role="listitem" tabindex="0">
 <div class="ai-left">
 <div class="ai-name">Claude Pro</div>
-<div class="ai-meta">1个月 · ¥188/月 · 稳定交付</div>
+<div class="ai-meta">少量用户选择 · 进入购买页查看</div>
 </div>
 <div class="ai-actions">
-<button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">选择</button>
+<button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">查看方案</button>
 </div>
 </div>
-<div aria-label="Claude Max 100刀 / 200刀 咨询" class="ai-item" role="listitem" tabindex="0">
-<div class="ai-left">
-<div class="ai-name">Claude Max 100刀 / 200刀</div>
-<div class="ai-meta">按需选择 · 需要可咨询</div>
-</div>
-<div class="ai-actions">
-<button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">选择</button>
-</div>
-</div>
-<div aria-label="Super Grok 1个月 ¥228" class="ai-item" role="listitem" tabindex="0">
+<div aria-label="Super Grok 查看方案" class="ai-item" role="listitem" tabindex="0">
 <div class="ai-left">
 <div class="ai-name">Super Grok</div>
-<div class="ai-meta">1个月 · ¥228 · 稳定交付</div>
+<div class="ai-meta">少量用户选择 · 进入购买页查看</div>
 </div>
 <div class="ai-actions">
-<button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">选择</button>
+<button class="ai-buy ai-btn primary" data-url="https://fe.dtyuedan.cn/shop/jiage">查看方案</button>
 </div>
 </div>
 </div>
@@ -3112,16 +3305,16 @@ var _hmt = _hmt || [];
 </div>
 </section>
 <section class="proof-sec" id="proof-forex">
-<h4>关于"低汇率国家"的说明</h4>
+<h4>关于异常低价渠道的说明</h4>
 <ul class="proof-list">
-<li>低价多为 <strong>跨区礼品卡/黑卡</strong>，<strong>不稳定、风险高</strong>。</li>
+<li>异常低价渠道多为 <strong>来源不明支付方式</strong>，<strong>不稳定、风险高</strong>。</li>
 <li>易回滚/拒付，易触发风控，售后不可控。</li>
 </ul>
 <p class="proof-hint">目前没有 <strong>长期可复用</strong> 的低价方案；我们仅提供 <strong>稳定交付方式</strong>，含 <strong>售后与风险处置</strong>。</p>
 </section>
 <section class="proof-sec">
 <div class="proof-actions">
-<button class="proof-btn proof-btn-ghost" id="proofCopyWx">复制微信：<span class="wx">Jiage01888</span></button>
+<button class="proof-btn proof-btn-ghost" id="proofCopyWx">复制微信：<span class="wx">jiage01888</span></button>
 <a class="proof-btn proof-btn-primary" href="#" id="proofGoBuy" rel="noopener">去购买</a>
 </div>
 </section>
@@ -3137,8 +3330,8 @@ var _hmt = _hmt || [];
 <div class="rs-body" style="margin: 6px 0 10px;">
 <div style="font-weight:800; opacity:.9; margin-bottom:6px;">说明：</div>
 <ul style="margin:0; padding-left: 1.15rem; line-height: 1.7; opacity:.88;">
-<li>购买了自动充值1卡密 → 进入网站1激活</li>
-<li>购买了自动充值2卡密 → 进入网站2激活</li>
+<li>购买的是自动充值1 → 进入网站1激活</li>
+<li>购买的是自动充值2 → 进入网站2激活</li>
 </ul>
 </div>
 <div class="rs-options" role="list" style="margin-top:14px;">
@@ -3162,7 +3355,7 @@ var _hmt = _hmt || [];
 <script>
 (function(){
   const BUY_URL = 'https://fe.dtyuedan.cn/shop/jiage';
-  const WX_ID = (document.getElementById('wxid')?.textContent || 'Jiage01888').trim();
+  const WX_ID = (document.getElementById('wxid')?.textContent || 'jiage01888').trim();
 
   const $ = (sel, root=document) => root.querySelector(sel);
   const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
