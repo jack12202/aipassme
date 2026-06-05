@@ -452,13 +452,13 @@
     </div>
 
     <section class="hero">
-      <span class="eyebrow">AIPass 站内充值中心 · 不再跳到外部充值页</span>
+      <span class="eyebrow">AIPass 光年升级计划 · 站内完成充值确认</span>
       <h1>ChatGPT Plus 站内自助充值</h1>
-      <p>先验证激活码，再登录 GPT 获取充值密钥，最后在 AIPass 站内确认充值。页面风格保持和 AIPass 主站一致，但充值流程沿用已经验证过的稳定接口。</p>
+      <p>先购买 Plus 激活码，再验证激活码、获取充值密钥，最后在 AIPass 站内确认充值。整个流程保持在你的账号体系内完成，尽量减少跳转和理解成本。</p>
       <div class="hero-pills">
         <span class="pill">充值到自己的 GPT 账号</span>
         <span class="pill">无需提供账号密码</span>
-        <span class="pill">支付仍在原发卡网完成</span>
+        <span class="pill">先买激活码，再进站内中心</span>
       </div>
     </section>
 
@@ -490,7 +490,7 @@
           <div class="field">
             <label for="cardInfo">验证激活码</label>
             <input id="cardInfo" placeholder="请输入你购买后的 Plus 激活码">
-            <small>第一版优先支持 ChatGPT Plus 产品。激活码可用后，系统会继续识别账号信息。</small>
+            <small>第一版优先支持 ChatGPT Plus。激活码验证通过后，系统会继续识别账号信息。</small>
           </div>
           <div class="btn-row">
             <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">验证激活码</button>
@@ -516,7 +516,7 @@
               <div class="field">
                 <label for="secretJson">请粘贴完整充值密钥（JSON）</label>
                 <textarea id="secretJson" placeholder='请粘贴类似 {"userEmail":"...","userGptToken":"...","fullAuthData":{...}} 的完整 JSON'></textarea>
-                <small>不要删减任何字段。系统会自动识别账号邮箱，识别成功后再进入确认充值。</small>
+                <small>不要删减任何字段。系统会自动识别账号邮箱，识别成功后再进入最后确认。</small>
               </div>
               <div class="btn-row">
                 <button class="secondary" type="button" onclick="goStep(1)">返回上一步</button>
@@ -551,7 +551,7 @@
               <div class="kvs">
                 <div class="kv"><span>账号信息</span><span id="confirmEmail">-</span></div>
                 <div class="kv"><span>充值激活码</span><span id="confirmCard">-</span></div>
-                <div class="kv"><span>充值通道</span><span id="confirmChannel">AIPass 站内通道</span></div>
+                <div class="kv"><span>充值通道</span><span id="confirmChannel">光年升级计划通道</span></div>
               </div>
               <label class="checkbox">
                 <input type="checkbox" id="overwriteRecharge" onchange="updateConfirmButtonState()">
@@ -808,8 +808,8 @@
         updateConfirmButtonState();
         setTextIfPresent("confirmEmail", result.data.userEmail);
         setTextIfPresent("confirmCard", document.getElementById("cardInfo").value.trim());
-        setTextIfPresent("confirmChannel", "AIPass 站内通道");
-        setNotice("step2Notice", "账号信息识别成功", `已识别账号邮箱：${result.data.userEmail}，可以进入确认充值。`, "success");
+          setTextIfPresent("confirmChannel", "光年升级计划通道");
+          setNotice("step2Notice", "账号信息识别成功", `已识别账号邮箱：${result.data.userEmail}，可以进入最后确认。`, "success");
         goStep(3);
       } catch (error) {
         setNotice("step2Notice", "密钥识别失败", error.message || "网络请求异常。", "error");
