@@ -1367,96 +1367,12 @@ a#openWhyTop:hover{ color:#fff; }
   background:rgba(20,184,166,.10);
   color:#ccfbf1;
 }
-.guide-hub{
-  width:100%;
-  max-width:520px;
-  margin:12px auto 0;
-  padding:14px;
-  border-radius:16px;
-  border:1px solid rgba(45,212,191,.28);
-  background:linear-gradient(180deg, rgba(20,184,166,.10), rgba(255,255,255,.04));
-  text-align:left;
-}
-.guide-hub-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-}
-.guide-hub-title{
-  margin:0;
-  color:#fff;
-  font-size:.92rem;
-  font-weight:900;
-}
-.guide-hub-desc{
-  margin:4px 0 0;
-  color:rgba(204,251,241,.78);
-  font-size:.76rem;
-  line-height:1.55;
-  font-weight:750;
-}
-.guide-badge{
-  flex:0 0 auto;
-  padding:5px 9px;
-  border-radius:999px;
-  border:1px solid rgba(45,212,191,.28);
-  background:rgba(255,255,255,.06);
-  color:#ccfbf1;
-  font-size:.68rem;
-  font-weight:900;
-}
-.guide-hub-actions{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px;
-}
-.guide-action{
-  display:block;
-  min-height:76px;
-  padding:11px 12px;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.12);
-  background:rgba(255,255,255,.055);
-  color:inherit;
-  text-decoration:none;
-  transition:background .18s ease,border-color .18s ease,transform .18s ease;
-}
-.guide-action:hover{
-  background:rgba(20,184,166,.13);
-  border-color:rgba(45,212,191,.44);
-  transform:translateY(-1px);
-}
-.guide-action strong{
-  display:block;
-  color:#fff;
-  font-size:.82rem;
-  line-height:1.45;
-  margin-bottom:5px;
-}
-.guide-action span{
-  display:block;
-  color:rgba(255,255,255,.7);
-  font-size:.72rem;
-  line-height:1.5;
-}
-.guide-action-primary{
-  background:rgba(20,184,166,.12);
-  border-color:rgba(45,212,191,.34);
-}
 @media (max-width:480px){
   .problem-options{
     grid-template-columns:1fr;
   }
   .problem-option-wide{
     grid-column:auto;
-  }
-  .guide-hub-head{
-    flex-direction:column;
-  }
-  .guide-hub-actions{
-    grid-template-columns:1fr;
   }
 }
 #feedbackModal{
@@ -2048,19 +1964,15 @@ a#openWhyTop:hover{ color:#fff; }
 
 /* ===== PC conversion layout overrides ===== */
 .landing-shell{
-  width:min(1160px, 100%);
+  width:min(1280px, 100%);
   display:grid;
-  grid-template-columns:repeat(2, minmax(0, 1fr));
-  grid-template-areas:
-    "main main"
-    "trust faq";
-  gap:18px;
+  grid-template-columns: minmax(260px, 1fr) minmax(520px, 620px) minmax(260px, 1fr);
+  gap:22px;
   align-items:start;
 }
-.trust-panel{ grid-area:trust; }
-.faq-panel{ grid-area:faq; }
 .side-panel{
-  position:static;
+  position:sticky;
+  top:24px;
   border:1px solid rgba(255,255,255,.09);
   border-radius:20px;
   background:linear-gradient(180deg, rgba(20,184,166,.055), rgba(255,255,255,.025)), rgba(8,18,28,.66);
@@ -2110,7 +2022,6 @@ a#openWhyTop:hover{ color:#fff; }
   background:rgba(20,184,166,.12);
 }
 .landing-shell .card{
-  grid-area:main;
   max-width:620px;
   background:
     linear-gradient(180deg, rgba(20,184,166,.18) 0%, rgba(45,212,191,.07) 100%),
@@ -2418,12 +2329,9 @@ a#openWhyTop:hover{ color:#fff; }
     padding:20px 12px 76px;
   }
   .landing-shell{
-    max-width:1160px;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    grid-template-areas:
-      "main main"
-      "trust faq";
-    gap:18px;
+    max-width:1180px;
+    grid-template-columns:280px minmax(520px, 640px) 280px;
+    gap:20px;
   }
   .side-panel{
     padding:14px;
@@ -2983,10 +2891,10 @@ var _hmt = _hmt || [];
 <span class="brand-sub">· 嘉哥AI / 嘉哥GPT</span>
 </div>
 </div>
-<h1>ChatGPT Plus 支付失败？<br>先定位问题，再决定怎么开通</h1>
+<h1>ChatGPT Plus 激活码开通<br>充值到自己的账号</h1>
 <div class="jiage-proof">嘉哥AI / 嘉哥GPT <span>支持 Plus / Pro 开通和续费咨询</span></div>
-<div class="conversion-kicker">银行卡被拒、没有海外卡、续费中断，都可以先从这里开始</div>
-<div class="notice-bar-top">不是所有人都要直接下单。先判断你的问题，再看对应解决方案或购买激活码。</div>
+<div class="conversion-kicker">微信 / 支付宝可下单 · 无需海外卡 · 无需账号密码</div>
+<div class="notice-bar-top">国内付款卡住、续费失败、没有海外卡时，可先购买 Plus 激活码，再按指引完成充值。</div>
 <div class="hero-divider"></div>
 </div>
 <div class="price">
@@ -3008,25 +2916,6 @@ var _hmt = _hmt || [];
 <a class="problem-option" href="/blog/chatgpt-plus-chongzhi.html">续费前想确认流程</a>
 <a class="problem-option" href="/blog/chatgpt-plus-xuyao-tigong-mima-ma.html">担心要不要提供密码</a>
 <a class="problem-option problem-option-wide" href="/blog/chatgpt-plus-daichong-kaopu-ma.html">想先判断代充是否靠谱</a>
-</div>
-</section>
-<section class="guide-hub" aria-label="问题指南入口">
-<div class="guide-hub-head">
-<div>
-<p class="guide-hub-title">看不懂该选哪篇？先进问题指南页</p>
-<p class="guide-hub-desc">我已经把常见问题按“支付失败、续费失败、没有海外卡、账号安全”重新整理。你不用滑到最底部找博客入口了。</p>
-</div>
-<span class="guide-badge">快速分流</span>
-</div>
-<div class="guide-hub-actions">
-<a class="guide-action guide-action-primary" href="/blog/">
-<strong>进入问题诊断与解决方案</strong>
-<span>先排查问题，再决定是继续自助处理，还是直接购买激活码。</span>
-</a>
-<a class="guide-action" href="/activate/">
-<strong>已经购买激活码？直接进入站内激活</strong>
-<span>如果你已经完成购买，直接进入 AIPass 站内充值中心按步骤完成充值。</span>
-</a>
 </div>
 </section>
 <div class="ability-strip" aria-label="开通后可用能力">
