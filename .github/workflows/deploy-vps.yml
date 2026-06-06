@@ -1,0 +1,52 @@
+name: Deploy aipass.me to VPS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-aipassme-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Deploy site files to 1Panel
+        env:
+          PANEL_BASE: ${{ secrets.PANEL_BASE }}
+          PANEL_ENTRANCE: ${{ secrets.PANEL_ENTRANCE }}
+          PANEL_USER: ${{ secrets.PANEL_USER }}
+          PANEL_PASS: ${{ secrets.PANEL_PASS }}
+          PANEL_TARGET_DIR: ${{ secrets.PANEL_TARGET_DIR }}
+        run: |
+          node ./scripts/deploy-to-1panel.mjs
+
+      - name: Verify VPS homepage preview
+        run: |
+          curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/ > /tmp/aipass-home.html
+          grep -q '<link rel="canonical" href="https://aipass.me/">' /tmp/aipass-home.html
+          grep -q '<title>GPT充值，5分钟完成 | AIPass 光年升级计划 | 嘉哥AI</title>' /tmp/aipass-home.html
+
+      - name: Verify VPS blog preview
+        run: |
+          curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/blog/ > /tmp/aipass-blog.html
+          grep -q '<link rel="canonical" href="https://aipass.me/blog/">' /tmp/aipass-blog.html
+          grep -q '<title>AIPass 博客｜GPT Plus / Pro 充值、支付、账号与开通指南</title>' /tmp/aipass-blog.html
+
+      - name: Verify VPS activate preview
+        run: |
+          curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/activate/ > /tmp/aipass-activate.html
+          grep -q '<link rel="canonical" href="https://www.aipass.me/activate/">' /tmp/aipass-activate.html
+          grep -q '<title>AIPass 站内充值中心｜光年升级计划</title>' /tmp/aipass-activate.html
