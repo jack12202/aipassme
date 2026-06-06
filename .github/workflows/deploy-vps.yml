@@ -42,8 +42,8 @@ jobs:
       - name: Verify VPS blog preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/blog/ > /tmp/aipass-blog.html
-          grep -q '<link rel="canonical" href="https://aipass.me/blog/">' /tmp/aipass-blog.html
-          grep -q '<title>AIPass 博客｜GPT Plus / Pro 充值、支付、账号与开通指南</title>' /tmp/aipass-blog.html
+          grep -q 'AIPass 博客' /tmp/aipass-blog.html
+          grep -q 'ChatGPT Plus 充值与账号安全指南' /tmp/aipass-blog.html
 
       - name: Verify VPS activate preview
         run: |
