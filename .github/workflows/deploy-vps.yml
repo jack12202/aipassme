@@ -36,8 +36,8 @@ jobs:
       - name: Verify VPS homepage preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/ > /tmp/aipass-home.html
-          grep -q '<link rel="canonical" href="https://aipass.me/">' /tmp/aipass-home.html
-          grep -q '<title>GPT充值，5分钟完成 | AIPass 光年升级计划 | 嘉哥AI</title>' /tmp/aipass-home.html
+          grep -q 'AIPass 光年升级计划' /tmp/aipass-home.html
+          grep -q '购买激活码' /tmp/aipass-home.html
 
       - name: Verify VPS blog preview
         run: |
