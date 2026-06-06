@@ -2840,6 +2840,184 @@ a#openWhyTop:hover{ color:#fff; }
     border:1px solid rgba(255,255,255,.28);
   }
 }
+
+/* ===== Focused single-card layout ===== */
+body{
+  display:block;
+  min-height:100vh;
+  padding:34px 12px 36px;
+}
+.landing-shell{
+  width:min(720px, 100%);
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:14px;
+}
+.landing-shell .card{
+  order:1;
+  width:100%;
+  max-width:720px;
+}
+.landing-shell .card-header{
+  padding:34px 34px 26px;
+}
+.side-panel{
+  order:3;
+  display:none;
+  position:static;
+  width:100%;
+  max-width:720px;
+  opacity:1;
+}
+.side-panel:target{
+  display:block;
+}
+.focus-info-switches{
+  order:2;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+}
+.focus-info-button{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.052);
+  color:rgba(255,255,255,.9);
+  text-decoration:none;
+  font-size:.92rem;
+  font-weight:950;
+  cursor:pointer;
+}
+.focus-info-button:hover{
+  border-color:rgba(45,212,191,.42);
+  background:rgba(20,184,166,.12);
+}
+.focus-secondary-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin:10px 0 10px;
+}
+.focus-contact-btn,
+.focus-blog-btn{
+  min-height:52px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px 14px;
+  border-radius:13px;
+  border:1px solid rgba(255,255,255,.18);
+  color:#fff;
+  background:rgba(255,255,255,.065);
+  text-decoration:none;
+  font-size:.92rem;
+  font-weight:950;
+  line-height:1.2;
+  cursor:pointer;
+}
+.focus-contact-btn{
+  border-color:rgba(45,212,191,.46);
+  background:rgba(20,184,166,.13);
+}
+.focus-blog-btn{
+  border-color:rgba(253,230,138,.42);
+  background:rgba(253,230,138,.11);
+  color:#fde68a;
+}
+.focus-recharge{
+  width:100%;
+  margin:0 0 8px;
+}
+.landing-shell .button-group{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+.blog-entry-link,
+.ability-strip,
+.trust-metrics,
+.purchase-flow,
+.account-check,
+.small-risk,
+.steps-mini,
+.buy-notes,
+.badges,
+.stats,
+.feedback-box,
+.landing-shell footer,
+.sticky-note,
+.trust-widget.case-thumbnail{
+  display:none !important;
+}
+.problem-router{
+  max-width:100%;
+  margin:10px auto 0;
+  padding:0;
+  border:0;
+  background:transparent;
+}
+.problem-router-title{
+  display:none;
+}
+.problem-router-desc{
+  display:none;
+}
+.problem-options{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:7px;
+}
+.problem-option{
+  min-height:36px;
+  padding:7px 8px;
+  font-size:.66rem;
+}
+.problem-option-wide{
+  grid-column:auto;
+}
+@media (min-width: 961px){
+  body{
+    padding:34px 12px 36px;
+  }
+  .landing-shell{
+    max-width:720px;
+    grid-template-columns:unset;
+    gap:14px;
+  }
+  .side-panel{
+    padding:18px;
+  }
+}
+@media (max-width:640px){
+  body{
+    padding:16px 12px 94px !important;
+  }
+  .landing-shell .card-header{
+    padding:28px 20px 22px;
+  }
+  .focus-secondary-actions,
+  .focus-info-switches{
+    grid-template-columns:1fr;
+  }
+  .problem-options{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .focus-contact-btn,
+  .focus-blog-btn{
+    min-height:50px;
+  }
+  .problem-option-wide{
+    grid-column:1 / -1;
+  }
+  .cta-sticky{
+    display:grid !important;
+  }
+}
 </style>
 <script>
 var _hmt = _hmt || [];
@@ -2853,7 +3031,7 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <div class="landing-shell">
-<aside class="side-panel trust-panel" aria-label="为什么选择我们">
+<aside class="side-panel trust-panel" id="whyPanel" aria-label="为什么选择我们">
 <h2>为什么选择我们？</h2>
 <div class="trust-list">
 <div class="trust-item"><strong>稳定通道处理</strong><span>通过清晰流程处理，降低异常风险。</span></div>
@@ -2905,8 +3083,12 @@ var _hmt = _hmt || [];
 <div class="pre-cta-trust">✔ 充值到自己的账号，不是共享号或成品号</div>
 <div class="button-group">
 <button aria-label="购买 ChatGPT Plus 激活码" class="btn-buy" id="buyBtn">购买 Plus 激活码</button>
-<button class="btn-recharge" id="rechargeBtn">已购买，进入激活中心</button>
 </div>
+<div class="focus-secondary-actions" aria-label="咨询与指南入口">
+<button class="focus-contact-btn" id="copyWeChatMain" type="button">💬 联系客服 / 复制微信</button>
+<a class="focus-blog-btn" href="/blog/">📚 Plus 订阅指南 & 账号安全文章</a>
+</div>
+<button class="btn-recharge focus-recharge" id="rechargeBtn" type="button">已购买，进入激活中心</button>
 <section class="problem-router" aria-label="问题快速入口">
 <p class="problem-router-title">你现在卡在哪一步？</p>
 <p class="problem-router-desc">先看对应说明，判断是继续自助排查，还是直接购买激活码开通。</p>
@@ -3134,7 +3316,12 @@ var _hmt = _hmt || [];
 </div>
 </footer>
 </main>
-<aside class="side-panel faq-panel" aria-label="常见问题">
+<section class="focus-info-switches" aria-label="折叮信息入口">
+<a class="focus-info-button" href="#whyPanel">为什么选择我们？</a>
+<a class="focus-info-button" href="#faqPanel">常见问题</a>
+<button class="focus-info-button case-thumbnail" data-slide="1" type="button">用户反馈</button>
+</section>
+<aside class="side-panel faq-panel" id="faqPanel" aria-label="常见问题">
 <h2>常见问题</h2>
 <a class="mobile-mirror-link" href="https://gptuse.xyz/" target="_blank" rel="noopener">👉 无法访问 GPT？查看镜像服务</a>
 <div class="faq-list">
@@ -3488,6 +3675,7 @@ var _hmt = _hmt || [];
 
   // --- bottom copy wx ---
   $('#copyWeChat')?.addEventListener('click', async (e)=>{ e.preventDefault(); await copyToClipboard(WX_ID); });
+  $('#copyWeChatMain')?.addEventListener('click', async (e)=>{ e.preventDefault(); await copyToClipboard(WX_ID); });
 
   // ========== Modal helpers ==========
   function openMask(mask){
