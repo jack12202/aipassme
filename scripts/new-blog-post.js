@@ -5,7 +5,7 @@ const root = path.resolve(__dirname, '..');
 const blogDir = path.join(root, 'blog');
 const blogIndexPath = path.join(blogDir, 'index.html');
 const sitemapPath = path.join(root, 'sitemap.xml');
-const siteUrl = 'https://aipass.me';
+const siteUrl = 'https://www.aipass.me';
 
 function readArgs(argv) {
   const args = {};
