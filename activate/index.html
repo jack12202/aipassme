@@ -500,8 +500,8 @@
 
         <div class="stage" id="stage-2">
           <div class="notice" id="step2Notice">
-            <strong>第 2 步：确认要开通的 ChatGPT 账号</strong>
-            请先登录你要开通 Plus 的 ChatGPT 账号，然后打开账号确认页面，把页面返回的完整 JSON 内容复制到下方。系统会根据内容识别账号邮箱，方便你在提交前确认是否为自己的账号。
+            <strong>第 2 步：获取账号充值密钥</strong>
+            先登录要开通 Plus 的 ChatGPT 账号，再点击“获取账号充值密钥”。新页面会显示一大段代码，请全选复制到下方，系统会用它识别账号并完成本次开通。
           </div>
           <div class="two-col">
             <div>
@@ -509,15 +509,15 @@
                 <label>操作步骤</label>
                 <div class="btn-row" style="margin-top:0">
                   <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">打开 ChatGPT 登录</a>
-                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取账号确认内容</a>
+                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取账号充值密钥</a>
                 </div>
-                <small>请先登录 ChatGPT，再打开账号确认页面，把返回的完整 JSON 内容全选复制回来。</small>
+                <small>打开后看到的是一整段代码，请全选复制回来，不要只复制其中一小段。</small>
               </div>
               <div class="field">
-                <label for="secretJson">粘贴完整账号确认内容（JSON）</label>
-                <textarea id="secretJson" placeholder='请粘贴页面返回的完整 JSON 内容，例如 {"userEmail":"...","userGptToken":"...","fullAuthData":{...}}'></textarea>
-                <small>请把页面返回的 JSON 内容完整复制到这里，不要删减、改写或只复制其中一部分。系统会自动识别账号邮箱，识别成功后再进入最后确认。</small>
-                <small>安全提示：这不是 ChatGPT 密码，也不需要输入邮箱验证码。为保护账号安全，请只在 AIPass 当前页面粘贴，不要发送给陌生人或其他网站。</small>
+                <label for="secretJson">粘贴完整账号充值密钥（代码）</label>
+                <textarea id="secretJson" placeholder="请粘贴页面显示的整段代码"></textarea>
+                <small>把新页面显示的整段代码粘贴到这里。不要删减、改写，也不要只复制其中一小段。</small>
+                <small>安全提示：充值密钥不是 ChatGPT 密码，也不是邮箱验证码；请只在 AIPass 当前页面粘贴，不要发送给陌生人或其他网站。</small>
               </div>
               <div class="btn-row">
                 <button class="secondary" type="button" onclick="goStep(1)">返回修改激活码</button>
@@ -528,14 +528,14 @@
               <div class="info-card">
                 <h3>操作说明</h3>
                 <div class="kvs">
-                  <div class="kv"><span>输入</span><span>完整账号确认内容</span></div>
+                  <div class="kv"><span>输入</span><span>完整充值密钥代码</span></div>
                   <div class="kv"><span>识别</span><span>ChatGPT 账号邮箱</span></div>
                   <div class="kv"><span>下一步</span><span>确认账号无误后再提交开通</span></div>
                 </div>
               </div>
               <div class="tip-box">
                 <strong>复制提醒</strong>
-                请把返回内容完整复制回来，不要手动删减、改写或只复制其中一部分。
+                你看到的那串很长的文字，就是账号充值密钥。整段复制即可，不需要理解每个字段。
               </div>
             </div>
           </div>
@@ -652,8 +652,8 @@
       if (code === "TASK_NOT_FOUND") return "没有查到这笔开通任务，请稍后刷新重试。";
       if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
       if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
-      if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取账号确认内容后再试。";
-      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的账号确认内容。";
+      if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取账号充值密钥后再试。";
+      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的账号充值密钥。";
       if (code === "RECHARGE_FAILED") return "开通失败，请稍后重试或联系客服核查。";
       if (code === "processing" || status === "processing") return "开通任务已提交，系统正在处理中，请稍候。";
       if (code === "success" || status === "success") return "开通成功，系统已返回成功结果。";
@@ -727,10 +727,10 @@
       try {
         payload = JSON.parse(secretJsonText);
       } catch {
-        return { ok: false, message: "账号确认内容不是合法 JSON，请完整复制后重试。" };
+        return { ok: false, message: "账号充值密钥不是有效代码，请完整复制后重试。" };
       }
       if (!payload || typeof payload !== "object") {
-        return { ok: false, message: "账号确认内容无效，请重新获取后再试。" };
+        return { ok: false, message: "账号充值密钥内容无效，请重新获取后再试。" };
       }
       const user = payload.user && typeof payload.user === "object" ? payload.user : {};
       const account = payload.account && typeof payload.account === "object" ? payload.account : {};
@@ -748,10 +748,10 @@
         ? payload.fullAuthData
         : payload;
       if (!userEmail) {
-        return { ok: false, message: "账号确认内容缺少账号邮箱，请重新获取后再试。" };
+        return { ok: false, message: "账号充值密钥里没有识别到账号邮箱，请重新获取后再试。" };
       }
       if (!userGptToken) {
-        return { ok: false, message: "账号确认内容缺少访问令牌，请重新获取后再试。" };
+        return { ok: false, message: "账号充值密钥不完整，请重新获取后再试。" };
       }
       return {
         ok: true,
