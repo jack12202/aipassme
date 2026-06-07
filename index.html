@@ -3369,6 +3369,297 @@ body{
     font-size:2.65rem;
   }
 }
+
+/* ===== Short conversion homepage ===== */
+body{
+  padding:28px 12px 34px !important;
+}
+.landing-shell{
+  width:min(760px,100%);
+  max-width:760px;
+  gap:14px;
+}
+.focus-info-switches{
+  display:none !important;
+}
+.landing-shell .card-header{
+  padding:30px 34px 24px !important;
+}
+.short-hero{
+  gap:0;
+}
+.short-hero .brand-badge{
+  margin-bottom:14px;
+}
+.short-hero .brand-sub{
+  display:block !important;
+}
+.short-hero h1{
+  font-size:clamp(2rem,4.1vw,2.75rem);
+  line-height:1.12;
+}
+.short-subtitle{
+  max-width:620px;
+  margin:12px auto 0;
+  color:rgba(226,232,240,.84);
+  font-size:.96rem;
+  font-weight:780;
+  line-height:1.75;
+}
+.short-hero .decision-line{
+  margin-top:14px;
+}
+.short-hero .price{
+  margin:18px 0 8px;
+}
+.short-hero .price-val{
+  font-size:3.25rem;
+}
+.inline-contact-link{
+  all:unset;
+  display:inline-flex;
+  justify-content:center;
+  margin:8px auto 0;
+  color:#ccfbf1;
+  font-size:.86rem;
+  font-weight:900;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  cursor:pointer;
+}
+.trust-strip{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin:15px auto 0;
+  color:rgba(255,255,255,.72);
+  font-size:.78rem;
+  font-weight:850;
+}
+.trust-strip span{
+  display:inline-flex;
+  align-items:center;
+  min-height:28px;
+  padding:4px 9px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.045);
+}
+.compact-steps{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+.compact-steps li{
+  min-height:118px;
+}
+.flow-actions,
+.feedback-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:12px;
+}
+.mini-action{
+  min-height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 13px;
+  border-radius:12px;
+  border:1px solid rgba(45,212,191,.30);
+  background:rgba(20,184,166,.11);
+  color:#ccfbf1;
+  text-decoration:none;
+  font-size:.86rem;
+  font-weight:950;
+  cursor:pointer;
+}
+.primary-action{
+  color:#fff;
+  background:linear-gradient(180deg,#2dd4bf 0%,#14b8a6 100%);
+  border-color:rgba(45,212,191,.58);
+}
+.home-faq{
+  padding-bottom:14px;
+}
+.home-faq details{
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:11px 0;
+}
+.home-faq details:first-of-type{
+  border-top:0;
+}
+.home-faq summary{
+  cursor:pointer;
+  color:#fff;
+  font-size:.92rem;
+  font-weight:950;
+}
+.home-faq p{
+  margin:8px 0 0;
+  color:rgba(255,255,255,.70);
+  font-size:.84rem;
+  line-height:1.7;
+}
+.feedback-mini h2 small{
+  color:rgba(255,255,255,.50);
+  font-size:.72rem;
+  font-weight:850;
+}
+.feedback-marquee{
+  height:238px;
+  overflow:hidden;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(2,6,23,.18);
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+  mask-image:linear-gradient(to bottom, transparent 0, #000 24px, #000 calc(100% - 24px), transparent 100%);
+}
+.feedback-marquee-track{
+  display:grid;
+  gap:9px;
+  padding:10px;
+  animation:feedbackScroll 30s linear infinite;
+}
+.feedback-marquee:hover .feedback-marquee-track{
+  animation-play-state:paused;
+}
+.feedback-card{
+  display:grid;
+  gap:6px;
+  min-height:66px;
+  padding:12px 13px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.055);
+}
+.feedback-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.masked-name{
+  color:#ccfbf1;
+  font-size:.84rem;
+  font-weight:950;
+}
+.feedback-role{
+  color:rgba(255,255,255,.48);
+  font-size:.7rem;
+  font-weight:850;
+  white-space:nowrap;
+}
+.feedback-card p{
+  margin:0;
+  color:rgba(255,255,255,.80);
+  font-size:.82rem;
+  font-weight:800;
+  line-height:1.55;
+}
+.guide-action{
+  border-color:rgba(253,230,138,.32);
+  background:rgba(253,230,138,.10);
+  color:#fde68a;
+}
+.final-cta{
+  margin-top:14px;
+  padding:16px;
+  border-radius:14px;
+  border:1px solid rgba(45,212,191,.18);
+  background:rgba(2,6,23,.22);
+  text-align:center;
+}
+.final-cta p{
+  margin:0 0 10px;
+  color:rgba(255,255,255,.78);
+  font-size:.9rem;
+  font-weight:850;
+}
+.final-buy{
+  margin:0;
+  min-height:52px;
+}
+.landing-shell footer{
+  display:block !important;
+  margin-top:14px;
+  padding:14px 0 0;
+  border-top:1px solid rgba(255,255,255,.08);
+  color:rgba(255,255,255,.58);
+  text-align:center;
+}
+.landing-shell footer p{
+  margin:0;
+}
+.footer-brand{
+  color:rgba(204,251,241,.78);
+  font-size:.78rem;
+  line-height:1.7;
+}
+.footer-brand a{
+  color:#fde68a;
+  font-weight:900;
+}
+.footer-risk{
+  margin:8px 0 0;
+  font-size:.76rem;
+  line-height:1.65;
+}
+.footer-risk summary{
+  cursor:pointer;
+  color:rgba(255,255,255,.70);
+  font-weight:900;
+}
+.footer-risk p{
+  margin:7px auto 0;
+  max-width:620px;
+  color:rgba(255,255,255,.58);
+}
+.footer-disclaimer{
+  margin-top:8px !important;
+  font-size:.72rem;
+  opacity:.72;
+  line-height:1.6;
+}
+@media (max-width:760px){
+  .landing-shell .card-header{
+    padding:24px 18px 20px !important;
+  }
+  .short-hero h1{
+    font-size:1.86rem;
+  }
+  .short-subtitle{
+    font-size:.88rem;
+    line-height:1.65;
+  }
+  .short-hero .price-val{
+    font-size:2.65rem;
+  }
+  .compact-steps,
+  .feedback-marquee,
+  .flow-actions,
+  .feedback-actions{
+    grid-template-columns:1fr !important;
+  }
+  .compact-steps li,
+  .feedback-card{
+    min-height:0;
+  }
+  .feedback-marquee{
+    height:224px;
+  }
+  .trust-strip{
+    gap:6px;
+  }
+  .trust-strip span{
+    font-size:.72rem;
+  }
+}
+@media (prefers-reduced-motion: reduce){
+  .feedback-marquee-track{
+    animation:none;
+  }
+}
 </style>
 <script>
 var _hmt = _hmt || [];
@@ -3382,25 +3673,9 @@ var _hmt = _hmt || [];
 </head>
 <body>
 <div class="landing-shell">
-<aside class="side-panel trust-panel" id="whyPanel" aria-label="为什么选择我们">
-<h2>为什么选择我们？</h2>
-<div class="trust-list">
-<div class="trust-item"><strong>稳定通道处理</strong><span>通过清晰流程处理，降低异常风险。</span></div>
-<div class="trust-item"><strong>5分钟完成</strong><span>通常大部分情况下都在5分钟内完成，特殊情况联系人工处理。</span></div>
-<div class="trust-item"><strong>无需提供账号密码</strong><span>充值到你自己的账号，不用担心账号密码泄露。</span></div>
-<div class="trust-item"><strong>嘉哥AI售后</strong><span>也可搜索嘉哥GPT，咨询 Plus / Pro 和其他 AI 会员。</span></div>
-<div class="trust-item"><strong>售后支持</strong><span>9:00–24:00 人工在线。</span></div>
-<div class="trust-item"><strong>平台保障</strong><span>稳定交付，异常可处理。</span></div>
-</div>
-<button aria-label="查看其他 AI 平台会员充值" class="side-ai-entry" id="openAiModal" type="button">
-<span class="side-ai-title">🤖 其他 AI 会员代开</span>
-<span class="side-ai-sub">ChatGPT Pro / Claude / Grok</span>
-<span class="side-ai-cta">查看服务</span>
-</button>
-</aside>
 <main class="card">
 <header class="card-header">
-<div class="hero">
+<section class="hero short-hero" aria-label="Plus 激活码购买">
 <div aria-label="光年升级计划服务品牌" class="brand-badge">
 <svg aria-hidden="true" class="brand-icon" role="img" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <defs>
@@ -3421,110 +3696,85 @@ var _hmt = _hmt || [];
 </div>
 </div>
 <h1>没有海外卡，也能给自己的 ChatGPT 账号开通 Plus</h1>
-<div class="jiage-proof">光年升级计划｜嘉哥AI / 嘉哥GPT 主理 <span>专注 Plus 激活码、自助开通和账号升级问题处理</span></div>
-<div class="hero-copy" aria-label="开通方式摘要">
-<span><strong>微信/支付宝</strong>购买 Plus 激活码</span>
-<span><strong>站内激活中心</strong>按提示自助开通</span>
-<span><strong>常规无需密码</strong>多数正常订单约 5 分钟完成</span>
-</div>
+<p class="short-subtitle">支持微信/支付宝购买 Plus 激活码，在站内激活中心按提示自助开通。常规流程不需要提供 ChatGPT 密码，多数正常订单约 5 分钟完成。</p>
 <div class="decision-line">¥188/月｜开到自己的账号｜不是共享号｜未使用卡密可退</div>
-<div class="hero-divider"></div>
-</div>
 <div class="price">
 <span class="price-val">¥188/月</span>
 <span class="price-tag">Plus 月卡激活码</span>
 </div>
-<div class="price-note">OpenAI Plus 官方价格为 $20/月；本站价格包含国内付款、通道、系统和售后处理成本。光年升级计划由嘉哥AI / 嘉哥GPT 主理，是第三方服务网站，非 OpenAI 官方。</div>
 <div class="button-group hero-actions-main">
 <button aria-label="立即购买 ChatGPT Plus 激活码 188 元" class="btn-buy" id="buyBtn">立即购买 Plus 激活码 ¥188</button>
 <button class="btn-recharge focus-recharge" id="rechargeBtn" type="button">已买卡密？进入激活中心</button>
 </div>
-<div class="focus-secondary-actions" aria-label="咨询与指南入口">
-<button class="focus-contact-btn" id="copyWeChatMain" type="button">账号状态不确定，先微信确认</button>
-<a class="focus-blog-btn" href="/blog/">Plus 订阅指南 & 账号安全文章</a>
+<button class="inline-contact-link" id="copyWeChatMain" type="button">账号状态不确定？复制微信咨询</button>
+<div class="trust-strip" aria-label="服务信任信息">
+<span>2300+ 用户服务记录</span>
+<span>9:00–24:00 人工支持</span>
+<span>嘉哥主理</span>
 </div>
-<section class="decision-card purchase-after" aria-label="购买后你会拿到什么">
-<h2>购买后你会拿到什么？</h2>
-<ol class="purchase-steps">
-<li><strong>微信/支付宝付款</strong><span>下单时填写查单联系方式。</span></li>
-<li><strong>页面弹出 Plus 激活码</strong><span>保存卡密和订单信息。</span></li>
-<li><strong>进入光年升级计划激活中心</strong><span>输入卡密，按页面提示继续。</span></li>
-<li><strong>核对自己的 ChatGPT 账号</strong><span>确认当前账号无误后再激活。</span></li>
-<li><strong>刷新 ChatGPT 查看 Plus</strong><span>多数正常订单约 5 分钟完成。</span></li>
+</section>
+
+<section class="decision-card purchase-after" aria-label="购买后怎么开通">
+<h2>购买后怎么开通？</h2>
+<ol class="purchase-steps compact-steps">
+<li><strong>购买 Plus 激活码</strong><span>微信/支付宝付款后，保存激活码和订单信息。</span></li>
+<li><strong>进入激活中心确认账号</strong><span>输入激活码，按页面提示确认自己的 ChatGPT 账号。</span></li>
+<li><strong>提交开通，刷新查看 Plus</strong><span>确认无误后提交处理，多数正常订单约 5 分钟完成。</span></li>
 </ol>
-<p class="decision-note">下单时填写的是查单联系方式，不是 ChatGPT 登录信息。</p>
-</section>
-<section class="decision-card precheck-card" aria-label="下单前确认">
-<h2>下单前确认 3 件事</h2>
-<div class="precheck-grid">
-<div><strong>开通 ChatGPT Plus 月卡</strong><span>当前主商品是 Plus 激活码。</span></div>
-<div><strong>已有自己的 ChatGPT 账号</strong><span>开通到你的账号，不是共享号。</span></div>
-<div><strong>常规流程无需密码</strong><span>不建议提供密码、验证码或银行卡验证码。</span></div>
+<p class="decision-note">下单时填写的是查单联系方式，不是 ChatGPT 登录信息；常规流程不需要提供 ChatGPT 密码、邮箱验证码或支付验证码。</p>
+<div class="flow-actions">
+<button class="mini-action primary-action" type="button" id="flowBuyBtn">购买 Plus 激活码</button>
+<button class="mini-action" type="button" id="flowActivateBtn">进入激活中心</button>
 </div>
 </section>
-<section class="decision-card support-policy" aria-label="售后规则">
-<h2>售后规则</h2>
-<p>未使用卡密可处理退款；已使用卡密后的异常，按实际充值状态处理。Plus 异常支持 30 天质保，具体以订单状态和实际使用天数为准。</p>
-<button class="policy-contact" id="policyCopyWx" type="button">付款前想确认，复制微信咨询</button>
+
+<section class="decision-card home-faq" aria-label="下单前最关心的 4 个问题">
+<h2>下单前最关心的 4 个问题</h2>
+<details open><summary>需要提供 ChatGPT 密码吗？</summary><p>不需要。常规流程按页面提示确认账号并提交开通，不建议把 ChatGPT 密码、邮箱验证码、短信验证码或支付验证码发给任何第三方。</p></details>
+<details><summary>是开到自己的账号吗？</summary><p>是。流程会让你确认当前登录的 ChatGPT 账号，确认无误后再提交开通，不是共享号或成品号。</p></details>
+<details><summary>多久到账？</summary><p>多数正常订单约 5 分钟完成。少数账号状态异常、验证异常或系统延迟时，可联系人工协助处理。</p></details>
+<details><summary>可以退款吗？</summary><p>未使用卡密可处理退款；已使用后按实际充值状态处理。Plus 异常支持 30 天质保，具体以订单状态和实际使用天数为准。</p></details>
 </section>
-<section class="problem-router" aria-label="问题快速入口">
-<p class="problem-router-title">你现在卡在哪一步？</p>
-<p class="problem-router-desc">不确定是否适合直接买？先按当前问题看一篇最相关的说明。</p>
-<div class="problem-options">
-<a class="problem-option" href="/blog/chatgpt-plus-guonei-fukuan.html">没有海外卡，想开通 Plus</a>
-<a class="problem-option" href="/blog/chatgpt-chongzhi-shibai.html">银行卡 / 信用卡支付失败</a>
-<a class="problem-option" href="/blog/chatgpt-plus-chongzhi.html">续费前想确认流程</a>
-<a class="problem-option" href="/blog/chatgpt-plus-xuyao-tigong-mima-ma.html">担心要不要提供密码</a>
-<a class="problem-option problem-option-wide" href="/blog/chatgpt-plus-daichong-kaopu-ma.html">想先判断平台是否靠谱</a>
+
+<section class="decision-card feedback-mini" aria-label="用户反馈与指南">
+<h2>用户反馈 <small>昵称已脱敏</small></h2>
+<div class="feedback-marquee" aria-label="用户反馈滚动列表">
+<div class="feedback-marquee-track">
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">林**</span><span class="feedback-role">设计师</span></div><p>不用发密码这点比较安心，按页面提示走完就可以。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">阿**</span><span class="feedback-role">自媒体</span></div><p>之前续费失败，先问清楚再下单，说明还挺明白。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">M**</span><span class="feedback-role">留学生</span></div><p>账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">陈**</span><span class="feedback-role">公司采购</span></div><p>要发票和对公付款，提前确认后流程比较顺。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">周**</span><span class="feedback-role">开发者</span></div><p>卡密出来后直接进激活中心，确认账号这一步比较清楚。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">小**</span><span class="feedback-role">学生</span></div><p>没有海外卡，第一次操作有点紧张，客服回复挺快。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">王**</span><span class="feedback-role">运营</span></div><p>主要是不用买共享号，开到自己账号这点比较放心。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">S**</span><span class="feedback-role">产品经理</span></div><p>付款后流程短，照着页面提示做，几分钟后 Plus 就能用了。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">赵**</span><span class="feedback-role">自由职业</span></div><p>银行卡一直失败，换这个方式省了不少来回试错。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">刘**</span><span class="feedback-role">教育行业</span></div><p>下单前先问了账号状态，确认没问题后再买，心里踏实些。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">何**</span><span class="feedback-role">跨境卖家</span></div><p>售后把注意事项说清楚了，没让我乱发验证码。</p></article>
+<article class="feedback-card"><div class="feedback-card-head"><span class="masked-name">李**</span><span class="feedback-role">研究生</span></div><p>整体比自己折腾支付方式简单，关键是账号还是自己的。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">林**</span><span class="feedback-role">设计师</span></div><p>不用发密码这点比较安心，按页面提示走完就可以。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">阿**</span><span class="feedback-role">自媒体</span></div><p>之前续费失败，先问清楚再下单，说明还挺明白。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">M**</span><span class="feedback-role">留学生</span></div><p>账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">陈**</span><span class="feedback-role">公司采购</span></div><p>要发票和对公付款，提前确认后流程比较顺。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">周**</span><span class="feedback-role">开发者</span></div><p>卡密出来后直接进激活中心，确认账号这一步比较清楚。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">小**</span><span class="feedback-role">学生</span></div><p>没有海外卡，第一次操作有点紧张，客服回复挺快。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">王**</span><span class="feedback-role">运营</span></div><p>主要是不用买共享号，开到自己账号这点比较放心。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">S**</span><span class="feedback-role">产品经理</span></div><p>付款后流程短，照着页面提示做，几分钟后 Plus 就能用了。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">赵**</span><span class="feedback-role">自由职业</span></div><p>银行卡一直失败，换这个方式省了不少来回试错。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">刘**</span><span class="feedback-role">教育行业</span></div><p>下单前先问了账号状态，确认没问题后再买，心里踏实些。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">何**</span><span class="feedback-role">跨境卖家</span></div><p>售后把注意事项说清楚了，没让我乱发验证码。</p></article>
+<article class="feedback-card" aria-hidden="true"><div class="feedback-card-head"><span class="masked-name">李**</span><span class="feedback-role">研究生</span></div><p>整体比自己折腾支付方式简单，关键是账号还是自己的。</p></article>
+</div>
+</div>
+<div class="feedback-actions">
+<button class="mini-action case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
+<a class="mini-action guide-action" href="/blog/">先看嘉哥的开通问题指南</a>
+</div>
+<div class="final-cta">
+<p>准备好了？购买 Plus 激活码，开通到自己的账号。</p>
+<button class="btn-buy final-buy" id="finalBuyBtn" type="button">立即购买 Plus 激活码 ¥188</button>
 </div>
 </section>
-<div class="ability-strip" aria-label="开通后可用能力">
-<strong>开通后可用能力</strong>
-<span>🖼️ GPT Image 2 图片生成 · 💻 Codex 编程助手</span>
-<small>具体额度以账号内实际显示为准</small>
-</div>
-<div class="trust-metrics" aria-label="服务数据">
-<div class="compact-info-line">2300+用户 · 近30天稳定 · 5分钟完成 · 人工支持</div>
-</div>
-<div class="purchase-flow" aria-label="购买流程">
-<div class="flow-line">下单 → 填写 → 自动充值 → 完成</div>
-</div>
-<div class="account-check">
-📌 充值到你自己的 GPT 账号，不是共享号或成品号<br>
-<a href="https://gptuse.xyz/" target="_blank" rel="noopener">无法访问 GPT？👉 查看镜像服务</a>
-</div>
-<div aria-hidden="true" class="actions-gap"></div>
-<p class="small-risk">到账异常？系统自动处理，客服协助解决</p>
-<div class="steps-mini">
-<span class="step-pill">1 下单购买</span>
-<span class="step-pill">2 进入系统激活</span>
-<span class="step-pill">3 自动到账</span>
-<a class="steps-link" href="#" id="openFlow">查看流程</a>
-</div>
-<ul class="buy-notes">
-<li>购买后进入系统激活，充值到你自己的 ChatGPT 账号</li>
-<li>全程无需提供账号密码，按指引充值到自己的账号，降低泄密风险</li>
-<li>如需发票/对公，请先联系人工确认后再下单</li>
-</ul>
-<div class="badges">
-<span class="badge">🔒 无需提供密码</span>
-<span class="badge">⚙ 按指引操作</span>
-<span class="badge">🛡 稳定交付</span>
-</div>
-<div class="stats">
-<div class="stat">
-<div class="stat-value">2300+</div>
-<div class="stat-label">用户已开通</div>
-</div>
-<div class="stat">
-<div class="stat-value">近30天</div>
-<div class="stat-label">稳定交付</div>
-</div>
-<div class="stat">
-<div class="stat-value">5分钟</div>
-<div class="stat-label">多数订单完成</div>
-</div>
-</div>
 </header>
 
 
@@ -3654,32 +3904,11 @@ var _hmt = _hmt || [];
 </div>
 
 <footer>
-<section aria-label="关于光年升级计划" style="margin:0 0 14px;padding:16px;border-radius:16px;background:rgba(20,184,166,.10);border:1px solid rgba(45,212,191,.24);text-align:left;line-height:1.75;">
-  <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">关于光年升级计划</h2>
-  <p style="margin:0 0 8px;color:rgba(255,255,255,.74);font-size:.82rem;">光年升级计划由嘉哥AI / 嘉哥GPT 主理，主要为国内用户整理 ChatGPT Plus 开通、支付失败处理、账号安全和 AI 工具使用相关指南，并提供 Plus 激活码自助开通服务。AIPass.me 为光年升级计划官网入口。</p>
-  <p style="margin:0;color:rgba(204,251,241,.82);font-size:.82rem;">你在抖音、小红书、视频号看到的“嘉哥AI”“嘉哥GPT”，对应的官网服务入口为光年升级计划。<a href="/jiage-ai-gpt/" style="color:#fde68a;font-weight:900;">查看官方入口说明</a></p>
-</section>
-<section aria-label="服务风险说明" style="margin:18px 0 0;padding:16px;border-radius:16px;background:rgba(15,23,42,.38);border:1px solid rgba(20,184,166,.22);text-align:left;line-height:1.75;">
-  <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">服务风险说明</h2>
-  <ul style="margin:0;padding-left:1.1rem;color:rgba(255,255,255,.72);font-size:.82rem;">
-    <li>光年升级计划是第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。</li>
-    <li>不提供共享号、成品号或来源不明账号，优先充值到用户自己的账号。</li>
-    <li>不建议选择异常低价渠道，避免支付来源、账号归属和售后边界不清。</li>
-    <li>任何第三方服务都不应承诺零风险，使用前请先确认流程、价格、退款和异常处理规则。</li>
-  </ul>
-</section>
-<section aria-label="首页常见问题" style="margin:14px 0 0;padding:16px;border-radius:16px;background:rgba(2,6,23,.3);border:1px solid rgba(255,255,255,.1);text-align:left;line-height:1.75;">
-  <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">开通前常见问题</h2>
-  <details open><summary>ChatGPT Plus 国内可以付款吗？</summary><p>部分用户可以使用可用的国际支付方式自行订阅；如果国内银行卡或续费失败，可以了解第三方协助方式。</p></details>
-  <details><summary>开通 Plus 是否需要提供账号密码？</summary><p>不建议随意提供账号密码。光年升级计划主张按指引充值到自己的账号，尽量减少敏感信息暴露。</p></details>
-  <details><summary>光年升级计划是官方官网吗？</summary><p>不是。光年升级计划是第三方服务网站，并非 OpenAI 或 ChatGPT 官方；可以协助用户使用官方订阅入口完成开通或续费。</p></details>
-  <details><summary>充值一般多久到账？</summary><p>多数正常订单约 5 分钟内完成；少数账号状态异常、验证异常或系统延迟时，人工协助处理。如遇延迟，先不要重复下单。</p></details>
-  <details><summary>如果续费失败怎么办？</summary><p>先检查原支付方式、订阅入口和账号状态；多次失败时，可以咨询客服确认可行处理方式。</p></details>
-  <details><summary>是否支持退款？</summary><p>未使用卡密可处理退款；已使用后按实际充值状态处理。Plus 异常支持 30 天质保，具体以订单状态和实际使用天数为准。</p></details>
-</section>
-<div style="font-size:12px;opacity:0.6;margin-top:14px;line-height:1.6;">
-  声明：光年升级计划是第三方数字服务平台，与 OpenAI 或 ChatGPT 官方无任何隶属关系。页面中提及的产品名称仅用于说明服务适配对象。
-</div>
+<p class="footer-brand">光年升级计划由嘉哥AI / 嘉哥GPT 主理。你在抖音、小红书、视频号看到的“嘉哥AI”“嘉哥GPT”，对应的服务入口就是这里。<a href="/jiage-ai-gpt/">官方入口说明</a></p>
+<details class="footer-risk"><summary>查看服务风险说明</summary>
+<p>光年升级计划是第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站；不提供共享号、成品号或来源不明账号；任何第三方服务都不应承诺零风险，使用前请先确认流程、价格、退款和异常处理规则。</p>
+</details>
+<p class="footer-disclaimer">AIPass.me 为光年升级计划官网入口。页面中提及的产品名称仅用于说明服务适配对象。</p>
 </footer>
 </main>
 <section class="focus-info-switches" aria-label="折叮信息入口">
@@ -3687,6 +3916,20 @@ var _hmt = _hmt || [];
 <a class="focus-info-button" href="#faqPanel">常见问题</a>
 <a class="focus-info-button" href="#feedbackPanel">用户反馈</a>
 </section>
+<aside class="side-panel trust-panel" id="whyPanel" aria-label="为什么选择我们">
+<h2>为什么选择我们？</h2>
+<div class="trust-list">
+<div class="trust-item"><strong>开到自己的账号</strong><span>确认当前 ChatGPT 账号后再提交，不是共享号或成品号。</span></div>
+<div class="trust-item"><strong>常规无需密码</strong><span>不建议提供 ChatGPT 密码、邮箱验证码或支付验证码。</span></div>
+<div class="trust-item"><strong>多数约 5 分钟完成</strong><span>账号状态异常时，可联系人工协助处理。</span></div>
+<div class="trust-item"><strong>嘉哥AI售后</strong><span>9:00–24:00 人工在线，也可咨询 Pro / Claude / Grok 等需求。</span></div>
+</div>
+<button aria-label="查看其他 AI 平台会员充值" class="side-ai-entry" id="openAiModal" type="button">
+<span class="side-ai-title">其他 AI 会员</span>
+<span class="side-ai-sub">Pro / Claude / Grok 需求，先联系嘉哥确认</span>
+<span class="side-ai-cta">查看服务</span>
+</button>
+</aside>
 <aside class="side-panel faq-panel" id="faqPanel" aria-label="常见问题">
 <h2>常见问题</h2>
 <a class="mobile-mirror-link" href="https://gptuse.xyz/" target="_blank" rel="noopener">👉 无法访问 GPT？查看镜像服务</a>
@@ -4069,6 +4312,9 @@ var _hmt = _hmt || [];
 
   // --- buy buttons ---
   $('#buyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
+  $('#flowBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
+  $('#finalBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
+  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = '/activate/?v=20260606'; });
   $('#mobileBuyBtn')?.addEventListener('click', (e)=>{
     e.preventDefault();
     if(e.target.closest?.('.mobile-wechat')){
