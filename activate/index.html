@@ -443,7 +443,7 @@
     <div class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">光</span>
-        <span>光年升级计划 · 嘉哥AI主理</span>
+        <span>光年升级计划 · 嘉哥主理</span>
       </a>
       <div class="top-actions">
         <a class="mini-btn" href="/">返回光年升级计划首页</a>
@@ -452,13 +452,13 @@
     </div>
 
     <section class="hero">
-      <span class="eyebrow">光年升级计划 · 嘉哥AI主理</span>
+      <span class="eyebrow">Plus 激活码开通中心</span>
       <h1>ChatGPT Plus 激活码自助开通</h1>
       <p>已购买 Plus 激活码？在这里完成自助开通。请先验证激活码，再确认当前登录的 ChatGPT 账号，最后提交开通。常规流程不需要输入 ChatGPT 密码或验证码。</p>
       <div class="hero-pills">
-        <span class="pill">充值到自己的 GPT 账号</span>
-        <span class="pill">无需提供账号密码</span>
-        <span class="pill">先买激活码，再进站内中心</span>
+        <span class="pill">开通到自己的 ChatGPT 账号</span>
+        <span class="pill">不需要输入 ChatGPT 密码</span>
+        <span class="pill">先验证激活码，再确认账号</span>
       </div>
     </section>
 
@@ -467,69 +467,70 @@
         <div class="step active" id="step-1">
           <div class="num">1</div>
           <strong>验证激活码</strong>
-          <span>先确认激活码可用于当前产品</span>
+          <span>确认激活码可用于 Plus 开通</span>
         </div>
         <div class="step" id="step-2">
           <div class="num">2</div>
-          <strong>获取密钥</strong>
-          <span>登录 GPT 后复制完整 JSON</span>
+          <strong>确认 ChatGPT 账号</strong>
+          <span>识别当前登录账号邮箱</span>
         </div>
         <div class="step" id="step-3">
           <div class="num">3</div>
-          <strong>确认充值</strong>
-          <span>检查账号信息并提交任务</span>
+          <strong>提交开通</strong>
+          <span>核对无误后开始处理</span>
         </div>
       </div>
 
       <div class="content">
         <div class="stage active" id="stage-1">
           <div class="notice" id="step1Notice">
-            <strong>第 1 步：先验证激活码</strong>
-            这里会先校验激活码是否可用。验证通过后，再进入下一步获取充值密钥。
+            <strong>第 1 步：验证你的 Plus 激活码</strong>
+            输入你购买后获得的激活码。系统会先确认激活码是否可用，验证通过后才会进入下一步。这一步不会开始开通，只是先检查激活码状态。
           </div>
           <div class="field">
-            <label for="cardInfo">验证激活码</label>
-            <input id="cardInfo" placeholder="请输入你购买后的 Plus 激活码">
-            <small>第一版优先支持 ChatGPT Plus。激活码验证通过后，系统会继续识别账号信息。</small>
+            <label for="cardInfo">Plus 激活码</label>
+            <input id="cardInfo" placeholder="请输入你购买后获得的 Plus 激活码">
+            <small>不要在这里输入 ChatGPT 密码、邮箱验证码或支付验证码。当前页面用于 ChatGPT Plus 月卡激活码开通。</small>
           </div>
           <div class="btn-row">
-            <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">验证激活码</button>
-            <a class="link-btn secondary" href="https://fe.dtyuedan.cn/shop/jiage">去购买激活码</a>
+            <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">验证激活码，进入下一步</button>
+            <a class="link-btn secondary" href="https://fe.dtyuedan.cn/shop/jiage">还没有激活码？先去购买</a>
           </div>
         </div>
 
         <div class="stage" id="stage-2">
           <div class="notice" id="step2Notice">
-            <strong>第 2 步：获取充值密钥</strong>
-            先登录 GPT，再点击获取充值密钥，把返回的完整 JSON 全选复制回这里。
+            <strong>第 2 步：确认要开通的 ChatGPT 账号</strong>
+            请先登录你要开通 Plus 的 ChatGPT 账号，然后打开账号确认页面，把页面返回的完整 JSON 内容复制到下方。系统会根据内容识别账号邮箱，方便你在提交前确认是否为自己的账号。
           </div>
           <div class="two-col">
             <div>
               <div class="field">
                 <label>操作步骤</label>
                 <div class="btn-row" style="margin-top:0">
-                  <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">点我登录 GPT</a>
-                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">点我获取充值密钥</a>
+                  <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">打开 ChatGPT 登录</a>
+                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取账号确认内容</a>
                 </div>
-                <small>请先登录 GPT，再打开充值密钥页面，把返回的完整 JSON 全选复制回来。</small>
+                <small>请先登录 ChatGPT，再打开账号确认页面，把返回的完整 JSON 内容全选复制回来。</small>
               </div>
               <div class="field">
-                <label for="secretJson">请粘贴完整充值密钥（JSON）</label>
-                <textarea id="secretJson" placeholder='请粘贴类似 {"userEmail":"...","userGptToken":"...","fullAuthData":{...}} 的完整 JSON'></textarea>
-                <small>不要删减任何字段。系统会自动识别账号邮箱，识别成功后再进入最后确认。</small>
+                <label for="secretJson">粘贴完整账号确认内容（JSON）</label>
+                <textarea id="secretJson" placeholder='请粘贴页面返回的完整 JSON 内容，例如 {"userEmail":"...","userGptToken":"...","fullAuthData":{...}}'></textarea>
+                <small>请把页面返回的 JSON 内容完整复制到这里，不要删减、改写或只复制其中一部分。系统会自动识别账号邮箱，识别成功后再进入最后确认。</small>
+                <small>安全提示：这不是 ChatGPT 密码，也不需要输入邮箱验证码。为保护账号安全，请只在 AIPass 当前页面粘贴，不要发送给陌生人或其他网站。</small>
               </div>
               <div class="btn-row">
-                <button class="secondary" type="button" onclick="goStep(1)">返回上一步</button>
-                <button class="primary" type="button" id="parseSecretBtn" onclick="parseSecret()">校验账号信息</button>
+                <button class="secondary" type="button" onclick="goStep(1)">返回修改激活码</button>
+                <button class="primary" type="button" id="parseSecretBtn" onclick="parseSecret()">识别账号邮箱，进入确认</button>
               </div>
             </div>
             <div>
               <div class="info-card">
                 <h3>操作说明</h3>
                 <div class="kvs">
-                  <div class="kv"><span>输入</span><span>完整 JSON 密钥</span></div>
-                  <div class="kv"><span>识别</span><span>邮箱、账号信息</span></div>
-                  <div class="kv"><span>下一步</span><span>确认账号无误后再充值</span></div>
+                  <div class="kv"><span>输入</span><span>完整账号确认内容</span></div>
+                  <div class="kv"><span>识别</span><span>ChatGPT 账号邮箱</span></div>
+                  <div class="kv"><span>下一步</span><span>确认账号无误后再提交开通</span></div>
                 </div>
               </div>
               <div class="tip-box">
@@ -542,28 +543,28 @@
 
         <div class="stage" id="stage-3">
           <div class="notice" id="step3Notice">
-            <strong>第 3 步：确认充值</strong>
-            请确认邮箱和激活码无误，再提交充值任务。
+            <strong>第 3 步：确认账号并提交开通</strong>
+            请认真核对下方邮箱和激活码。提交后将按这个 ChatGPT 账号处理 Plus 开通，请确认这是你要开通的账号。
           </div>
           <div class="two-col">
             <div class="info-card">
-              <h3>确认充值信息</h3>
+              <h3>确认开通信息</h3>
               <div class="kvs">
-                <div class="kv"><span>账号信息</span><span id="confirmEmail">-</span></div>
-                <div class="kv"><span>充值激活码</span><span id="confirmCard">-</span></div>
-                <div class="kv"><span>充值通道</span><span id="confirmChannel">光年升级计划通道</span></div>
+                <div class="kv"><span>ChatGPT 账号邮箱</span><span id="confirmEmail">-</span></div>
+                <div class="kv"><span>Plus 激活码</span><span id="confirmCard">-</span></div>
+                <div class="kv"><span>处理通道</span><span id="confirmChannel">光年升级计划</span></div>
               </div>
               <label class="checkbox">
                 <input type="checkbox" id="overwriteRecharge" onchange="updateConfirmButtonState()">
-                <span>我确认以上信息无误，同意进行充值操作<br><small>如需续充已有 Plus，可保持勾选后继续提交。</small></span>
+                <span>我已确认上方 ChatGPT 账号邮箱和激活码无误，同意提交 Plus 开通。<br><small>如果这是已有 Plus 账号的续费，请再次确认上方邮箱就是你要续费的账号。</small></span>
               </label>
               <div class="btn-row">
-                <button class="secondary" type="button" onclick="goStep(2)">返回修改</button>
-                <button class="green" type="button" id="confirmRechargeBtn" onclick="confirmRecharge()" disabled>确认充值</button>
+                <button class="secondary" type="button" onclick="goStep(2)">返回修改账号信息</button>
+                <button class="green" type="button" id="confirmRechargeBtn" onclick="confirmRecharge()" disabled>确认无误，提交开通</button>
               </div>
               <div class="progress" id="progressBox" style="display:none;">
-                <strong>任务已提交，正在处理中</strong>
-                系统正在向上游提交充值任务，请不要重复点击。
+                <strong>已提交，正在为该账号处理 Plus 开通</strong>
+                系统正在处理本次开通任务，请不要重复点击或重复提交。
               </div>
               <div class="result-card success" id="resultBox" style="display:none;"></div>
             </div>
@@ -571,13 +572,13 @@
               <div class="info-card">
                 <h3>提交前提醒</h3>
                 <div class="kvs">
-                  <div class="kv"><span>请确认</span><span>邮箱与激活码无误</span></div>
-                  <div class="kv"><span>提交后</span><span>系统会自动查询充值状态</span></div>
-                  <div class="kv"><span>如遇异常</span><span>保留页面提示便于核查</span></div>
+                  <div class="kv"><span>提交前已确认</span><span>账号邮箱与激活码无误</span></div>
+                  <div class="kv"><span>提交后</span><span>系统会自动处理并查询开通状态</span></div>
+                  <div class="kv"><span>如遇异常</span><span>保存页面提示，联系人工客服核查</span></div>
                 </div>
               </div>
               <div class="footer-note">
-                如果页面一直显示处理中，请不要连续重复提交。优先保存账号邮箱、激活码和页面提示，再联系客服协助核查。
+                如果页面长时间显示处理中，请不要重复提交。请保存账号邮箱、激活码和当前页面提示，联系人工客服协助核查。
               </div>
             </div>
           </div>
@@ -585,7 +586,7 @@
       </div>
     </section>
 
-    <p class="foot">声明：光年升级计划由嘉哥AI / 嘉哥GPT 主理，是第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。页面中提及的产品名称仅用于说明服务适配对象。</p>
+    <p class="foot">声明：光年升级计划由嘉哥主理，是第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。你在抖音、小红书、视频号看到的“嘉哥AI / 嘉哥GPT”，对应的服务入口就是光年升级计划。页面中提及的产品名称仅用于说明服务适配对象。</p>
   </div>
 
   <script>
@@ -642,24 +643,24 @@
       if (code === "CARD_DISABLED") return "这张激活码当前已被停用，请联系处理。";
       if (code === "SYSTEM_BUSY") return "系统繁忙，请稍后再试。";
       if (typeof upstream?.message === "string" && upstream.message.trim()) return upstream.message;
-      return "当前激活码无法用于充值。";
+      return "当前激活码无法用于开通。";
     }
 
     function mapRechargeMessage(message, status) {
       const code = typeof message === "string" ? message.trim() : "";
       if (code === "SYSTEM_BUSY") return "系统繁忙，请稍后再试。";
-      if (code === "TASK_NOT_FOUND") return "没有查到这笔充值任务，请稍后刷新重试。";
+      if (code === "TASK_NOT_FOUND") return "没有查到这笔开通任务，请稍后刷新重试。";
       if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
       if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
-      if (code === "ACCOUNT_VERIFY_FAILED") return "账号校验失败，请重新获取充值密钥后再试。";
-      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 GPT 后获取新的充值密钥。";
-      if (code === "RECHARGE_FAILED") return "充值失败，请稍后重试或联系客服核查。";
-      if (code === "processing" || status === "processing") return "充值任务已提交，系统正在处理中，请稍候。";
-      if (code === "success" || status === "success") return "充值成功，系统已返回成功结果。";
-      if (code === "failed" || status === "failed") return "充值失败，请稍后重试或联系客服核查。";
+      if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取账号确认内容后再试。";
+      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的账号确认内容。";
+      if (code === "RECHARGE_FAILED") return "开通失败，请稍后重试或联系客服核查。";
+      if (code === "processing" || status === "processing") return "开通任务已提交，系统正在处理中，请稍候。";
+      if (code === "success" || status === "success") return "开通成功，系统已返回成功结果。";
+      if (code === "failed" || status === "failed") return "开通失败，请稍后重试或联系客服核查。";
       if (code) return code;
-      if (status === "success") return "充值成功，系统已返回成功结果。";
-      if (status === "failed") return "充值失败，请稍后重试或联系客服核查。";
+      if (status === "success") return "开通成功，系统已返回成功结果。";
+      if (status === "failed") return "开通失败，请稍后重试或联系客服核查。";
       return "系统正在处理中，请稍候。";
     }
 
@@ -677,7 +678,7 @@
 
     function renderProgressBox(message, taskId) {
       const progressBox = document.getElementById("progressBox");
-      progressBox.innerHTML = `<strong>任务已提交，正在处理中</strong>${message}<br>任务号：${taskId}<br>请不要重复点击，系统会自动查询状态。`;
+      progressBox.innerHTML = `<strong>已提交，正在为该账号处理 Plus 开通</strong>${message}<br>任务号：${taskId}<br>请不要重复点击或重复提交，系统会自动查询状态。`;
     }
 
     function renderResultBox(type, message, taskId) {
@@ -688,7 +689,7 @@
         ? `
           <div class="result-top">
             <div class="result-heading">
-              <h3 class="result-title">充值成功</h3>
+              <h3 class="result-title">开通成功</h3>
               <p class="result-subtitle">${message}</p>
             </div>
             <span class="result-badge">已完成</span>
@@ -705,7 +706,7 @@
         : `
           <div class="result-top">
             <div class="result-heading">
-              <h3 class="result-title">充值失败</h3>
+              <h3 class="result-title">开通失败</h3>
               <p class="result-subtitle">${message}</p>
             </div>
             <span class="result-badge">需处理</span>
@@ -726,10 +727,10 @@
       try {
         payload = JSON.parse(secretJsonText);
       } catch {
-        return { ok: false, message: "充值密钥不是合法 JSON，请完整复制后重试。" };
+        return { ok: false, message: "账号确认内容不是合法 JSON，请完整复制后重试。" };
       }
       if (!payload || typeof payload !== "object") {
-        return { ok: false, message: "充值密钥内容无效，请重新获取后再试。" };
+        return { ok: false, message: "账号确认内容无效，请重新获取后再试。" };
       }
       const user = payload.user && typeof payload.user === "object" ? payload.user : {};
       const account = payload.account && typeof payload.account === "object" ? payload.account : {};
@@ -747,10 +748,10 @@
         ? payload.fullAuthData
         : payload;
       if (!userEmail) {
-        return { ok: false, message: "充值密钥缺少账号邮箱，请重新获取后再试。" };
+        return { ok: false, message: "账号确认内容缺少账号邮箱，请重新获取后再试。" };
       }
       if (!userGptToken) {
-        return { ok: false, message: "充值密钥缺少访问令牌，请重新获取后再试。" };
+        return { ok: false, message: "账号确认内容缺少访问令牌，请重新获取后再试。" };
       }
       return {
         ok: true,
@@ -779,14 +780,14 @@
           return;
         }
         currentProductId = Number(upstream.productId || 3);
-        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步获取充值密钥。", "success");
+        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步确认 ChatGPT 账号。", "success");
         document.getElementById("confirmCard").textContent = cardInfo;
         goStep(2);
       } catch (error) {
         setNotice("step1Notice", "激活码验证失败", error.message || "网络请求异常。", "error");
       } finally {
         button.disabled = false;
-        button.textContent = "验证激活码";
+        button.textContent = "验证激活码，进入下一步";
       }
     }
 
@@ -799,7 +800,7 @@
         const result = parseSecretPayload(secretJsonText);
         if (!result.ok) {
           currentParsedSecret = null;
-          setNotice("step2Notice", "密钥识别失败", result.message, "error");
+          setNotice("step2Notice", "账号识别失败", result.message, "error");
           return;
         }
         currentParsedSecret = result.data;
@@ -808,14 +809,14 @@
         updateConfirmButtonState();
         setTextIfPresent("confirmEmail", result.data.userEmail);
         setTextIfPresent("confirmCard", document.getElementById("cardInfo").value.trim());
-          setTextIfPresent("confirmChannel", "光年升级计划通道");
+          setTextIfPresent("confirmChannel", "光年升级计划");
           setNotice("step2Notice", "账号信息识别成功", `已识别账号邮箱：${result.data.userEmail}，可以进入最后确认。`, "success");
         goStep(3);
       } catch (error) {
-        setNotice("step2Notice", "密钥识别失败", error.message || "网络请求异常。", "error");
+        setNotice("step2Notice", "账号识别失败", error.message || "网络请求异常。", "error");
       } finally {
         button.disabled = false;
-        button.textContent = "校验账号信息";
+        button.textContent = "识别账号邮箱，进入确认";
       }
     }
 
@@ -824,7 +825,7 @@
       const progressBox = document.getElementById("progressBox");
       const resultBox = document.getElementById("resultBox");
       if (!currentParsedSecret) {
-        setNotice("step3Notice", "充值提交失败", "请先返回上一步校验账号信息。", "error");
+        setNotice("step3Notice", "开通提交失败", "请先返回上一步识别账号信息。", "error");
         return;
       }
       const payload = {
@@ -842,7 +843,7 @@
         const data = await postJson("/api/recharge/confirm", payload);
         const task = data.data || {};
         if (!data.success || task.success === false || !task.taskId) {
-          setNotice("step3Notice", "充值提交失败", mapRechargeMessage(task.message || data.message, "failed"), "error");
+          setNotice("step3Notice", "开通提交失败", mapRechargeMessage(task.message || data.message, "failed"), "error");
           progressBox.style.display = "none";
           return;
         }
@@ -850,11 +851,11 @@
         renderProgressBox(mapRechargeMessage(task.message, task.processing ? "processing" : ""), task.taskId);
         pollStatus();
       } catch (error) {
-        setNotice("step3Notice", "充值提交失败", error.message || "网络请求异常。", "error");
+        setNotice("step3Notice", "开通提交失败", error.message || "网络请求异常。", "error");
         progressBox.style.display = "none";
       } finally {
         button.disabled = false;
-        button.textContent = "确认充值";
+        button.textContent = "确认无误，提交开通";
       }
     }
 
