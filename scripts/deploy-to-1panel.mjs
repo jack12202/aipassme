@@ -155,6 +155,23 @@ class PanelClient {
       throw new Error(`Failed to upload ${fileName}: ${JSON.stringify(result)}`);
     }
   }
+
+  async saveTextFile(remoteFile, content) {
+    const result = await this.request(`${API_PREFIX}/files/save`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        path: remoteFile,
+        content
+      })
+    });
+
+    if (result?.code !== 200) {
+      throw new Error(`Failed to save ${remoteFile}: ${JSON.stringify(result)}`);
+    }
+  }
 }
 
 function walkHtmlFiles(dir) {
@@ -162,10 +179,13 @@ function walkHtmlFiles(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name);
     if (entry.isDirectory()) {
+      if (entry.name.startsWith(".") || ["api", "lib", "scripts"].includes(entry.name)) {
+        continue;
+      }
       result.push(...walkHtmlFiles(fullPath));
       continue;
     }
-    if (entry.name.endsWith(".html")) {
+    if (entry.name.endsWith(".html") && !["prototype.html", "index-plus-redesign.html"].includes(entry.name)) {
       result.push(fullPath);
     }
   }
@@ -191,28 +211,28 @@ function remoteDirectoryFor(relativeName) {
   return `${PANEL_TARGET_DIR}/${dirName}`;
 }
 
+function remoteFileFor(relativeName) {
+  return `${PANEL_TARGET_DIR}/${relativeName}`;
+}
+
 async function main() {
   const client = new PanelClient();
   await client.login();
 
-  const topLevelFiles = [
-    "index.html",
-    "robots.txt",
-    "sitemap.xml",
-    "admin-channel.html",
-    "activate/index.html"
-  ]
+  const htmlFiles = walkHtmlFiles(repoRoot);
+  const textFiles = ["robots.txt", "sitemap.xml"]
     .map(file => path.join(repoRoot, file))
     .filter(file => fs.existsSync(file));
-
-  const blogFiles = fs.existsSync(path.join(repoRoot, "blog"))
-    ? walkHtmlFiles(path.join(repoRoot, "blog"))
-    : [];
-
   const assetFiles = listRootAssets();
-  const filesToUpload = [...topLevelFiles, ...blogFiles, ...assetFiles];
 
-  for (const localFile of filesToUpload) {
+  for (const localFile of [...htmlFiles, ...textFiles]) {
+    const relativeName = relativeFile(localFile);
+    const remoteFile = remoteFileFor(relativeName);
+    console.log(`Saving ${relativeName} -> ${remoteFile}`);
+    await client.saveTextFile(remoteFile, fs.readFileSync(localFile, "utf8"));
+  }
+
+  for (const localFile of assetFiles) {
     const relativeName = relativeFile(localFile);
     const remoteDir = remoteDirectoryFor(relativeName);
     const remoteName = path.posix.basename(relativeName);
@@ -220,7 +240,7 @@ async function main() {
     await client.uploadFile(remoteDir, localFile, remoteName);
   }
 
-  console.log(`Uploaded ${filesToUpload.length} files to 1Panel.`);
+  console.log(`Uploaded ${htmlFiles.length + textFiles.length + assetFiles.length} files to 1Panel.`);
 }
 
 main().catch(error => {

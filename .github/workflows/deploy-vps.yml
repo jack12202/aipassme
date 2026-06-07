@@ -36,17 +36,23 @@ jobs:
       - name: Verify VPS homepage preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/ > /tmp/aipass-home.html
-          grep -q 'AIPass 光年升级计划' /tmp/aipass-home.html
-          grep -q '购买激活码' /tmp/aipass-home.html
+          grep -q '光年升级计划｜嘉哥AI的 ChatGPT Plus 激活码开通服务' /tmp/aipass-home.html
+          grep -q '立即购买 Plus 激活码 ¥188' /tmp/aipass-home.html
 
       - name: Verify VPS blog preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/blog/ > /tmp/aipass-blog.html
-          grep -q 'AIPass 博客' /tmp/aipass-blog.html
-          grep -q 'ChatGPT Plus 充值与账号安全指南' /tmp/aipass-blog.html
+          grep -q 'ChatGPT Plus 开通问题指南｜光年升级计划・嘉哥AI' /tmp/aipass-blog.html
+          grep -q '光年升级计划的 ChatGPT Plus 开通问题指南' /tmp/aipass-blog.html
 
       - name: Verify VPS activate preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/activate/ > /tmp/aipass-activate.html
           grep -q '<link rel="canonical" href="https://www.aipass.me/activate/">' /tmp/aipass-activate.html
-          grep -q '<title>AIPass 站内充值中心｜光年升级计划</title>' /tmp/aipass-activate.html
+          grep -q '<title>Plus 激活码开通中心｜光年升级计划</title>' /tmp/aipass-activate.html
+
+      - name: Verify Jiage entrance page preview
+        run: |
+          curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/jiage-ai-gpt/ > /tmp/aipass-jiage.html
+          grep -q '嘉哥AI / 嘉哥GPT 官方入口｜光年升级计划' /tmp/aipass-jiage.html
+          grep -q '你看到的嘉哥AI / 嘉哥GPT，对应官网就是光年升级计划' /tmp/aipass-jiage.html

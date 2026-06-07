@@ -51,12 +51,9 @@ zjk822598
 
 每次 `push` 到 `main` 后，会自动同步：
 
-- `index.html`
+- 站点目录内的 `.html` 页面
 - `robots.txt`
 - `sitemap.xml`
-- `admin-channel.html`
-- `activate/index.html`
-- `blog/**/*.html`
 - 根目录下的 `.png / .jpg / .jpeg / .webp` 资源
 
 ## 当前验证方式
@@ -66,5 +63,6 @@ zjk822598
 - `http://72.11.133.145/` with `Host: aipass.me`
 - `http://72.11.133.145/blog/` with `Host: aipass.me`
 - `http://72.11.133.145/activate/` with `Host: aipass.me`
+- `http://72.11.133.145/jiage-ai-gpt/` with `Host: aipass.me`
 
 等域名正式切到 VPS 后，可以再改成直接校验正式域名。
