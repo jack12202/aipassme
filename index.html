@@ -1636,25 +1636,32 @@ a#openWhyTop:hover{ color:#fff; }
 .carousel-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.72);
+  height: 100dvh;
+  background: rgba(2, 6, 23, 0.78);
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 200;
-  padding: 20px;
+  z-index: 10000;
+  padding: clamp(14px, 3vw, 28px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 .carousel-modal.show {
   display: flex;
 }
 .carousel-container {
   width: min(520px, 92vw);
-  height: min(620px, 80vh);
+  height: min(620px, calc(100dvh - 56px));
+  max-height: calc(100dvh - 56px);
   background: #0b1220;
   border-radius: 16px;
   padding: 14px;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 20px 60px rgba(0,0,0,.42);
+  transform: translateZ(0);
 }
 .carousel-close {
   position: absolute;
@@ -1680,6 +1687,17 @@ a#openWhyTop:hover{ color:#fff; }
 .carousel-slide.active {
   display: flex;
 }
+.carousel-media-frame{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 8px;
+}
 .carousel-image {
   max-width: 100%;
   max-height: 100%;
@@ -1688,7 +1706,7 @@ a#openWhyTop:hover{ color:#fff; }
 }
 .carousel-slide img {
   max-width: 100%;
-  max-height: 100%;
+  max-height: calc(100% - 88px);
   border-radius: 8px;
   object-fit: contain;
 }
@@ -1752,6 +1770,14 @@ a#openWhyTop:hover{ color:#fff; }
 
 /* 移动端响应式调整 */
 @media (max-width: 640px) {
+  .carousel-modal{
+    padding:12px;
+  }
+  .carousel-container{
+    width: min(430px, 94vw);
+    height: min(620px, calc(100dvh - 24px));
+    max-height: calc(100dvh - 24px);
+  }
   body{
     padding:16px 12px 88px;
   }
@@ -3767,7 +3793,7 @@ var _hmt = _hmt || [];
 </div>
 </div>
 <div class="feedback-actions">
-<button class="mini-action case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
+<button class="mini-action case-thumbnail" data-slide="1" type="button">查看更多交付记录</button>
 <a class="mini-action guide-action" href="/blog/">先看嘉哥的开通问题指南</a>
 </div>
 <div class="final-cta">
@@ -3784,98 +3810,98 @@ var _hmt = _hmt || [];
     <button class="carousel-close" id="carouselClose">×</button>
 
     <div class="carousel-slide active" data-slide="1">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 1.jpg" alt="客户案例 1" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #1</div>
     </div>
 
     <div class="carousel-slide" data-slide="2">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 2.jpg" alt="客户案例 2" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #2</div>
     </div>
 
     <div class="carousel-slide" data-slide="3">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 3.jpg" alt="客户案例 3" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #3</div>
     </div>
 
     <div class="carousel-slide" data-slide="4">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 4.jpg" alt="客户案例 4" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #4</div>
     </div>
 
     <div class="carousel-slide" data-slide="5">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 5.jpg" alt="客户案例 5" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #5</div>
     </div>
 
     <div class="carousel-slide" data-slide="6">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 6.jpg" alt="客户案例 6" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #6</div>
     </div>
 
     <div class="carousel-slide" data-slide="7">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 7.jpg" alt="客户案例 7" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #7</div>
     </div>
 
     <div class="carousel-slide" data-slide="8">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 8.jpg" alt="客户案例 8" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #8</div>
     </div>
 
     <div class="carousel-slide" data-slide="9">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 9.jpg" alt="客户案例 9" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #9</div>
     </div>
 
     <div class="carousel-slide" data-slide="10">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 10.jpg" alt="客户案例 10" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #10</div>
     </div>
 
     <div class="carousel-slide" data-slide="11">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 11.jpg" alt="客户案例 11" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #11</div>
     </div>
 
     <div class="carousel-slide" data-slide="12">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 12.jpg" alt="客户案例 12" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #12</div>
     </div>
 
     <div class="carousel-slide" data-slide="13">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 13.jpg" alt="客户案例 13" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #13</div>
     </div>
 
     <div class="carousel-slide" data-slide="14">
-      <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 8px; overflow: hidden;">
+      <div class="carousel-media-frame">
         <img src="客户案例 14.jpg" alt="客户案例 14" style="max-width: 100%; max-height: 100%; object-fit: contain;">
       </div>
       <div class="carousel-caption">客户反馈截图 #14</div>
@@ -3987,7 +4013,7 @@ var _hmt = _hmt || [];
 </div>
 </div>
 <button class="mobile-more-feedback" onclick="event.preventDefault();event.stopPropagation();document.getElementById('feedbackModal')?.classList.add('show');document.getElementById('feedbackModal')?.setAttribute('aria-hidden','false');document.body.classList.add('modal-open');" type="button">查看更多反馈</button>
-<button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
+<button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看更多交付记录</button>
 </div>
 </aside>
 <aside class="side-panel feedback-panel" id="feedbackPanel" aria-label="用户反馈">
@@ -4017,14 +4043,14 @@ var _hmt = _hmt || [];
 </div>
 </div>
 </div>
-<button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
+<button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看更多交付记录</button>
 </aside>
 </div>
 <div aria-hidden="true" class="modal-mask" id="feedbackModal">
 <div aria-labelledby="feedbackTitle" class="modal-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="modal-close" id="feedbackClose">×</button>
 <h3 id="feedbackTitle" style="margin:.1rem 0 10px;">用户反馈摘录</h3>
-<p style="margin:0 0 8px;opacity:.82;font-size:.86rem;">昵称已做脱敏处理，更多截图可以查看真实交付记录。</p>
+<p style="margin:0 0 8px;opacity:.82;font-size:.86rem;">昵称已做脱敏处理，更多截图可在交付记录里查看。</p>
 <div class="feedback-modal-list">
 <div class="feedback-modal-item"><div class="fb-name">小林 <span class="fb-tag">设计师</span></div><div class="fb-text">不用发密码这点比较安心，按页面提示走完就可以。</div></div>
 <div class="feedback-modal-item"><div class="fb-name">阿泽 <span class="fb-tag">自媒体</span></div><div class="fb-text">之前续费失败，先问清楚再下单，说明还挺明白。</div></div>
@@ -4063,7 +4089,7 @@ var _hmt = _hmt || [];
 </a>
 <button class="trust-widget case-thumbnail" data-slide="1" aria-label="查看客户案例">
   <div class="trust-icon">📸</div>
-  <div class="trust-text">真实交付记录</div>
+  <div class="trust-text">交付记录</div>
 </button>
 <div class="sticky-note" id="bottomNote">
 <span class="note-text">📌 当前价格 <strong>¥188/月</strong> ｜ 客服微信 <strong id="wxid">jiage01888</strong> <span class="sticky-consult">👉 支持咨询后再下单</span></span>
@@ -4566,13 +4592,23 @@ var _hmt = _hmt || [];
   // 打开轮播模态框
   function openCarousel(slideNumber = 1) {
     if (!carouselModal) return;
+    if (carouselModal.parentElement !== document.body) {
+      document.body.appendChild(carouselModal);
+    }
     carouselModal.classList.add('show');
+    carouselModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('modal-open');
     showSlide(slideNumber);
   }
 
   // 关闭轮播模态框
   function closeCarousel() {
+    if (!carouselModal) return;
     carouselModal.classList.remove('show');
+    carouselModal.setAttribute('aria-hidden', 'true');
+    if (!document.querySelector('.modal-mask.show, .proof-mask.show, .rs-mask.show, .rg-mask.show')) {
+      document.body.classList.remove('modal-open');
+    }
   }
 
   // 缩略图点击事件
@@ -4629,9 +4665,9 @@ var _hmt = _hmt || [];
     }
   });
 
-  // 点击模态框背景关闭
+  // 点击弹窗外的暗色区域关闭
   carouselModal?.addEventListener('click', (e) => {
-    if (e.target === carouselModal) {
+    if (!e.target.closest('.carousel-container')) {
       closeCarousel();
     }
   });

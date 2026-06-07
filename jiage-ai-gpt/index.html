@@ -4,35 +4,57 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>嘉哥AI / 嘉哥GPT 官方入口｜光年升级计划</title>
-  <meta name="description" content="你在抖音、小红书、视频号看到的嘉哥AI / 嘉哥GPT，就是光年升级计划的主理人。这里可以确认官网入口、购买 Plus 激活码、进入激活中心，并查看 ChatGPT Plus 开通指南。">
+  <meta name="description" content="嘉哥AI / 嘉哥GPT 官方入口。光年升级计划由嘉哥AI / 嘉哥GPT 主理，提供 ChatGPT Plus 激活码、自助开通、账号升级和国内付款问题处理。">
   <link rel="canonical" href="https://www.aipass.me/jiage-ai-gpt/">
+  <meta property="og:title" content="嘉哥AI / 嘉哥GPT 官方入口｜光年升级计划">
+  <meta property="og:description" content="确认嘉哥AI / 嘉哥GPT 与光年升级计划的关系，了解 Plus 激活码、自助开通、售后规则和官方入口。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "嘉哥AI / 嘉哥GPT 官方入口",
+    "description": "光年升级计划由嘉哥AI / 嘉哥GPT 主理，提供 ChatGPT Plus 激活码、自助开通和账号升级问题处理。",
+    "url": "https://www.aipass.me/jiage-ai-gpt/",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "光年升级计划",
+      "alternateName": ["嘉哥AI", "嘉哥GPT", "AIPass"],
+      "url": "https://www.aipass.me/"
+    }
+  }
+  </script>
   <style>
     :root {
       --bg-start:#042f2e;
       --bg-mid:#0f172a;
       --bg-end:#020617;
       --panel:rgba(15,23,42,.86);
-      --line:rgba(255,255,255,.13);
+      --panel-soft:rgba(20,184,166,.10);
+      --line:rgba(255,255,255,.14);
+      --line-strong:rgba(45,212,191,.48);
       --text:#fff;
-      --muted:rgba(226,232,240,.76);
+      --muted:rgba(226,232,240,.78);
       --soft:rgba(226,232,240,.58);
       --brand:#14b8a6;
       --brand-light:#ccfbf1;
+      --warn:#fde68a;
     }
     * { box-sizing:border-box; }
     body {
       margin:0;
       min-height:100vh;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
       background:
-        radial-gradient(320px 230px at 18% 12%, rgba(20,184,166,.18), transparent 70%),
+        radial-gradient(340px 240px at 18% 10%, rgba(20,184,166,.18), transparent 72%),
+        radial-gradient(260px 180px at 82% 22%, rgba(45,212,191,.09), transparent 70%),
         linear-gradient(135deg, var(--bg-start) 0%, var(--bg-mid) 48%, var(--bg-end) 100%);
       color:var(--muted);
       line-height:1.75;
-      padding:34px 14px 64px;
+      padding:30px 14px 68px;
     }
+    a { color:inherit; }
     .wrap {
-      width:min(940px,100%);
+      width:min(960px,100%);
       margin:0 auto;
     }
     .topbar {
@@ -40,7 +62,7 @@
       justify-content:space-between;
       align-items:center;
       gap:14px;
-      margin-bottom:22px;
+      margin-bottom:18px;
     }
     .brand {
       color:var(--text);
@@ -70,15 +92,17 @@
       white-space:nowrap;
     }
     .hero,
-    .panel {
+    .panel,
+    .notice,
+    .final-card {
       border:1px solid var(--line);
       border-radius:18px;
       background:var(--panel);
       box-shadow:0 24px 64px rgba(0,0,0,.24);
     }
     .hero {
-      padding:34px;
-      margin-bottom:16px;
+      padding:32px;
+      margin-bottom:14px;
     }
     .eyebrow {
       display:inline-flex;
@@ -86,7 +110,7 @@
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(45,212,191,.25);
-      background:rgba(20,184,166,.10);
+      background:var(--panel-soft);
       color:var(--brand-light);
       font-size:13px;
       font-weight:900;
@@ -98,9 +122,16 @@
       line-height:1.14;
       letter-spacing:0;
     }
-    .hero p {
-      max-width:760px;
-      margin:0;
+    h2 {
+      margin:0 0 8px;
+      color:var(--text);
+      font-size:21px;
+      line-height:1.35;
+      letter-spacing:0;
+    }
+    p { margin:0; }
+    .hero-copy {
+      max-width:780px;
       font-size:16px;
     }
     .actions {
@@ -124,30 +155,47 @@
     .btn {
       color:#fff;
       background:linear-gradient(180deg,#0d9488,#14b8a6);
-      border:1px solid rgba(45,212,191,.55);
+      border:1px solid var(--line-strong);
+      box-shadow:0 10px 28px rgba(20,184,166,.18);
     }
     .btn-ghost {
       color:var(--brand-light);
       border:1px solid rgba(45,212,191,.28);
       background:rgba(255,255,255,.055);
     }
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:10px;
+      margin-top:22px;
+    }
+    .stat {
+      padding:13px 12px;
+      border-radius:14px;
+      border:1px solid rgba(45,212,191,.18);
+      background:rgba(20,184,166,.08);
+    }
+    .stat strong {
+      display:block;
+      color:#fff;
+      font-size:18px;
+      line-height:1.25;
+    }
+    .stat span {
+      display:block;
+      margin-top:4px;
+      color:var(--soft);
+      font-size:13px;
+      line-height:1.45;
+    }
     .grid {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:14px;
-      margin-top:16px;
+      margin-top:14px;
     }
     .panel {
-      padding:24px;
-    }
-    .panel h2 {
-      margin:0 0 8px;
-      color:var(--text);
-      font-size:22px;
-      line-height:1.35;
-    }
-    .panel p {
-      margin:0;
+      padding:22px;
     }
     .panel ul {
       margin:10px 0 0;
@@ -157,14 +205,33 @@
       margin:6px 0;
     }
     .notice {
-      margin-top:16px;
+      margin-top:14px;
       padding:18px;
-      border-radius:14px;
-      border:1px solid rgba(253,230,138,.26);
+      border-color:rgba(253,230,138,.28);
       background:rgba(253,230,138,.08);
-      color:#fde68a;
+      color:var(--warn);
       font-size:14px;
       font-weight:780;
+    }
+    .final-card {
+      margin-top:14px;
+      padding:22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      border-color:rgba(45,212,191,.28);
+      background:linear-gradient(180deg, rgba(20,184,166,.14), rgba(15,23,42,.88));
+    }
+    .final-card strong {
+      display:block;
+      color:#fff;
+      font-size:18px;
+      margin-bottom:4px;
+    }
+    .wechat {
+      color:#fff;
+      font-weight:950;
     }
     footer {
       margin-top:24px;
@@ -172,12 +239,18 @@
       font-size:13px;
       text-align:center;
     }
+    footer a {
+      color:var(--brand-light);
+      font-weight:850;
+      text-underline-offset:3px;
+    }
     @media (max-width:760px) {
       body { padding-top:22px; }
       .topbar { align-items:flex-start; }
-      .hero, .panel { padding:20px; }
-      .grid { grid-template-columns:1fr; }
+      .hero, .panel, .final-card { padding:20px; }
+      .stats, .grid { grid-template-columns:1fr; }
       .actions { display:grid; }
+      .final-card { display:grid; }
     }
   </style>
 </head>
@@ -193,38 +266,70 @@
 
     <section class="hero">
       <span class="eyebrow">嘉哥AI / 嘉哥GPT 官方入口</span>
-      <h1>你在抖音看到的嘉哥AI / 嘉哥GPT，就是光年升级计划的主理人</h1>
-      <p>嘉哥AI / 嘉哥GPT 是光年升级计划的主理人账号，主要分享 ChatGPT、AI 工具、Plus 开通、账号升级和国内用户使用 AI 的相关教程。AIPass.me 是光年升级计划官网入口。</p>
+      <h1>你看到的嘉哥AI / 嘉哥GPT，对应官网就是光年升级计划</h1>
+      <p class="hero-copy">这个页面用来确认身份和服务边界：光年升级计划由嘉哥AI / 嘉哥GPT 主理，主要处理 ChatGPT Plus 激活码、自助开通、国内付款失败、账号升级和相关售后问题。官网入口为 AIPass.me。</p>
       <div class="actions">
         <a class="btn" href="/">购买 Plus 激活码</a>
-        <a class="btn-ghost" href="/activate/?v=20260606">进入激活中心</a>
-        <a class="btn-ghost" href="/blog/">查看嘉哥AI整理的开通指南</a>
+        <a class="btn-ghost" href="/activate/?v=20260606">已买卡密？进入激活中心</a>
+        <a class="btn-ghost" href="/blog/">查看开通问题指南</a>
+      </div>
+      <div class="stats" aria-label="服务信息">
+        <div class="stat"><strong>2025 年 7 月</strong><span>从自己的 GPT 充值需求开始做</span></div>
+        <div class="stat"><strong>2300+ 用户</strong><span>处理过 Plus / Pro 开通和售后</span></div>
+        <div class="stat"><strong>自己的账号</strong><span>不把共享号作为长期方案</span></div>
+        <div class="stat"><strong>30 天质保</strong><span>异常按订单规则处理</span></div>
       </div>
     </section>
 
     <div class="grid">
       <section class="panel">
-        <h2>光年升级计划是什么？</h2>
-        <p>光年升级计划是嘉哥AI主理的 ChatGPT Plus 激活码和账号升级服务站，适合没有海外卡、官方付款失败、希望开通到自己账号的用户。</p>
+        <h2>这边怎么开通？</h2>
+        <p>Plus 用户购买后会拿到激活码，再进入光年升级计划激活中心，按页面提示确认自己的 ChatGPT 账号并提交开通。常规流程不需要提供 ChatGPT 密码，也不需要准备海外信用卡。</p>
       </section>
 
       <section class="panel">
-        <h2>你可以在这里做什么？</h2>
+        <h2>主要处理哪些需求？</h2>
         <ul>
-          <li>购买 ChatGPT Plus 激活码</li>
-          <li>进入激活中心完成自助开通</li>
-          <li>查看支付失败、没有海外卡和账号安全指南</li>
-          <li>确认售后规则、账号归属和敏感信息边界</li>
+          <li>ChatGPT Plus 月卡激活码，当前主站价格为 ¥188 / 月</li>
+          <li>没有海外卡、国内银行卡失败、续费失败</li>
+          <li>Pro、Codex、Claude、Grok 等需求先人工确认</li>
+          <li>发票、对公付款、企业账号或批量采购咨询</li>
         </ul>
+      </section>
+
+      <section class="panel">
+        <h2>哪些情况先问微信？</h2>
+        <ul>
+          <li>账号里还有 iOS Plus 订阅，想升级 Pro</li>
+          <li>账号状态异常、付款失败多次、订阅状态看不懂</li>
+          <li>需要发票、对公付款或企业采购</li>
+          <li>不确定自己应该买 Plus、Pro 还是其他 AI 会员</li>
+        </ul>
+      </section>
+
+      <section class="panel">
+        <h2>怎么确认没走错？</h2>
+        <p>请认准两个信息：官网入口是 <strong>AIPass.me</strong>，客服微信是 <span class="wechat">jiage01888</span>。付款前建议核对官网、订单页面和客服微信，不要只看昵称。</p>
       </section>
     </div>
 
     <section class="notice">
-      重要提醒：光年升级计划不是 OpenAI 官方网站，不销售共享账号，不建议用户把 ChatGPT 密码、邮箱验证码、短信验证码或支付验证码交给陌生人。
+      重要提醒：光年升级计划不是 OpenAI 或 ChatGPT 官方网站，不销售共享号，不建议用户把 ChatGPT 密码、邮箱验证码、短信验证码或支付验证码交给陌生人。
+    </section>
+
+    <section class="final-card">
+      <div>
+        <strong>已经确认是这里？</strong>
+        <p>可以回到首页购买 Plus 激活码；如果账号状态复杂，先微信确认再下单。</p>
+      </div>
+      <div class="actions" style="margin:0;">
+        <a class="btn" href="/">返回首页购买</a>
+        <a class="btn-ghost" href="/blog/">先看指南</a>
+      </div>
     </section>
 
     <footer>
-      光年升级计划由嘉哥AI / 嘉哥GPT 主理。AIPass.me 为光年升级计划官网入口。
+      本页更新于 2026-06-06。光年升级计划由嘉哥AI / 嘉哥GPT 主理，AIPass.me 为官网入口。页面中提及的产品名称仅用于说明服务适配对象。
     </footer>
   </main>
 </body>

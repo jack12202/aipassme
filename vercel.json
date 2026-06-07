@@ -7,6 +7,14 @@
     {
       "source": "/activate/",
       "destination": "/activate/index.html"
+    },
+    {
+      "source": "/jiage-ai-gpt",
+      "destination": "/jiage-ai-gpt/index.html"
+    },
+    {
+      "source": "/jiage-ai-gpt/",
+      "destination": "/jiage-ai-gpt/index.html"
     }
   ]
 }
