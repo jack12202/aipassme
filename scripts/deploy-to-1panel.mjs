@@ -156,20 +156,21 @@ class PanelClient {
     }
   }
 
-  async saveTextFile(remoteFile, content) {
-    const result = await this.request(`${API_PREFIX}/files/save`, {
+  async createDirectory(remoteDir) {
+    const result = await this.request(`${API_PREFIX}/files`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        path: remoteFile,
-        content
+        path: remoteDir,
+        isDir: true,
+        mode: 0o755
       })
     });
 
     if (result?.code !== 200) {
-      throw new Error(`Failed to save ${remoteFile}: ${JSON.stringify(result)}`);
+      throw new Error(`Failed to create directory ${remoteDir}: ${JSON.stringify(result)}`);
     }
   }
 }
@@ -211,10 +212,6 @@ function remoteDirectoryFor(relativeName) {
   return `${PANEL_TARGET_DIR}/${dirName}`;
 }
 
-function remoteFileFor(relativeName) {
-  return `${PANEL_TARGET_DIR}/${relativeName}`;
-}
-
 async function main() {
   const client = new PanelClient();
   await client.login();
@@ -224,15 +221,28 @@ async function main() {
     .map(file => path.join(repoRoot, file))
     .filter(file => fs.existsSync(file));
   const assetFiles = listRootAssets();
+  const filesToUpload = [...htmlFiles, ...textFiles, ...assetFiles];
 
-  for (const localFile of [...htmlFiles, ...textFiles]) {
-    const relativeName = relativeFile(localFile);
-    const remoteFile = remoteFileFor(relativeName);
-    console.log(`Saving ${relativeName} -> ${remoteFile}`);
-    await client.saveTextFile(remoteFile, fs.readFileSync(localFile, "utf8"));
+  const remoteDirs = Array.from(new Set(
+    filesToUpload
+      .map(localFile => remoteDirectoryFor(relativeFile(localFile)))
+      .filter(remoteDir => remoteDir !== PANEL_TARGET_DIR)
+  )).sort((a, b) => a.length - b.length);
+
+  for (const remoteDir of remoteDirs) {
+    try {
+      console.log(`Ensuring directory ${remoteDir}`);
+      await client.createDirectory(remoteDir);
+    } catch (error) {
+      const message = String(error?.message || error);
+      if (!/exist|已存在|文件已存在/.test(message)) {
+        throw error;
+      }
+      console.log(`Directory already exists: ${remoteDir}`);
+    }
   }
 
-  for (const localFile of assetFiles) {
+  for (const localFile of filesToUpload) {
     const relativeName = relativeFile(localFile);
     const remoteDir = remoteDirectoryFor(relativeName);
     const remoteName = path.posix.basename(relativeName);
@@ -240,7 +250,7 @@ async function main() {
     await client.uploadFile(remoteDir, localFile, remoteName);
   }
 
-  console.log(`Uploaded ${htmlFiles.length + textFiles.length + assetFiles.length} files to 1Panel.`);
+  console.log(`Uploaded ${filesToUpload.length} files to 1Panel.`);
 }
 
 main().catch(error => {
