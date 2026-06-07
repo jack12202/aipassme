@@ -5,10 +5,19 @@
 <meta charset="utf-8"/>
 <meta name="baidu-site-verification" content="codeva-ODEwmBNso0" />
 <meta name="baidu-site-verification" content="codeva-WmgPr6AZ8Y" />
-<meta content="AIPass 光年升级计划由嘉哥AI / 嘉哥GPT 提供 ChatGPT Plus / Pro 开通和续费协助，可购买 Plus 激活码并充值到自己的 ChatGPT 账号。支持微信/支付宝，无需提供账号密码，通常大部分情况下5分钟完成。" name="description"/>
+<meta content="光年升级计划由嘉哥AI / 嘉哥GPT 主理，提供 ChatGPT Plus 激活码购买、自助开通和账号升级问题处理。适合没有海外卡、官方付款失败、希望开通到自己账号的用户。" name="description"/>
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-<title>ChatGPT Plus 激活码开通 | AIPass 光年升级计划 | 嘉哥AI</title>
+<title>光年升级计划｜嘉哥AI的 ChatGPT Plus 激活码开通服务</title>
 <link rel="canonical" href="https://www.aipass.me/"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "光年升级计划",
+  "alternateName": ["嘉哥AI", "嘉哥GPT", "AIPass"],
+  "url": "https://www.aipass.me/"
+}
+</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -27,15 +36,15 @@
       "name": "开通 Plus 是否需要提供账号密码？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "不建议随意提供账号密码。AIPass 主张按指引充值到自己的账号，尽量减少敏感信息暴露。"
+        "text": "不建议随意提供账号密码。光年升级计划主张按指引充值到自己的账号，尽量减少敏感信息暴露。"
       }
     },
     {
       "@type": "Question",
-      "name": "AIPass 是官方官网吗？",
+      "name": "光年升级计划是官方官网吗？",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "不是。AIPass 是第三方服务网站，并非 OpenAI 或 ChatGPT 官方；可以协助用户使用官方订阅入口完成开通或续费。"
+        "text": "不是。光年升级计划是第三方服务网站，并非 OpenAI 或 ChatGPT 官方；可以协助用户使用官方订阅入口完成开通或续费。"
       }
     },
     {
@@ -151,12 +160,20 @@
       width: fit-content;
     }
     .brand-icon{ width: 32px; height: 32px; display:block; }
+    .brand-badge > div{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      gap:2px;
+      line-height:1.1;
+    }
     .brand-name{ font-weight:900; color:#fff; letter-spacing:.02em; font-size:1.05rem; }
-    .brand-sub{ font-size:.85rem; color:#ccfbf1; opacity:.85; margin-left:6px; }
+    .brand-sub{ font-size:.78rem; color:#ccfbf1; opacity:.86; margin-left:0; }
     .jiage-proof{
       display:inline-flex;
       align-items:center;
       justify-content:center;
+      flex-wrap:wrap;
       gap:6px;
       margin:0 auto 2px;
       padding:5px 10px;
@@ -1834,7 +1851,7 @@ a#openWhyTop:hover{ color:#fff; }
     padding:16px;
   }
   .faq-panel::before{
-    content:"下单后进入 AIPass 站内充值中心完成充值\\A📌 充值到自己 GPT 账号（非直接使用）";
+    content:"下单后进入光年升级计划站内充值中心完成充值\\A📌 充值到自己 GPT 账号（非直接使用）";
     white-space:pre-line;
     display:block;
     margin:0 0 14px;
@@ -2750,7 +2767,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-weight:900;
   }
   .faq-panel::before{
-    content:"下单后进入 AIPass 站内充值中心完成充值\A📌 充值到自己 GPT 账号（非直接使用）";
+    content:"下单后进入光年升级计划站内充值中心完成充值\A📌 充值到自己 GPT 账号（非直接使用）";
     white-space:pre-line;
     display:block;
     margin:0 0 14px;
@@ -2873,6 +2890,9 @@ body{
 }
 .side-panel:target{
   display:block;
+}
+.faq-panel .side-feedback{
+  display:none;
 }
 .focus-info-switches{
   order:2;
@@ -3018,6 +3038,337 @@ body{
     display:grid !important;
   }
 }
+
+/* ===== Decision-card conversion layout ===== */
+body{
+  padding:28px 12px 48px;
+}
+.landing-shell{
+  width:min(760px, 100%);
+  max-width:760px;
+  gap:18px;
+}
+.landing-shell .card{
+  max-width:760px;
+  max-height:none !important;
+  overflow:visible !important;
+  border-color:rgba(125,255,239,.60);
+  box-shadow:0 28px 80px rgba(0,0,0,.42), 0 0 0 1px rgba(45,212,191,.18);
+}
+.landing-shell .card-header{
+  padding:32px 34px 30px;
+}
+.landing-shell h1{
+  max-width:660px;
+  margin:0 auto;
+  font-size:clamp(1.95rem, 4.4vw, 2.65rem);
+  line-height:1.14;
+}
+.hero-copy{
+  max-width:650px;
+  margin:16px auto 0;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+  color:rgba(255,255,255,.80);
+  font-size:.82rem;
+  line-height:1.45;
+  font-weight:780;
+}
+.hero-copy span{
+  min-height:66px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:10px 9px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.045);
+}
+.hero-copy strong{
+  color:#ccfbf1;
+  font-size:.86rem;
+}
+.decision-line{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:14px auto 0;
+  padding:7px 12px;
+  border-radius:999px;
+  border:1px solid rgba(45,212,191,.28);
+  background:rgba(20,184,166,.10);
+  color:#ccfbf1;
+  font-size:.86rem;
+  font-weight:950;
+}
+.landing-shell .price{
+  margin:18px 0 4px;
+}
+.landing-shell .price-val{
+  font-size:3.15rem;
+}
+.landing-shell .price-note{
+  display:block !important;
+  max-width:590px;
+  margin:6px auto 16px;
+  color:rgba(204,251,241,.72);
+  font-size:.76rem;
+  line-height:1.65;
+}
+.hero-actions-main{
+  grid-template-columns:minmax(0,1.35fr) minmax(0,.95fr) !important;
+  gap:10px !important;
+  margin:0 0 10px !important;
+}
+.hero-actions-main .btn-buy,
+.hero-actions-main .btn-recharge{
+  width:100%;
+  min-height:58px;
+  margin:0 !important;
+  border-radius:14px;
+}
+.hero-actions-main .btn-buy{
+  font-size:1.04rem;
+}
+.hero-actions-main .btn-recharge{
+  font-size:.94rem;
+  background:rgba(255,255,255,.065);
+}
+.focus-secondary-actions{
+  margin:0 0 6px;
+}
+.focus-contact-btn,
+.focus-blog-btn{
+  min-height:48px;
+  border-radius:12px;
+}
+.focus-contact-btn{
+  background:rgba(20,184,166,.15);
+}
+.decision-card{
+  margin-top:14px;
+  padding:18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:linear-gradient(180deg, rgba(255,255,255,.065), rgba(255,255,255,.032));
+  text-align:left;
+}
+.decision-card h2{
+  margin:0 0 12px;
+  color:#fff;
+  font-size:1.06rem;
+  line-height:1.35;
+}
+.purchase-steps{
+  list-style:none;
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:8px;
+  margin:0;
+  padding:0;
+  counter-reset:purchaseStep;
+}
+.purchase-steps li{
+  counter-increment:purchaseStep;
+  min-height:112px;
+  padding:12px 10px;
+  border-radius:12px;
+  border:1px solid rgba(45,212,191,.18);
+  background:rgba(2,6,23,.22);
+}
+.purchase-steps li::before{
+  content:counter(purchaseStep);
+  display:inline-flex;
+  width:22px;
+  height:22px;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:8px;
+  border-radius:999px;
+  background:rgba(45,212,191,.18);
+  color:#99f6e4;
+  font-size:.78rem;
+  font-weight:950;
+}
+.purchase-steps strong,
+.precheck-grid strong{
+  display:block;
+  color:#fff;
+  font-size:.82rem;
+  line-height:1.35;
+}
+.purchase-steps span,
+.precheck-grid span{
+  display:block;
+  margin-top:5px;
+  color:rgba(255,255,255,.68);
+  font-size:.72rem;
+  line-height:1.45;
+}
+.decision-note{
+  margin:12px 0 0;
+  padding:10px 12px;
+  border-radius:12px;
+  background:rgba(253,230,138,.10);
+  border:1px solid rgba(253,230,138,.25);
+  color:#fde68a;
+  font-size:.82rem;
+  font-weight:900;
+  text-align:center;
+}
+.precheck-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+.precheck-grid > div{
+  min-height:88px;
+  padding:13px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.11);
+  background:rgba(255,255,255,.045);
+}
+.support-policy{
+  border-color:rgba(253,230,138,.28);
+  background:rgba(253,230,138,.08);
+}
+.support-policy p{
+  margin:0;
+  color:rgba(255,255,255,.78);
+  font-size:.86rem;
+  line-height:1.75;
+}
+.policy-contact{
+  margin-top:12px;
+  width:100%;
+  min-height:42px;
+  border-radius:12px;
+  border:1px solid rgba(45,212,191,.34);
+  background:rgba(20,184,166,.12);
+  color:#ccfbf1;
+  font-weight:950;
+  cursor:pointer;
+}
+.problem-router{
+  margin:16px 0 0;
+  padding:18px;
+  border-radius:16px;
+  border:1px solid rgba(45,212,191,.16);
+  background:rgba(2,6,23,.22);
+}
+.problem-router-title,
+.problem-router-desc{
+  display:block;
+  text-align:left;
+}
+.problem-router-title{
+  margin:0 0 5px;
+  color:#fff;
+  font-size:1.03rem;
+  font-weight:950;
+}
+.problem-router-desc{
+  margin:0 0 12px;
+  color:rgba(255,255,255,.68);
+  font-size:.82rem;
+}
+.problem-options{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.problem-option,
+.problem-option-wide{
+  min-height:44px;
+  padding:10px 12px;
+  font-size:.78rem;
+  line-height:1.25;
+}
+.problem-option-wide{
+  grid-column:1 / -1;
+}
+.feedback-box{
+  display:block !important;
+  margin-top:18px;
+  padding:18px;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,.04);
+}
+.blog-entry-link{
+  display:none !important;
+  align-items:center;
+  justify-content:center;
+  min-height:46px;
+  margin:16px 0 0;
+  border-radius:12px;
+  border:1px solid rgba(253,230,138,.28);
+  background:rgba(253,230,138,.09);
+  color:#fde68a;
+  text-decoration:none;
+  font-size:.9rem;
+  font-weight:950;
+}
+.landing-shell footer{
+  display:block !important;
+  margin-top:20px;
+  color:rgba(255,255,255,.66);
+}
+.ability-strip,
+.trust-metrics,
+.purchase-flow,
+.account-check,
+.small-risk,
+.steps-mini,
+.buy-notes,
+.badges,
+.stats,
+.sticky-note,
+.trust-widget.case-thumbnail{
+  display:none !important;
+}
+.carousel-modal.show{
+  background:rgba(2,6,23,.72);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+}
+@media (max-width:760px){
+  body{
+    padding:16px 12px 94px !important;
+  }
+  .landing-shell .card-header{
+    padding:26px 18px 22px !important;
+  }
+  .hero-actions-main,
+  .focus-secondary-actions,
+  .precheck-grid,
+  .problem-options{
+    grid-template-columns:1fr !important;
+  }
+  .purchase-steps{
+    grid-template-columns:1fr;
+  }
+  .purchase-steps li{
+    min-height:0;
+  }
+  .landing-shell h1{
+    font-size:1.88rem;
+  }
+  .hero-copy{
+    font-size:.88rem;
+    grid-template-columns:1fr;
+  }
+  .decision-line{
+    border-radius:14px;
+    line-height:1.45;
+    text-align:center;
+  }
+  .landing-shell .price-val{
+    font-size:2.65rem;
+  }
+}
 </style>
 <script>
 var _hmt = _hmt || [];
@@ -3050,7 +3401,7 @@ var _hmt = _hmt || [];
 <main class="card">
 <header class="card-header">
 <div class="hero">
-<div aria-label="光年升级计划 平台充值平台" class="brand-badge">
+<div aria-label="光年升级计划服务品牌" class="brand-badge">
 <svg aria-hidden="true" class="brand-icon" role="img" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
 <defs>
 <lineargradient id="lg" x1="0" x2="1" y1="1" y2="0">
@@ -3066,38 +3417,65 @@ var _hmt = _hmt || [];
 </svg>
 <div>
 <span class="brand-name">光年升级计划</span>
-<span class="brand-sub">· 嘉哥AI / 嘉哥GPT</span>
+<span class="brand-sub">嘉哥AI / 嘉哥GPT 主理</span>
 </div>
 </div>
-<h1>ChatGPT Plus 激活码开通<br>充值到自己的账号</h1>
-<div class="jiage-proof">嘉哥AI / 嘉哥GPT <span>支持 Plus / Pro 开通和续费咨询</span></div>
-<div class="conversion-kicker">微信 / 支付宝可下单 · 无需海外卡 · 无需账号密码</div>
-<div class="notice-bar-top">国内付款卡住、续费失败、没有海外卡时，可先购买 Plus 激活码，再按指引完成充值。</div>
+<h1>没有海外卡，也能给自己的 ChatGPT 账号开通 Plus</h1>
+<div class="jiage-proof">光年升级计划｜嘉哥AI / 嘉哥GPT 主理 <span>专注 Plus 激活码、自助开通和账号升级问题处理</span></div>
+<div class="hero-copy" aria-label="开通方式摘要">
+<span><strong>微信/支付宝</strong>购买 Plus 激活码</span>
+<span><strong>站内激活中心</strong>按提示自助开通</span>
+<span><strong>常规无需密码</strong>多数正常订单约 5 分钟完成</span>
+</div>
+<div class="decision-line">¥188/月｜开到自己的账号｜不是共享号｜未使用卡密可退</div>
 <div class="hero-divider"></div>
 </div>
 <div class="price">
 <span class="price-val">¥188/月</span>
-<span class="price-tag">按月开通价</span>
+<span class="price-tag">Plus 月卡激活码</span>
 </div>
-<div class="price-note">官方订阅约 ¥145<br>+ 支付 / 风控 / 稳定通道成本<br>👉 为保证稳定到账与账号安全</div>
-<div class="pre-cta-trust">✔ 充值到自己的账号，不是共享号或成品号</div>
-<div class="button-group">
-<button aria-label="购买 ChatGPT Plus 激活码" class="btn-buy" id="buyBtn">购买 Plus 激活码</button>
+<div class="price-note">OpenAI Plus 官方价格为 $20/月；本站价格包含国内付款、通道、系统和售后处理成本。光年升级计划由嘉哥AI / 嘉哥GPT 主理，是第三方服务网站，非 OpenAI 官方。</div>
+<div class="button-group hero-actions-main">
+<button aria-label="立即购买 ChatGPT Plus 激活码 188 元" class="btn-buy" id="buyBtn">立即购买 Plus 激活码 ¥188</button>
+<button class="btn-recharge focus-recharge" id="rechargeBtn" type="button">已买卡密？进入激活中心</button>
 </div>
 <div class="focus-secondary-actions" aria-label="咨询与指南入口">
-<button class="focus-contact-btn" id="copyWeChatMain" type="button">💬 联系客服 / 复制微信</button>
-<a class="focus-blog-btn" href="/blog/">📚 Plus 订阅指南 & 账号安全文章</a>
+<button class="focus-contact-btn" id="copyWeChatMain" type="button">账号状态不确定，先微信确认</button>
+<a class="focus-blog-btn" href="/blog/">Plus 订阅指南 & 账号安全文章</a>
 </div>
-<button class="btn-recharge focus-recharge" id="rechargeBtn" type="button">已购买，进入激活中心</button>
+<section class="decision-card purchase-after" aria-label="购买后你会拿到什么">
+<h2>购买后你会拿到什么？</h2>
+<ol class="purchase-steps">
+<li><strong>微信/支付宝付款</strong><span>下单时填写查单联系方式。</span></li>
+<li><strong>页面弹出 Plus 激活码</strong><span>保存卡密和订单信息。</span></li>
+<li><strong>进入光年升级计划激活中心</strong><span>输入卡密，按页面提示继续。</span></li>
+<li><strong>核对自己的 ChatGPT 账号</strong><span>确认当前账号无误后再激活。</span></li>
+<li><strong>刷新 ChatGPT 查看 Plus</strong><span>多数正常订单约 5 分钟完成。</span></li>
+</ol>
+<p class="decision-note">下单时填写的是查单联系方式，不是 ChatGPT 登录信息。</p>
+</section>
+<section class="decision-card precheck-card" aria-label="下单前确认">
+<h2>下单前确认 3 件事</h2>
+<div class="precheck-grid">
+<div><strong>开通 ChatGPT Plus 月卡</strong><span>当前主商品是 Plus 激活码。</span></div>
+<div><strong>已有自己的 ChatGPT 账号</strong><span>开通到你的账号，不是共享号。</span></div>
+<div><strong>常规流程无需密码</strong><span>不建议提供密码、验证码或银行卡验证码。</span></div>
+</div>
+</section>
+<section class="decision-card support-policy" aria-label="售后规则">
+<h2>售后规则</h2>
+<p>未使用卡密可处理退款；已使用卡密后的异常，按实际充值状态处理。Plus 异常支持 30 天质保，具体以订单状态和实际使用天数为准。</p>
+<button class="policy-contact" id="policyCopyWx" type="button">付款前想确认，复制微信咨询</button>
+</section>
 <section class="problem-router" aria-label="问题快速入口">
 <p class="problem-router-title">你现在卡在哪一步？</p>
-<p class="problem-router-desc">先看对应说明，判断是继续自助排查，还是直接购买激活码开通。</p>
+<p class="problem-router-desc">不确定是否适合直接买？先按当前问题看一篇最相关的说明。</p>
 <div class="problem-options">
 <a class="problem-option" href="/blog/chatgpt-plus-guonei-fukuan.html">没有海外卡，想开通 Plus</a>
 <a class="problem-option" href="/blog/chatgpt-chongzhi-shibai.html">银行卡 / 信用卡支付失败</a>
 <a class="problem-option" href="/blog/chatgpt-plus-chongzhi.html">续费前想确认流程</a>
 <a class="problem-option" href="/blog/chatgpt-plus-xuyao-tigong-mima-ma.html">担心要不要提供密码</a>
-<a class="problem-option problem-option-wide" href="/blog/chatgpt-plus-daichong-kaopu-ma.html">想先判断代充是否靠谱</a>
+<a class="problem-option problem-option-wide" href="/blog/chatgpt-plus-daichong-kaopu-ma.html">想先判断平台是否靠谱</a>
 </div>
 </section>
 <div class="ability-strip" aria-label="开通后可用能力">
@@ -3115,7 +3493,6 @@ var _hmt = _hmt || [];
 📌 充值到你自己的 GPT 账号，不是共享号或成品号<br>
 <a href="https://gptuse.xyz/" target="_blank" rel="noopener">无法访问 GPT？👉 查看镜像服务</a>
 </div>
-<a class="blog-entry-link" href="/blog/">📚 Plus 订阅指南 & 账号安全文章</a>
 <div aria-hidden="true" class="actions-gap"></div>
 <p class="small-risk">到账异常？系统自动处理，客服协助解决</p>
 <div class="steps-mini">
@@ -3148,18 +3525,6 @@ var _hmt = _hmt || [];
 <div class="stat-label">多数订单完成</div>
 </div>
 </div>
-<section class="feedback-box" aria-label="用户反馈摘录">
-<p class="feedback-title">用户反馈摘录</p>
-<div class="feedback-list">
-<div class="feedback-item"><strong>小林 · 设计师</strong><span>不用发密码这点比较安心，按页面提示走完就可以。</span></div>
-<div class="feedback-item"><strong>阿泽 · 自媒体</strong><span>之前续费失败，先问清楚再下单，说明还挺明白。</span></div>
-<div class="feedback-item"><strong>老陈 · 公司采购</strong><span>要发票和对公付款，提前确认后流程比较顺。</span></div>
-</div>
-<button class="feedback-proof-button case-thumbnail" data-slide="1" type="button" aria-label="查看真实交付截图">
-<span class="feedback-proof-thumb"><img src="客户案例 1.jpg" alt=""></span>
-<span class="feedback-proof-copy"><strong>查看真实交付截图</strong><span>14 张截图，可打开后左右滑动查看</span></span>
-</button>
-</section>
 </header>
 
 
@@ -3289,14 +3654,15 @@ var _hmt = _hmt || [];
 </div>
 
 <footer>
-<div style="margin-bottom:10px;">面向国内用户的会员订阅代充/代开服务，采用应用内订阅代付方式；自动化处理，三步完成。</div>
-<a href="/blog/" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.borderColor='rgba(20, 184, 166, 0.4)'" onmouseover="this.style.color='#fff';this.style.borderColor='#14b8a6'" style="color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem; border-bottom: 1px solid rgba(20, 184, 166, 0.4); padding-bottom: 2px; transition: all 0.2s;">
-        📚 Plus 订阅指南 & 账号安全文章
-      </a>
+<section aria-label="关于光年升级计划" style="margin:0 0 14px;padding:16px;border-radius:16px;background:rgba(20,184,166,.10);border:1px solid rgba(45,212,191,.24);text-align:left;line-height:1.75;">
+  <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">关于光年升级计划</h2>
+  <p style="margin:0 0 8px;color:rgba(255,255,255,.74);font-size:.82rem;">光年升级计划由嘉哥AI / 嘉哥GPT 主理，主要为国内用户整理 ChatGPT Plus 开通、支付失败处理、账号安全和 AI 工具使用相关指南，并提供 Plus 激活码自助开通服务。AIPass.me 为光年升级计划官网入口。</p>
+  <p style="margin:0;color:rgba(204,251,241,.82);font-size:.82rem;">你在抖音、小红书、视频号看到的“嘉哥AI”“嘉哥GPT”，对应的官网服务入口为光年升级计划。<a href="/jiage-ai-gpt/" style="color:#fde68a;font-weight:900;">查看官方入口说明</a></p>
+</section>
 <section aria-label="服务风险说明" style="margin:18px 0 0;padding:16px;border-radius:16px;background:rgba(15,23,42,.38);border:1px solid rgba(20,184,166,.22);text-align:left;line-height:1.75;">
   <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">服务风险说明</h2>
   <ul style="margin:0;padding-left:1.1rem;color:rgba(255,255,255,.72);font-size:.82rem;">
-    <li>本站为第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。</li>
+    <li>光年升级计划是第三方数字服务平台，并非 OpenAI 或 ChatGPT 官方网站。</li>
     <li>不提供共享号、成品号或来源不明账号，优先充值到用户自己的账号。</li>
     <li>不建议选择异常低价渠道，避免支付来源、账号归属和售后边界不清。</li>
     <li>任何第三方服务都不应承诺零风险，使用前请先确认流程、价格、退款和异常处理规则。</li>
@@ -3305,27 +3671,27 @@ var _hmt = _hmt || [];
 <section aria-label="首页常见问题" style="margin:14px 0 0;padding:16px;border-radius:16px;background:rgba(2,6,23,.3);border:1px solid rgba(255,255,255,.1);text-align:left;line-height:1.75;">
   <h2 style="font-size:1rem;margin:0 0 8px;color:#fff;">开通前常见问题</h2>
   <details open><summary>ChatGPT Plus 国内可以付款吗？</summary><p>部分用户可以使用可用的国际支付方式自行订阅；如果国内银行卡或续费失败，可以了解第三方协助方式。</p></details>
-  <details><summary>开通 Plus 是否需要提供账号密码？</summary><p>不建议随意提供账号密码。AIPass 主张按指引充值到自己的账号，尽量减少敏感信息暴露。</p></details>
-  <details><summary>AIPass 是官方官网吗？</summary><p>不是。AIPass 是第三方服务网站，并非 OpenAI 或 ChatGPT 官方；可以协助用户使用官方订阅入口完成开通或续费。</p></details>
-  <details><summary>充值一般多久到账？</summary><p>多数情况下系统会较快处理，具体以页面和订单状态为准；如遇延迟，先不要重复下单。</p></details>
+  <details><summary>开通 Plus 是否需要提供账号密码？</summary><p>不建议随意提供账号密码。光年升级计划主张按指引充值到自己的账号，尽量减少敏感信息暴露。</p></details>
+  <details><summary>光年升级计划是官方官网吗？</summary><p>不是。光年升级计划是第三方服务网站，并非 OpenAI 或 ChatGPT 官方；可以协助用户使用官方订阅入口完成开通或续费。</p></details>
+  <details><summary>充值一般多久到账？</summary><p>多数正常订单约 5 分钟内完成；少数账号状态异常、验证异常或系统延迟时，人工协助处理。如遇延迟，先不要重复下单。</p></details>
   <details><summary>如果续费失败怎么办？</summary><p>先检查原支付方式、订阅入口和账号状态；多次失败时，可以咨询客服确认可行处理方式。</p></details>
-  <details><summary>是否支持退款？</summary><p>退款规则以实际服务页面和订单说明为准；下单前建议先看清到账、异常处理和售后边界。</p></details>
+  <details><summary>是否支持退款？</summary><p>未使用卡密可处理退款；已使用后按实际充值状态处理。Plus 异常支持 30 天质保，具体以订单状态和实际使用天数为准。</p></details>
 </section>
 <div style="font-size:12px;opacity:0.6;margin-top:14px;line-height:1.6;">
-  声明：本站为第三方数字服务平台，与 OpenAI 或 ChatGPT 官方无任何隶属关系。页面中提及的产品名称仅用于说明服务适配对象。
+  声明：光年升级计划是第三方数字服务平台，与 OpenAI 或 ChatGPT 官方无任何隶属关系。页面中提及的产品名称仅用于说明服务适配对象。
 </div>
 </footer>
 </main>
 <section class="focus-info-switches" aria-label="折叮信息入口">
 <a class="focus-info-button" href="#whyPanel">为什么选择我们？</a>
 <a class="focus-info-button" href="#faqPanel">常见问题</a>
-<button class="focus-info-button case-thumbnail" data-slide="1" type="button">用户反馈</button>
+<a class="focus-info-button" href="#feedbackPanel">用户反馈</a>
 </section>
 <aside class="side-panel faq-panel" id="faqPanel" aria-label="常见问题">
 <h2>常见问题</h2>
 <a class="mobile-mirror-link" href="https://gptuse.xyz/" target="_blank" rel="noopener">👉 无法访问 GPT？查看镜像服务</a>
 <div class="faq-list">
-<div class="faq-item"><strong>多久可以到账？</strong><span>通常约 2 分钟完成，少数情况可能稍有延迟。</span></div>
+<div class="faq-item"><strong>多久可以到账？</strong><span>多数正常订单约 5 分钟内完成，少数情况可能稍有延迟。</span></div>
 <div class="faq-item"><strong>需要账号密码吗？</strong><span>不需要提供账号密码，按指引充值到自己的账号，降低泄密风险。</span></div>
 <div class="faq-item"><strong>没到账怎么办？</strong><span>系统自动处理，联系客服可补单或处理。</span></div>
 <div class="faq-item"><strong>会不会有账号风险？</strong><span>任何第三方服务都不应承诺零风险。建议优先选择充值到自己账号、流程透明、售后规则清楚的方式。</span></div>
@@ -3381,6 +3747,35 @@ var _hmt = _hmt || [];
 <button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
 </div>
 </aside>
+<aside class="side-panel feedback-panel" id="feedbackPanel" aria-label="用户反馈">
+<h2>用户反馈</h2>
+<p class="side-feedback-title">昵称已脱敏</p>
+<div class="side-feedback-list" aria-label="用户反馈滚动列表">
+<div class="side-feedback-track">
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">林</span>小林</span><span class="side-feedback-tag">设计师</span></div>
+<div class="side-feedback-text">不用发密码这点比较安心，按页面提示走完就可以。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">泽</span>阿泽</span><span class="side-feedback-tag">自媒体</span></div>
+<div class="side-feedback-text">之前续费失败，先问清楚再下单，说明还挺明白。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">M</span>Mia</span><span class="side-feedback-tag">留学生</span></div>
+<div class="side-feedback-text">账号还是自己的，付款不用折腾海外卡，适合怕麻烦的人。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">陈</span>老陈</span><span class="side-feedback-tag">公司采购</span></div>
+<div class="side-feedback-text">要发票和对公付款，提前确认后流程比较顺。</div>
+</div>
+<div class="side-feedback-item">
+<div class="side-feedback-head"><span class="side-feedback-user"><span class="side-feedback-avatar">橘</span>橘子</span><span class="side-feedback-tag">iPhone 用户</span></div>
+<div class="side-feedback-text">遇到验证提示有点慌，截图发过去后有人帮我看。</div>
+</div>
+</div>
+</div>
+<button class="side-record-btn case-thumbnail" data-slide="1" type="button">查看真实交付记录</button>
+</aside>
 </div>
 <div aria-hidden="true" class="modal-mask" id="feedbackModal">
 <div aria-labelledby="feedbackTitle" class="modal-card" role="dialog" tabindex="-1">
@@ -3400,7 +3795,7 @@ var _hmt = _hmt || [];
 </div>
 </div>
 </div>
-<div aria-hidden="true" class="cs-drawer" id="/* removed:csDrawer */">
+<div aria-hidden="true" class="cs-drawer" id="csDrawer">
 <div class="cs-head">
 <strong>联系人工</strong>
 <button aria-label="关闭" id="csClose">✕</button>
@@ -3409,9 +3804,9 @@ var _hmt = _hmt || [];
 <p>微信：<b id="wx">jiage01888</b>
 <button class="copy" onclick="copyText('wx')">复制</button></p>
 <div class="qq-toggle">
-<button class="qq-toggle-btn" id="/* removed:qqToggle */">微信联系不上时，请联系/* removed:QQ */</button>
-<div class="qq-content" id="/* removed:qqContent */" style="display: none;">
-<p>/* removed:QQ */：<b id="qq">1852634132</b>
+<button class="qq-toggle-btn" id="qqToggle">微信联系不上时，查看备用联系方式</button>
+<div class="qq-content" id="qqContent" style="display: none;">
+<p>备用联系方式：<b id="qq">1852634132</b>
 <button class="copy" onclick="copyText('qq')">复制</button></p>
 </div>
 </div>
@@ -3448,7 +3843,7 @@ var _hmt = _hmt || [];
 <button aria-controls="tab-support" aria-selected="false" class="tab-btn" data-tab="support" id="tabbtn-support" role="tab">客服微信</button>
 </nav>
 <section aria-labelledby="tabbtn-price" class="tab-panel active" id="tab-price" role="tabpanel">
-<p>官方订阅约 <strong>¥145</strong>，但实际开通还包含：</p>
+<p>OpenAI Plus 官方价格为 <strong>$20/月</strong>，折合人民币约 ¥145；本站价格还包含：</p>
 <ul>
 <li>支付手续费（跨区支付 / 汇率损耗）</li>
 <li>风控与稳定通道（降低异常风险）</li>
@@ -3470,8 +3865,8 @@ var _hmt = _hmt || [];
 <section aria-labelledby="tabbtn-flow" class="tab-panel" hidden="" id="tab-flow" role="tabpanel">
 <ul class="flow-steps">
 <li>① 下单获取 Plus 激活码</li>
-<li>② 进入 AIPass 站内充值中心，按指引充值到自己的 ChatGPT 账号（无需提供账号密码）</li>
-<li>③ 约5分钟到账</li>
+<li>② 进入光年升级计划站内充值中心，按指引充值到自己的 ChatGPT 账号（无需提供账号密码）</li>
+<li>③ 多数正常订单约 5 分钟内完成</li>
 </ul>
 <p class="hint">提示：若遇到账延迟，请先勿重复下单，联系人工处理。</p>
 <div class="modal-footer">
@@ -3556,7 +3951,7 @@ var _hmt = _hmt || [];
 <section class="proof-sec" id="proof-official">
 <h4>平台价格说明（摘要）</h4>
 <ul class="proof-list">
-<li>官方订阅约 <strong>¥145</strong>，实际开通还包含支付、风控与稳定通道成本。</li>
+<li>OpenAI Plus 官方价格为 <strong>$20/月</strong>，本站价格还包含支付、风控与稳定通道成本。</li>
 <li>本站价格包含 <strong>稳定通道 / 自动处理系统 / 售后支持</strong>。</li>
 </ul>
 <p>→ <strong>定价 ¥188/月</strong>（如整体成本上调，将同步调整）。</p>
@@ -3590,7 +3985,7 @@ var _hmt = _hmt || [];
 <div aria-hidden="true" class="rs-mask" id="rechargeSystemModal">
 <div aria-labelledby="rsTitle" class="rs-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="rs-close" id="rsClose">×</button>
-<h3 class="rs-title" id="rsTitle">进入 AIPass 站内充值中心</h3>
+<h3 class="rs-title" id="rsTitle">进入光年升级计划站内充值中心</h3>
 <div class="rs-body" style="margin: 6px 0 10px;">
 <div style="font-weight:800; opacity:.9; margin-bottom:6px;">说明：</div>
 <ul style="margin:0; padding-left: 1.15rem; line-height: 1.7; opacity:.88;">
@@ -3599,8 +3994,8 @@ var _hmt = _hmt || [];
 </ul>
 </div>
 <div class="rs-options" role="list" style="margin-top:14px;">
-<button aria-label="进入 AIPass 站内充值中心" class="rs-option" data-url="/activate/" role="listitem" type="button">
-<div class="rs-option-title">AIPass 站内充值中心</div>
+<button aria-label="进入光年升级计划站内充值中心" class="rs-option" data-url="/activate/?v=20260606" role="listitem" type="button">
+<div class="rs-option-title">光年升级计划站内充值中心</div>
 <div class="rs-option-desc">已购买激活码后，点击进入站内充值流程</div>
 <div class="rs-option-url">https://www.aipass.me/activate/</div>
 </button>
@@ -3656,9 +4051,20 @@ var _hmt = _hmt || [];
       return false;
     }
   }
+  window.copyText = async function(id){
+    const text = document.getElementById(id)?.textContent?.trim();
+    if(text) await copyToClipboard(text);
+  };
 
   function openNew(url){
-    window.open(url, '_blank', 'noopener');
+    window.location.href = url;
+  }
+
+  function openContactDrawer(){
+    const drawer = $('#csDrawer');
+    if(!drawer) return;
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
   }
 
   // --- buy buttons ---
@@ -3674,8 +4080,20 @@ var _hmt = _hmt || [];
   $('#stickyBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
 
   // --- bottom copy wx ---
-  $('#copyWeChat')?.addEventListener('click', async (e)=>{ e.preventDefault(); await copyToClipboard(WX_ID); });
-  $('#copyWeChatMain')?.addEventListener('click', async (e)=>{ e.preventDefault(); await copyToClipboard(WX_ID); });
+  $('#copyWeChat')?.addEventListener('click', async (e)=>{ e.preventDefault(); openContactDrawer(); await copyToClipboard(WX_ID); });
+  $('#copyWeChatMain')?.addEventListener('click', async (e)=>{ e.preventDefault(); openContactDrawer(); await copyToClipboard(WX_ID); });
+  $('#policyCopyWx')?.addEventListener('click', async (e)=>{ e.preventDefault(); openContactDrawer(); await copyToClipboard(WX_ID); });
+  $('#csClose')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const drawer = $('#csDrawer');
+    drawer?.classList.remove('open');
+    drawer?.setAttribute('aria-hidden','true');
+  });
+  $('#qqToggle')?.addEventListener('click', (e)=>{
+    e.preventDefault();
+    const content = $('#qqContent');
+    if(content) content.style.display = content.style.display === 'none' ? 'block' : 'none';
+  });
 
   // ========== Modal helpers ==========
   function openMask(mask){
@@ -3716,7 +4134,7 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.open('/activate/','_blank','noopener'); });
+  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = '/activate/?v=20260606'; });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
