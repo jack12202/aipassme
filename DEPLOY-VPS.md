@@ -2,6 +2,10 @@
 
 这个仓库已经准备好通过 GitHub Actions 自动同步到 1Panel / VPS。
 
+充值系统、GPTC 后端代理、源头切换和安全测试规则见：
+
+- `RECHARGE-VPS-RUNBOOK.md`
+
 ## 当前发布目标
 
 - 站点域名：`aipass.me`
