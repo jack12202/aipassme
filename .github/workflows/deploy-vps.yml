@@ -49,7 +49,7 @@ jobs:
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/activate/ > /tmp/aipass-activate.html
           grep -q '<link rel="canonical" href="https://www.aipass.me/activate/">' /tmp/aipass-activate.html
-          grep -q '<title>Plus 激活码开通中心｜光年升级计划</title>' /tmp/aipass-activate.html
+          grep -q '<title>光年升级 Plus 充值系统｜激活码自助处理</title>' /tmp/aipass-activate.html
 
       - name: Verify Jiage entrance page preview
         run: |

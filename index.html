@@ -3398,57 +3398,110 @@ body{
 
 /* ===== Short conversion homepage ===== */
 body{
-  padding:28px 12px 34px !important;
+  padding:34px 12px 44px !important;
 }
 .landing-shell{
-  width:min(760px,100%);
-  max-width:760px;
-  gap:14px;
+  width:min(820px,100%);
+  max-width:820px;
+  gap:18px;
 }
 .focus-info-switches{
   display:none !important;
 }
+.landing-shell .card{
+  max-width:820px;
+}
 .landing-shell .card-header{
-  padding:30px 34px 24px !important;
+  padding:42px 52px 32px !important;
 }
 .short-hero{
   gap:0;
 }
 .short-hero .brand-badge{
-  margin-bottom:14px;
+  margin-bottom:24px;
+}
+.short-hero .brand-name{
+  font-size:1rem;
 }
 .short-hero .brand-sub{
   display:block !important;
+  color:rgba(204,251,241,.72);
+  font-size:.74rem;
+  font-weight:780;
 }
 .short-hero h1{
-  font-size:clamp(2rem,4.1vw,2.75rem);
-  line-height:1.12;
+  max-width:720px;
+  font-size:clamp(2.05rem,3.85vw,2.72rem);
+  line-height:1.16;
+}
+.short-hero h1 .hero-title-line{
+  display:block;
 }
 .short-subtitle{
-  max-width:620px;
-  margin:12px auto 0;
-  color:rgba(226,232,240,.84);
-  font-size:.96rem;
-  font-weight:780;
-  line-height:1.75;
+  max-width:660px;
+  margin:22px auto 0;
+  color:rgba(226,232,240,.78);
+  font-size:.94rem;
+  font-weight:650;
+  line-height:1.86;
+}
+.short-subtitle .subtitle-line{
+  display:block;
 }
 .short-hero .decision-line{
-  margin-top:14px;
+  margin-top:26px;
+  padding:5px 12px;
+  border-color:rgba(45,212,191,.22);
+  background:rgba(20,184,166,.065);
+  color:rgba(204,251,241,.90);
+  font-size:.82rem;
 }
 .short-hero .price{
-  margin:18px 0 8px;
+  margin:30px 0 14px;
+  align-items:center;
 }
 .short-hero .price-val{
-  font-size:3.25rem;
+  font-size:3.1rem;
+}
+.short-hero .price-tag{
+  padding:3px 8px;
+  font-size:.72rem;
+  font-weight:760;
+  background:rgba(255,255,255,.065);
+  border-color:rgba(255,255,255,.14);
+  color:rgba(255,255,255,.80);
+}
+.hero-actions-main{
+  width:min(620px,100%);
+  max-width:620px;
+  margin:18px auto 0 !important;
+  display:grid !important;
+  grid-template-columns:minmax(0,1.22fr) minmax(0,1fr) !important;
+  gap:12px !important;
+}
+.hero-actions-main .btn-buy{
+  min-height:60px;
+  font-size:1.04rem;
+}
+.hero-actions-main .btn-recharge{
+  min-height:50px;
+  padding:10px 12px;
+  font-size:.86rem;
+  line-height:1.35;
+  white-space:nowrap;
+  background:rgba(255,255,255,.045);
+  border-color:rgba(255,255,255,.16);
+  color:rgba(255,255,255,.72);
+  box-shadow:none;
 }
 .inline-contact-link{
   all:unset;
   display:inline-flex;
   justify-content:center;
-  margin:8px auto 0;
-  color:#ccfbf1;
-  font-size:.86rem;
-  font-weight:900;
+  margin:18px auto 0;
+  color:rgba(204,251,241,.78);
+  font-size:.8rem;
+  font-weight:760;
   text-decoration:underline;
   text-underline-offset:3px;
   cursor:pointer;
@@ -3457,20 +3510,28 @@ body{
   display:flex;
   flex-wrap:wrap;
   justify-content:center;
-  gap:8px;
-  margin:15px auto 0;
-  color:rgba(255,255,255,.72);
-  font-size:.78rem;
-  font-weight:850;
+  gap:0;
+  margin:22px auto 0;
+  color:rgba(255,255,255,.58);
+  font-size:.76rem;
+  font-weight:740;
 }
 .trust-strip span{
   display:inline-flex;
   align-items:center;
-  min-height:28px;
-  padding:4px 9px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.045);
+  min-height:auto;
+  padding:0;
+  border-radius:0;
+  border:0;
+  background:transparent;
+}
+.trust-strip span:not(:last-child)::after{
+  content:"·";
+  margin:0 11px;
+  color:rgba(255,255,255,.36);
+}
+.purchase-after{
+  margin-top:26px;
 }
 .compact-steps{
   grid-template-columns:repeat(3,minmax(0,1fr)) !important;
@@ -3648,18 +3709,62 @@ body{
   line-height:1.6;
 }
 @media (max-width:760px){
+  body{
+    overflow-x:hidden;
+  }
+  .landing-shell,
+  .landing-shell .card{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+  }
   .landing-shell .card-header{
-    padding:24px 18px 20px !important;
+    padding:28px 20px 22px !important;
+    overflow:hidden;
+  }
+  .short-hero .brand-badge{
+    margin-bottom:20px;
   }
   .short-hero h1{
-    font-size:1.86rem;
+    max-width:100%;
+    font-size:1.66rem;
+    line-height:1.18;
+    overflow-wrap:anywhere;
   }
   .short-subtitle{
+    max-width:100%;
     font-size:.88rem;
     line-height:1.65;
+    margin-top:18px;
+    overflow-wrap:anywhere;
+  }
+  .short-hero .decision-line{
+    width:100%;
+    margin-top:20px;
+    white-space:normal;
+    font-size:.76rem;
+  }
+  .short-hero .price{
+    margin:24px 0 12px;
   }
   .short-hero .price-val{
-    font-size:2.65rem;
+    font-size:2.58rem;
+  }
+  .hero-actions-main{
+    max-width:none;
+    width:100%;
+    margin-top:16px !important;
+    grid-template-columns:1fr !important;
+  }
+  .hero-actions-main .btn-buy{
+    min-height:58px;
+  }
+  .hero-actions-main .btn-recharge{
+    min-height:46px;
+    white-space:normal;
+  }
+  .inline-contact-link{
+    margin-top:16px;
   }
   .compact-steps,
   .feedback-marquee,
@@ -3675,10 +3780,17 @@ body{
     height:224px;
   }
   .trust-strip{
-    gap:6px;
+    gap:0;
+    line-height:1.7;
   }
   .trust-strip span{
     font-size:.72rem;
+  }
+  .trust-strip span:not(:last-child)::after{
+    margin:0 8px;
+  }
+  .purchase-after{
+    margin-top:24px;
   }
 }
 @media (prefers-reduced-motion: reduce){
@@ -3721,8 +3833,8 @@ var _hmt = _hmt || [];
 <span class="brand-sub">嘉哥AI / 嘉哥GPT 主理</span>
 </div>
 </div>
-<h1>没有海外卡，也能给自己的 ChatGPT 账号开通 Plus</h1>
-<p class="short-subtitle">支持微信/支付宝购买 Plus 激活码，在站内激活中心按提示自助开通。常规流程不需要提供 ChatGPT 密码，多数正常订单约 5 分钟完成。</p>
+<h1><span class="hero-title-line">没有海外卡，</span><span class="hero-title-line">也能给自己的 ChatGPT 账号</span><span class="hero-title-line">开通 Plus</span></h1>
+<p class="short-subtitle"><span class="subtitle-line">支持微信/支付宝购买 Plus 激活码，</span><span class="subtitle-line">在站内激活中心按提示自助开通。</span><span class="subtitle-line">常规流程不需要提供 ChatGPT 密码，</span><span class="subtitle-line">多数正常订单约 5 分钟完成。</span></p>
 <div class="decision-line">¥188/月｜开到自己的账号｜不是共享号｜未使用卡密可退</div>
 <div class="price">
 <span class="price-val">¥188/月</span>

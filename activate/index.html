@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plus 激活码开通中心｜光年升级计划</title>
-  <meta name="description" content="光年升级计划 ChatGPT Plus 激活码自助开通中心。已购买 Plus 激活码后，先验证激活码，再确认当前登录的 ChatGPT 账号，最后提交开通。">
+  <title>光年升级 Plus 充值系统｜激活码自助处理</title>
+  <meta name="description" content="光年升级 Plus 充值系统。已购买 Plus 激活码后，先验证激活码，再获取充值密钥并核对账号，最后提交处理。">
   <link rel="canonical" href="https://www.aipass.me/activate/">
-  <meta property="og:title" content="Plus 激活码开通中心｜光年升级计划">
-  <meta property="og:description" content="已购买激活码后，在光年升级计划完成自助开通。常规流程不需要输入 ChatGPT 密码或验证码。">
+  <meta property="og:title" content="光年升级 Plus 充值系统｜激活码自助处理">
+  <meta property="og:description" content="已购买激活码后，在光年升级 Plus 充值系统完成自助处理。常规流程不需要输入 ChatGPT 密码或验证码。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.aipass.me/activate/">
   <style>
@@ -51,15 +51,15 @@
     }
     a { color: inherit; }
     .wrap {
-      width: min(980px, calc(100% - 28px));
-      margin: 28px auto 48px;
+      width: min(900px, calc(100% - 28px));
+      margin: 12px auto 34px;
     }
     .topbar {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       align-items: center;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
     .brand {
       text-decoration: none;
@@ -70,8 +70,8 @@
       color: #fff;
     }
     .brand-mark {
-      width: 34px;
-      height: 34px;
+      width: 30px;
+      height: 30px;
       border-radius: 9px;
       background: linear-gradient(135deg, var(--brand-dark), var(--brand));
       color: #fff;
@@ -87,8 +87,8 @@
     }
     .mini-btn {
       text-decoration: none;
-      min-height: 40px;
-      padding: 0 14px;
+      min-height: 36px;
+      padding: 0 12px;
       border-radius: 999px;
       display: inline-flex;
       align-items: center;
@@ -97,7 +97,7 @@
       border: 1px solid rgba(255,255,255,.16);
       color: #ecfeff;
       font-weight: 800;
-      font-size: 14px;
+      font-size: 13px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -112,51 +112,51 @@
       -webkit-backdrop-filter: blur(16px) saturate(130%);
     }
     .hero {
-      border-radius: 26px;
-      padding: 28px 24px;
-      margin-bottom: 20px;
+      border-radius: 20px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
     }
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      min-height: 30px;
-      padding: 0 12px;
+      min-height: 26px;
+      padding: 0 10px;
       border-radius: 999px;
       background: rgba(20,184,166,.10);
       border: 1px solid rgba(45,212,191,.26);
       color: #ccfbf1;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
     }
     h1 {
-      margin: 14px 0 10px;
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
+      margin: 7px 0 7px;
+      font-size: clamp(28px, 3.8vw, 40px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
     }
     .hero p {
       margin: 0;
-      max-width: 780px;
+      max-width: 760px;
       color: rgba(226,232,240,.84);
-      font-size: 17px;
-      line-height: 1.7;
+      font-size: 14px;
+      line-height: 1.5;
     }
     .hero-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 18px;
+      gap: 8px;
+      margin-top: 10px;
     }
     .pill {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 0 14px;
+      min-height: 28px;
+      padding: 0 10px;
       border-radius: 999px;
       background: rgba(255,255,255,.10);
       border: 1px solid rgba(255,255,255,.14);
       color: #f8fafc;
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 700;
     }
     .panel {
@@ -166,8 +166,8 @@
     .stepper {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      padding: 18px;
+      gap: 8px;
+      padding: 8px;
       background: rgba(255,255,255,.04);
       border-bottom: 1px solid var(--line);
     }
@@ -175,13 +175,13 @@
       border: 2px solid rgba(255,255,255,.12);
       border-radius: 16px;
       background: rgba(255,255,255,.04);
-      min-height: 92px;
-      padding: 16px 14px;
+      min-height: 44px;
+      padding: 8px 10px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
       text-align: center;
     }
     .step.active {
@@ -193,8 +193,8 @@
       background: rgba(34,197,94,.10);
     }
     .num {
-      width: 36px;
-      height: 36px;
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
       display: grid;
       place-items: center;
@@ -204,14 +204,14 @@
     }
     .step.active .num { background: linear-gradient(135deg, var(--brand-dark), var(--brand)); }
     .step.done .num { background: var(--success); }
-    .step strong { font-size: 17px; }
-    .step span { color: var(--muted); font-size: 13px; }
-    .content { padding: 24px; }
+    .step strong { font-size: 14px; }
+    .step span { display: none; }
+    .content { padding: 14px 22px 20px; }
     .stage { display: none; }
     .stage.active { display: block; }
     .notice {
-      margin-bottom: 20px;
-      padding: 16px 18px;
+      margin-bottom: 12px;
+      padding: 10px 12px;
       border-radius: 14px;
       background: rgba(20,184,166,.10);
       border: 1px solid rgba(45,212,191,.22);
@@ -219,8 +219,8 @@
     }
     .notice strong {
       display: block;
-      margin-bottom: 6px;
-      font-size: 18px;
+      margin-bottom: 3px;
+      font-size: 16px;
     }
     .field { display: grid; gap: 8px; }
     .field label { font-size: 15px; font-weight: 800; }
@@ -229,7 +229,7 @@
       width: 100%;
       border: 1px solid rgba(255,255,255,.18);
       border-radius: 14px;
-      padding: 14px 16px;
+      padding: 13px 15px;
       font: inherit;
       color: #f8fafc;
       background: rgba(255,255,255,.06);
@@ -240,14 +240,14 @@
     .btn-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 20px;
+      gap: 10px;
+      margin-top: 12px;
     }
     button, .link-btn {
       border: 0;
       border-radius: 14px;
-      min-height: 48px;
-      padding: 0 20px;
+      min-height: 44px;
+      padding: 0 18px;
       font: inherit;
       font-weight: 900;
       cursor: pointer;
@@ -269,8 +269,8 @@
     }
     .green { color: #fff; background: linear-gradient(135deg, #0f766e, #14b8a6); }
     .tip-box {
-      margin-top: 18px;
-      padding: 16px 18px;
+      margin-top: 14px;
+      padding: 14px 16px;
       border-radius: 14px;
       background: rgba(245,158,11,.14);
       border: 1px solid rgba(251,191,36,.32);
@@ -281,22 +281,22 @@
     .two-col {
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
+      gap: 16px;
       align-items: start;
     }
     .info-card {
       border: 1px solid rgba(255,255,255,.12);
       border-radius: 16px;
       background: rgba(255,255,255,.04);
-      padding: 18px;
+      padding: 16px;
     }
-    .info-card h3 { margin: 0 0 12px; font-size: 20px; }
+    .info-card h3 { margin: 0 0 10px; font-size: 18px; }
     .kvs { display: grid; gap: 0; border-top: 1px solid rgba(255,255,255,.10); }
     .kv {
       display: flex;
       justify-content: space-between;
       gap: 16px;
-      padding: 14px 0;
+      padding: 12px 0;
       border-bottom: 1px solid rgba(255,255,255,.10);
     }
     .kv span:first-child { color: var(--muted); font-weight: 700; }
@@ -429,12 +429,51 @@
       line-height: 1.7;
     }
     @media (max-width: 860px) {
-      .two-col, .stepper { grid-template-columns: 1fr; }
-      .step { min-height: 78px; }
-      .content, .hero { padding: 20px; }
+      .wrap {
+        width: min(100% - 18px, 900px);
+        margin-top: 8px;
+      }
+      .two-col { grid-template-columns: 1fr; }
+      .stepper {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+        padding: 8px;
+      }
+      .step {
+        min-height: 42px;
+        padding: 7px 6px;
+        border-radius: 12px;
+      }
+      .step strong { font-size: 13px; line-height: 1.2; }
+      .num { width: 24px; height: 24px; font-size: 13px; }
+      .content { padding: 12px 12px 16px; }
+      .hero { padding: 12px 14px; }
+      .hero-pills {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
+      }
+      .pill {
+        justify-content: center;
+        min-height: 26px;
+        padding: 0 6px;
+        font-size: 11px;
+      }
       .kv { flex-direction: column; gap: 6px; }
-      .topbar { flex-direction: column; align-items: stretch; }
+      .topbar {
+        align-items: center;
+        gap: 8px;
+      }
+      .brand { font-size: 14px; }
+      .brand-mark { width: 28px; height: 28px; border-radius: 8px; }
+      .top-actions { gap: 6px; justify-content: flex-end; }
+      .mini-btn { min-height: 32px; padding: 0 9px; font-size: 12px; }
       .result-top { flex-direction: column; }
+      h1 { font-size: clamp(26px, 7.4vw, 32px); }
+      .hero p { font-size: 14px; line-height: 1.5; }
+      .notice { padding: 10px 12px; margin-bottom: 12px; }
+      .notice strong { font-size: 16px; }
+      button, .link-btn { width: 100%; }
     }
   </style>
 </head>
@@ -443,22 +482,22 @@
     <div class="topbar">
       <a class="brand" href="/">
         <span class="brand-mark">光</span>
-        <span>光年升级计划 · 嘉哥主理</span>
+        <span>光年升级 Plus 系统</span>
       </a>
       <div class="top-actions">
-        <a class="mini-btn" href="/">返回光年升级计划首页</a>
-        <a class="mini-btn" href="https://fe.dtyuedan.cn/shop/jiage">还没有激活码？先去购买</a>
+        <a class="mini-btn" href="/">首页</a>
+        <a class="mini-btn" href="https://fe.dtyuedan.cn/shop/jiage">购买激活码</a>
       </div>
     </div>
 
     <section class="hero">
-      <span class="eyebrow">Plus 激活码开通中心</span>
-      <h1>ChatGPT Plus 激活码自助开通</h1>
-      <p>已购买 Plus 激活码？在这里完成自助开通。请先验证激活码，再确认当前登录的 ChatGPT 账号，最后提交开通。常规流程不需要输入 ChatGPT 密码或验证码。</p>
+      <span class="eyebrow">第三方 Plus 自助处理页面</span>
+      <h1>光年升级 Plus 充值系统</h1>
+      <p>三步完成：填激活码、获取充值密钥、核对账号后提交。全程不需要输入 ChatGPT 密码或验证码。</p>
       <div class="hero-pills">
-        <span class="pill">开通到自己的 ChatGPT 账号</span>
-        <span class="pill">不需要输入 ChatGPT 密码</span>
-        <span class="pill">先验证激活码，再确认账号</span>
+        <span class="pill">1 填激活码</span>
+        <span class="pill">2 获取充值密钥</span>
+        <span class="pill">3 核对账号后提交</span>
       </div>
     </section>
 
@@ -467,75 +506,74 @@
         <div class="step active" id="step-1">
           <div class="num">1</div>
           <strong>验证激活码</strong>
-          <span>确认激活码可用于 Plus 开通</span>
+          <span>填入卡密并核对</span>
         </div>
         <div class="step" id="step-2">
           <div class="num">2</div>
-          <strong>确认 ChatGPT 账号</strong>
-          <span>识别当前登录账号邮箱</span>
+          <strong>获取充值密钥</strong>
+          <span>登录后复制密钥</span>
         </div>
         <div class="step" id="step-3">
           <div class="num">3</div>
-          <strong>提交开通</strong>
-          <span>核对无误后开始处理</span>
+          <strong>核对并提交</strong>
+          <span>确认账号后处理</span>
         </div>
       </div>
 
       <div class="content">
         <div class="stage active" id="stage-1">
           <div class="notice" id="step1Notice">
-            <strong>第 1 步：验证你的 Plus 激活码</strong>
-            输入你购买后获得的激活码。系统会先确认激活码是否可用，验证通过后才会进入下一步。这一步不会开始开通，只是先检查激活码状态。
+            <strong>第 1 步：验证激活码</strong>
+            把 Plus 激活码填到下面，点击立即验证。
           </div>
           <div class="field">
             <label for="cardInfo">Plus 激活码</label>
             <input id="cardInfo" placeholder="请输入你购买后获得的 Plus 激活码">
-            <small>不要在这里输入 ChatGPT 密码、邮箱验证码或支付验证码。当前页面用于 ChatGPT Plus 月卡激活码开通。</small>
+            <small>这里只填写 Plus 激活码，不要输入 ChatGPT 密码、邮箱验证码或支付验证码。</small>
           </div>
           <div class="btn-row">
-            <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">验证激活码，进入下一步</button>
-            <a class="link-btn secondary" href="https://fe.dtyuedan.cn/shop/jiage">还没有激活码？先去购买</a>
+            <button class="primary" type="button" id="verifyCardBtn" onclick="verifyCard()">立即验证</button>
+            <a class="link-btn secondary" href="https://fe.dtyuedan.cn/shop/jiage">还没有激活码？去购买</a>
           </div>
         </div>
 
         <div class="stage" id="stage-2">
           <div class="notice" id="step2Notice">
             <strong>第 2 步：获取账号充值密钥</strong>
-            先登录要开通 Plus 的 ChatGPT 账号，再点击“获取账号充值密钥”。新页面会显示一大段代码，请全选复制到下方，系统会用它识别账号并完成本次开通。
+            已登录账号就直接获取；没登录先登录，再获取。
           </div>
           <div class="two-col">
             <div>
               <div class="field">
                 <label>操作步骤</label>
                 <div class="btn-row" style="margin-top:0">
-                  <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">打开 ChatGPT 登录</a>
+                  <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">登录 GPT 账号</a>
                   <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取账号充值密钥</a>
                 </div>
-                <small>打开后看到的是一整段代码，请全选复制回来，不要只复制其中一小段。</small>
+                <small>打开后会看到一整段代码，把整段复制回来即可。</small>
               </div>
               <div class="field">
-                <label for="secretJson">粘贴完整账号充值密钥（代码）</label>
-                <textarea id="secretJson" placeholder="请粘贴页面显示的整段代码"></textarea>
-                <small>把新页面显示的整段代码粘贴到这里。不要删减、改写，也不要只复制其中一小段。</small>
-                <small>安全提示：充值密钥不是 ChatGPT 密码，也不是邮箱验证码；请只在 AIPass 当前页面粘贴，不要发送给陌生人或其他网站。</small>
+                <label for="secretJson">粘贴充值密钥代码</label>
+                <textarea id="secretJson" placeholder="把新页面显示的整段代码粘贴到这里"></textarea>
+                <small>这段代码用于识别账号邮箱，方便你提交前核对。它不是密码，也不是验证码。</small>
               </div>
               <div class="btn-row">
                 <button class="secondary" type="button" onclick="goStep(1)">返回修改激活码</button>
-                <button class="primary" type="button" id="parseSecretBtn" onclick="parseSecret()">识别账号邮箱，进入确认</button>
+                <button class="primary" type="button" id="parseSecretBtn" onclick="parseSecret()">核对账号</button>
               </div>
             </div>
             <div>
               <div class="info-card">
                 <h3>操作说明</h3>
                 <div class="kvs">
-                  <div class="kv"><span>输入</span><span>完整充值密钥代码</span></div>
-                  <div class="kv"><span>识别</span><span>ChatGPT 账号邮箱</span></div>
-                  <div class="kv"><span>下一步</span><span>确认账号无误后再提交开通</span></div>
+                  <div class="kv"><span>输入</span><span>整段充值密钥</span></div>
+                  <div class="kv"><span>识别</span><span>GPT 账号邮箱</span></div>
+                  <div class="kv"><span>下一步</span><span>确认账号后提交处理</span></div>
                 </div>
               </div>
               <div class="tip-box">
                 <strong>复制提醒</strong>
-                你看到的那串很长的文字，就是账号充值密钥。整段复制即可，不需要理解每个字段。
+                那串很长的代码就是充值密钥。整段复制即可，不需要看懂每个字段。
               </div>
             </div>
           </div>
@@ -543,8 +581,8 @@
 
         <div class="stage" id="stage-3">
           <div class="notice" id="step3Notice">
-            <strong>第 3 步：确认账号并提交开通</strong>
-            请认真核对下方邮箱和激活码。提交后将按这个 ChatGPT 账号处理 Plus 开通，请确认这是你要开通的账号。
+            <strong>第 3 步：核对账号并提交</strong>
+            请核对下方账号邮箱和激活码。确认无误后提交，系统会按这个账号处理 Plus 充值。
           </div>
           <div class="two-col">
             <div class="info-card">
@@ -552,19 +590,19 @@
               <div class="kvs">
                 <div class="kv"><span>ChatGPT 账号邮箱</span><span id="confirmEmail">-</span></div>
                 <div class="kv"><span>Plus 激活码</span><span id="confirmCard">-</span></div>
-                <div class="kv"><span>处理通道</span><span id="confirmChannel">光年升级计划</span></div>
+                <div class="kv"><span>处理系统</span><span id="confirmChannel">光年升级 Plus 充值系统</span></div>
               </div>
               <label class="checkbox">
                 <input type="checkbox" id="overwriteRecharge" onchange="updateConfirmButtonState()">
-                <span>我已确认上方 ChatGPT 账号邮箱和激活码无误，同意提交 Plus 开通。<br><small>如果这是已有 Plus 账号的续费，请再次确认上方邮箱就是你要续费的账号。</small></span>
+                <span>我已确认账号邮箱和激活码无误，同意提交处理。<br><small>如果是续费，请再次确认上方邮箱就是要续费的账号。</small></span>
               </label>
               <div class="btn-row">
                 <button class="secondary" type="button" onclick="goStep(2)">返回修改账号信息</button>
-                <button class="green" type="button" id="confirmRechargeBtn" onclick="confirmRecharge()" disabled>确认无误，提交开通</button>
+                <button class="green" type="button" id="confirmRechargeBtn" onclick="confirmRecharge()" disabled>确认无误，提交处理</button>
               </div>
               <div class="progress" id="progressBox" style="display:none;">
-                <strong>已提交，正在为该账号处理 Plus 开通</strong>
-                系统正在处理本次开通任务，请不要重复点击或重复提交。
+                <strong>已提交，正在为该账号处理 Plus 充值</strong>
+                系统正在处理本次 Plus 充值，请不要重复点击或重复提交。
               </div>
               <div class="result-card success" id="resultBox" style="display:none;"></div>
             </div>
@@ -590,10 +628,12 @@
   </div>
 
   <script>
-    const API_BASE = "https://gptc.cc";
+    const API_BASE = "";
+    const RECHARGE_PROVIDER = "sange";
     let currentTaskId = "";
     let currentProductId = 3;
     let currentParsedSecret = null;
+    let currentStep = 1;
 
     async function postJson(path, payload) {
       const response = await fetch(API_BASE + path, {
@@ -622,6 +662,7 @@
     }
 
     function goStep(step) {
+      currentStep = step;
       document.querySelectorAll(".stage").forEach((node) => node.classList.remove("active"));
       document.querySelectorAll(".step").forEach((node) => {
         node.classList.remove("active");
@@ -649,24 +690,31 @@
     function mapRechargeMessage(message, status) {
       const code = typeof message === "string" ? message.trim() : "";
       if (code === "SYSTEM_BUSY") return "系统繁忙，请稍后再试。";
-      if (code === "TASK_NOT_FOUND") return "没有查到这笔开通任务，请稍后刷新重试。";
+      if (code === "TASK_NOT_FOUND") return "没有查到这笔处理任务，请稍后刷新重试。";
       if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
       if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
       if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取账号充值密钥后再试。";
       if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的账号充值密钥。";
-      if (code === "RECHARGE_FAILED") return "开通失败，请稍后重试或联系客服核查。";
-      if (code === "processing" || status === "processing") return "开通任务已提交，系统正在处理中，请稍候。";
-      if (code === "success" || status === "success") return "开通成功，系统已返回成功结果。";
-      if (code === "failed" || status === "failed") return "开通失败，请稍后重试或联系客服核查。";
+      if (code === "RECHARGE_FAILED") return "处理失败，请稍后重试或联系客服核查。";
+      if (code === "processing" || status === "processing") return "任务已提交，系统正在处理中，请稍候。";
+      if (code === "success" || status === "success") return "处理成功，系统已返回成功结果。";
+      if (code === "failed" || status === "failed") return "处理失败，请稍后重试或联系客服核查。";
       if (code) return code;
-      if (status === "success") return "开通成功，系统已返回成功结果。";
-      if (status === "failed") return "开通失败，请稍后重试或联系客服核查。";
+      if (status === "success") return "处理成功，系统已返回成功结果。";
+      if (status === "failed") return "处理失败，请稍后重试或联系客服核查。";
       return "系统正在处理中，请稍候。";
     }
 
     function setTextIfPresent(id, value) {
       const el = document.getElementById(id);
       if (el) el.textContent = value || "-";
+    }
+
+    function networkErrorMessage(error) {
+      if (error && error.message === "Failed to fetch") {
+        return "接口连接失败，请刷新后重试；如果仍失败，请联系客服处理。";
+      }
+      return error?.message || "网络请求异常。";
     }
 
     function updateConfirmButtonState() {
@@ -678,7 +726,7 @@
 
     function renderProgressBox(message, taskId) {
       const progressBox = document.getElementById("progressBox");
-      progressBox.innerHTML = `<strong>已提交，正在为该账号处理 Plus 开通</strong>${message}<br>任务号：${taskId}<br>请不要重复点击或重复提交，系统会自动查询状态。`;
+      progressBox.innerHTML = `<strong>已提交，正在为该账号处理 Plus 充值</strong>${message}<br>任务号：${taskId}<br>请不要重复点击或重复提交，系统会自动查询状态。`;
     }
 
     function renderResultBox(type, message, taskId) {
@@ -689,7 +737,7 @@
         ? `
           <div class="result-top">
             <div class="result-heading">
-              <h3 class="result-title">开通成功</h3>
+              <h3 class="result-title">处理成功</h3>
               <p class="result-subtitle">${message}</p>
             </div>
             <span class="result-badge">已完成</span>
@@ -706,7 +754,7 @@
         : `
           <div class="result-top">
             <div class="result-heading">
-              <h3 class="result-title">开通失败</h3>
+              <h3 class="result-title">处理失败</h3>
               <p class="result-subtitle">${message}</p>
             </div>
             <span class="result-badge">需处理</span>
@@ -769,7 +817,10 @@
       button.disabled = true;
       button.textContent = "验证中...";
       try {
-        const data = await postJson("/api/recharge/verify-card", { cardInfo });
+        const data = await postJson("/api/recharge/verify-card", {
+          cardInfo,
+          provider: RECHARGE_PROVIDER
+        });
         const upstream = data.data || {};
         if (!data.success) {
           setNotice("step1Notice", "激活码验证失败", data.message || "请检查激活码后重试。", "error");
@@ -780,14 +831,14 @@
           return;
         }
         currentProductId = Number(upstream.productId || 3);
-        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步确认 ChatGPT 账号。", "success");
+        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步获取充值密钥。", "success");
         document.getElementById("confirmCard").textContent = cardInfo;
         goStep(2);
       } catch (error) {
-        setNotice("step1Notice", "激活码验证失败", error.message || "网络请求异常。", "error");
+        setNotice("step1Notice", "激活码验证失败", networkErrorMessage(error), "error");
       } finally {
         button.disabled = false;
-        button.textContent = "验证激活码，进入下一步";
+        button.textContent = "立即验证";
       }
     }
 
@@ -809,14 +860,14 @@
         updateConfirmButtonState();
         setTextIfPresent("confirmEmail", result.data.userEmail);
         setTextIfPresent("confirmCard", document.getElementById("cardInfo").value.trim());
-          setTextIfPresent("confirmChannel", "光年升级计划");
-          setNotice("step2Notice", "账号信息识别成功", `已识别账号邮箱：${result.data.userEmail}，可以进入最后确认。`, "success");
+          setTextIfPresent("confirmChannel", "光年升级 Plus 充值系统");
+          setNotice("step2Notice", "账号识别成功", `已识别账号邮箱：${result.data.userEmail}，请核对无误后提交处理。`, "success");
         goStep(3);
       } catch (error) {
-        setNotice("step2Notice", "账号识别失败", error.message || "网络请求异常。", "error");
+        setNotice("step2Notice", "账号识别失败", networkErrorMessage(error), "error");
       } finally {
         button.disabled = false;
-        button.textContent = "识别账号邮箱，进入确认";
+        button.textContent = "核对账号";
       }
     }
 
@@ -825,7 +876,7 @@
       const progressBox = document.getElementById("progressBox");
       const resultBox = document.getElementById("resultBox");
       if (!currentParsedSecret) {
-        setNotice("step3Notice", "开通提交失败", "请先返回上一步识别账号信息。", "error");
+        setNotice("step3Notice", "提交失败", "请先返回上一步识别账号信息。", "error");
         return;
       }
       const payload = {
@@ -833,7 +884,8 @@
         userEmail: currentParsedSecret.userEmail,
         userGptToken: currentParsedSecret.userGptToken,
         fullAuthData: JSON.stringify(currentParsedSecret.fullAuthData),
-        productId: currentProductId
+        productId: currentProductId,
+        provider: RECHARGE_PROVIDER
       };
       button.disabled = true;
       button.textContent = "提交中...";
@@ -843,7 +895,7 @@
         const data = await postJson("/api/recharge/confirm", payload);
         const task = data.data || {};
         if (!data.success || task.success === false || !task.taskId) {
-          setNotice("step3Notice", "开通提交失败", mapRechargeMessage(task.message || data.message, "failed"), "error");
+          setNotice("step3Notice", "提交失败", mapRechargeMessage(task.message || data.message, "failed"), "error");
           progressBox.style.display = "none";
           return;
         }
@@ -851,11 +903,11 @@
         renderProgressBox(mapRechargeMessage(task.message, task.processing ? "processing" : ""), task.taskId);
         pollStatus();
       } catch (error) {
-        setNotice("step3Notice", "开通提交失败", error.message || "网络请求异常。", "error");
+        setNotice("step3Notice", "提交失败", networkErrorMessage(error), "error");
         progressBox.style.display = "none";
       } finally {
         button.disabled = false;
-        button.textContent = "确认无误，提交开通";
+        button.textContent = "确认无误，提交处理";
       }
     }
 
@@ -867,7 +919,8 @@
         const data = await postJson("/api/recharge/query-task-status", {
           taskId: currentTaskId,
           productId: currentProductId,
-          cardInfo: document.getElementById("cardInfo").value.trim()
+          cardInfo: document.getElementById("cardInfo").value.trim(),
+          provider: RECHARGE_PROVIDER
         });
         const task = data.data || {};
         if (!data.success) {
