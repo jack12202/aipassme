@@ -828,7 +828,7 @@
       if (code === "RECHARGE_FAILED") return "处理失败，请稍后重试或联系客服核查。";
       if (code === "processing" || status === "processing") return "任务已提交，系统正在处理中，请稍候。";
       if (code === "success" || status === "success") return "处理成功，系统已返回成功结果。";
-      if (code === "failed" || status === "failed") return "处理失败，请稍后重试或联系客服核查。";
+      if (code === "failed") return "处理失败，请稍后重试或联系客服核查。";
       if (code) return code;
       if (status === "success") return "处理成功，系统已返回成功结果。";
       if (status === "failed") return "处理失败，请稍后重试或联系客服核查。";
@@ -955,7 +955,8 @@
         data: {
           userEmail,
           userGptToken,
-          fullAuthData
+          fullAuthData,
+          authProvider: typeof payload.authProvider === "string" ? payload.authProvider : ""
         }
       };
     }
@@ -1040,6 +1041,9 @@
         userGptToken: currentParsedSecret.userGptToken,
         fullAuthData: JSON.stringify(currentParsedSecret.fullAuthData),
         productId: currentProductId,
+        authProvider: currentParsedSecret.authProvider || "",
+        overwriteRecharge: document.getElementById("overwriteRecharge").checked,
+        siteSource: "aipass.me",
         provider: RECHARGE_PROVIDER
       };
       button.disabled = true;
