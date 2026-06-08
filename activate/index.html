@@ -847,17 +847,14 @@
       const meta = document.getElementById("activationSummaryMeta");
       if (!box || !status || !code || !meta || !cardInfo) return;
 
-      const raw = upstream.raw && typeof upstream.raw === "object" ? upstream.raw : {};
-      const productName = raw.productName || upstream.productName || "ChatGPT";
-      const productDescription = raw.productDescription || upstream.productDescription || "Plus 激活码";
-
       box.hidden = false;
       code.textContent = cardInfo;
       if (state === "verified") {
         status.textContent = "激活码验证通过";
-        meta.textContent = `识别结果：${productName}｜${productDescription}`;
+        meta.hidden = true;
       } else {
         status.textContent = "已带入，待验证";
+        meta.hidden = false;
         meta.textContent = "这张激活码已经填入，请核对无误后点击立即验证。";
       }
     }
@@ -989,7 +986,7 @@
         }
         currentProductId = Number(upstream.productId || 3);
         renderActivationSummary(cardInfo, upstream, "verified");
-        setNotice("step1Notice", "激活码验证通过", "上方已显示当前激活码和识别结果，接下来获取账号充值密钥。", "success");
+        setNotice("step1Notice", "激活码验证通过", "上方已显示当前激活码，接下来获取账号充值密钥。", "success");
         document.getElementById("confirmCard").textContent = cardInfo;
         goStep(2);
       } catch (error) {
