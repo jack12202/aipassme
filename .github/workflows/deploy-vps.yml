@@ -33,6 +33,16 @@ jobs:
         run: |
           node ./scripts/deploy-to-1panel.mjs
 
+      - name: Ensure recharge API proxy in OpenResty
+        env:
+          PANEL_BASE: ${{ secrets.PANEL_BASE }}
+          PANEL_ENTRANCE: ${{ secrets.PANEL_ENTRANCE }}
+          PANEL_USER: ${{ secrets.PANEL_USER }}
+          PANEL_PASS: ${{ secrets.PANEL_PASS }}
+          PANEL_TARGET_DIR: ${{ secrets.PANEL_TARGET_DIR }}
+        run: |
+          node ./scripts/deploy-recharge-proxy-1panel.mjs
+
       - name: Verify VPS homepage preview
         run: |
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/ > /tmp/aipass-home.html
@@ -50,6 +60,20 @@ jobs:
           curl -fsSL -H 'Host: aipass.me' http://72.11.133.145/activate/ > /tmp/aipass-activate.html
           grep -q '<link rel="canonical" href="https://www.aipass.me/activate/">' /tmp/aipass-activate.html
           grep -q '<title>光年升级 Plus 激活中心｜激活码自助开通</title>' /tmp/aipass-activate.html
+
+      - name: Verify recharge API proxy
+        run: |
+          curl -sS -D /tmp/aipass-recharge-provider.headers -o /tmp/aipass-recharge-provider.json https://aipass.me/api/recharge/provider
+          grep -qi '^content-type: application/json' /tmp/aipass-recharge-provider.headers
+          grep -q '"success":true' /tmp/aipass-recharge-provider.json
+
+          curl -sS -D /tmp/aipass-verify-card.headers -o /tmp/aipass-verify-card.json \
+            -X POST https://aipass.me/api/recharge/verify-card \
+            -H 'Content-Type: application/json' \
+            --data '{"cardInfo":"AIPASS_SMOKE_TEST_DO_NOT_USE","provider":"sange"}'
+          grep -qi '^content-type: application/json' /tmp/aipass-verify-card.headers
+          grep -q '"provider":"sange"' /tmp/aipass-verify-card.json
+          grep -q '"CARD_NOT_FOUND"' /tmp/aipass-verify-card.json
 
       - name: Verify Jiage entrance page preview
         run: |
