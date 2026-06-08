@@ -256,6 +256,52 @@
       margin-bottom: 3px;
       font-size: 16px;
     }
+    .activation-summary {
+      margin: 12px 22px 0;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(45,212,191,.28);
+      background: rgba(15,118,110,.16);
+      display: grid;
+      gap: 8px;
+    }
+    .activation-summary[hidden] { display: none; }
+    .summary-label {
+      width: fit-content;
+      min-height: 24px;
+      padding: 0 10px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      background: rgba(45,212,191,.14);
+      color: #ccfbf1;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .activation-summary-main {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px 12px;
+    }
+    .summary-code-label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .activation-summary strong {
+      color: #fff;
+      font-size: 17px;
+      line-height: 1.35;
+      word-break: break-all;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+    .summary-meta {
+      color: rgba(226,232,240,.82);
+      font-size: 13px;
+      font-weight: 750;
+      line-height: 1.55;
+    }
     .field { display: grid; gap: 8px; }
     .field label { font-size: 15px; font-weight: 800; }
     .field small { color: var(--muted); line-height: 1.6; }
@@ -507,6 +553,7 @@
       .result-top { flex-direction: column; }
       h1 { font-size: clamp(26px, 7.4vw, 32px); }
       .hero p { font-size: 14px; line-height: 1.5; }
+      .activation-summary { margin: 10px 12px 0; }
       .notice { padding: 10px 12px; margin-bottom: 12px; }
       .notice strong { font-size: 16px; }
       button, .link-btn { width: 100%; }
@@ -550,6 +597,15 @@
           <strong>确认充值</strong>
           <span>核对账号后提交</span>
         </div>
+      </div>
+
+      <div class="activation-summary" id="activationSummary" hidden>
+        <span class="summary-label" id="activationSummaryStatus">待验证</span>
+        <div class="activation-summary-main">
+          <span class="summary-code-label">当前激活码</span>
+          <strong id="activationSummaryCode">-</strong>
+        </div>
+        <div class="summary-meta" id="activationSummaryMeta">请核对激活码后点击立即验证。</div>
       </div>
 
       <div class="content">
@@ -769,6 +825,29 @@
       if (el) el.textContent = value || "-";
     }
 
+    function renderActivationSummary(cardInfo, upstream = {}, state = "pending") {
+      const box = document.getElementById("activationSummary");
+      const status = document.getElementById("activationSummaryStatus");
+      const code = document.getElementById("activationSummaryCode");
+      const meta = document.getElementById("activationSummaryMeta");
+      if (!box || !status || !code || !meta || !cardInfo) return;
+
+      const raw = upstream.raw && typeof upstream.raw === "object" ? upstream.raw : {};
+      const productName = raw.productName || upstream.productName || "ChatGPT";
+      const productDescription = raw.productDescription || upstream.productDescription || "Plus 激活码";
+      const providerLabel = upstream.providerLabel || "三哥";
+
+      box.hidden = false;
+      code.textContent = cardInfo;
+      if (state === "verified") {
+        status.textContent = "激活码验证通过";
+        meta.textContent = `识别结果：${productName}｜${productDescription}｜处理通道：${providerLabel}`;
+      } else {
+        status.textContent = "已带入，待验证";
+        meta.textContent = "这张激活码已经填入，请核对无误后点击立即验证。";
+      }
+    }
+
     function networkErrorMessage(error) {
       if (error && error.message === "Failed to fetch") {
         return "接口连接失败，请刷新后重试；如果仍失败，请联系客服处理。";
@@ -873,6 +952,11 @@
     async function verifyCard() {
       const cardInfo = document.getElementById("cardInfo").value.trim();
       const button = document.getElementById("verifyCardBtn");
+      if (!cardInfo) {
+        setNotice("step1Notice", "请先填写激活码", "把你购买后获得的 Plus 激活码填入输入框，再点击立即验证。", "error");
+        document.getElementById("cardInfo").focus();
+        return;
+      }
       button.disabled = true;
       button.textContent = "验证中...";
       try {
@@ -890,7 +974,8 @@
           return;
         }
         currentProductId = Number(upstream.productId || 3);
-        setNotice("step1Notice", "激活码验证通过", "激活码可继续使用，进入下一步获取账号充值密钥。", "success");
+        renderActivationSummary(cardInfo, upstream, "verified");
+        setNotice("step1Notice", "激活码验证通过", "上方已显示当前激活码和识别结果，接下来获取账号充值密钥。", "success");
         document.getElementById("confirmCard").textContent = cardInfo;
         goStep(2);
       } catch (error) {
@@ -1015,17 +1100,18 @@
       if (!input) return;
 
       input.value = cardInfo;
+      renderActivationSummary(cardInfo, {}, "pending");
       setNotice(
         "step1Notice",
         "已自动带入激活码",
-        "你是通过专属激活链接进入的，系统已经帮你填好激活码，正在自动验证。",
+        "你是通过专属激活链接进入的，系统已经帮你填好激活码。请核对后手动点击立即验证。",
         "success"
       );
 
       setTimeout(() => {
-        if (currentStep === 1) {
-          verifyCard();
-        }
+        input.focus();
+        input.select();
+        input.scrollIntoView({ block: "center", behavior: "smooth" });
       }, 150);
     }
 
