@@ -850,13 +850,12 @@
       const raw = upstream.raw && typeof upstream.raw === "object" ? upstream.raw : {};
       const productName = raw.productName || upstream.productName || "ChatGPT";
       const productDescription = raw.productDescription || upstream.productDescription || "Plus 激活码";
-      const providerLabel = upstream.providerLabel || "三哥";
 
       box.hidden = false;
       code.textContent = cardInfo;
       if (state === "verified") {
         status.textContent = "激活码验证通过";
-        meta.textContent = `识别结果：${productName}｜${productDescription}｜处理通道：${providerLabel}`;
+        meta.textContent = `识别结果：${productName}｜${productDescription}`;
       } else {
         status.textContent = "已带入，待验证";
         meta.textContent = "这张激活码已经填入，请核对无误后点击立即验证。";
