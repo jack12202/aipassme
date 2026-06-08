@@ -290,6 +290,56 @@
       line-height: 1.4;
     }
 
+    .blog-index-cta {
+      margin-top: 16px;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(253,230,138,.34);
+      background: linear-gradient(135deg, rgba(253,230,138,.12), rgba(15,23,42,.88));
+      box-shadow: 0 22px 60px rgba(0,0,0,.20);
+    }
+
+    .blog-index-cta p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .blog-index-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .blog-index-primary,
+    .blog-index-secondary {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .blog-index-primary {
+      color: #fff;
+      background: linear-gradient(180deg, #0d9488 0%, #14b8a6 100%);
+      border: 1px solid rgba(45,212,191,.55);
+    }
+
+    .blog-index-secondary {
+      color: #ccfbf1;
+      border: 1px solid rgba(45,212,191,.28);
+      background: rgba(255,255,255,.055);
+    }
+
+    .blog-mobile-sticky {
+      display: none;
+    }
+
     footer {
       text-align: center;
       color: var(--soft);
@@ -316,6 +366,49 @@
       .post-card {
         min-height: 0;
       }
+      .blog-index-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .blog-mobile-sticky {
+        position: fixed;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        z-index: 80;
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 8px;
+        align-items: center;
+        padding: 10px;
+        border-radius: 14px;
+        border: 1px solid rgba(45,212,191,.42);
+        background: rgba(15,23,42,.94);
+        box-shadow: 0 18px 48px rgba(2,6,23,.36);
+      }
+      .blog-mobile-sticky span {
+        color: #ccfbf1;
+        font-weight: 950;
+        font-size: 13px;
+      }
+      .blog-mobile-sticky a {
+        color: #fff;
+        background: linear-gradient(180deg, #0d9488 0%, #14b8a6 100%);
+        border-radius: 10px;
+        padding: 9px 12px;
+        font-size: 13px;
+        font-weight: 950;
+        text-decoration: none;
+      }
+      .blog-mobile-sticky button {
+        width: 30px;
+        height: 30px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(255,255,255,.08);
+        color: #fff;
+        font-size: 18px;
+      }
     }
   </style>
 <script>
@@ -332,14 +425,14 @@ var _hmt = _hmt || [];
   <main class="wrap">
     <nav class="topbar" aria-label="博客导航">
       <a class="brand" href="../">光年升级计划 <span>嘉哥主理</span></a>
-      <a class="home" href="../">立即购买 Plus 激活码 ¥188</a>
+      <a class="home" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=top_nav#buy-plus-card">立即购买 Plus 激活码 ¥188</a>
     </nav>
 
     <section class="hero">
       <h1>ChatGPT Plus 开通卡住了？嘉哥帮你按问题排查</h1>
       <p>我是嘉哥，这里把国内用户开通 ChatGPT Plus 时最常见的问题整理成了几类：支付失败、没有海外卡、续费异常、担心账号安全、正在比较平台。你可以先按自己的情况选择文章，看清楚风险后，再决定是继续排查，还是通过光年升级计划购买 Plus 激活码开通到自己的账号。</p>
       <div class="hero-actions">
-        <a class="hero-btn" href="../">我已确定，购买 Plus 激活码</a>
+        <a class="hero-btn" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=hero_cta#buy-plus-card">我已确定，购买 Plus 激活码</a>
         <a class="hero-link" href="#diagnosis">我还不确定，先看嘉哥的排查指南</a>
       </div>
       <p class="section-desc" style="margin-top:14px;">2300+ 用户服务记录｜多数正常订单约 5 分钟完成｜常规无需 ChatGPT 密码｜未使用卡密可退</p>
@@ -473,11 +566,25 @@ var _hmt = _hmt || [];
       </div>
     </section>
 
+    <section class="blog-index-cta" aria-label="Plus 激活码购买入口">
+      <h2 class="section-title">准备开通 Plus？</h2>
+      <p>购买 Plus 激活码后，进入光年升级计划激活中心，按页面提示确认账号并完成处理。常规流程不需要提供 ChatGPT 密码。</p>
+      <div class="blog-index-actions">
+        <a class="blog-index-primary" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=final_cta#buy-plus-card">购买 Plus 激活码 ¥188</a>
+        <a class="blog-index-secondary" href="../activate/?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=final_activate">已买卡密？进入激活中心</a>
+      </div>
+    </section>
+
     <footer>
       <p>光年升级计划由嘉哥主理，主要整理 ChatGPT Plus 开通、支付失败处理、账号安全和 AI 工具使用相关指南，并提供 Plus 激活码自助开通服务。你在抖音、小红书、视频号看到的“嘉哥AI / 嘉哥GPT”，对应的服务入口就是光年升级计划。</p>
       <p>本文更新于 2026-06-06。OpenAI 官方套餐、模型和额度可能调整，具体以账号内显示为准。光年升级计划是第三方服务网站，非 OpenAI 官方。</p>
       <p><a href="/jiage-ai-gpt/" style="color:#ccfbf1;font-weight:850;">嘉哥AI / 嘉哥GPT 官方入口</a></p>
     </footer>
   </main>
+  <div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
+    <span>Plus 激活码 ¥188</span>
+    <a href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=mobile_sticky#buy-plus-card">立即购买</a>
+    <button type="button" aria-label="关闭底部购买条" onclick="this.closest('.blog-mobile-sticky').style.display='none'">×</button>
+  </div>
 </body>
 </html>

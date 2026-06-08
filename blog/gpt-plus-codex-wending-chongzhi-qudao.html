@@ -187,6 +187,47 @@
       }
     }
   </style>
+  <style id="blog-unified-style">
+    :root{--gy-bg:#020617;--gy-panel:rgba(15,23,42,.88);--gy-line:rgba(255,255,255,.13);--gy-text:#f8fafc;--gy-muted:rgba(226,232,240,.76);--gy-soft:rgba(226,232,240,.58);--gy-brand:#14b8a6;--gy-brand-2:#2dd4bf;--gy-warn:#fde68a;}
+    html{scroll-behavior:smooth;}
+    body{margin:0!important;color:var(--gy-muted)!important;background:radial-gradient(280px 210px at 18% 14%,rgba(20,184,166,.18),transparent 72%),linear-gradient(135deg,#042f2e 0%,#0f172a 48%,#020617 100%)!important;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;line-height:1.78!important;}
+    .wrap,.container{width:min(900px,calc(100% - 28px))!important;max-width:900px!important;margin:0 auto!important;padding:30px 0 96px!important;} body>article{width:min(900px,calc(100% - 28px))!important;max-width:900px!important;margin:30px auto 96px!important;}
+    .nav,.topbar{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:14px!important;margin:0 0 18px!important;padding:0!important;}
+    .brand{color:#fff!important;font-weight:950!important;text-decoration:none!important;}
+    .home,.nav>a:last-child,.topbar>a:last-child{color:#fff!important;background:linear-gradient(180deg,#0d9488,#14b8a6)!important;border:1px solid rgba(45,212,191,.44)!important;border-radius:10px!important;padding:8px 12px!important;text-decoration:none!important;font-weight:850!important;box-shadow:none!important;}
+    article{background:var(--gy-panel)!important;border:1px solid var(--gy-line)!important;border-radius:18px!important;padding:clamp(22px,4vw,38px)!important;box-shadow:0 24px 70px rgba(2,6,23,.28)!important;color:var(--gy-muted)!important;}
+    h1{color:var(--gy-text)!important;font-size:clamp(30px,5vw,46px)!important;line-height:1.16!important;letter-spacing:0!important;margin:0 0 16px!important;}
+    h2{color:#5eead4!important;font-size:clamp(22px,3.2vw,28px)!important;line-height:1.32!important;margin:34px 0 12px!important;}
+    h3{color:#ccfbf1!important;font-size:19px!important;line-height:1.4!important;margin:24px 0 8px!important;}
+    p,li,td,th{color:var(--gy-muted)!important;font-size:16px!important;}
+    p{margin:14px 0!important;}
+    a{color:#5eead4!important;text-decoration:none!important;font-weight:760;}
+    a:hover{color:#99f6e4!important;}
+    .meta,footer,.foot{color:var(--gy-soft)!important;font-size:14px!important;}
+    ul,ol{padding-left:1.25rem!important;}
+    table{width:100%!important;border-collapse:collapse!important;margin:18px 0!important;overflow:hidden!important;border-radius:12px!important;}
+    th,td{border:1px solid rgba(255,255,255,.10)!important;padding:12px!important;background:rgba(255,255,255,.04)!important;vertical-align:top!important;}
+    th{color:#ccfbf1!important;background:rgba(20,184,166,.10)!important;}
+    blockquote,.box,.note,.soft-cta,.highlight,.warning{background:rgba(20,184,166,.10)!important;border:1px solid rgba(45,212,191,.24)!important;border-radius:12px!important;padding:16px!important;color:var(--gy-muted)!important;}
+    .cta{background:rgba(15,23,42,.72)!important;border:1px solid rgba(45,212,191,.22)!important;border-radius:14px!important;padding:18px!important;margin:24px 0!important;color:var(--gy-muted)!important;}
+    .cta h2,.cta h3{color:#ccfbf1!important;margin-top:0!important;}
+    .cta .button,.cta .btn,.btn,.button{background:linear-gradient(180deg,#2dd4bf,#14b8a6)!important;color:#fff!important;border-radius:10px!important;border:1px solid rgba(45,212,191,.44)!important;padding:10px 14px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-weight:900!important;}
+    .jiage-author-card{background:rgba(15,23,42,.62)!important;border:1px solid rgba(45,212,191,.22)!important;border-left:4px solid #14b8a6!important;border-radius:14px!important;color:var(--gy-muted)!important;}
+    .jiage-author-card strong{color:#ccfbf1!important;}
+    .jiage-author-card p{color:var(--gy-muted)!important;}
+    .blog-conversion-card{margin:24px 0!important;padding:18px!important;border-radius:16px!important;border:1px solid rgba(45,212,191,.34)!important;background:linear-gradient(135deg,rgba(20,184,166,.16),rgba(15,23,42,.88))!important;box-shadow:0 18px 48px rgba(2,6,23,.20)!important;}
+    .blog-conversion-top{margin-top:18px!important;}
+    .blog-conversion-final{margin:34px 0 24px!important;border-color:rgba(253,230,138,.34)!important;background:linear-gradient(135deg,rgba(253,230,138,.12),rgba(15,23,42,.88))!important;}
+    .blog-cta-kicker{color:#ccfbf1!important;font-weight:950!important;font-size:18px!important;margin-bottom:6px!important;}
+    .blog-conversion-card p{color:rgba(226,232,240,.82)!important;margin:0 0 14px!important;}
+    .blog-conversion-actions{display:flex!important;flex-wrap:wrap!important;gap:10px!important;}
+    .blog-primary-button,.blog-secondary-button{min-height:42px!important;padding:9px 14px!important;border-radius:10px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;font-weight:900!important;text-decoration:none!important;}
+    .blog-primary-button{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6)!important;border:1px solid rgba(45,212,191,.56)!important;}
+    .blog-secondary-button{color:#ccfbf1!important;background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.16)!important;}
+    .blog-mobile-sticky{display:none;}
+    @media(max-width:720px){.wrap,.container{width:min(100% - 18px,900px)!important;padding:18px 0 88px!important;}article{padding:20px!important;border-radius:16px!important;}.nav,.topbar{align-items:flex-start!important;}.blog-conversion-actions{display:grid!important;grid-template-columns:1fr!important;}.blog-mobile-sticky{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:14px;border:1px solid rgba(45,212,191,.42);background:rgba(15,23,42,.94);box-shadow:0 18px 48px rgba(2,6,23,.36);}.blog-mobile-sticky span{color:#ccfbf1;font-weight:950;font-size:13px;}.blog-mobile-sticky a{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6);border-radius:10px;padding:9px 12px;font-size:13px;font-weight:950;}.blog-mobile-sticky button{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:18px;}}
+  </style>
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -251,6 +292,15 @@ var _hmt = _hmt || [];
 
     <article>
       <h1>GPT Plus 和 Codex 稳定充值渠道怎么选？先看这 3 层稳定</h1>
+      <section class="blog-conversion-card blog-conversion-top" data-blog-cta="top" aria-label="Plus 激活码转化入口">
+        <div class="blog-cta-kicker">嘉哥建议</div>
+        <p>如果你只是要开通 Plus，可以直接查看 Plus 激活码；如果涉及 Pro、Codex、发票或对公付款，建议先人工确认。</p>
+        <div class="blog-conversion-actions">
+          <a class="blog-primary-button" href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=top_cta#buy-plus-card">购买 Plus 激活码 ¥188</a>
+          <a class="blog-secondary-button" href="/activate/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=top_activate">已买卡密？进入激活中心</a>
+        </div>
+      </section>
+
       <div class="meta">发布时间：2026-06-05 ｜ 分类：GPT 充值渠道</div>
 
       <p class="lead">最近有人问：<strong>GPT Plus 和 Codex 会员有没有好的充值渠道，要稳定的？</strong></p>
@@ -341,7 +391,16 @@ var _hmt = _hmt || [];
       <p>如果你问的是 GPT Plus，重点看是不是开通到自己的账号、是否能稳定续费、失败后有没有人处理、是否无需自己准备海外信用卡。</p>
       <p>如果你问的是 Codex，重点还要多看一项：你的 Codex 使用频率是否需要更高额度的计划。Codex 不是只看“能不能打开”，还要看你用多少、用多重、是否长期跑项目。</p>
 
-      <h2>六、什么时候适合看光年升级计划的 Plus 激活码方案？</h2>
+
+      <section class="blog-conversion-card blog-conversion-middle" data-blog-cta="middle" aria-label="Plus 激活码转化入口">
+        <div class="blog-cta-kicker">嘉哥建议</div>
+        <p>Plus、Pro、Codex 的适用场景不同。普通 Plus 用户可以走激活码方案，高客单或发票需求先联系人工更稳。</p>
+        <div class="blog-conversion-actions">
+          <a class="blog-primary-button" href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=middle_cta#buy-plus-card">购买 Plus 激活码 ¥188</a>
+          <a class="blog-secondary-button" href="/activate/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=middle_activate">已买卡密？进入激活中心</a>
+        </div>
+      </section>
+<h2>六、什么时候适合看光年升级计划的 Plus 激活码方案？</h2>
       <p>如果你有稳定海外卡，也愿意自己处理支付失败和续费问题，可以优先自己走官方路径。</p>
       <p>如果你没有可用海外信用卡、国内银行卡反复付款失败、想用微信 / 支付宝付款、希望开通到自己的 ChatGPT 账号、需要 Plus / Pro / Codex 相关能力，或者需要发票和对公付款，可以考虑查看光年升级计划的 Plus / Pro 方案。</p>
       <p>常规 Plus 开通可以按页面提示处理；Pro、发票、对公、账号状态复杂的情况，建议先加微信 <code>jiage01888</code> 确认。</p>
@@ -393,7 +452,7 @@ var _hmt = _hmt || [];
         <h2>下一步怎么做？</h2>
         <p>如果你只是想先判断方案，可以先把这篇文章里的“三层稳定”当成检查清单。</p>
         <p>如果你已经确定要开通 Plus，可以查看 Plus 激活码方案；如果想确认 Pro、Codex、发票或对公需求适合哪一档，建议先人工确认。</p>
-        <p><a class="btn" href="https://fe.dtyuedan.cn/shop/jiage">Pro / Codex / 发票需求，先人工确认</a></p>
+        <p><a class="btn" href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=legacy_link#buy-plus-card">Pro / Codex / 发票需求，先人工确认</a></p>
         <p>账号状态复杂、需要 Pro、发票或对公付款，建议先加微信 <strong>jiage01888</strong> 确认，不要盲目下单。</p>
       </div>
 
@@ -425,7 +484,16 @@ var _hmt = _hmt || [];
         <li><a href="https://www.aipass.me/blog/chatgpt-plus-guonei-fukuan.html">ChatGPT Plus 国内怎么付款？开通方法与注意事项</a></li>
         <li><a href="https://www.aipass.me/blog/gpt-chongzhi.html">GPT 充值怎么操作？国内用户开通 ChatGPT Plus 前要注意什么</a></li>
       </ul>
-      <section class="jiage-author-card" style="margin:32px 0 0;padding:18px;border-radius:14px;background:#f8fafc;border:1px solid #e5e7eb;border-left:5px solid #14b8a6;">
+
+      <section class="blog-conversion-card blog-conversion-final" data-blog-cta="final" aria-label="Plus 激活码转化入口">
+        <div class="blog-cta-kicker">Plus 可直接购买，复杂需求先确认</div>
+        <p>如果你已经确定要开通 Plus，可以购买 Plus 激活码；如果要 Pro、Codex 或发票对公需求，建议先找人工确认。</p>
+        <div class="blog-conversion-actions">
+          <a class="blog-primary-button" href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=final_cta#buy-plus-card">购买 Plus 激活码 ¥188</a>
+          <a class="blog-secondary-button" href="/activate/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=final_activate">已买卡密？进入激活中心</a>
+        </div>
+      </section>
+<section class="jiage-author-card" style="margin:32px 0 0;padding:18px;border-radius:14px;background:#f8fafc;border:1px solid #e5e7eb;border-left:5px solid #14b8a6;">
         <strong style="display:block;color:#111827;margin-bottom:6px;">作者：嘉哥AI / 嘉哥GPT</strong>
         <p style="margin:0;color:#4b5563;font-size:14px;line-height:1.75;">光年升级计划主理人，长期整理 ChatGPT Plus 开通、国内付款、账号升级和 AI 工具使用问题。本文用于帮助用户判断开通路径和风险边界，具体服务以光年升级计划页面说明为准。</p>
       </section>
@@ -433,5 +501,11 @@ var _hmt = _hmt || [];
 
     <footer>本文为 GPT 订阅开通经验整理，不代表 OpenAI 或 ChatGPT 官方说明。</footer>
   </main>
+
+  <div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
+    <span>Plus 激活码 ¥188</span>
+    <a href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=mobile_sticky#buy-plus-card">立即购买</a>
+    <button type="button" aria-label="关闭底部购买条" onclick="this.closest('.blog-mobile-sticky').style.display='none'">×</button>
+  </div>
 </body>
 </html>
