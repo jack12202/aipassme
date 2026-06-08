@@ -722,6 +722,7 @@
 
   <script>
     const API_BASE = "";
+    const API_FALLBACK_BASE = "https://gptc.cc";
     const RECHARGE_PROVIDER = "sange";
     const SUPPORT_WECHAT = "jiage01888";
     let currentTaskId = "";
@@ -730,14 +731,28 @@
     let currentStep = 1;
     let supportToastTimer = null;
 
-    async function postJson(path, payload) {
-      const response = await fetch(API_BASE + path, {
+    async function postJsonTo(base, path, payload) {
+      const response = await fetch(base + path, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
         credentials: "omit"
       });
-      return response.json();
+      const text = await response.text();
+      const contentType = response.headers.get("content-type") || "";
+      if (!contentType.includes("application/json")) {
+        throw new Error("接口返回异常");
+      }
+      return JSON.parse(text);
+    }
+
+    async function postJson(path, payload) {
+      try {
+        return await postJsonTo(API_BASE, path, payload);
+      } catch (error) {
+        if (!path.startsWith("/api/recharge/")) throw error;
+        return postJsonTo(API_FALLBACK_BASE, path, payload);
+      }
     }
 
     function setNotice(id, title, message, mode = "info") {
