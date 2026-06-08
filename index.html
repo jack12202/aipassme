@@ -4442,10 +4442,10 @@ var _hmt = _hmt || [];
 </ul>
 </div>
 <div class="rs-options" role="list" style="margin-top:14px;">
-<button aria-label="进入光年升级计划激活中心" class="rs-option" data-url="/activate/?v=20260606" role="listitem" type="button">
+<button aria-label="进入当前自助激活系统" class="rs-option" data-url="https://ow800.com/auto" role="listitem" type="button">
 <div class="rs-option-title">光年升级计划激活中心</div>
 <div class="rs-option-desc">已购买激活码后，点击进入账号确认和开通流程</div>
-<div class="rs-option-url">https://www.aipass.me/activate/</div>
+<div class="rs-option-url">https://ow800.com/auto</div>
 </button>
 </div>
 <div class="rs-actions" style="margin-top:16px; justify-content:center;">
@@ -4457,6 +4457,7 @@ var _hmt = _hmt || [];
 <script>
 (function(){
   const BUY_URL = 'https://fe.dtyuedan.cn/shop/jiage';
+  const ACTIVATION_ENTRY_URL = 'https://ow800.com/auto';
   const WX_ID = (document.getElementById('wxid')?.textContent || 'jiage01888').trim();
 
   const $ = (sel, root=document) => root.querySelector(sel);
@@ -4519,7 +4520,7 @@ var _hmt = _hmt || [];
   $('#buyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#flowBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#finalBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
-  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = '/activate/?v=20260606'; });
+  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = ACTIVATION_ENTRY_URL; });
   $('#mobileBuyBtn')?.addEventListener('click', (e)=>{
     e.preventDefault();
     if(e.target.closest?.('.mobile-wechat')){
@@ -4585,7 +4586,7 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = '/activate/?v=20260606'; });
+  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = ACTIVATION_ENTRY_URL; });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
