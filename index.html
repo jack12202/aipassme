@@ -3429,16 +3429,36 @@ body{
 }
 .short-hero .brand-badge{
   justify-content:flex-start;
-  margin-bottom:26px;
+  width:max-content;
+  max-width:100%;
+  margin:0 0 30px;
+  padding:10px 15px 10px 10px;
+  border:1px solid rgba(45,212,191,.34);
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(45,212,191,.12),rgba(255,255,255,.045));
+  box-shadow:0 16px 38px rgba(2,6,23,.18), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.short-hero .brand-badge > div{
+  gap:4px;
+}
+.short-hero .brand-icon{
+  width:36px;
+  height:36px;
+  padding:6px;
+  border-radius:12px;
+  background:rgba(20,184,166,.12);
+  border:1px solid rgba(45,212,191,.24);
 }
 .short-hero .brand-name{
-  font-size:1rem;
+  font-size:1.04rem;
+  letter-spacing:.01em;
 }
 .short-hero .brand-sub{
   display:block !important;
   color:rgba(204,251,241,.72);
-  font-size:.74rem;
-  font-weight:780;
+  font-size:.72rem;
+  font-weight:820;
+  letter-spacing:.02em;
 }
 .short-hero h1{
   max-width:650px;
@@ -3774,8 +3794,9 @@ body{
     justify-items:center;
   }
   .short-hero .brand-badge{
-    justify-content:center;
-    margin-bottom:20px;
+    justify-content:flex-start;
+    margin:0 auto 20px;
+    padding:9px 12px 9px 9px;
   }
   .short-hero h1{
     max-width:100%;
@@ -3891,7 +3912,7 @@ var _hmt = _hmt || [];
 </svg>
 <div>
 <span class="brand-name">光年升级计划</span>
-<span class="brand-sub">嘉哥主理</span>
+<span class="brand-sub">嘉哥主理 · 官方服务入口</span>
 </div>
 </div>
 <h1><span class="hero-title-line">没有海外卡，</span><span class="hero-title-line">也能给自己的 ChatGPT 账号</span><span class="hero-title-line">开通 Plus</span></h1>
