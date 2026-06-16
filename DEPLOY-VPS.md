@@ -24,25 +24,25 @@
 ### `PANEL_BASE`
 
 ```text
-http://72.11.133.145:37764
+http://72.11.133.197:37764
 ```
 
 ### `PANEL_ENTRANCE`
 
 ```text
-jack
+1Panel 安全入口路径，保存在 GitHub Secret 中
 ```
 
 ### `PANEL_USER`
 
 ```text
-zjk
+1Panel 登录用户名，保存在 GitHub Secret 中
 ```
 
 ### `PANEL_PASS`
 
 ```text
-zjk822598
+1Panel 登录密码，保存在 GitHub Secret 中
 ```
 
 ### `PANEL_TARGET_DIR`
@@ -62,11 +62,11 @@ zjk822598
 
 ## 当前验证方式
 
-由于 `aipass.me` 当前仍在线上使用 Vercel，GitHub Actions 会先通过 VPS IP + Host 头的方式验证：
+由于 `aipass.me` 当前仍在线上使用 Vercel，GitHub Actions 会先通过 VPS IP + Host 头的方式验证。当前预览源站在 workflow 的 `VPS_PREVIEW_ORIGIN` 中配置：
 
-- `http://72.11.133.145/` with `Host: aipass.me`
-- `http://72.11.133.145/blog/` with `Host: aipass.me`
-- `http://72.11.133.145/activate/` with `Host: aipass.me`
-- `http://72.11.133.145/jiage-ai-gpt/` with `Host: aipass.me`
+- `http://72.11.133.197/` with `Host: aipass.me`
+- `http://72.11.133.197/blog/` with `Host: aipass.me`
+- `http://72.11.133.197/activate/` with `Host: aipass.me`
+- `http://72.11.133.197/jiage-ai-gpt/` with `Host: aipass.me`
 
 等域名正式切到 VPS 后，可以再改成直接校验正式域名。
