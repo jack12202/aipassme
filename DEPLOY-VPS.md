@@ -70,3 +70,5 @@ http://72.11.133.197:37764
 - `http://72.11.133.197/jiage-ai-gpt/` with `Host: aipass.me`
 
 等域名正式切到 VPS 后，可以再改成直接校验正式域名。
+
+`deploy-recharge-proxy-1panel.mjs` 会在 VPS 内部检查充值后端健康状态。由于 `aipass.me` 当前线上仍走 Vercel，workflow 不直接用公网 `/api/recharge/*` 作为部署成功条件。
