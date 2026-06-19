@@ -120,13 +120,24 @@ function isSameSiteUrl(url) {
 
 function isSameSiteHomepageUrl(url) {
   if (url === '/') return true;
+  if (url.startsWith('/?') || url.startsWith('/#')) return true;
   if (!/^https?:\/\//.test(url)) return false;
   try {
     const parsed = new URL(url);
-    return SITE_HOSTS.has(parsed.hostname) && (parsed.pathname === '/' || parsed.pathname === '') && !parsed.search && !parsed.hash;
+    return SITE_HOSTS.has(parsed.hostname) && (parsed.pathname === '/' || parsed.pathname === '');
   } catch {
     return false;
   }
+}
+
+function toCheckableUrl(value) {
+  const normalized = normalizeUrl(value);
+  if (/^https?:\/\//.test(normalized)) return normalized;
+  if (normalized.startsWith('/')) {
+    const primaryHost = Array.from(SITE_HOSTS)[0];
+    return `https://${primaryHost}${normalized}`;
+  }
+  return null;
 }
 
 function checkProtectedUrl(file, line, url) {
@@ -164,9 +175,8 @@ function scanElements(file, content) {
     const label = stripHtml(element);
     const attrRe = /\b(?:href|data-url|data-href|data-buy-url|data-purchase-url)=["']([^"']+)["']/gi;
     for (const attr of element.matchAll(attrRe)) {
-      if (/^https?:\/\//.test(attr[1])) {
-        checkUrlBinding(file, line, attr[1], label);
-      }
+      const checkableUrl = toCheckableUrl(attr[1]);
+      if (checkableUrl) checkUrlBinding(file, line, checkableUrl, label);
     }
   }
 }
