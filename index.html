@@ -4527,7 +4527,7 @@ var _hmt = _hmt || [];
   };
 
   function openNew(url){
-    window.location.href = url;
+    window.open(url, '_blank', 'noopener');
   }
 
   function openContactDrawer(){
@@ -4541,7 +4541,7 @@ var _hmt = _hmt || [];
   $('#buyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#flowBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#finalBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
-  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = ACTIVATION_ENTRY_URL; });
+  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(ACTIVATION_ENTRY_URL); });
   $('#mobileBuyBtn')?.addEventListener('click', (e)=>{
     e.preventDefault();
     if(e.target.closest?.('.mobile-wechat')){
@@ -4607,7 +4607,7 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); window.location.href = ACTIVATION_ENTRY_URL; });
+  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(ACTIVATION_ENTRY_URL); });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
