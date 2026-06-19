@@ -16,10 +16,11 @@
 
 ## 购买链接保护锁
 
-购买卡密链接是受保护的。
+购买卡密链接是受保护的，但不是永久绑定某一个发卡平台。当前允许的购买链接列表写在 `purchase-link-lock.json`。
 
-- 购买按钮、购买卡密 CTA、购买相关常量必须继续使用 `https://fe.dtyuedan.cn/shop/jiage`。
-- 激活 / 充值入口可以使用 `https://987ai.vip/recharge`，但不要把它用于购买 CTA。
-- 除非用户在同一轮里明确确认并给出替换后的购买链接，否则不要修改购买按钮链接、`BUY_URL` / `PURCHASE_URL` 常量，或购买链接保护脚本。
+- 购买按钮、购买卡密 CTA、购买相关常量必须使用已配置的 `purchaseUrls` 之一。
+- 激活 / 充值入口可以独立变化，但不要把激活 / 充值链接用于购买 CTA。
+- 除非用户在同一轮里明确确认并给出替换后的购买链接，否则不要修改购买按钮链接、`BUY_URL` / `PURCHASE_URL` 常量、`purchase-link-lock.json` 或购买链接保护脚本。
 - 如果需求只是激活、充值系统、源头切换、VPS 或部署，不要推断为需要修改购买链接。
+- 用户确认更换购买 / 发卡平台时，要同步更新 `purchase-link-lock.json` 和所有购买 CTA。
 - 提交或推送前运行 `node scripts/check-purchase-link-lock.mjs`。
