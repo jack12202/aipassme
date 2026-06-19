@@ -13,3 +13,13 @@
   - `POST /api/recharge/verify-card` 能命中预期 provider。
   - 线上 HTML 包含预期的 provider 常量或 provider 路由逻辑。
   - GitHub Actions 里的标题、canonical 等部署校验仍然匹配页面。
+
+## 购买链接保护锁
+
+购买卡密链接是受保护的。
+
+- 购买按钮、购买卡密 CTA、购买相关常量必须继续使用 `https://fe.dtyuedan.cn/shop/jiage`。
+- 激活 / 充值入口可以使用 `https://987ai.vip/recharge`，但不要把它用于购买 CTA。
+- 除非用户在同一轮里明确确认并给出替换后的购买链接，否则不要修改购买按钮链接、`BUY_URL` / `PURCHASE_URL` 常量，或购买链接保护脚本。
+- 如果需求只是激活、充值系统、源头切换、VPS 或部署，不要推断为需要修改购买链接。
+- 提交或推送前运行 `node scripts/check-purchase-link-lock.mjs`。
