@@ -1,6 +1,7 @@
-const { CHANNELS } = require('../lib/channels');
+const { CHANNELS, getActiveChannel } = require('../lib/channels');
 
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
-  res.redirect(302, CHANNELS.czgpt.url);
+  const active = await getActiveChannel();
+  res.redirect(302, CHANNELS[active].url);
 };

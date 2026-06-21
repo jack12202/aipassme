@@ -77,6 +77,6 @@ module.exports = async function handler(req, res) {
     res.status(405).json({ error: 'Method not allowed.' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Channel API failed.' });
+    res.status(500).json({ error: error.message || 'Channel API failed.' });
   }
 };

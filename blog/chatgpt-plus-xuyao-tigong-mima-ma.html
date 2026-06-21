@@ -84,7 +84,28 @@
     .price b,.price-card strong,.price-card b{color:#ccfbf1!important;}
     code:not(pre code){background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.10)!important;color:#ccfbf1!important;}
     /* blog-callout-harmony:end */
-    @media(max-width:720px){.wrap,.container{width:min(100% - 18px,900px)!important;padding:18px 0 88px!important;}article{padding:20px!important;border-radius:16px!important;}.nav,.topbar{align-items:flex-start!important;}.blog-conversion-actions{display:grid!important;grid-template-columns:1fr!important;}.blog-mobile-sticky{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:14px;border:1px solid rgba(45,212,191,.42);background:rgba(15,23,42,.94);box-shadow:0 18px 48px rgba(2,6,23,.36);}.blog-mobile-sticky span{color:#ccfbf1;font-weight:950;font-size:13px;}.blog-mobile-sticky a{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6);border-radius:10px;padding:9px 12px;font-size:13px;font-weight:950;}.blog-mobile-sticky button{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:18px;}}
+
+    /* blog consult system:start */
+    .blog-conversion-actions{align-items:center;flex-wrap:wrap;}
+    .blog-consult-button,.blog-text-link{appearance:none;border-radius:12px;font-weight:800;font-size:.94rem;min-height:42px;padding:12px 18px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;line-height:1.25;cursor:pointer;}
+    .blog-consult-button{border:1px solid rgba(250,204,21,.42);background:rgba(250,204,21,.1);color:#fde68a;box-shadow:0 12px 28px rgba(0,0,0,.16);}
+    .blog-primary-button.blog-consult-button{border-color:rgba(250,204,21,.62);background:linear-gradient(180deg,#fbbf24,#d97706);color:#082f2e;box-shadow:0 16px 32px rgba(217,119,6,.22);}
+    .blog-text-link{border:1px solid rgba(148,163,184,.28);background:rgba(15,23,42,.18);color:#ccfbf1;}
+    .blog-consult-modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,.66);backdrop-filter:blur(10px);}
+    .blog-consult-modal.open{display:flex;}
+    .blog-consult-dialog{width:min(440px,100%);border:1px solid rgba(45,212,191,.34);border-radius:20px;background:linear-gradient(160deg,#10283a,#071827);box-shadow:0 24px 80px rgba(0,0,0,.44);padding:22px;color:#e5f7f5;}
+    .blog-consult-dialog h3{margin:0 0 8px;font-size:1.15rem;color:#fff;}
+    .blog-consult-dialog p{margin:0 0 14px;color:#cbd5e1;line-height:1.75;}
+    .blog-consult-wx{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(45,212,191,.28);border-radius:14px;background:rgba(20,184,166,.1);padding:12px 14px;margin:14px 0 16px;font-weight:900;color:#fff;}
+    .blog-consult-dialog-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .blog-consult-dialog-actions button,.blog-consult-dialog-actions a{appearance:none;border:1px solid rgba(148,163,184,.28);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.08);color:#e5f7f5;text-decoration:none;font-weight:800;cursor:pointer;}
+    .blog-consult-dialog-actions .primary{border-color:rgba(45,212,191,.45);background:linear-gradient(180deg,#2dd4bf,#14b8a6);color:#042f2e;}
+    .blog-consult-toast{position:fixed;left:50%;bottom:86px;z-index:100;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(45,212,191,.32);color:#ecfeff;padding:10px 16px;font-weight:800;box-shadow:0 16px 40px rgba(0,0,0,.28);transition:.2s ease;}
+    .blog-consult-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .blog-sticky-consult{border:1px solid rgba(250,204,21,.42);border-radius:999px;background:rgba(250,204,21,.12);color:#fde68a;font-weight:900;padding:9px 12px;white-space:nowrap;}.blog-mobile-sticky .blog-sticky-consult{width:auto!important;height:auto!important;border:1px solid rgba(250,204,21,.42)!important;background:rgba(250,204,21,.12)!important;color:#fde68a!important;font-size:13px!important;line-height:1!important;}
+    @media(max-width:720px){.blog-mobile-sticky{grid-template-columns:1fr auto auto auto!important;}.blog-conversion-actions{display:grid;grid-template-columns:1fr;}.blog-consult-button,.blog-text-link{width:100%;}.blog-sticky-consult{font-size:.86rem;padding:9px 11px;}}
+    /* blog consult system:end */
+@media(max-width:720px){.wrap,.container{width:min(100% - 18px,900px)!important;padding:18px 0 88px!important;}article{padding:20px!important;border-radius:16px!important;}.nav,.topbar{align-items:flex-start!important;}.blog-conversion-actions{display:grid!important;grid-template-columns:1fr!important;}.blog-mobile-sticky{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:14px;border:1px solid rgba(45,212,191,.42);background:rgba(15,23,42,.94);box-shadow:0 18px 48px rgba(2,6,23,.36);}.blog-mobile-sticky span{color:#ccfbf1;font-weight:950;font-size:13px;}.blog-mobile-sticky a{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6);border-radius:10px;padding:9px 12px;font-size:13px;font-weight:950;}.blog-mobile-sticky button{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:18px;}}
   </style>
 
   <script type="application/ld+json">
@@ -155,14 +176,14 @@ var _hmt = _hmt || [];
 <main class="container">
   <article>
       <h1>ChatGPT Plus 需要提供密码吗？哪些信息不能随便给</h1>
-      <section class="blog-conversion-card blog-conversion-top" data-blog-cta="top" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">嘉哥建议</div>
-        <p>不想把 GPT 账号密码交给别人？优先选择常规无需密码、提交前确认账号的自助流程。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="top">
+      <div class="blog-conversion-kicker">减少账号信息暴露</div>
+      <p>如果你想把 Plus 开到自己的账号，又不想提供 ChatGPT 密码，可以查看光年升级计划的 Plus 激活码方案。</p>
+      <div class="blog-conversion-actions">
+        <a rel="noopener" target="_blank" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
+        <button class="blog-consult-button" type="button" data-consult-wx data-consult-context="chatgpt-plus-xuyao-tigong-mima-ma">担心账号安全？找人工确认</button>
+      </div>
+    </section>
 
       <div class="meta">发布时间：2026-05-07 ｜ 分类：账号安全</div>
       <p>ChatGPT Plus 开通或充值时，别随便提供账号密码。更稳妥的方式，是让账号始终归你自己掌握，并优先选择流程透明、敏感信息暴露更少的服务路径。</p>
@@ -238,14 +259,14 @@ var _hmt = _hmt || [];
       <p>光年升级计划更适合希望流程清楚、减少账号密码暴露、并把 Plus 开到自己账号上的用户。下单前可以先确认充值卡密、开通步骤和订阅验收方式。</p>
 
 
-      <section class="blog-conversion-card blog-conversion-middle" data-blog-cta="middle" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">嘉哥建议</div>
-        <p>任何让你交出账号密码、邮箱验证码或支付验证码的流程，都要先停下来。Plus 激活码方案会先确认账号，再继续处理。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="middle">
+      <div class="blog-conversion-kicker">减少账号信息暴露</div>
+      <p>如果你想把 Plus 开到自己的账号，又不想提供 ChatGPT 密码，可以查看光年升级计划的 Plus 激活码方案。</p>
+      <div class="blog-conversion-actions">
+        <a rel="noopener" target="_blank" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
+        <button class="blog-consult-button" type="button" data-consult-wx data-consult-context="chatgpt-plus-xuyao-tigong-mima-ma">担心账号安全？找人工确认</button>
+      </div>
+    </section>
 <h2>五、开通后怎么确认是否完成</h2>
 
       <p>无论你选择哪种方式，最后都要回到自己的 ChatGPT 账号里确认。</p>
@@ -309,18 +330,18 @@ var _hmt = _hmt || [];
           <li>支持微信 / 支付宝付款，不需要你准备海外信用卡；</li>
           <li>遇到异常可联系人工协助，30 天质保按规则处理。</li>
         </ul>
-        <p><a href="/?utm_source=blog&utm_medium=article&utm_campaign=chatgpt-plus-xuyao-tigong-mima-ma&utm_content=legacy_link#buy-plus-card">不想提供账号密码，查看自助激活方案 →</a></p>
+        <p><a rel="noopener" target="_blank" href="https://fe.dtyuedan.cn/shop/jiage">不想提供账号密码，查看自助激活方案 →</a></p>
         <p>如果不确定某一步是否安全，可以先加微信 <strong>jiage01888</strong> 确认。</p>
       </div>
 
-      <section class="blog-conversion-card blog-conversion-final" data-blog-cta="final" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">想减少账号信息暴露？</div>
-        <p>如果你想把 Plus 开到自己的账号，又不想提供 GPT 账号密码，可以查看光年升级计划的 Plus 激活码方案。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="final">
+      <div class="blog-conversion-kicker">减少账号信息暴露</div>
+      <p>如果你想把 Plus 开到自己的账号，又不想提供 ChatGPT 密码，可以查看光年升级计划的 Plus 激活码方案。</p>
+      <div class="blog-conversion-actions">
+        <a rel="noopener" target="_blank" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">查看无需密码的 Plus 激活码方案 ¥198</a>
+        <button class="blog-consult-button" type="button" data-consult-wx data-consult-context="chatgpt-plus-xuyao-tigong-mima-ma">担心账号安全？找人工确认</button>
+      </div>
+    </section>
 <section class="jiage-author-card" style="margin:32px 0 0;padding:18px;border-radius:14px;background:#f8fafc;border:1px solid #e5e7eb;border-left:5px solid #14b8a6;">
         <strong style="display:block;color:#111827;margin-bottom:6px;">作者：嘉哥AI / 嘉哥GPT</strong>
         <p style="margin:0;color:#4b5563;font-size:14px;line-height:1.75;">光年升级计划主理人，长期整理 ChatGPT Plus 开通、国内付款、账号升级和 AI 工具使用问题。本文用于帮助用户判断开通路径和风险边界，具体服务以光年升级计划页面说明为准。</p>
@@ -332,9 +353,53 @@ var _hmt = _hmt || [];
 </main>
 
   <div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
-    <span>Plus 激活码 ¥198</span>
-    <a target="_blank" rel="noopener" href="https://fe.dtyuedan.cn/shop/jiage">立即购买</a>
-    <button type="button" aria-label="关闭底部购买条" onclick="this.closest('.blog-mobile-sticky').style.display='none'">×</button>
+    <span>无需密码开通方案</span>
+    <a rel="noopener" target="_blank" href="https://fe.dtyuedan.cn/shop/jiage">购买</a>
+    <button class="blog-sticky-consult" type="button" data-consult-wx>问人工</button>
+    <button type="button" aria-label="关闭">×</button>
   </div>
+<script id="blog-consult-script">
+(function(){
+  const WX='jiage01888';
+  const BUY='https://fe.dtyuedan.cn/shop/jiage';
+  let toastTimer;
+  function ensureToast(){
+    let toast=document.querySelector('.blog-consult-toast');
+    if(!toast){toast=document.createElement('div');toast.className='blog-consult-toast';document.body.appendChild(toast);}
+    return toast;
+  }
+  function showToast(text){
+    const toast=ensureToast();toast.textContent=text;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+  }
+  async function copyWx(){
+    try{await navigator.clipboard.writeText(WX);showToast('已复制微信：'+WX);return;}catch(e){}
+    const input=document.createElement('input');input.value=WX;input.setAttribute('readonly','');input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();
+    try{document.execCommand('copy');showToast('已复制微信：'+WX);}catch(e){showToast('微信号：'+WX);}
+    input.remove();
+  }
+  function modal(){
+    let m=document.querySelector('.blog-consult-modal');
+    if(m)return m;
+    m=document.createElement('div');
+    m.className='blog-consult-modal';
+    m.setAttribute('aria-hidden','true');
+    m.innerHTML='<div class="blog-consult-dialog" role="dialog" aria-modal="true" aria-label="找嘉哥人工确认"><h3>找嘉哥人工确认</h3><p>账号状态、支付失败、Pro / Codex / 发票 / 对公需求，都可以先微信确认。点击后已自动复制微信号。</p><div class="blog-consult-wx"><span>微信</span><strong>jiage01888</strong></div><div class="blog-consult-dialog-actions"><button class="primary" type="button" data-copy-wx>复制微信</button><a href="'+BUY+'">继续看购买入口</a><button type="button" data-consult-close>关闭</button></div></div>';
+    document.body.appendChild(m);
+    return m;
+  }
+  function openModal(){const m=modal();m.classList.add('open');m.setAttribute('aria-hidden','false');}
+  function closeModal(){const m=document.querySelector('.blog-consult-modal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}}
+  document.addEventListener('click',function(e){
+    const consult=e.target.closest('[data-consult-wx]');
+    if(consult){e.preventDefault();openModal();copyWx();return;}
+    if(e.target.closest('[data-copy-wx]')){e.preventDefault();copyWx();return;}
+    const stickyClose=e.target.closest('.blog-mobile-sticky button[aria-label^=\"关闭\"]');
+    if(stickyClose){e.preventDefault();stickyClose.closest('.blog-mobile-sticky').style.display='none';return;}
+    if(e.target.closest('[data-consult-close]')||e.target.classList.contains('blog-consult-modal')){e.preventDefault();closeModal();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 </body>
 </html>

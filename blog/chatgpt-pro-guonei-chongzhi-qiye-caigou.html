@@ -310,6 +310,28 @@
       .cta-actions { display: grid; grid-template-columns: 1fr; }
       table { display: block; overflow-x: auto; }
     }
+
+    /* blog consult system:start */
+    .blog-conversion-actions{align-items:center;flex-wrap:wrap;}
+    .blog-consult-button,.blog-text-link{appearance:none;border-radius:12px;font-weight:800;font-size:.94rem;min-height:42px;padding:12px 18px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;line-height:1.25;cursor:pointer;}
+    .blog-consult-button{border:1px solid rgba(250,204,21,.42);background:rgba(250,204,21,.1);color:#fde68a;box-shadow:0 12px 28px rgba(0,0,0,.16);}
+    .blog-primary-button.blog-consult-button{border-color:rgba(250,204,21,.62);background:linear-gradient(180deg,#fbbf24,#d97706);color:#082f2e;box-shadow:0 16px 32px rgba(217,119,6,.22);}
+    .blog-text-link{border:1px solid rgba(148,163,184,.28);background:rgba(15,23,42,.18);color:#ccfbf1;}
+    .blog-consult-modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,.66);backdrop-filter:blur(10px);}
+    .blog-consult-modal.open{display:flex;}
+    .blog-consult-dialog{width:min(440px,100%);border:1px solid rgba(45,212,191,.34);border-radius:20px;background:linear-gradient(160deg,#10283a,#071827);box-shadow:0 24px 80px rgba(0,0,0,.44);padding:22px;color:#e5f7f5;}
+    .blog-consult-dialog h3{margin:0 0 8px;font-size:1.15rem;color:#fff;}
+    .blog-consult-dialog p{margin:0 0 14px;color:#cbd5e1;line-height:1.75;}
+    .blog-consult-wx{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(45,212,191,.28);border-radius:14px;background:rgba(20,184,166,.1);padding:12px 14px;margin:14px 0 16px;font-weight:900;color:#fff;}
+    .blog-consult-dialog-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .blog-consult-dialog-actions button,.blog-consult-dialog-actions a{appearance:none;border:1px solid rgba(148,163,184,.28);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.08);color:#e5f7f5;text-decoration:none;font-weight:800;cursor:pointer;}
+    .blog-consult-dialog-actions .primary{border-color:rgba(45,212,191,.45);background:linear-gradient(180deg,#2dd4bf,#14b8a6);color:#042f2e;}
+    .blog-consult-toast{position:fixed;left:50%;bottom:86px;z-index:100;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(45,212,191,.32);color:#ecfeff;padding:10px 16px;font-weight:800;box-shadow:0 16px 40px rgba(0,0,0,.28);transition:.2s ease;}
+    .blog-consult-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .blog-sticky-consult{border:1px solid rgba(250,204,21,.42);border-radius:999px;background:rgba(250,204,21,.12);color:#fde68a;font-weight:900;padding:9px 12px;white-space:nowrap;}.blog-mobile-sticky .blog-sticky-consult{width:auto!important;height:auto!important;border:1px solid rgba(250,204,21,.42)!important;background:rgba(250,204,21,.12)!important;color:#fde68a!important;font-size:13px!important;line-height:1!important;}
+    @media(max-width:720px){.blog-mobile-sticky{grid-template-columns:1fr auto auto auto!important;}.blog-conversion-actions{display:grid;grid-template-columns:1fr;}.blog-consult-button,.blog-text-link{width:100%;}.blog-sticky-consult{font-size:.86rem;padding:9px 11px;}}
+    /* blog consult system:end */
+
   </style>
 </head>
 <body>
@@ -323,7 +345,16 @@
       <h1>ChatGPT Pro 国内充值指南：企业采购如何避开代充风险</h1>
       <div class="meta">2026-06-15 · ChatGPT Pro · 企业采购 / 支付风控 / 账号安全</div>
 
-      <p class="lead">很多人讨论 GPT 充值，会把重点放在“哪里便宜”。但到了 ChatGPT Pro 这个层级，尤其是 $100 / $200 档，真正要解决的不是便宜几块钱，而是跨境支付、风控稳定、账号安全和企业内部可交代。</p>
+
+      <section class="blog-conversion-card" data-blog-cta="top">
+      <div class="blog-conversion-kicker">Pro / 企业需求建议先确认</div>
+      <p>Pro、发票、对公付款和多人采购不适合直接走普通 Plus 激活码。建议先找人工确认账号状态、预算和开通方式。</p>
+      <div class="blog-conversion-actions">
+        <button class="blog-primary-button blog-consult-button" type="button" data-consult-wx data-consult-context="chatgpt-pro-guonei-chongzhi-qiye-caigou">Pro / 发票 / 对公需求，先找人工确认</button>
+        <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://fe.dtyuedan.cn/shop/jiage">个人 Plus 用户，查看激活码方案</a>
+      </div>
+    </section>
+<p class="lead">很多人讨论 GPT 充值，会把重点放在“哪里便宜”。但到了 ChatGPT Pro 这个层级，尤其是 $100 / $200 档，真正要解决的不是便宜几块钱，而是跨境支付、风控稳定、账号安全和企业内部可交代。</p>
 
       <p>这篇文章不提供任何绕过风控、异常支付或所谓“低价漏洞”的方法。它更适合公司 IT、行政采购、项目负责人、团队负责人阅读：如果公司在国内，需要给团队开通 ChatGPT Pro，应该怎么判断路径、怎么避开低价代充坑、怎么和供应商确认安全边界。</p>
 
@@ -479,14 +510,14 @@
 
       <p>正常情况下，Pro 人工处理大约 5-30 分钟完成。价格高于官方汇率，差额不是“链接跳转费”，而是支付通道、人工处理、失败重试、风控响应和售后责任的综合成本。</p>
 
-      <div class="cta">
-        <div class="cta-title">适合先咨询再处理的情况</div>
-        <p>如果你是企业 IT、行政采购、项目负责人，或者需要一次开通多个 Pro 账号，建议先确认账号数量、订阅档位、是否需要分开记录账单、是否有报销或归档要求，再决定采用哪种路径。</p>
-        <div class="cta-actions">
-          <a class="button" href="../?utm_source=blog&utm_medium=article&utm_campaign=chatgpt-pro-guonei-chongzhi-qiye-caigou&utm_content=pro_consult">返回光年升级（AIPass）首页咨询 Pro</a>
-          <a class="secondary-button" href="./">继续阅读博客指南</a>
-        </div>
+      <section class="blog-conversion-card" data-blog-cta="final">
+      <div class="blog-conversion-kicker">Pro / 企业需求建议先确认</div>
+      <p>Pro、发票、对公付款和多人采购不适合直接走普通 Plus 激活码。建议先找人工确认账号状态、预算和开通方式。</p>
+      <div class="blog-conversion-actions">
+        <button class="blog-primary-button blog-consult-button" type="button" data-consult-wx data-consult-context="chatgpt-pro-guonei-chongzhi-qiye-caigou">Pro / 发票 / 对公需求，先找人工确认</button>
+        <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://fe.dtyuedan.cn/shop/jiage">个人 Plus 用户，查看激活码方案</a>
       </div>
+    </section>
 
       <h2>七、给不同用户的建议</h2>
       <p><strong>如果你是个人用户，预算敏感：</strong>优先尝试自己的海外卡、外区 Apple ID 或礼品卡等自助路径。自助方式更省钱，但需要自己处理失败和风控。</p>
@@ -527,5 +558,54 @@
       </div>
     </article>
   </div>
+<div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
+    <span>Pro / 发票需求先确认</span>
+    <button class="blog-sticky-consult" type="button" data-consult-wx>找人工</button>
+    <a rel="noopener" target="_blank" href="https://fe.dtyuedan.cn/shop/jiage">看方案</a>
+    <button type="button" aria-label="关闭">×</button>
+  </div>
+<script id="blog-consult-script">
+(function(){
+  const WX='jiage01888';
+  const BUY='https://fe.dtyuedan.cn/shop/jiage';
+  let toastTimer;
+  function ensureToast(){
+    let toast=document.querySelector('.blog-consult-toast');
+    if(!toast){toast=document.createElement('div');toast.className='blog-consult-toast';document.body.appendChild(toast);}
+    return toast;
+  }
+  function showToast(text){
+    const toast=ensureToast();toast.textContent=text;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+  }
+  async function copyWx(){
+    try{await navigator.clipboard.writeText(WX);showToast('已复制微信：'+WX);return;}catch(e){}
+    const input=document.createElement('input');input.value=WX;input.setAttribute('readonly','');input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();
+    try{document.execCommand('copy');showToast('已复制微信：'+WX);}catch(e){showToast('微信号：'+WX);}
+    input.remove();
+  }
+  function modal(){
+    let m=document.querySelector('.blog-consult-modal');
+    if(m)return m;
+    m=document.createElement('div');
+    m.className='blog-consult-modal';
+    m.setAttribute('aria-hidden','true');
+    m.innerHTML='<div class="blog-consult-dialog" role="dialog" aria-modal="true" aria-label="找嘉哥人工确认"><h3>找嘉哥人工确认</h3><p>账号状态、支付失败、Pro / Codex / 发票 / 对公需求，都可以先微信确认。点击后已自动复制微信号。</p><div class="blog-consult-wx"><span>微信</span><strong>jiage01888</strong></div><div class="blog-consult-dialog-actions"><button class="primary" type="button" data-copy-wx>复制微信</button><a href="'+BUY+'">继续看购买入口</a><button type="button" data-consult-close>关闭</button></div></div>';
+    document.body.appendChild(m);
+    return m;
+  }
+  function openModal(){const m=modal();m.classList.add('open');m.setAttribute('aria-hidden','false');}
+  function closeModal(){const m=document.querySelector('.blog-consult-modal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}}
+  document.addEventListener('click',function(e){
+    const consult=e.target.closest('[data-consult-wx]');
+    if(consult){e.preventDefault();openModal();copyWx();return;}
+    if(e.target.closest('[data-copy-wx]')){e.preventDefault();copyWx();return;}
+    const stickyClose=e.target.closest('.blog-mobile-sticky button[aria-label^=\"关闭\"]');
+    if(stickyClose){e.preventDefault();stickyClose.closest('.blog-mobile-sticky').style.display='none';return;}
+    if(e.target.closest('[data-consult-close]')||e.target.classList.contains('blog-consult-modal')){e.preventDefault();closeModal();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 </body>
 </html>

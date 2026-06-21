@@ -243,7 +243,28 @@
     .price b,.price-card strong,.price-card b{color:#ccfbf1!important;}
     code:not(pre code){background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.10)!important;color:#ccfbf1!important;}
     /* blog-callout-harmony:end */
-    @media(max-width:720px){.wrap,.container{width:min(100% - 18px,900px)!important;padding:18px 0 88px!important;}article{padding:20px!important;border-radius:16px!important;}.nav,.topbar{align-items:flex-start!important;}.blog-conversion-actions{display:grid!important;grid-template-columns:1fr!important;}.blog-mobile-sticky{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:14px;border:1px solid rgba(45,212,191,.42);background:rgba(15,23,42,.94);box-shadow:0 18px 48px rgba(2,6,23,.36);}.blog-mobile-sticky span{color:#ccfbf1;font-weight:950;font-size:13px;}.blog-mobile-sticky a{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6);border-radius:10px;padding:9px 12px;font-size:13px;font-weight:950;}.blog-mobile-sticky button{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:18px;}}
+
+    /* blog consult system:start */
+    .blog-conversion-actions{align-items:center;flex-wrap:wrap;}
+    .blog-consult-button,.blog-text-link{appearance:none;border-radius:12px;font-weight:800;font-size:.94rem;min-height:42px;padding:12px 18px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;line-height:1.25;cursor:pointer;}
+    .blog-consult-button{border:1px solid rgba(250,204,21,.42);background:rgba(250,204,21,.1);color:#fde68a;box-shadow:0 12px 28px rgba(0,0,0,.16);}
+    .blog-primary-button.blog-consult-button{border-color:rgba(250,204,21,.62);background:linear-gradient(180deg,#fbbf24,#d97706);color:#082f2e;box-shadow:0 16px 32px rgba(217,119,6,.22);}
+    .blog-text-link{border:1px solid rgba(148,163,184,.28);background:rgba(15,23,42,.18);color:#ccfbf1;}
+    .blog-consult-modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,.66);backdrop-filter:blur(10px);}
+    .blog-consult-modal.open{display:flex;}
+    .blog-consult-dialog{width:min(440px,100%);border:1px solid rgba(45,212,191,.34);border-radius:20px;background:linear-gradient(160deg,#10283a,#071827);box-shadow:0 24px 80px rgba(0,0,0,.44);padding:22px;color:#e5f7f5;}
+    .blog-consult-dialog h3{margin:0 0 8px;font-size:1.15rem;color:#fff;}
+    .blog-consult-dialog p{margin:0 0 14px;color:#cbd5e1;line-height:1.75;}
+    .blog-consult-wx{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(45,212,191,.28);border-radius:14px;background:rgba(20,184,166,.1);padding:12px 14px;margin:14px 0 16px;font-weight:900;color:#fff;}
+    .blog-consult-dialog-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .blog-consult-dialog-actions button,.blog-consult-dialog-actions a{appearance:none;border:1px solid rgba(148,163,184,.28);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.08);color:#e5f7f5;text-decoration:none;font-weight:800;cursor:pointer;}
+    .blog-consult-dialog-actions .primary{border-color:rgba(45,212,191,.45);background:linear-gradient(180deg,#2dd4bf,#14b8a6);color:#042f2e;}
+    .blog-consult-toast{position:fixed;left:50%;bottom:86px;z-index:100;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(45,212,191,.32);color:#ecfeff;padding:10px 16px;font-weight:800;box-shadow:0 16px 40px rgba(0,0,0,.28);transition:.2s ease;}
+    .blog-consult-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .blog-sticky-consult{border:1px solid rgba(250,204,21,.42);border-radius:999px;background:rgba(250,204,21,.12);color:#fde68a;font-weight:900;padding:9px 12px;white-space:nowrap;}.blog-mobile-sticky .blog-sticky-consult{width:auto!important;height:auto!important;border:1px solid rgba(250,204,21,.42)!important;background:rgba(250,204,21,.12)!important;color:#fde68a!important;font-size:13px!important;line-height:1!important;}
+    @media(max-width:720px){.blog-mobile-sticky{grid-template-columns:1fr auto auto auto!important;}.blog-conversion-actions{display:grid;grid-template-columns:1fr;}.blog-consult-button,.blog-text-link{width:100%;}.blog-sticky-consult{font-size:.86rem;padding:9px 11px;}}
+    /* blog consult system:end */
+@media(max-width:720px){.wrap,.container{width:min(100% - 18px,900px)!important;padding:18px 0 88px!important;}article{padding:20px!important;border-radius:16px!important;}.nav,.topbar{align-items:flex-start!important;}.blog-conversion-actions{display:grid!important;grid-template-columns:1fr!important;}.blog-mobile-sticky{position:fixed;left:10px;right:10px;bottom:10px;z-index:80;display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px;border-radius:14px;border:1px solid rgba(45,212,191,.42);background:rgba(15,23,42,.94);box-shadow:0 18px 48px rgba(2,6,23,.36);}.blog-mobile-sticky span{color:#ccfbf1;font-weight:950;font-size:13px;}.blog-mobile-sticky a{color:#fff!important;background:linear-gradient(180deg,#2dd4bf,#14b8a6);border-radius:10px;padding:9px 12px;font-size:13px;font-weight:950;}.blog-mobile-sticky button{width:30px;height:30px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.08);color:#fff;font-size:18px;}}
   </style>
 
   <script type="application/ld+json">
@@ -310,14 +331,14 @@ var _hmt = _hmt || [];
 
     <article>
       <h1>GPT Plus 和 Codex 稳定充值渠道怎么选？先看这 3 层稳定</h1>
-      <section class="blog-conversion-card blog-conversion-top" data-blog-cta="top" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">嘉哥建议</div>
-        <p>如果你只是要开通 Plus，可以直接查看 Plus 激活码；如果涉及 Pro、Codex、发票或对公付款，建议先人工确认。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">购买 Plus 激活码 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="top">
+      <div class="blog-conversion-kicker">Pro / Codex 需求建议先确认</div>
+      <p>Codex、Pro 和发票需求会受到套餐、额度和账号状态影响。建议先人工确认，再决定是 Plus、Pro 还是其他方案。</p>
+      <div class="blog-conversion-actions">
+        <button class="blog-primary-button blog-consult-button" type="button" data-consult-wx data-consult-context="gpt-plus-codex-wending-chongzhi-qudao">Pro / Codex / 发票需求，先找人工确认</button>
+        <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://fe.dtyuedan.cn/shop/jiage">只是开 Plus，购买激活码 ¥198</a>
+      </div>
+    </section>
 
       <div class="meta">发布时间：2026-06-05 ｜ 分类：GPT 充值渠道</div>
 
@@ -410,14 +431,14 @@ var _hmt = _hmt || [];
       <p>如果你问的是 Codex，重点还要多看一项：你的 Codex 使用频率是否需要更高额度的计划。Codex 不是只看“能不能打开”，还要看你用多少、用多重、是否长期跑项目。</p>
 
 
-      <section class="blog-conversion-card blog-conversion-middle" data-blog-cta="middle" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">嘉哥建议</div>
-        <p>Plus、Pro、Codex 的适用场景不同。普通 Plus 用户可以走激活码方案，高客单或发票需求先联系人工更稳。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">购买 Plus 激活码 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="middle">
+      <div class="blog-conversion-kicker">Pro / Codex 需求建议先确认</div>
+      <p>Codex、Pro 和发票需求会受到套餐、额度和账号状态影响。建议先人工确认，再决定是 Plus、Pro 还是其他方案。</p>
+      <div class="blog-conversion-actions">
+        <button class="blog-primary-button blog-consult-button" type="button" data-consult-wx data-consult-context="gpt-plus-codex-wending-chongzhi-qudao">Pro / Codex / 发票需求，先找人工确认</button>
+        <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://fe.dtyuedan.cn/shop/jiage">只是开 Plus，购买激活码 ¥198</a>
+      </div>
+    </section>
 <h2>六、什么时候适合看光年升级计划的 Plus 激活码方案？</h2>
       <p>如果你有稳定海外卡，也愿意自己处理支付失败和续费问题，可以优先自己走官方路径。</p>
       <p>如果你没有可用海外信用卡、国内银行卡反复付款失败、想用微信 / 支付宝付款、希望开通到自己的 ChatGPT 账号、需要 Plus / Pro / Codex 相关能力，或者需要发票和对公付款，可以考虑查看光年升级计划的 Plus / Pro 方案。</p>
@@ -470,7 +491,7 @@ var _hmt = _hmt || [];
         <h2>下一步怎么做？</h2>
         <p>如果你只是想先判断方案，可以先把这篇文章里的“三层稳定”当成检查清单。</p>
         <p>如果你已经确定要开通 Plus，可以查看 Plus 激活码方案；如果想确认 Pro、Codex、发票或对公需求适合哪一档，建议先人工确认。</p>
-        <p><a class="btn" href="/?utm_source=blog&utm_medium=article&utm_campaign=gpt-plus-codex-wending-chongzhi-qudao&utm_content=legacy_link#buy-plus-card">Pro / Codex / 发票需求，先人工确认</a></p>
+        <p><button class="btn blog-consult-button" type="button" data-consult-wx>Pro / Codex / 发票需求，先人工确认</button></p>
         <p>账号状态复杂、需要 Pro、发票或对公付款，建议先加微信 <strong>jiage01888</strong> 确认，不要盲目下单。</p>
       </div>
 
@@ -503,14 +524,14 @@ var _hmt = _hmt || [];
         <li><a href="https://www.aipass.me/blog/gpt-chongzhi.html">GPT 充值怎么操作？国内用户开通 ChatGPT Plus 前要注意什么</a></li>
       </ul>
 
-      <section class="blog-conversion-card blog-conversion-final" data-blog-cta="final" aria-label="Plus 激活码转化入口">
-        <div class="blog-cta-kicker">Plus 可直接购买，复杂需求先确认</div>
-        <p>如果你已经确定要开通 Plus，可以购买 Plus 激活码；如果要 Pro、Codex 或发票对公需求，建议先找人工确认。</p>
-        <div class="blog-conversion-actions">
-          <a target="_blank" rel="noopener" class="blog-primary-button" href="https://fe.dtyuedan.cn/shop/jiage">购买 Plus 激活码 ¥198</a>
-          <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://987ai.vip/recharge">已买卡密？进入激活中心</a>
-        </div>
-      </section>
+      <section class="blog-conversion-card" data-blog-cta="final">
+      <div class="blog-conversion-kicker">Pro / Codex 需求建议先确认</div>
+      <p>Codex、Pro 和发票需求会受到套餐、额度和账号状态影响。建议先人工确认，再决定是 Plus、Pro 还是其他方案。</p>
+      <div class="blog-conversion-actions">
+        <button class="blog-primary-button blog-consult-button" type="button" data-consult-wx data-consult-context="gpt-plus-codex-wending-chongzhi-qudao">Pro / Codex / 发票需求，先找人工确认</button>
+        <a rel="noopener" target="_blank" class="blog-secondary-button" href="https://fe.dtyuedan.cn/shop/jiage">只是开 Plus，购买激活码 ¥198</a>
+      </div>
+    </section>
 <section class="jiage-author-card" style="margin:32px 0 0;padding:18px;border-radius:14px;background:#f8fafc;border:1px solid #e5e7eb;border-left:5px solid #14b8a6;">
         <strong style="display:block;color:#111827;margin-bottom:6px;">作者：嘉哥AI / 嘉哥GPT</strong>
         <p style="margin:0;color:#4b5563;font-size:14px;line-height:1.75;">光年升级计划主理人，长期整理 ChatGPT Plus 开通、国内付款、账号升级和 AI 工具使用问题。本文用于帮助用户判断开通路径和风险边界，具体服务以光年升级计划页面说明为准。</p>
@@ -521,9 +542,53 @@ var _hmt = _hmt || [];
   </main>
 
   <div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
-    <span>Plus 激活码 ¥198</span>
-    <a target="_blank" rel="noopener" href="https://fe.dtyuedan.cn/shop/jiage">立即购买</a>
-    <button type="button" aria-label="关闭底部购买条" onclick="this.closest('.blog-mobile-sticky').style.display='none'">×</button>
+    <span>Codex / Pro 先确认</span>
+    <button class="blog-sticky-consult" type="button" data-consult-wx>找人工</button>
+    <a rel="noopener" target="_blank" href="https://fe.dtyuedan.cn/shop/jiage">看方案</a>
+    <button type="button" aria-label="关闭">×</button>
   </div>
+<script id="blog-consult-script">
+(function(){
+  const WX='jiage01888';
+  const BUY='https://fe.dtyuedan.cn/shop/jiage';
+  let toastTimer;
+  function ensureToast(){
+    let toast=document.querySelector('.blog-consult-toast');
+    if(!toast){toast=document.createElement('div');toast.className='blog-consult-toast';document.body.appendChild(toast);}
+    return toast;
+  }
+  function showToast(text){
+    const toast=ensureToast();toast.textContent=text;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+  }
+  async function copyWx(){
+    try{await navigator.clipboard.writeText(WX);showToast('已复制微信：'+WX);return;}catch(e){}
+    const input=document.createElement('input');input.value=WX;input.setAttribute('readonly','');input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();
+    try{document.execCommand('copy');showToast('已复制微信：'+WX);}catch(e){showToast('微信号：'+WX);}
+    input.remove();
+  }
+  function modal(){
+    let m=document.querySelector('.blog-consult-modal');
+    if(m)return m;
+    m=document.createElement('div');
+    m.className='blog-consult-modal';
+    m.setAttribute('aria-hidden','true');
+    m.innerHTML='<div class="blog-consult-dialog" role="dialog" aria-modal="true" aria-label="找嘉哥人工确认"><h3>找嘉哥人工确认</h3><p>账号状态、支付失败、Pro / Codex / 发票 / 对公需求，都可以先微信确认。点击后已自动复制微信号。</p><div class="blog-consult-wx"><span>微信</span><strong>jiage01888</strong></div><div class="blog-consult-dialog-actions"><button class="primary" type="button" data-copy-wx>复制微信</button><a href="'+BUY+'">继续看购买入口</a><button type="button" data-consult-close>关闭</button></div></div>';
+    document.body.appendChild(m);
+    return m;
+  }
+  function openModal(){const m=modal();m.classList.add('open');m.setAttribute('aria-hidden','false');}
+  function closeModal(){const m=document.querySelector('.blog-consult-modal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}}
+  document.addEventListener('click',function(e){
+    const consult=e.target.closest('[data-consult-wx]');
+    if(consult){e.preventDefault();openModal();copyWx();return;}
+    if(e.target.closest('[data-copy-wx]')){e.preventDefault();copyWx();return;}
+    const stickyClose=e.target.closest('.blog-mobile-sticky button[aria-label^=\"关闭\"]');
+    if(stickyClose){e.preventDefault();stickyClose.closest('.blog-mobile-sticky').style.display='none';return;}
+    if(e.target.closest('[data-consult-close]')||e.target.classList.contains('blog-consult-modal')){e.preventDefault();closeModal();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 </body>
 </html>

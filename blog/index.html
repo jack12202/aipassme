@@ -410,6 +410,28 @@
         font-size: 18px;
       }
     }
+
+    /* blog consult system:start */
+    .blog-conversion-actions{align-items:center;flex-wrap:wrap;}
+    .blog-consult-button,.blog-text-link{appearance:none;border-radius:12px;font-weight:800;font-size:.94rem;min-height:42px;padding:12px 18px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;line-height:1.25;cursor:pointer;}
+    .blog-consult-button{border:1px solid rgba(250,204,21,.42);background:rgba(250,204,21,.1);color:#fde68a;box-shadow:0 12px 28px rgba(0,0,0,.16);}
+    .blog-primary-button.blog-consult-button{border-color:rgba(250,204,21,.62);background:linear-gradient(180deg,#fbbf24,#d97706);color:#082f2e;box-shadow:0 16px 32px rgba(217,119,6,.22);}
+    .blog-text-link{border:1px solid rgba(148,163,184,.28);background:rgba(15,23,42,.18);color:#ccfbf1;}
+    .blog-consult-modal{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(2,6,23,.66);backdrop-filter:blur(10px);}
+    .blog-consult-modal.open{display:flex;}
+    .blog-consult-dialog{width:min(440px,100%);border:1px solid rgba(45,212,191,.34);border-radius:20px;background:linear-gradient(160deg,#10283a,#071827);box-shadow:0 24px 80px rgba(0,0,0,.44);padding:22px;color:#e5f7f5;}
+    .blog-consult-dialog h3{margin:0 0 8px;font-size:1.15rem;color:#fff;}
+    .blog-consult-dialog p{margin:0 0 14px;color:#cbd5e1;line-height:1.75;}
+    .blog-consult-wx{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid rgba(45,212,191,.28);border-radius:14px;background:rgba(20,184,166,.1);padding:12px 14px;margin:14px 0 16px;font-weight:900;color:#fff;}
+    .blog-consult-dialog-actions{display:flex;gap:10px;flex-wrap:wrap;}
+    .blog-consult-dialog-actions button,.blog-consult-dialog-actions a{appearance:none;border:1px solid rgba(148,163,184,.28);border-radius:12px;padding:10px 14px;background:rgba(255,255,255,.08);color:#e5f7f5;text-decoration:none;font-weight:800;cursor:pointer;}
+    .blog-consult-dialog-actions .primary{border-color:rgba(45,212,191,.45);background:linear-gradient(180deg,#2dd4bf,#14b8a6);color:#042f2e;}
+    .blog-consult-toast{position:fixed;left:50%;bottom:86px;z-index:100;transform:translateX(-50%) translateY(16px);opacity:0;pointer-events:none;border-radius:999px;background:rgba(15,23,42,.92);border:1px solid rgba(45,212,191,.32);color:#ecfeff;padding:10px 16px;font-weight:800;box-shadow:0 16px 40px rgba(0,0,0,.28);transition:.2s ease;}
+    .blog-consult-toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+    .blog-sticky-consult{border:1px solid rgba(250,204,21,.42);border-radius:999px;background:rgba(250,204,21,.12);color:#fde68a;font-weight:900;padding:9px 12px;white-space:nowrap;}.blog-mobile-sticky .blog-sticky-consult{width:auto!important;height:auto!important;border:1px solid rgba(250,204,21,.42)!important;background:rgba(250,204,21,.12)!important;color:#fde68a!important;font-size:13px!important;line-height:1!important;}
+    @media(max-width:720px){.blog-mobile-sticky{grid-template-columns:1fr auto auto auto!important;}.blog-conversion-actions{display:grid;grid-template-columns:1fr;}.blog-consult-button,.blog-text-link{width:100%;}.blog-sticky-consult{font-size:.86rem;padding:9px 11px;}}
+    /* blog consult system:end */
+
   </style>
 <script>
 var _hmt = _hmt || [];
@@ -425,15 +447,16 @@ var _hmt = _hmt || [];
   <main class="wrap">
     <nav class="topbar" aria-label="博客导航">
       <a class="brand" href="../">光年升级计划 <span>嘉哥主理</span></a>
-      <a class="home" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=top_nav#buy-plus-card">立即购买 Plus 激活码 ¥198</a>
+      <a rel="noopener" target="_blank" class="home" href="https://fe.dtyuedan.cn/shop/jiage">立即购买 Plus 激活码 ¥198</a>
     </nav>
 
     <section class="hero">
       <h1>ChatGPT Plus 开通卡住了？嘉哥帮你按问题排查</h1>
       <p>我是嘉哥，这里把国内用户开通 ChatGPT Plus 时最常见的问题整理成了几类：支付失败、没有海外卡、续费异常、担心账号安全、正在比较平台。你可以先按自己的情况选择文章，看清楚风险后，再决定是继续排查，还是通过光年升级计划购买 Plus 激活码开通到自己的账号。</p>
       <div class="hero-actions">
-        <a class="hero-btn" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=hero_cta#buy-plus-card">我已确定，购买 Plus 激活码</a>
-        <a class="hero-link" href="#diagnosis">我还不确定，先看嘉哥的排查指南</a>
+        <a rel="noopener" target="_blank" class="hero-btn" href="https://fe.dtyuedan.cn/shop/jiage">我已确定，购买 Plus 激活码 ¥198</a>
+        <button class="hero-consult blog-consult-button" type="button" data-consult-wx>不确定？找人工确认</button>
+        <a class="hero-link" href="#diagnosis">先看嘉哥的排查指南</a>
       </div>
       <p class="section-desc" style="margin-top:14px;">2300+ 用户服务记录｜多数正常订单约 5 分钟完成｜常规无需 ChatGPT 密码｜未使用卡密可退</p>
     </section>
@@ -577,10 +600,10 @@ var _hmt = _hmt || [];
 
     <section class="blog-index-cta" aria-label="Plus 激活码购买入口">
       <h2 class="section-title">准备开通 Plus？</h2>
-      <p>购买 Plus 激活码后，进入光年升级计划激活中心，按页面提示确认账号并完成处理。常规流程不需要提供 ChatGPT 密码。</p>
+      <p>如果你已经确定要开通，可以直接购买 Plus 激活码；如果还拿不准账号状态，先找人工确认。常规流程不需要提供 ChatGPT 密码。</p>
       <div class="blog-index-actions">
-        <a class="blog-index-primary" href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=final_cta#buy-plus-card">购买 Plus 激活码 ¥198</a>
-        <a class="blog-index-secondary" href="../activate/?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=final_activate">已买卡密？进入激活中心</a>
+        <a rel="noopener" target="_blank" class="blog-index-primary" href="https://fe.dtyuedan.cn/shop/jiage">购买 Plus 激活码 ¥198</a>
+        <button class="blog-index-consult blog-consult-button" type="button" data-consult-wx>不确定账号状态，找人工确认</button>
       </div>
     </section>
 
@@ -592,8 +615,52 @@ var _hmt = _hmt || [];
   </main>
   <div class="blog-mobile-sticky" data-blog-cta="mobile-sticky">
     <span>Plus 激活码 ¥198</span>
-    <a href="../?utm_source=blog&utm_medium=index&utm_campaign=blog_home&utm_content=mobile_sticky#buy-plus-card">立即购买</a>
-    <button type="button" aria-label="关闭底部购买条" onclick="this.closest('.blog-mobile-sticky').style.display='none'">×</button>
+    <a rel="noopener" target="_blank" href="https://fe.dtyuedan.cn/shop/jiage">购买</a>
+    <button class="blog-sticky-consult" type="button" data-consult-wx>问人工</button>
+    <button type="button" aria-label="关闭底部购买条">×</button>
   </div>
+<script id="blog-consult-script">
+(function(){
+  const WX='jiage01888';
+  const BUY='https://fe.dtyuedan.cn/shop/jiage';
+  let toastTimer;
+  function ensureToast(){
+    let toast=document.querySelector('.blog-consult-toast');
+    if(!toast){toast=document.createElement('div');toast.className='blog-consult-toast';document.body.appendChild(toast);}
+    return toast;
+  }
+  function showToast(text){
+    const toast=ensureToast();toast.textContent=text;toast.classList.add('show');
+    clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200);
+  }
+  async function copyWx(){
+    try{await navigator.clipboard.writeText(WX);showToast('已复制微信：'+WX);return;}catch(e){}
+    const input=document.createElement('input');input.value=WX;input.setAttribute('readonly','');input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();
+    try{document.execCommand('copy');showToast('已复制微信：'+WX);}catch(e){showToast('微信号：'+WX);}
+    input.remove();
+  }
+  function modal(){
+    let m=document.querySelector('.blog-consult-modal');
+    if(m)return m;
+    m=document.createElement('div');
+    m.className='blog-consult-modal';
+    m.setAttribute('aria-hidden','true');
+    m.innerHTML='<div class="blog-consult-dialog" role="dialog" aria-modal="true" aria-label="找嘉哥人工确认"><h3>找嘉哥人工确认</h3><p>账号状态、支付失败、Pro / Codex / 发票 / 对公需求，都可以先微信确认。点击后已自动复制微信号。</p><div class="blog-consult-wx"><span>微信</span><strong>jiage01888</strong></div><div class="blog-consult-dialog-actions"><button class="primary" type="button" data-copy-wx>复制微信</button><a href="'+BUY+'">继续看购买入口</a><button type="button" data-consult-close>关闭</button></div></div>';
+    document.body.appendChild(m);
+    return m;
+  }
+  function openModal(){const m=modal();m.classList.add('open');m.setAttribute('aria-hidden','false');}
+  function closeModal(){const m=document.querySelector('.blog-consult-modal');if(m){m.classList.remove('open');m.setAttribute('aria-hidden','true');}}
+  document.addEventListener('click',function(e){
+    const consult=e.target.closest('[data-consult-wx]');
+    if(consult){e.preventDefault();openModal();copyWx();return;}
+    if(e.target.closest('[data-copy-wx]')){e.preventDefault();copyWx();return;}
+    const stickyClose=e.target.closest('.blog-mobile-sticky button[aria-label^=\"关闭\"]');
+    if(stickyClose){e.preventDefault();stickyClose.closest('.blog-mobile-sticky').style.display='none';return;}
+    if(e.target.closest('[data-consult-close]')||e.target.classList.contains('blog-consult-modal')){e.preventDefault();closeModal();}
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal();});
+})();
+</script>
 </body>
 </html>
