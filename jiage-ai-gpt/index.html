@@ -173,10 +173,13 @@
       padding:18px;
       background:rgba(3,7,18,.62);
       backdrop-filter:blur(10px);
+      overflow-x:hidden;
     }
     .recharge-mask.show { display:flex; }
     .recharge-card {
       width:min(420px,100%);
+      box-sizing:border-box;
+      overflow-x:hidden;
       padding:20px;
       border-radius:18px;
       border:1px solid rgba(45,212,191,.3);
@@ -420,15 +423,11 @@
           timer = null;
         }
       };
-      const enterRecharge = (auto = false) => {
+      const enterRecharge = () => {
         if (navigated) return;
         navigated = true;
         stopCountdown();
-        if (auto) {
-          window.location.href = '/api/recharge-go';
-        } else {
-          window.open('/api/recharge-go', '_blank', 'noopener');
-        }
+        window.open('/api/recharge-go', '_blank', 'noopener');
         closePrompt();
       };
       const startCountdown = () => {
@@ -439,7 +438,7 @@
         timer = setInterval(() => {
           remaining -= 1;
           if (remaining <= 0) {
-            enterRecharge(true);
+            enterRecharge();
             return;
           }
           updateCountdown();
@@ -460,7 +459,7 @@
         event.preventDefault();
         openPrompt();
       });
-      confirmBtn?.addEventListener('click', () => enterRecharge(false));
+      confirmBtn?.addEventListener('click', enterRecharge);
       cancelBtn?.addEventListener('click', closePrompt);
       mask?.addEventListener('click', (event) => {
         if (event.target === mask) closePrompt();
