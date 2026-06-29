@@ -4450,31 +4450,28 @@ var _hmt = _hmt || [];
 </div>
 
 
-<!-- === 自动充值系统选择弹窗（rechargeSystemModal）=== -->
+<!-- === 充值前提示弹窗（rechargeSystemModal）=== -->
 <div aria-hidden="true" class="rs-mask" id="rechargeSystemModal">
 <div aria-labelledby="rsTitle" class="rs-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="rs-close" id="rsClose">×</button>
-<h3 class="rs-title" id="rsTitle">进入光年升级计划激活中心</h3>
+<h3 class="rs-title" id="rsTitle">即将进入 Plus 自助充值通道</h3>
 <div class="rs-body" style="margin: 6px 0 10px;">
-<div style="font-weight:800; opacity:.9; margin-bottom:6px;">说明：</div>
-<ul style="margin:0; padding-left: 1.15rem; line-height: 1.7; opacity:.88;">
-<li>请先购买 Plus 激活码，再进入光年升级计划激活中心。</li>
-<li>进入后按页面提示验证激活码、确认账号并提交开通。</li>
-</ul>
+<p style="margin:0; line-height:1.75; opacity:.9;">进入通道后，请按页面提示完成充值。充值成功前，请不要关闭已登录的 ChatGPT 网页，以免充值失败。</p>
+<p class="rs-countdown" id="rsCountdown" style="margin:12px 0 0; text-align:center; font-weight:900; color:#99f6e4;">8 秒后自动进入充值通道</p>
 </div>
 <div class="rs-options" role="list" style="margin-top:14px;">
 <button aria-label="进入当前自助激活系统" class="rs-option" data-url="/api/recharge-go" role="listitem" type="button">
-<div class="rs-option-title">光年升级计划激活中心</div>
-<div class="rs-option-desc">已购买激活码后，点击进入账号确认和开通流程</div>
-<div class="rs-option-url">读取当前启用通道</div>
+<div class="rs-option-title">我知道了，进入充值通道</div>
+<div class="rs-option-desc">保持 ChatGPT 网页打开，不要退出登录或关闭页面</div>
+<div class="rs-option-url">点击后继续</div>
 </button>
 </div>
 <div class="rs-actions" style="margin-top:16px; justify-content:center;">
-<button class="rs-btn rs-btn-ghost" id="rsCancel" type="button">取消</button>
+<button class="rs-btn rs-btn-ghost" id="rsCancel" type="button">暂不进入</button>
 </div>
 </div>
 </div>
-<!-- === /自动充值系统选择弹窗 === -->
+<!-- === /充值前提示弹窗 === -->
 <script>
 (function(){
   const BUY_URL = 'https://fe.dtyuedan.cn/shop/jiage';
@@ -4541,7 +4538,7 @@ var _hmt = _hmt || [];
   $('#buyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#flowBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
   $('#finalBuyBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(BUY_URL); });
-  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(ACTIVATION_ENTRY_URL); });
+  $('#flowActivateBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openRechargePrompt(); });
   $('#mobileBuyBtn')?.addEventListener('click', (e)=>{
     e.preventDefault();
     if(e.target.closest?.('.mobile-wechat')){
@@ -4607,14 +4604,68 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openNew(ACTIVATION_ENTRY_URL); });
+  const rsCountdown = $('#rsCountdown');
+  const RECHARGE_COUNTDOWN_SECONDS = 8;
+  let rechargeCountdownTimer = null;
+  let rechargeCountdownRemaining = RECHARGE_COUNTDOWN_SECONDS;
+  let rechargeNavigated = false;
+
+  function updateRechargeCountdown(){
+    if(rsCountdown){
+      rsCountdown.textContent = rechargeCountdownRemaining + ' 秒后自动进入充值通道';
+    }
+  }
+  function stopRechargeCountdown(){
+    if(rechargeCountdownTimer){
+      clearInterval(rechargeCountdownTimer);
+      rechargeCountdownTimer = null;
+    }
+  }
+  function enterRechargeChannel(url = ACTIVATION_ENTRY_URL, auto = false){
+    if(rechargeNavigated) return;
+    rechargeNavigated = true;
+    stopRechargeCountdown();
+    if(auto){
+      window.location.href = url;
+    }else{
+      openNew(url);
+    }
+    closeMask(rsMask);
+  }
+  function startRechargeCountdown(){
+    stopRechargeCountdown();
+    rechargeNavigated = false;
+    rechargeCountdownRemaining = RECHARGE_COUNTDOWN_SECONDS;
+    updateRechargeCountdown();
+    rechargeCountdownTimer = setInterval(()=>{
+      rechargeCountdownRemaining -= 1;
+      if(rechargeCountdownRemaining <= 0){
+        enterRechargeChannel(ACTIVATION_ENTRY_URL, true);
+        return;
+      }
+      updateRechargeCountdown();
+    }, 1000);
+  }
+  function openRechargePrompt(){
+    openMask(rsMask);
+    startRechargeCountdown();
+  }
+  $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openRechargePrompt(); });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
+  ['#rsClose', '#rsCancel'].forEach(sel=>{
+    rsMask?.querySelector(sel)?.addEventListener('click', stopRechargeCountdown);
+  });
+  rsMask?.addEventListener('click', (e)=>{
+    if(e.target === rsMask) stopRechargeCountdown();
+  });
+  document.addEventListener('keydown', (e)=>{
+    if(e.key === 'Escape' && rsMask?.classList.contains('show')) stopRechargeCountdown();
+  });
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
       e.preventDefault();
       const url = btn.getAttribute('data-url');
-      if(url) openNew(url);
-      closeMask(rsMask);
+      if(url) enterRechargeChannel(url, false);
     });
   });
 

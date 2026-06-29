@@ -163,6 +163,63 @@
       border:1px solid rgba(45,212,191,.28);
       background:rgba(255,255,255,.055);
     }
+    .recharge-mask {
+      position:fixed;
+      inset:0;
+      z-index:50;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      background:rgba(3,7,18,.62);
+      backdrop-filter:blur(10px);
+    }
+    .recharge-mask.show { display:flex; }
+    .recharge-card {
+      width:min(420px,100%);
+      padding:20px;
+      border-radius:18px;
+      border:1px solid rgba(45,212,191,.3);
+      background:linear-gradient(180deg,rgba(13,40,52,.96),rgba(9,26,38,.96));
+      box-shadow:0 24px 70px rgba(0,0,0,.38);
+      color:var(--text);
+    }
+    .recharge-card h2 {
+      margin:0 0 10px;
+      font-size:20px;
+    }
+    .recharge-card p {
+      margin:0;
+      color:var(--muted);
+      line-height:1.75;
+      font-size:14px;
+    }
+    .recharge-countdown {
+      margin-top:12px;
+      color:#99f6e4;
+      font-weight:900;
+      text-align:center;
+      font-size:14px;
+    }
+    .recharge-actions {
+      display:grid;
+      gap:10px;
+      margin-top:18px;
+    }
+    .recharge-actions button {
+      min-height:44px;
+      border-radius:10px;
+      border:1px solid rgba(45,212,191,.3);
+      color:var(--text);
+      font-weight:900;
+      cursor:pointer;
+    }
+    .recharge-confirm {
+      background:linear-gradient(180deg,#0d9488,#14b8a6);
+    }
+    .recharge-cancel {
+      background:rgba(255,255,255,.055);
+    }
     .stats {
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
@@ -270,7 +327,7 @@
       <p class="hero-copy">这个页面用来确认身份和服务边界：光年升级计划由嘉哥AI / 嘉哥GPT 主理，主要处理 ChatGPT Plus 激活码、自助开通、国内付款失败、账号升级和相关售后问题。官网入口为 AIPass.me。</p>
       <div class="actions">
         <a class="btn" href="/">购买 Plus 激活码</a>
-        <a rel="noopener" target="_blank" class="btn-ghost" href="/api/recharge-go">已买卡密？进入激活中心</a>
+        <a rel="noopener" target="_blank" class="btn-ghost" href="/api/recharge-go" id="officialRechargeLink">已买卡密？进入激活中心</a>
         <a class="btn-ghost" href="/blog/">查看开通问题指南</a>
       </div>
       <div class="stats" aria-label="服务信息">
@@ -332,5 +389,86 @@
       本页更新于 2026-06-06。光年升级计划由嘉哥AI / 嘉哥GPT 主理，AIPass.me 为官网入口。页面中提及的产品名称仅用于说明服务适配对象。
     </footer>
   </main>
+  <div aria-hidden="true" class="recharge-mask" id="rechargePreflight">
+    <div aria-labelledby="rechargePreflightTitle" class="recharge-card" role="dialog" tabindex="-1">
+      <h2 id="rechargePreflightTitle">即将进入 Plus 自助充值通道</h2>
+      <p>进入通道后，请按页面提示完成充值。充值成功前，请不要关闭已登录的 ChatGPT 网页，以免充值失败。</p>
+      <div class="recharge-countdown" id="rechargePreflightCountdown">8 秒后自动进入充值通道</div>
+      <div class="recharge-actions">
+        <button class="recharge-confirm" id="rechargePreflightConfirm" type="button">我知道了，进入充值通道</button>
+        <button class="recharge-cancel" id="rechargePreflightCancel" type="button">暂不进入</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    (() => {
+      const link = document.getElementById('officialRechargeLink');
+      const mask = document.getElementById('rechargePreflight');
+      const confirmBtn = document.getElementById('rechargePreflightConfirm');
+      const cancelBtn = document.getElementById('rechargePreflightCancel');
+      const countdown = document.getElementById('rechargePreflightCountdown');
+      const COUNTDOWN_SECONDS = 8;
+      let timer = null;
+      let remaining = COUNTDOWN_SECONDS;
+      let navigated = false;
+      const updateCountdown = () => {
+        if (countdown) countdown.textContent = `${remaining} 秒后自动进入充值通道`;
+      };
+      const stopCountdown = () => {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      };
+      const enterRecharge = (auto = false) => {
+        if (navigated) return;
+        navigated = true;
+        stopCountdown();
+        if (auto) {
+          window.location.href = '/api/recharge-go';
+        } else {
+          window.open('/api/recharge-go', '_blank', 'noopener');
+        }
+        closePrompt();
+      };
+      const startCountdown = () => {
+        stopCountdown();
+        navigated = false;
+        remaining = COUNTDOWN_SECONDS;
+        updateCountdown();
+        timer = setInterval(() => {
+          remaining -= 1;
+          if (remaining <= 0) {
+            enterRecharge(true);
+            return;
+          }
+          updateCountdown();
+        }, 1000);
+      };
+      const openPrompt = () => {
+        mask?.classList.add('show');
+        mask?.setAttribute('aria-hidden', 'false');
+        setTimeout(() => mask?.querySelector('[role="dialog"]')?.focus?.(), 0);
+        startCountdown();
+      };
+      const closePrompt = () => {
+        stopCountdown();
+        mask?.classList.remove('show');
+        mask?.setAttribute('aria-hidden', 'true');
+      };
+      link?.addEventListener('click', (event) => {
+        event.preventDefault();
+        openPrompt();
+      });
+      confirmBtn?.addEventListener('click', () => enterRecharge(false));
+      cancelBtn?.addEventListener('click', closePrompt);
+      mask?.addEventListener('click', (event) => {
+        if (event.target === mask) closePrompt();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closePrompt();
+      });
+    })();
+  </script>
 </body>
 </html>
