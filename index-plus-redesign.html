@@ -1584,7 +1584,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-size:0;
   }
   .conversion-kicker::after{
-    content:"无需账号密码 · 自动到账（约2分钟）";
+    content:"无需把密码交给客服 · 提交后通常数分钟";
     font-size:.86rem;
   }
   .hero-divider,
@@ -1637,7 +1637,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-size:0;
   }
   .compact-info-line::after{
-    content:"2300+用户 · 2分钟到账 · 稳定交付";
+    content:"截至2026年6月 · 2300+次记录 · 人工支持";
     color:rgba(204,251,241,.86);
     font-size:.78rem;
     font-weight:900;
@@ -2377,7 +2377,7 @@ a#openWhyTop:hover{ color:#fff; }
     content:none !important;
   }
   .conversion-kicker::after{
-    content:"无需账号密码 · 自动到账（约2分钟）";
+    content:"无需把密码交给客服 · 提交后通常数分钟";
     font-size:.86rem;
   }
   .hero-divider,
@@ -2447,7 +2447,7 @@ a#openWhyTop:hover{ color:#fff; }
     font-size:0 !important;
   }
   .compact-info-line::after{
-    content:"2300+用户 · 2分钟到账 · 稳定交付";
+    content:"截至2026年6月 · 2300+次记录 · 人工支持";
     color:rgba(204,251,241,.86);
     font-size:.78rem;
     font-weight:900;
@@ -2594,7 +2594,7 @@ var _hmt = _hmt || [];
 </div>
 </div>
 <h1>ChatGPT Plus 安全开通服务</h1>
-<div class="conversion-kicker">🔒 无需账号密码 · 官方通道 · 自动到账（约2分钟）</div>
+<div class="conversion-kicker">无需把密码交给客服 · 提交后通常数分钟 · 异常人工支持</div>
 <div class="hero-divider"></div>
 </div>
 <div class="price">
@@ -2604,7 +2604,7 @@ var _hmt = _hmt || [];
 <div class="price-note">官方订阅约 ¥145<br>+ 支付 / 风控 / 稳定通道成本<br>👉 为保证稳定到账与账号安全</div>
 <div class="pre-cta-trust">✔ 无需账号密码 · 稳定到账 · 全程可控</div>
 <div class="button-group">
-<button aria-label="立即开通 ChatGPT Plus" class="btn-buy" id="buyBtn">⚡ 立即开通（2分钟到账）</button>
+<button aria-label="立即开通 ChatGPT Plus" class="btn-buy" id="buyBtn">立即购买 Plus 激活码</button>
 <button class="btn-recharge" id="rechargeBtn">进入自助激活系统</button>
 </div>
 <div class="ability-strip" aria-label="开通后可用能力">
@@ -2613,7 +2613,7 @@ var _hmt = _hmt || [];
 <small>具体额度以账号内实际显示为准</small>
 </div>
 <div class="trust-metrics" aria-label="服务数据">
-<div class="compact-info-line">2300+用户 · 近30天稳定 · 2分钟到账 · 人工支持</div>
+<div class="compact-info-line">截至2026年6月 · 2300+次记录 · 通常数分钟 · 人工支持</div>
 </div>
 <div class="purchase-flow" aria-label="购买流程">
 <div class="flow-line">下单 → 填写 → 自动充值 → 完成</div>
@@ -2650,7 +2650,7 @@ var _hmt = _hmt || [];
 <div class="stat-label">稳定交付</div>
 </div>
 <div class="stat">
-<div class="stat-value">2分钟</div>
+<div class="stat-value">通常数分钟</div>
 <div class="stat-label">平均到账</div>
 </div>
 </div>
@@ -2911,7 +2911,7 @@ var _hmt = _hmt || [];
 <ul class="flow-steps">
 <li>① 下单获取 Plus 激活码</li>
 <li>② 进入充值系统，按指引激活到自己的 ChatGPT 账号（无需提供账号密码）</li>
-<li>③ 约 5 分钟到账</li>
+<li>③ 提交后通常数分钟内生效</li>
 </ul>
 <p class="hint">提示：若遇到账延迟，请先勿重复下单，联系人工处理。</p>
 <div class="modal-footer">
@@ -3183,7 +3183,7 @@ var _hmt = _hmt || [];
     if(rechargeNavigated) return;
     rechargeNavigated = true;
     stopRechargeCountdown();
-    openNew(url);
+    window.location.href = url;
     closeMask(rsMask);
   }
   function startRechargeCountdown(){

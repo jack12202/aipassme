@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>光年升级 Plus 激活中心｜激活码自助开通</title>
-  <meta name="description" content="光年升级 Plus 激活中心。已购买 Plus 激活码后，先验证激活码，再获取账号充值密钥，最后确认充值。">
+  <meta name="description" content="光年升级 Plus 激活中心。已购买 Plus 激活码后，先验证激活码，再由本人获取临时会话凭证并确认充值。">
   <link rel="canonical" href="https://www.aipass.me/activate/">
   <meta property="og:title" content="光年升级 Plus 激活中心｜激活码自助开通">
   <meta property="og:description" content="已购买激活码后，在光年升级 Plus 激活中心完成自助处理。常规流程不需要输入 ChatGPT 密码或验证码。">
@@ -577,7 +577,7 @@
     <section class="hero">
       <span class="eyebrow">第三方 Plus 自助处理页面</span>
       <h1>光年升级 Plus 激活中心</h1>
-      <p>按照页面提示三步完成，全程不需要输入 GPT 账号密码。</p>
+      <p>无需把 GPT 账号密码交给客服；第二步需由本人获取并提交临时会话凭证。</p>
     </section>
 
     <section class="panel">
@@ -589,8 +589,8 @@
         </div>
         <div class="step" id="step-2">
           <div class="num">2</div>
-          <strong>获取账号充值密钥</strong>
-          <span>登录后复制密钥</span>
+          <strong>获取临时会话凭证</strong>
+          <span>本人登录后复制</span>
         </div>
         <div class="step" id="step-3">
           <div class="num">3</div>
@@ -627,7 +627,7 @@
 
         <div class="stage" id="stage-2">
           <div class="notice" id="step2Notice">
-            <strong>第 2 步：获取账号充值密钥</strong>
+            <strong>第 2 步：获取临时会话凭证</strong>
             已登录 ChatGPT 就直接获取；没登录先登录，再获取。
           </div>
           <div class="two-col">
@@ -636,14 +636,14 @@
                 <label>操作步骤</label>
                 <div class="btn-row" style="margin-top:0">
                   <a class="link-btn green" href="https://chatgpt.com/auth/login" target="_blank" rel="noopener noreferrer">登录 ChatGPT 账号</a>
-                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取账号充值密钥</a>
+                  <a class="link-btn primary" href="https://chatgpt.com/api/auth/session" target="_blank" rel="noopener noreferrer">获取临时会话凭证</a>
                 </div>
                 <small>打开后会看到一整段代码，把整段复制回来即可。</small>
               </div>
               <div class="field">
-                <label for="secretJson">粘贴账号充值密钥</label>
+                <label for="secretJson">粘贴临时会话凭证</label>
                 <textarea id="secretJson" placeholder="把新页面显示的整段代码粘贴到这里"></textarea>
-                <small>这段代码用于识别账号邮箱，方便你提交前核对。它不是密码，也不是验证码。</small>
+                <small>这段内容可能包含当前账号的会话授权信息，用于识别账号和完成本次充值。只在本激活页提交，不要转发给客服或其他人。</small>
               </div>
               <div class="btn-row">
                 <button class="secondary" type="button" onclick="goStep(1)">返回修改激活码</button>
@@ -654,14 +654,14 @@
               <div class="info-card">
                 <h3>操作说明</h3>
                 <div class="kvs">
-                  <div class="kv"><span>输入</span><span>整段账号充值密钥</span></div>
+                  <div class="kv"><span>输入</span><span>整段临时会话凭证</span></div>
                   <div class="kv"><span>识别</span><span>ChatGPT 账号邮箱</span></div>
                   <div class="kv"><span>下一步</span><span>核对账号后确认充值</span></div>
                 </div>
               </div>
               <div class="tip-box">
                 <strong>复制提醒</strong>
-                那串很长的代码就是账号充值密钥。整段复制即可，不需要看懂每个字段。
+                新页面显示的整段代码就是临时会话凭证。整段复制即可；完成后不要保存在聊天记录或转发给他人。
               </div>
             </div>
           </div>
@@ -823,8 +823,8 @@
       if (code === "TASK_NOT_FOUND") return "没有查到这笔处理任务，请稍后刷新重试。";
       if (code === "CARD_ALREADY_USED") return "这张激活码已经使用过了，请更换其他激活码。";
       if (code === "CARD_NOT_FOUND") return "激活码不存在，请检查后重新输入。";
-      if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取账号充值密钥后再试。";
-      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的账号充值密钥。";
+      if (code === "ACCOUNT_VERIFY_FAILED") return "账号识别失败，请重新获取临时会话凭证后再试。";
+      if (code === "ACCOUNT_NOT_MATCH") return "账号信息不匹配，请重新登录 ChatGPT 后获取新的临时会话凭证。";
       if (code === "RECHARGE_FAILED") return "处理失败，请稍后重试或联系客服核查。";
       if (code === "processing" || status === "processing") return "任务已提交，系统正在处理中，请稍候。";
       if (code === "success" || status === "success") return "处理成功，系统已返回成功结果。";
@@ -924,10 +924,10 @@
       try {
         payload = JSON.parse(secretJsonText);
       } catch {
-        return { ok: false, message: "账号充值密钥不是有效代码，请完整复制后重试。" };
+        return { ok: false, message: "临时会话凭证不是有效代码，请完整复制后重试。" };
       }
       if (!payload || typeof payload !== "object") {
-        return { ok: false, message: "账号充值密钥无效，请重新获取后再试。" };
+        return { ok: false, message: "临时会话凭证无效，请重新获取后再试。" };
       }
       const user = payload.user && typeof payload.user === "object" ? payload.user : {};
       const account = payload.account && typeof payload.account === "object" ? payload.account : {};
@@ -945,10 +945,10 @@
         ? payload.fullAuthData
         : payload;
       if (!userEmail) {
-        return { ok: false, message: "账号充值密钥里没有识别到账号邮箱，请重新获取后再试。" };
+        return { ok: false, message: "临时会话凭证里没有识别到账号邮箱，请重新获取后再试。" };
       }
       if (!userGptToken) {
-        return { ok: false, message: "账号充值密钥不完整，请重新获取后再试。" };
+        return { ok: false, message: "临时会话凭证不完整，请重新获取后再试。" };
       }
       return {
         ok: true,
@@ -987,7 +987,7 @@
         }
         currentProductId = Number(upstream.productId || 3);
         renderActivationSummary(cardInfo, upstream, "verified");
-        setNotice("step1Notice", "激活码验证通过", "上方已显示当前激活码，接下来获取账号充值密钥。", "success");
+        setNotice("step1Notice", "激活码验证通过", "上方已显示当前激活码，接下来由本人获取临时会话凭证。", "success");
         document.getElementById("confirmCard").textContent = cardInfo;
         goStep(2);
       } catch (error) {

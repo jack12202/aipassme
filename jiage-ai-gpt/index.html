@@ -335,7 +335,7 @@
       </div>
       <div class="stats" aria-label="服务信息">
         <div class="stat"><strong>2025 年 7 月</strong><span>从自己的 GPT 充值需求开始做</span></div>
-        <div class="stat"><strong>2300+ 用户</strong><span>处理过 Plus / Pro 开通和售后</span></div>
+        <div class="stat"><strong>2300+ 次记录</strong><span>统计截至 2026 年 6 月</span></div>
         <div class="stat"><strong>自己的账号</strong><span>不把共享号作为长期方案</span></div>
         <div class="stat"><strong>30 天质保</strong><span>异常按订单规则处理</span></div>
       </div>
@@ -427,7 +427,7 @@
         if (navigated) return;
         navigated = true;
         stopCountdown();
-        window.open('/api/recharge-go', '_blank', 'noopener');
+        window.location.href = '/api/recharge-go';
         closePrompt();
       };
       const startCountdown = () => {
