@@ -1,17 +1,18 @@
 # AIPass 工作规则
 
-## 充值系统安全规则
+## 统一充值入口安全规则
 
 修改 `activate/index.html`、OpenResty 代理配置、或任何 `/api/recharge/` 相关内容前，先阅读 `RECHARGE-VPS-RUNBOOK.md`。
 
-- AIPass 是 GPTC 充值后端的使用方，不要让 AIPass 依赖 GPTC 的全局默认源头。
-- AIPass 当前正式流量固定走三哥源头。除非 AIPass 自己做独立通道开关，否则所有 AIPass 充值请求都必须显式传 `provider: "sange"`。
+- AIPass 的正式激活入口 `/api/recharge-go` 默认跳转到 GPTC 统一站内充值系统；普通用户不再使用 AIPass 本地充值页面。
+- AIPass 保留独立通道开关只作为 GPTC 整站不可用时的紧急逃生入口，日常源头切换统一在 GPTC `/admin/provider` 完成。
+- AIPass 旧版 `activate/index.html` 只保留跳转兼容。如果未来重新启用本地充值页面，验证、提交、轮询仍必须显式锁定同一 provider。
 - 同一笔订单必须全程使用同一个 provider：验证卡密、提交充值、查询状态不能切换源头。
 - 不要用真实生产卡密随便测试最终提交。卡密验证是安全的；提交开通可能会真实消耗或处理卡密。
 - 如果直接在 VPS / 1Panel 上做了热修，必须马上把同样改动提交到 Git 并推送，否则下一次 GitHub Actions 可能覆盖热修。
 - 每次改充值系统后，至少验证：
-  - `POST /api/recharge/verify-card` 能命中预期 provider。
-  - 线上 HTML 包含预期的 provider 常量或 provider 路由逻辑。
+  - `/api/recharge-go` 能把 AIPass、GPlus、GPT4.pro 和 GPTC 来源正确带到 GPTC。
+  - 线上 `/activate/` 能跳转到 `/api/recharge-go`，不存在旧本地页面截流。
   - GitHub Actions 里的标题、canonical 等部署校验仍然匹配页面。
 
 ## 购买链接保护锁

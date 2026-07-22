@@ -29,6 +29,7 @@ jobs:
       - name: Check protected purchase links
         run: |
           node ./scripts/check-purchase-link-lock.mjs
+          node --check ./api/recharge-go.js
 
       - name: Deploy site files to 1Panel
         env:
@@ -67,6 +68,7 @@ jobs:
           curl -fsSL -H 'Host: aipass.me' "${VPS_PREVIEW_ORIGIN}/activate/" > /tmp/aipass-activate.html
           grep -q '<link rel="canonical" href="https://www.aipass.me/activate/">' /tmp/aipass-activate.html
           grep -q '<title>光年升级 Plus 激活中心｜激活码自助开通</title>' /tmp/aipass-activate.html
+          grep -q 'https://www.aipass.me/api/recharge-go?source=aipass' /tmp/aipass-activate.html
 
       - name: Verify Jiage entrance page preview
         run: |

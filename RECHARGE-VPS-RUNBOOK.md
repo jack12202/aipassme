@@ -52,12 +52,11 @@ GPTC 做双通道后，请求如果不传 provider，就会使用 GPTC 后台当
    - `/api/recharge/confirm`
    - `/api/recharge/query-task-status`
 
-2. AIPass 不要依赖 GPTC 的默认源头。
+2. AIPass 正式流量只做统一入口。
 
-   GPTC 的默认源头是测试/后台状态，不应该影响 AIPass 正式站。AIPass 必须：
+   AIPass `/api/recharge-go` 默认把用户送到 GPTC `/activate/`，并保留来源参数。GPTC 的默认源头直接决定统一系统当前使用的通道。AIPass 自己的通道开关只在 GPTC 整站不可用时作为紧急外跳，不参与日常源头选择。
 
-   - 显式固定传 `provider: "sange"`，或
-   - 以后做自己的独立通道开关。
+   如果临时恢复 AIPass 旧版本地页面，该页面仍必须显式固定 provider，不能跟随 GPTC 全局默认值漂移。
 
 3. 同一笔订单必须锁定 provider。
 
@@ -164,12 +163,10 @@ curl -sS -i -X POST 'https://aipass.me/api/recharge/query-task-status' \
 4. 查 provider adapter 的提交逻辑。
 5. 在完整测试通过前，把该通道视为 `verify_only`，不要接正式用户。
 
-## 当前 AIPass 固定规则
+## 当前统一入口规则
 
-AIPass 当前应保留这个常量，除非 AIPass 自己做独立通道开关：
+AIPass、GPlus、GPT4.pro 的日常激活流量统一经过 AIPass `/api/recharge-go`，再进入 GPTC `/activate/`。GPTC 内部负责廖（内部键 `czgpt`）、三哥、阿妍以及外部备用源头的日常切换。
 
-```js
-const RECHARGE_PROVIDER = "sange";
-```
+AIPass 自己的通道开关只承担灾难级逃生：只有 GPTC 域名或整套充值系统不可访问时，才临时改为外部直达通道。不要同时在 AIPass 和 GPTC 做日常源头选择。
 
-验证、提交、轮询三个请求都必须携带它。
+旧版 AIPass 本地激活页保留跳转兼容，不再接正式流量。如果未来恢复本地页面，仍需遵守“同一订单验证、提交、轮询锁定同一 provider”的规则。
