@@ -55,7 +55,7 @@ jobs:
         run: |
           curl -fsSL -H 'Host: aipass.me' "${VPS_PREVIEW_ORIGIN}/" > /tmp/aipass-home.html
           grep -q '光年升级计划｜嘉哥AI的 ChatGPT Plus 激活码开通服务' /tmp/aipass-home.html
-          grep -q '立即购买 Plus 激活码 ¥198' /tmp/aipass-home.html
+          grep -q '立即充值 Plus ¥188' /tmp/aipass-home.html
 
       - name: Verify VPS blog preview
         run: |
