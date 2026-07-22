@@ -165,7 +165,7 @@ curl -sS -i -X POST 'https://aipass.me/api/recharge/query-task-status' \
 
 ## 当前统一入口规则
 
-AIPass、GPlus、GPT4.pro 的日常激活流量统一经过 AIPass `/api/recharge-go`，再进入 GPTC `/activate/`。GPTC 内部负责廖（内部键 `czgpt`）、三哥、阿妍以及外部备用源头的日常切换。
+AIPass、GPlus、GPT4.pro 的日常激活流量统一经过 AIPass `/api/recharge-go`，再进入 GPTC `/activate/`。GPTC 内部负责 l（内部键 `czgpt`）、三哥、阿妍以及外部备用源头的日常切换。
 
 AIPass 自己的通道开关只承担灾难级逃生：只有 GPTC 域名或整套充值系统不可访问时，才临时改为外部直达通道。不要同时在 AIPass 和 GPTC 做日常源头选择。
 
