@@ -944,6 +944,16 @@ a#openWhyTop:hover{ color:#fff; }
     .rs-option-title{font-weight:800;margin-bottom:8px;color:#fff;font-size:1.05rem;}
     .rs-option-desc{font-size:.82rem;opacity:.85;margin-bottom:6px;color:#d1f4ff;}
     .rs-option-url{font-size:.85rem;color:var(--brand-500);word-break:break-all;font-weight:600;}
+.rs-warning{margin:10px 0 0;padding:13px 14px;border:1px solid rgba(251,191,36,.52);border-radius:14px;background:rgba(120,53,15,.3);color:#ffedd5;text-align:left;}
+.rs-warning strong{display:block;margin-bottom:5px;color:#fde68a;font-size:1rem;}
+.rs-warning p{margin:0;line-height:1.65;text-align:left;}
+.rs-warning p+p{margin-top:7px;font-weight:800;}
+.rs-card.night-mode .rs-warning{border-color:rgba(248,113,113,.65);background:rgba(127,29,29,.4);color:#fee2e2;}
+.rs-card.night-mode .rs-warning strong{color:#fecaca;}
+.rs-night-ack{display:flex;align-items:flex-start;gap:10px;margin:13px 0 0;padding:11px 12px;border:1px solid rgba(248,113,113,.62);border-radius:12px;background:rgba(255,255,255,.08);color:#fee2e2;font-weight:800;line-height:1.55;text-align:left;cursor:pointer;}
+.rs-night-ack[hidden]{display:none;}
+.rs-night-ack input{flex:0 0 auto;width:18px;height:18px;margin:3px 0 0;accent-color:#ef4444;}
+.rs-option:disabled{cursor:not-allowed;opacity:.55;transform:none;}
 .rs-actions{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:.9rem 0 .4rem;justify-content:center;}
 .rs-btn{all:unset;cursor:pointer;padding:.55rem .9rem;border-radius:10px;font-weight:800;}
 .rs-btn-primary{background:linear-gradient(180deg,var(--brand-600),var(--brand-500));color:#fff;}
@@ -4456,15 +4466,29 @@ var _hmt = _hmt || [];
 <div aria-hidden="true" class="rs-mask" id="rechargeSystemModal">
 <div aria-labelledby="rsTitle" class="rs-card" role="dialog" tabindex="-1">
 <button aria-label="关闭" class="rs-close" id="rsClose">×</button>
-<h3 class="rs-title" id="rsTitle">即将进入 Plus 自助充值通道</h3>
+<h3 class="rs-title" id="rsTitle">进入激活系统前，请先确认</h3>
 <div class="rs-body" style="margin: 6px 0 10px;">
-<p style="margin:0; line-height:1.75; opacity:.9;">进入通道后，请按页面提示完成充值。充值成功前，请不要关闭已登录的 ChatGPT 网页，以免充值失败。</p>
-<p class="rs-countdown" id="rsCountdown" style="margin:12px 0 0; text-align:center; font-weight:900; color:#99f6e4;">8 秒后自动进入充值通道</p>
+<div class="rs-warning" role="note" aria-label="避免重复充值提醒">
+<div id="rsDayWarning">
+<strong>未到账先联系客服，别急着重复充值</strong>
+<p>提交卡密后如未到账，请联系本平台客服核实。客服时间：每天 9:00—23:00。</p>
+<p>原订单确认前，请勿购买或提交第二张卡密。否则可能两张卡密都被消耗，但会员时长没有叠加，账号有效期仍然只有一个月。</p>
+</div>
+<div id="rsNightWarning" hidden>
+<strong>夜间到账可能延迟，请先不要重复充值</strong>
+<p>当前为非客服工作时间（23:00—次日 9:00）。夜间订单可能需要排队处理，不一定立即到账。页面暂未显示成功，不代表充值失败，原卡密仍可能稍后到账。</p>
+<p>原订单确认前，请暂停购买或提交新的卡密——无论是在本平台还是其他平台购买。否则可能两张卡密都被消耗，但会员时长没有叠加，账号有效期仍然只有一个月；已消耗卡密无法撤销或退款。</p>
+</div>
+</div>
+<label class="rs-night-ack" id="rsNightAckRow" hidden>
+<input id="rsNightAck" type="checkbox">
+<span>我已知晓：夜间未到账需要等人工核实，不购买或提交第二张卡密。</span>
+</label>
 </div>
 <div class="rs-options" role="list" style="margin-top:14px;">
-<button aria-label="进入当前自助激活系统" class="rs-option" data-url="/api/recharge-go" role="listitem" type="button">
-<div class="rs-option-title">我知道了，进入充值通道</div>
-<div class="rs-option-desc">保持 ChatGPT 网页打开，不要退出登录或关闭页面</div>
+<button aria-label="进入当前自助激活系统" class="rs-option" data-url="/api/recharge-go" id="rsEnterBtn" role="listitem" type="button">
+<div class="rs-option-title" id="rsEnterTitle">我已了解，进入激活系统</div>
+<div class="rs-option-desc" id="rsEnterDesc">未确认原订单前，不购买或提交第二张卡密</div>
 <div class="rs-option-url">点击后继续</div>
 </button>
 </div>
@@ -4606,59 +4630,149 @@ var _hmt = _hmt || [];
 
   // ========== Recharge System Modal ==========
   const rsMask = $('#rechargeSystemModal');
-  const rsCountdown = $('#rsCountdown');
-  const RECHARGE_COUNTDOWN_SECONDS = 8;
-  let rechargeCountdownTimer = null;
-  let rechargeCountdownRemaining = RECHARGE_COUNTDOWN_SECONDS;
+  const rsCard = rsMask?.querySelector('.rs-card');
+  const rsEnterBtn = $('#rsEnterBtn');
+  const rsEnterTitle = $('#rsEnterTitle');
+  const rsEnterDesc = $('#rsEnterDesc');
+  const rsNightAck = $('#rsNightAck');
+  const NIGHT_START_HOUR = 23;
+  const DAY_START_HOUR = 9;
+  const NIGHT_GATE_SECONDS = 3;
+  const NIGHT_PREVIEW = new URLSearchParams(window.location.search).get('preview') === 'night';
   let rechargeNavigated = false;
+  let nightMode = null;
+  let nightGateTimer = null;
+  let nightGateRemaining = 0;
+  let nightDelayPassed = false;
 
-  function updateRechargeCountdown(){
-    if(rsCountdown){
-      rsCountdown.textContent = rechargeCountdownRemaining + ' 秒后自动进入充值通道';
+  function getBeijingHour(){
+    const hourPart = new Intl.DateTimeFormat('en-GB',{
+      timeZone:'Asia/Shanghai',
+      hour:'2-digit',
+      hourCycle:'h23'
+    }).formatToParts(new Date()).find(part=>part.type === 'hour');
+    return Number(hourPart?.value || 0);
+  }
+  function shouldUseNightMode(){
+    if(NIGHT_PREVIEW) return true;
+    const hour = getBeijingHour();
+    return hour >= NIGHT_START_HOUR || hour < DAY_START_HOUR;
+  }
+  function getNightNoticeKey(){
+    const beijingNow = Date.now() + 8 * 60 * 60 * 1000;
+    const nightBucket = Math.floor((beijingNow + 60 * 60 * 1000) / (24 * 60 * 60 * 1000));
+    return 'aipass-night-recharge-notice-' + nightBucket;
+  }
+  function wasNightNoticeShown(){
+    if(NIGHT_PREVIEW) return false;
+    try{
+      return sessionStorage.getItem(getNightNoticeKey()) === '1';
+    }catch(e){
+      return false;
     }
   }
-  function stopRechargeCountdown(){
-    if(rechargeCountdownTimer){
-      clearInterval(rechargeCountdownTimer);
-      rechargeCountdownTimer = null;
+  function markNightNoticeShown(){
+    try{
+      sessionStorage.setItem(getNightNoticeKey(),'1');
+    }catch(e){}
+  }
+  function updateNightGate(){
+    if(!rsEnterBtn || !rsEnterTitle) return;
+    if(!nightMode){
+      rsEnterBtn.disabled = false;
+      rsEnterTitle.textContent = '我已了解，进入激活系统';
+      return;
+    }
+    const checked = Boolean(rsNightAck?.checked);
+    rsEnterBtn.disabled = !(nightDelayPassed && checked);
+    if(!nightDelayPassed){
+      rsEnterTitle.textContent = '请先阅读夜间提醒（' + nightGateRemaining + '秒）';
+    }else if(!checked){
+      rsEnterTitle.textContent = '请勾选确认后继续';
+    }else{
+      rsEnterTitle.textContent = '我已了解风险，继续进入激活系统';
+    }
+  }
+  function stopNightGate(){
+    if(nightGateTimer){
+      clearInterval(nightGateTimer);
+      nightGateTimer = null;
+    }
+  }
+  function resetNightGate(){
+    stopNightGate();
+    if(rsNightAck) rsNightAck.checked = false;
+    if(!nightMode){
+      nightDelayPassed = true;
+      updateNightGate();
+      return;
+    }
+    nightDelayPassed = false;
+    nightGateRemaining = NIGHT_GATE_SECONDS;
+    updateNightGate();
+    nightGateTimer = setInterval(()=>{
+      nightGateRemaining -= 1;
+      if(nightGateRemaining <= 0){
+        stopNightGate();
+        nightDelayPassed = true;
+      }
+      updateNightGate();
+    },1000);
+  }
+  function applyRechargeTimeMode(allowAutoOpen){
+    const nextNightMode = shouldUseNightMode();
+    const modeChanged = nightMode !== nextNightMode;
+    nightMode = nextNightMode;
+    rsCard?.classList.toggle('night-mode',nightMode);
+    const title = $('#rsTitle');
+    if(title) title.textContent = nightMode ? '当前为夜间时段，请先确认' : '进入激活系统前，请先确认';
+    const dayWarning = $('#rsDayWarning');
+    const nightWarning = $('#rsNightWarning');
+    const ackRow = $('#rsNightAckRow');
+    if(dayWarning) dayWarning.hidden = nightMode;
+    if(nightWarning) nightWarning.hidden = !nightMode;
+    if(ackRow) ackRow.hidden = !nightMode;
+    if(rsEnterDesc){
+      rsEnterDesc.textContent = nightMode
+        ? '夜间未到账先等人工核实，不购买或提交第二张卡密'
+        : '未确认原订单前，不购买或提交第二张卡密';
+    }
+    const cancelBtn = $('#rsCancel');
+    if(cancelBtn) cancelBtn.textContent = nightMode ? '暂不操作，等客服上班' : '暂不进入';
+    if(modeChanged && rsMask?.classList.contains('show')) resetNightGate();
+    if(modeChanged && nightMode && allowAutoOpen && !wasNightNoticeShown()){
+      markNightNoticeShown();
+      setTimeout(()=>{
+        if(shouldUseNightMode() && !rsMask?.classList.contains('show')) openRechargePrompt();
+      },900);
     }
   }
   function enterRechargeChannel(url = ACTIVATION_ENTRY_URL){
+    if(rsEnterBtn?.disabled) return;
     if(rechargeNavigated) return;
     rechargeNavigated = true;
-    stopRechargeCountdown();
+    stopNightGate();
     window.location.href = url;
     closeMask(rsMask);
   }
-  function startRechargeCountdown(){
-    stopRechargeCountdown();
-    rechargeNavigated = false;
-    rechargeCountdownRemaining = RECHARGE_COUNTDOWN_SECONDS;
-    updateRechargeCountdown();
-    rechargeCountdownTimer = setInterval(()=>{
-      rechargeCountdownRemaining -= 1;
-      if(rechargeCountdownRemaining <= 0){
-        enterRechargeChannel(ACTIVATION_ENTRY_URL);
-        return;
-      }
-      updateRechargeCountdown();
-    }, 1000);
-  }
   function openRechargePrompt(){
+    applyRechargeTimeMode(false);
     openMask(rsMask);
-    startRechargeCountdown();
+    rechargeNavigated = false;
+    resetNightGate();
   }
   $('#rechargeBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); openRechargePrompt(); });
   bindMaskClose(rsMask, ['#rsClose', '#rsCancel']);
   ['#rsClose', '#rsCancel'].forEach(sel=>{
-    rsMask?.querySelector(sel)?.addEventListener('click', stopRechargeCountdown);
+    rsMask?.querySelector(sel)?.addEventListener('click', stopNightGate);
   });
   rsMask?.addEventListener('click', (e)=>{
-    if(e.target === rsMask) stopRechargeCountdown();
+    if(e.target === rsMask) stopNightGate();
   });
   document.addEventListener('keydown', (e)=>{
-    if(e.key === 'Escape' && rsMask?.classList.contains('show')) stopRechargeCountdown();
+    if(e.key === 'Escape' && rsMask?.classList.contains('show')) stopNightGate();
   });
+  rsNightAck?.addEventListener('change', updateNightGate);
   $$('.rs-option', rsMask || document).forEach(btn=>{
     btn.addEventListener('click', (e)=>{
       e.preventDefault();
@@ -4666,6 +4780,8 @@ var _hmt = _hmt || [];
       if(url) enterRechargeChannel(url);
     });
   });
+  applyRechargeTimeMode(true);
+  setInterval(()=>applyRechargeTimeMode(true),30000);
 
   // ========== AI Modal ==========
   const aiMask = $('#aiModal');
