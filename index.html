@@ -4470,8 +4470,8 @@ var _hmt = _hmt || [];
 <div class="rs-body" style="margin: 6px 0 10px;">
 <div class="rs-warning" role="note" aria-label="避免重复充值提醒">
 <div id="rsDayWarning">
-<strong>未到账先联系客服，别急着重复充值</strong>
-<p>提交卡密后如未到账，请联系本平台客服核实。客服时间：每天 9:00—23:00。</p>
+<strong>未到账先查卡密状态，别急着重复充值</strong>
+<p>提交卡密后可能需要几分钟排队处理，页面暂未到账不代表充值失败。进入激活系统后可点击“卡密使用查询”：显示“处理中”请继续等待；显示“已使用”但会员未到账，请刷新账号或联系客服核查。</p>
 <p>原订单确认前，请勿购买或提交第二张卡密。否则可能两张卡密都被消耗，但会员时长没有叠加，账号有效期仍然只有一个月。</p>
 </div>
 <div id="rsNightWarning" hidden>
@@ -4488,7 +4488,7 @@ var _hmt = _hmt || [];
 <div class="rs-options" role="list" style="margin-top:14px;">
 <button aria-label="进入当前自助激活系统" class="rs-option" data-url="/api/recharge-go" id="rsEnterBtn" role="listitem" type="button">
 <div class="rs-option-title" id="rsEnterTitle">我已了解，进入激活系统</div>
-<div class="rs-option-desc" id="rsEnterDesc">未确认原订单前，不购买或提交第二张卡密</div>
+<div class="rs-option-desc" id="rsEnterDesc">先查卡密状态，未确认结果前不提交第二张卡密</div>
 <div class="rs-option-url">点击后继续</div>
 </button>
 </div>
@@ -4716,8 +4716,8 @@ var _hmt = _hmt || [];
     if(ackRow) ackRow.hidden = !nightMode;
     if(rsEnterDesc){
       rsEnterDesc.textContent = nightMode
-        ? '夜间未到账先等人工核实，不购买或提交第二张卡密'
-        : '未确认原订单前，不购买或提交第二张卡密';
+        ? '夜间先查卡密状态，未确认结果前不提交第二张卡密'
+        : '先查卡密状态，未确认结果前不提交第二张卡密';
     }
     const cancelBtn = $('#rsCancel');
     if(cancelBtn) cancelBtn.textContent = nightMode ? '暂不操作，等客服上班' : '暂不进入';
