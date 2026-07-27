@@ -4658,24 +4658,6 @@ var _hmt = _hmt || [];
     const hour = getBeijingHour();
     return hour >= NIGHT_START_HOUR || hour < DAY_START_HOUR;
   }
-  function getNightNoticeKey(){
-    const beijingNow = Date.now() + 8 * 60 * 60 * 1000;
-    const nightBucket = Math.floor((beijingNow + 60 * 60 * 1000) / (24 * 60 * 60 * 1000));
-    return 'aipass-night-recharge-notice-' + nightBucket;
-  }
-  function wasNightNoticeShown(){
-    if(NIGHT_PREVIEW) return false;
-    try{
-      return sessionStorage.getItem(getNightNoticeKey()) === '1';
-    }catch(e){
-      return false;
-    }
-  }
-  function markNightNoticeShown(){
-    try{
-      sessionStorage.setItem(getNightNoticeKey(),'1');
-    }catch(e){}
-  }
   function updateNightGate(){
     if(!rsEnterBtn || !rsEnterTitle) return;
     if(!nightMode){
@@ -4719,7 +4701,7 @@ var _hmt = _hmt || [];
       updateNightGate();
     },1000);
   }
-  function applyRechargeTimeMode(allowAutoOpen){
+  function applyRechargeTimeMode(){
     const nextNightMode = shouldUseNightMode();
     const modeChanged = nightMode !== nextNightMode;
     nightMode = nextNightMode;
@@ -4740,12 +4722,6 @@ var _hmt = _hmt || [];
     const cancelBtn = $('#rsCancel');
     if(cancelBtn) cancelBtn.textContent = nightMode ? '暂不操作，等客服上班' : '暂不进入';
     if(modeChanged && rsMask?.classList.contains('show')) resetNightGate();
-    if(modeChanged && nightMode && allowAutoOpen && !wasNightNoticeShown()){
-      markNightNoticeShown();
-      setTimeout(()=>{
-        if(shouldUseNightMode() && !rsMask?.classList.contains('show')) openRechargePrompt();
-      },900);
-    }
   }
   function enterRechargeChannel(url = ACTIVATION_ENTRY_URL){
     if(rsEnterBtn?.disabled) return;
@@ -4756,7 +4732,7 @@ var _hmt = _hmt || [];
     closeMask(rsMask);
   }
   function openRechargePrompt(){
-    applyRechargeTimeMode(false);
+    applyRechargeTimeMode();
     openMask(rsMask);
     rechargeNavigated = false;
     resetNightGate();
@@ -4780,8 +4756,8 @@ var _hmt = _hmt || [];
       if(url) enterRechargeChannel(url);
     });
   });
-  applyRechargeTimeMode(true);
-  setInterval(()=>applyRechargeTimeMode(true),30000);
+  applyRechargeTimeMode();
+  setInterval(applyRechargeTimeMode,30000);
 
   // ========== AI Modal ==========
   const aiMask = $('#aiModal');
